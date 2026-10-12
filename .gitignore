@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build
+dist/
+dist-ssr/
+
+# Netlify
+.netlify/
+
+# Environment variables
+.env
+.env.local
+.env.*
+
+# System and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Archives & Temporary files
+*.zip
+*.tar.gz
+*.rar
+
+# Raw source asset folders (all assets are organized inside public/)
+Курилаётган уйлар/
+уй расмлар/
+
+# Root image duplicates (already organized in public/)
+/*.jpg
+/*.png
