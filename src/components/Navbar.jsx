@@ -31,7 +31,7 @@ export default function Navbar({ onOpenBooking, onScrollTo }) {
             className="flex items-center gap-3.5 cursor-pointer group py-1"
           >
             {/* Aylanib turuvchi oltin Vatan logosi */}
-            <div className="h-13 w-13 sm:h-14 sm:w-14 rounded-2xl bg-gradient-to-br from-amber-50/80 via-white to-sky-50/80 border-2 border-amber-300/80 shadow-md group-hover:border-amber-400 group-hover:shadow-lg transition-all flex items-center justify-center p-1.5 shrink-0 overflow-hidden relative">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-amber-50/80 via-white to-sky-50/80 border-2 border-amber-300/80 shadow-md group-hover:border-amber-400 group-hover:shadow-lg transition-all flex items-center justify-center p-1.5 shrink-0 overflow-hidden relative">
               <img 
                 src="/vatan-emblem.png" 
                 alt="VATAN Emblema" 

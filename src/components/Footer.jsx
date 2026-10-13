@@ -12,18 +12,9 @@ export default function Footer({ onScrollTo, onOpenBooking }) {
           
           {/* Col 1: Brand & Logo */}
           <div>
-            <div className="flex items-center gap-3.5 mb-4">
-              <div className="h-13 w-13 rounded-2xl bg-gradient-to-br from-amber-50/80 via-white to-sky-50/80 border-2 border-amber-300/80 shadow-md flex items-center justify-center p-1.5 shrink-0 overflow-hidden">
-                <img 
-                  src="/vatan-emblem.png" 
-                  alt="VATAN Emblema" 
-                  className="h-full w-full object-contain animate-spin-3d drop-shadow-sm"
-                />
-              </div>
-              <div>
-                <span className="text-2xl font-black text-slate-900 tracking-wider">VATAN</span>
-                <span className="block text-xs text-sky-800 font-extrabold">{PROJECT_DETAILS.brandSubtitle}</span>
-              </div>
+            <div className="mb-4">
+              <span className="text-2xl font-black text-slate-900 tracking-wider">VATAN</span>
+              <span className="block text-xs text-sky-800 font-extrabold mt-0.5">{PROJECT_DETAILS.brandSubtitle}</span>
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed mb-4">
