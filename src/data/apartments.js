@@ -1484,8 +1484,8 @@ export const APARTMENT_MODELS = [
 
 export const PROJECT_DETAILS = {
   companyName: "VATAN",
-  brandSubtitle: "Твой родной дом.",
-  brandLogo: "/vatan-logo.png",
+  brandSubtitle: "Yangi Qo‘yliq-2 majmuasi",
+  brandLogo: "/vatan-emblem.png",
   projectName: "Yangi Qo‘yliq-2",
   projectClass: "Comfort class",
   headline: "Yangi Qo‘yliq-2 — Kelajakdagi shinam xonadoningiz",

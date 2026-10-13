@@ -73,6 +73,21 @@
   animation: fadeIn 0.3s ease-out forwards;
 }
 
+@keyframes spin3d {
+  0% {
+    transform: perspective(600px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(600px) rotateY(360deg);
+  }
+}
+
+.animate-spin-3d {
+  animation: spin3d 7s linear infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
 /* Forcibly hide Netlify injected HUD badge / overlay on all screens */
 #nl-hud-frame,
 #nl-badge-frame,

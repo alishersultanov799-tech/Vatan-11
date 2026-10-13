@@ -28,26 +28,21 @@ export default function Navbar({ onOpenBooking, onScrollTo }) {
           {/* Brand Logo & Title */}
           <div 
             onClick={() => handleNavClick('hero')}
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3.5 cursor-pointer group py-1"
           >
-            <div className="h-12 w-12 rounded-2xl bg-white border border-sky-200 flex items-center justify-center p-1 shadow-md group-hover:scale-105 transition-transform overflow-hidden shrink-0">
+            {/* Aylanib turuvchi oltin Vatan logosi */}
+            <div className="h-13 w-13 sm:h-14 sm:w-14 rounded-2xl bg-gradient-to-br from-amber-50/80 via-white to-sky-50/80 border-2 border-amber-300/80 shadow-md group-hover:border-amber-400 group-hover:shadow-lg transition-all flex items-center justify-center p-1.5 shrink-0 overflow-hidden relative">
               <img 
-                src={PROJECT_DETAILS.brandLogo} 
-                alt="VATAN Qurilish Kompaniyasi" 
-                className="h-full w-full object-contain"
-                onError={(e) => {
-                  e.target.src = '/vatan.png';
-                }}
+                src="/vatan-emblem.png" 
+                alt="VATAN Emblema" 
+                className="h-full w-full object-contain animate-spin-3d drop-shadow-sm"
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-black tracking-tight text-sky-950 flex items-center gap-1.5 leading-none">
+              <span className="text-2xl sm:text-[28px] font-black tracking-wider text-slate-950 flex items-center leading-none">
                 VATAN
-                <span className="text-[10px] font-extrabold uppercase px-1.5 py-0.5 rounded bg-sky-100 text-sky-700 border border-sky-200">
-                  Comfort
-                </span>
               </span>
-              <span className="text-[11px] text-slate-500 font-medium tracking-wide mt-1">
+              <span className="text-xs sm:text-[13px] font-extrabold text-sky-800 tracking-wide mt-1">
                 Yangi Qo‘yliq-2 majmuasi
               </span>
             </div>
