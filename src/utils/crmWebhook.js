@@ -2,7 +2,7 @@
 
 export const TELEGRAM_BOT_TOKEN = '8998702557:AAFTVRJ5dCy11whyAavAnUMdtL4R_fF6PkI';
 // Can be customized via VITE_TELEGRAM_CHAT_ID in .env or defaults to channel/group
-export const DEFAULT_TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID || '-1002058933924';
+export const DEFAULT_TELEGRAM_CHAT_ID = import.meta.env.VITE_TELEGRAM_CHAT_ID || '5677180840';
 
 export function buildCrmLeadPayload({
   name,
