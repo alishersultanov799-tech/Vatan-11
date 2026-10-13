@@ -56,321 +56,315 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
   const floorSavings = ref2_4Price && currentFullPrice ? ref2_4Price - currentFullPrice : 0;
 
   return (
-    <div className="bg-white border border-sky-200 hover:border-sky-400 rounded-3xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-300">
+    <div className="bg-white border border-sky-200 hover:border-sky-400 rounded-3xl p-5 sm:p-7 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col justify-between h-full">
       
       {/* 1. Karta sarlavhasi va teglari */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-6 border-b border-sky-100 gap-3">
-        <div>
-          <div className="flex flex-wrap items-center gap-2 mb-1.5">
-            <span className="px-3 py-0.5 rounded-full bg-sky-100 text-sky-800 text-xs font-extrabold border border-sky-200">
+      <div className="pb-4 mb-4 border-b border-sky-100">
+        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 text-[11px] font-extrabold border border-sky-200">
               {model.rooms} xonali
             </span>
-            <span className="px-3 py-0.5 rounded-full bg-slate-100 text-slate-800 text-xs font-bold border border-slate-200">
+            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 text-[11px] font-bold border border-slate-200">
               {model.area} m²
             </span>
-            <span className="px-3 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold border border-emerald-200">
+            <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-200">
               Comfort Class
             </span>
             {model.onlyFullPayment ? (
-              <span className="px-3 py-0.5 rounded-full bg-amber-100 text-amber-800 text-xs font-black border border-amber-300">
+              <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[11px] font-black border border-amber-300">
                 Faqat 100% to‘lov
               </span>
             ) : (
-              <span className="px-3 py-0.5 rounded-full bg-sky-100 text-sky-700 text-xs font-bold border border-sky-200">
+              <span className="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-700 text-[11px] font-bold border border-sky-200">
                 30 oy 0% muddatli to‘lov
               </span>
             )}
           </div>
-          <h3 className="text-xl sm:text-2xl font-black text-slate-900">
-            {model.title}
-          </h3>
+
+          <div className="flex items-center gap-1.5 bg-sky-50 px-2.5 py-1 rounded-xl border border-sky-200 shrink-0">
+            <Layers className="w-3.5 h-3.5 text-sky-600" />
+            <span className="text-[11px] text-slate-600">
+              Topshirilish: <strong className="text-slate-900">2028-yil 4-chorak</strong>
+            </span>
+          </div>
         </div>
 
-        <div className="flex items-center gap-2 bg-sky-50 px-4 py-2 rounded-2xl border border-sky-200 self-start sm:self-auto">
-          <Layers className="w-4 h-4 text-sky-600" />
-          <span className="text-xs text-slate-600">
-            Topshirilish muddati: <strong className="text-slate-900">2028-yil 4-chorak</strong>
-          </span>
-        </div>
+        <h3 className="text-lg sm:text-xl font-black text-slate-900">
+          {model.title}
+        </h3>
       </div>
 
-      {/* 2. Asosiy blok: Chapda Katta Arxitektura Chizmasi (6 Ustun), O'ngda Interaktiv Qavat & To'lov Paneli (6 Ustun) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        
-        {/* Chap blok (6 Ustun): KATTALASHTIRILGAN ARXITEKTURA CHIZMASI RASMI */}
-        <div className="lg:col-span-6 flex flex-col justify-between h-full">
-          <div>
-            <div className="flex items-center justify-between mb-2.5">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
-                <Eye className="w-3.5 h-3.5 text-sky-600" />
-                <span>Haqiqiy arxitektura chizmasi (3D & 2D reja)</span>
-              </span>
-              <button
-                onClick={() => setPreviewImage(model.image)}
-                className="text-xs text-sky-700 hover:text-sky-900 flex items-center gap-1.5 bg-sky-50 hover:bg-sky-100 px-3 py-1 rounded-xl border border-sky-200 transition-all cursor-pointer shadow-xs"
-              >
-                <Maximize2 className="w-3.5 h-3.5 text-sky-600" />
-                <span className="font-semibold">Kattalashtirish (Zoom)</span>
-              </button>
-            </div>
+      {/* 2. Arxitektura chizmasi rasmi */}
+      <div className="mb-4">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+            <Eye className="w-3.5 h-3.5 text-sky-600" />
+            <span>Arxitektura chizmasi (3D & 2D)</span>
+          </span>
+          <button
+            onClick={() => setPreviewImage(model.image)}
+            className="text-[11px] text-sky-700 hover:text-sky-900 flex items-center gap-1 bg-sky-50 hover:bg-sky-100 px-2.5 py-1 rounded-lg border border-sky-200 transition-all cursor-pointer shadow-xs"
+          >
+            <Maximize2 className="w-3 h-3 text-sky-600" />
+            <span className="font-semibold">Zoom (HD)</span>
+          </button>
+        </div>
 
-            {/* Rasm konteyneri - Katta, baland va 1800x2367 nisbatga to'liq mos */}
-            <div 
-              onClick={() => setPreviewImage(model.image)}
-              className="relative w-full min-h-[480px] sm:min-h-[580px] lg:min-h-[660px] xl:min-h-[700px] rounded-2xl bg-[#f8fbff] border-2 border-sky-200 hover:border-sky-400 p-2 sm:p-4 flex items-center justify-center overflow-hidden group cursor-pointer shadow-md transition-all"
-            >
-              <img 
-                src={model.image} 
-                alt={`${model.title} planirovka chizmasi`}
-                className="w-full h-full max-h-[720px] object-contain group-hover:scale-[1.03] transition-transform duration-300 drop-shadow-[0_10px_20px_rgba(2,132,199,0.15)]"
-                loading="lazy"
-              />
-              
-              {/* Zoom hint overlay */}
-              <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-slate-900 text-xs sm:text-sm font-bold backdrop-blur-[1px]">
-                <div className="px-5 py-2.5 rounded-xl bg-white/95 border border-sky-300 flex items-center gap-2 shadow-2xl text-sky-900 font-bold">
-                  <Maximize2 className="w-4 h-4 text-sky-600" />
-                  <span>To‘liq ekranda ko‘rish (HD Zoom)</span>
-                </div>
-              </div>
-
-              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 px-3 py-1.5 rounded-xl bg-white/90 border border-sky-200 text-sky-900 text-xs font-bold shadow-md flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
-                <span>{model.area} m² aniq planirovka</span>
-              </div>
+        {/* Rasm konteyneri */}
+        <div 
+          onClick={() => setPreviewImage(model.image)}
+          className="relative w-full h-[320px] sm:h-[400px] rounded-2xl bg-[#f8fbff] border-2 border-sky-200 hover:border-sky-400 p-2 sm:p-3 flex items-center justify-center overflow-hidden group cursor-pointer shadow-sm transition-all"
+        >
+          <img 
+            src={model.image} 
+            alt={`${model.title} planirovka chizmasi`}
+            className="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-300 drop-shadow-[0_8px_16px_rgba(2,132,199,0.12)]"
+            loading="lazy"
+          />
+          
+          {/* Zoom hint overlay */}
+          <div className="absolute inset-0 bg-sky-950/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-slate-900 text-xs sm:text-sm font-bold backdrop-blur-[1px]">
+            <div className="px-4 py-2 rounded-xl bg-white/95 border border-sky-300 flex items-center gap-2 shadow-2xl text-sky-900 font-bold">
+              <Maximize2 className="w-3.5 h-3.5 text-sky-600" />
+              <span>To‘liq ekranda ko‘rish (HD Zoom)</span>
             </div>
           </div>
 
-          <p className="text-xs text-slate-600 mt-3 leading-relaxed">
-            {model.description}
-          </p>
+          <div className="absolute bottom-2.5 left-2.5 px-2.5 py-1 rounded-lg bg-white/90 border border-sky-200 text-sky-900 text-[11px] font-bold shadow-xs flex items-center gap-1.5">
+            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
+            <span>{model.area} m² aniq planirovka</span>
+          </div>
         </div>
 
-        {/* O'ng blok (6 Ustun): Qavatlar va To'lov Matrixi */}
-        <div className="lg:col-span-6 flex flex-col justify-between h-full bg-[#f4f9ff] border border-sky-100 rounded-2xl p-5 sm:p-7">
-          
-          <div>
-            {/* 1. QAVATNI TANLASH TUGMALARI (Qavatga qarab narx arzonlashadi) */}
-            <div className="mb-5 pb-4 border-b border-sky-200/60">
-              <div className="flex items-center justify-between mb-2.5">
-                <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5 uppercase tracking-wide">
-                  <Building className="w-3.5 h-3.5 text-sky-600" />
-                  <span>Qavatni tanlang:</span>
+        <p className="text-[11px] text-slate-500 mt-2 line-clamp-2">
+          {model.description}
+        </p>
+      </div>
+
+      {/* 3. Interaktiv Qavatlar va To'lov kalkulyatori */}
+      <div className="bg-[#f4f9ff] border border-sky-100 rounded-2xl p-4 sm:p-5 flex-1 flex flex-col justify-between">
+        
+        <div>
+          {/* Qavat tanlash */}
+          <div className="mb-4 pb-3 border-b border-sky-200/60">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[11px] font-bold text-slate-900 flex items-center gap-1.5 uppercase tracking-wide">
+                <Building className="w-3.5 h-3.5 text-sky-600" />
+                <span>Qavatni tanlang:</span>
+              </span>
+              {floorSavings > 0 ? (
+                <span className="inline-flex items-center gap-1 text-[10px] font-extrabold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-200">
+                  <TrendingDown className="w-3 h-3" />
+                  <span>{formatShortMln(floorSavings)} arzonroq!</span>
                 </span>
-                {floorSavings > 0 ? (
-                  <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-200">
-                    <TrendingDown className="w-3 h-3" />
-                    <span>{formatShortMln(floorSavings)} arzonroq!</span>
+              ) : (
+                <span className="text-[10px] text-slate-500 font-semibold">
+                  Standart talabgir qavatlar
+                </span>
+              )}
+            </div>
+
+            <div className="grid grid-cols-3 gap-1.5">
+              {[
+                { key: '2-4', label: '2-3-4-qavat', note: 'Talabgir' },
+                { key: '5-8', label: '5-6-7-8-qavat', note: 'Arzonroq' },
+                { key: '9-12', label: '9-10-11-12', note: 'Hamyonbop' }
+              ].map((fl) => (
+                <button
+                  key={fl.key}
+                  onClick={() => setSelectedFloor(fl.key)}
+                  className={`py-1.5 px-1.5 rounded-xl text-center border transition-all cursor-pointer ${
+                    selectedFloor === fl.key
+                      ? 'sky-gradient-bg text-white font-extrabold shadow-sm scale-[1.02] border-transparent'
+                      : 'bg-white text-slate-700 border-sky-200 hover:border-sky-400 hover:text-sky-700'
+                  }`}
+                >
+                  <span className="text-[11px] font-black block leading-tight">{fl.label}</span>
+                  <span className={`text-[9px] block mt-0.5 ${selectedFloor === fl.key ? 'text-sky-100 font-semibold' : 'text-slate-500'}`}>
+                    {fl.note}
                   </span>
-                ) : (
-                  <span className="text-[11px] text-slate-500 font-semibold">
-                    Standart talabgir qavatlar
-                  </span>
-                )}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Bosh to'lov shakli */}
+          {!model.onlyFullPayment && currentFloorData?.paymentPlans && (
+            <div className="mb-4 pb-3 border-b border-sky-200/60">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[11px] font-bold text-slate-900 flex items-center gap-1.5 uppercase tracking-wide">
+                  <CreditCard className="w-3.5 h-3.5 text-sky-600" />
+                  <span>Bosh to‘lov shakli:</span>
+                </span>
+                <span className="text-[10px] font-extrabold text-amber-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-200">
+                  {currentPlan?.discountBadge}
+                </span>
               </div>
 
-              <div className="grid grid-cols-3 gap-2">
-                {[
-                  { key: '2-4', label: '2-3-4-qavatlar', note: 'Talabgir' },
-                  { key: '5-8', label: '5-6-7-8-qavatlar', note: 'Arzonroq' },
-                  { key: '9-12', label: '9-10-11-12-qavatlar', note: 'Eng hamyonbop' }
-                ].map((fl) => (
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+                {currentFloorData.paymentPlans.map((pl) => (
                   <button
-                    key={fl.key}
-                    onClick={() => setSelectedFloor(fl.key)}
-                    className={`py-2 px-2 rounded-xl text-center border transition-all cursor-pointer ${
-                      selectedFloor === fl.key
-                        ? 'sky-gradient-bg text-white font-extrabold shadow-md shadow-sky-600/20 scale-[1.02] border-transparent'
-                        : 'bg-white text-slate-700 border-sky-200 hover:border-sky-400 hover:text-sky-700'
+                    key={pl.id}
+                    onClick={() => setSelectedPlanId(pl.id)}
+                    className={`p-1.5 rounded-xl text-center border transition-all cursor-pointer ${
+                      selectedPlanId === pl.id
+                        ? 'bg-sky-100 border-2 border-sky-500 text-sky-950 font-bold shadow-xs'
+                        : 'bg-white text-slate-600 border-sky-200 hover:text-slate-900 hover:border-sky-300'
                     }`}
                   >
-                    <span className="text-xs font-black block leading-tight">{fl.label}</span>
-                    <span className={`text-[10px] block mt-0.5 ${selectedFloor === fl.key ? 'text-sky-100 font-semibold' : 'text-slate-500'}`}>
-                      {fl.note}
+                    <span className="text-[10px] font-extrabold block text-slate-800 leading-tight">
+                      {pl.name}
+                    </span>
+                    <span className="text-[9px] text-amber-700 font-black block mt-0.5">
+                      {pl.discountBadge}
                     </span>
                   </button>
                 ))}
               </div>
             </div>
+          )}
 
-            {/* 2. BOSH TO'LOV TURINI TANLASH (Faqat standart bo'lib to'lashli uylar uchun) */}
-            {!model.onlyFullPayment && currentFloorData?.paymentPlans && (
-              <div className="mb-5 pb-4 border-b border-sky-200/60">
-                <div className="flex items-center justify-between mb-2.5">
-                  <span className="text-xs font-bold text-slate-900 flex items-center gap-1.5 uppercase tracking-wide">
-                    <CreditCard className="w-3.5 h-3.5 text-sky-600" />
-                    <span>Bosh to‘lov shakli:</span>
+          {/* Aniq narx bloki */}
+          {currentPlan && (
+            <div className="space-y-3">
+              
+              <div className="p-3.5 rounded-2xl bg-gradient-to-r from-sky-50 via-sky-50 to-white border border-sky-200">
+                <div className="flex items-center justify-between text-xs text-slate-600 mb-1">
+                  <span className="font-bold text-slate-900 flex items-center gap-1.5 text-[11px]">
+                    <span className="w-2 h-2 rounded-full bg-sky-500"></span>
+                    <span>
+                      {model.onlyFullPayment 
+                        ? "100% To‘lov narxi" 
+                        : `${currentPlan.name} (${currentPlan.discountBadge})`}
+                    </span>
                   </span>
-                  <span className="text-[11px] font-extrabold text-amber-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-200">
-                    {currentPlan?.discountBadge}
+                  <span className="text-slate-500 text-[10px]">
+                    {currentFloorData?.floorLabel}
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {currentFloorData.paymentPlans.map((pl) => (
-                    <button
-                      key={pl.id}
-                      onClick={() => setSelectedPlanId(pl.id)}
-                      className={`p-2 rounded-xl text-center border transition-all cursor-pointer ${
-                        selectedPlanId === pl.id
-                          ? 'bg-sky-100 border-2 border-sky-500 text-sky-950 font-bold shadow-sm'
-                          : 'bg-white text-slate-600 border-sky-200 hover:text-slate-900 hover:border-sky-300'
-                      }`}
-                    >
-                      <span className="text-[11px] font-extrabold block text-slate-800 leading-tight">
-                        {pl.name}
-                      </span>
-                      <span className="text-[10px] text-amber-700 font-black block mt-0.5">
-                        {pl.discountBadge}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* 3. ANIQ NARXLAR VA HISOBLASH BLOKI */}
-            {currentPlan && (
-              <div className="space-y-4">
-                
-                {/* Asosiy narx kartasi */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-sky-50 via-sky-50 to-white border border-sky-200">
-                  <div className="flex items-center justify-between text-xs text-slate-600 mb-1.5">
-                    <span className="font-bold text-slate-900 flex items-center gap-1.5">
-                      <span className="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
-                      <span>
-                        {model.onlyFullPayment 
-                          ? "100% To‘lov narxi" 
-                          : `${currentPlan.name} (${currentPlan.discountBadge})`}
-                      </span>
-                    </span>
-                    <span className="text-slate-500 text-[11px]">
-                      {currentFloorData?.floorLabel}
-                    </span>
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                  <div className="text-xl sm:text-2xl font-black text-sky-900">
+                    {formatPrice(currentPlan.totalPrice)}
                   </div>
-
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
-                    <div className="text-2xl sm:text-3xl font-black text-sky-900">
-                      {formatPrice(currentPlan.totalPrice)}
-                    </div>
-                    <div className="text-xs font-bold text-slate-600">
-                      1 m² narxi: <span className="text-slate-900 font-extrabold">{formatPrice(currentPlan.pricePerM2)}</span>
-                    </div>
+                  <div className="text-[11px] font-bold text-slate-600">
+                    1 m²: <span className="text-slate-900 font-extrabold">{formatPrice(currentPlan.pricePerM2)}</span>
                   </div>
-
-                  {model.onlyFullPayment && (
-                    <div className="mt-3 pt-2.5 border-t border-sky-200 text-xs text-amber-800 flex items-center gap-2">
-                      <span className="px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold text-[10px] uppercase shrink-0 border border-amber-200">
-                        Faqat 100% to‘lov
-                      </span>
-                      <span>Ushbu studio xonadon faqat 100% to‘liq to‘lov bilan sotiladi (bo‘lib to‘lash mavjud emas).</span>
-                    </div>
-                  )}
                 </div>
 
-                {/* Bo'lib to'lash rejasi (Faqat bo'lib to'lash tanlanganda chiqadi) */}
-                {!model.onlyFullPayment && currentPlan.isInstallment && (
-                  <div className="p-4 rounded-xl bg-white border border-sky-200">
-                    <span className="text-xs font-bold text-slate-900 block mb-2.5">
-                      30 Oygacha Bo‘lib To‘lash Taqsimoti (0% ustama):
+                {model.onlyFullPayment && (
+                  <div className="mt-2 pt-2 border-t border-sky-200 text-[11px] text-amber-800 flex items-center gap-1.5">
+                    <span className="px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 font-bold text-[9px] uppercase shrink-0 border border-amber-200">
+                      100% to‘lov
                     </span>
-
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-center">
-                      <div className="bg-sky-50 p-2.5 rounded-lg border border-sky-100">
-                        <span className="text-[10px] text-slate-500 uppercase block">Boshlang‘ich to‘lov</span>
-                        <span className="text-sm font-black text-slate-900">
-                          {formatShortMln(currentPlan.initialPayment)}
-                        </span>
-                      </div>
-
-                      <div className="bg-sky-50 p-2.5 rounded-lg border border-sky-100">
-                        <span className="text-[10px] text-slate-500 uppercase block">Oylik to‘lov (30 oy)</span>
-                        <span className="text-sm font-black text-emerald-700">
-                          {formatShortMln(currentPlan.monthlyPayment)}
-                        </span>
-                      </div>
-
-                      <div className="bg-sky-50 p-2.5 rounded-lg border border-sky-100">
-                        <span className="text-[10px] text-slate-500 uppercase block">30 oyda jami</span>
-                        <span className="text-sm font-black text-slate-800">
-                          {formatShortMln(currentPlan.paid30m)}
-                        </span>
-                      </div>
-
-                      <div className="bg-sky-50 p-2.5 rounded-lg border border-sky-100">
-                        <span className="text-[10px] text-slate-500 uppercase block">31-oydagi qoldiq</span>
-                        <span className="text-sm font-black text-amber-700">
-                          {formatShortMln(currentPlan.remainingBalance)}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="mt-3 pt-2.5 border-t border-sky-100 flex flex-wrap items-center justify-between text-[11px] text-slate-500 gap-2">
-                      <span>31-oydagi qoldiq summa uchun variantlar:</span>
-                      <div className="flex items-center gap-1.5 font-bold text-slate-700">
-                        <span className="px-2 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700">💵 Naqd</span>
-                        <span className="px-2 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-700">🏦 Ipoteka</span>
-                        <span className="px-2 py-0.5 rounded bg-amber-50 border border-amber-200 text-amber-700">📑 Subsidiya</span>
-                      </div>
-                    </div>
+                    <span>Faqat 100% to‘liq to‘lov bilan sotiladi.</span>
                   </div>
                 )}
-
               </div>
-            )}
-          </div>
 
-          {/* 4. HARAKAT TUGMALARI (Bron qilish va Maslahat) */}
-          <div className="flex flex-col sm:flex-row items-center gap-3 pt-5 mt-4 border-t border-sky-200/60">
-            
-            <button
-              onClick={() => onBookApartment({
-                title: `${model.title} (${currentFloorData?.floorLabel})`,
-                area: model.area,
-                rooms: model.rooms,
-                floorTier: currentFloorData?.floorLabel,
-                price: currentPlan?.totalPrice || model.prices.fullPayDiscount,
-                paymentPlan: currentPlan?.name || "100% to‘lov",
-                source: "Katalog kartasi"
-              })}
-              className="w-full sm:flex-1 py-3.5 px-5 rounded-xl sky-gradient-bg text-white font-extrabold text-xs sm:text-sm hover:brightness-110 shadow-md shadow-sky-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <ShieldCheck className="w-4 h-4 text-white" />
-              <span>Bron qilish (24 soat bepul)</span>
-            </button>
+              {/* 30 oylik taqsimot */}
+              {!model.onlyFullPayment && currentPlan.isInstallment && (
+                <div className="p-3 rounded-xl bg-white border border-sky-200">
+                  <span className="text-[11px] font-bold text-slate-900 block mb-2">
+                    30 Oygacha Bo‘lib To‘lash (0% ustama):
+                  </span>
 
-            <button
-              onClick={() => onBookApartment({
-                title: `${model.title} (${currentFloorData?.floorLabel}) — Maslahat olish`,
-                area: model.area,
-                rooms: model.rooms,
-                floorTier: currentFloorData?.floorLabel,
-                price: currentPlan?.totalPrice || model.prices.fullPayDiscount,
-                paymentPlan: currentPlan?.name || "Konsultatsiya",
-                source: "Katalog maslahat"
-              })}
-              className="w-full sm:flex-1 py-3.5 px-5 rounded-xl bg-white hover:bg-sky-50 border border-sky-300 text-sky-800 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
-            >
-              <FileText className="w-4 h-4 text-sky-600" />
-              <span>Maslahat olish</span>
-            </button>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+                    <div className="bg-sky-50 p-2 rounded-lg border border-sky-100">
+                      <span className="text-[9px] text-slate-500 uppercase block">Bosh to‘lov</span>
+                      <span className="text-xs font-black text-slate-900">
+                        {formatShortMln(currentPlan.initialPayment)}
+                      </span>
+                    </div>
 
-            <a
-              href="tel:+998946032333"
-              className="w-full sm:w-auto py-3.5 px-4 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 font-bold text-xs sm:text-sm transition-all flex items-center justify-center gap-1.5"
-              title="Tezkor qo'ng'iroq"
-            >
-              <PhoneCall className="w-4 h-4 text-sky-600" />
-              <span className="hidden xl:inline">+998 94 603 23 33</span>
-            </a>
-          </div>
+                    <div className="bg-sky-50 p-2 rounded-lg border border-sky-100">
+                      <span className="text-[9px] text-slate-500 uppercase block">Oylik (30 oy)</span>
+                      <span className="text-xs font-black text-emerald-700">
+                        {formatShortMln(currentPlan.monthlyPayment)}
+                      </span>
+                    </div>
 
+                    <div className="bg-sky-50 p-2 rounded-lg border border-sky-100">
+                      <span className="text-[9px] text-slate-500 uppercase block">30 oyda jami</span>
+                      <span className="text-xs font-black text-slate-800">
+                        {formatShortMln(currentPlan.paid30m)}
+                      </span>
+                    </div>
+
+                    <div className="bg-sky-50 p-2 rounded-lg border border-sky-100">
+                      <span className="text-[9px] text-slate-500 uppercase block">31-oy qoldiq</span>
+                      <span className="text-xs font-black text-amber-700">
+                        {formatShortMln(currentPlan.remainingBalance)}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="mt-2 pt-2 border-t border-sky-100 flex flex-wrap items-center justify-between text-[10px] text-slate-500 gap-1.5">
+                    <span>Qoldiq summa variantlari:</span>
+                    <div className="flex items-center gap-1 font-bold text-slate-700">
+                      <span className="px-1.5 py-0.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-700">💵 Naqd</span>
+                      <span className="px-1.5 py-0.5 rounded bg-sky-50 border border-sky-200 text-sky-700">🏦 Ipoteka</span>
+                      <span className="px-1.5 py-0.5 rounded bg-amber-50 border border-amber-200 text-amber-700">📑 Subsidiya</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+            </div>
+          )}
+        </div>
+
+        {/* 4. HARAKAT TUGMALARI */}
+        <div className="flex flex-col sm:flex-row items-center gap-2 pt-4 mt-4 border-t border-sky-200/60">
+          
+          <button
+            onClick={() => onBookApartment({
+              title: `${model.title} (${currentFloorData?.floorLabel})`,
+              area: model.area,
+              rooms: model.rooms,
+              floorTier: currentFloorData?.floorLabel,
+              price: currentPlan?.totalPrice || model.prices.fullPayDiscount,
+              paymentPlan: currentPlan?.name || "100% to‘lov",
+              source: "Katalog kartasi"
+            })}
+            className="w-full sm:flex-1 py-3 px-4 rounded-xl sky-gradient-bg text-white font-extrabold text-xs hover:brightness-110 shadow-md shadow-sky-600/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+          >
+            <ShieldCheck className="w-3.5 h-3.5 text-white" />
+            <span>Bron qilish (24 soat)</span>
+          </button>
+
+          <button
+            onClick={() => onBookApartment({
+              title: `${model.title} (${currentFloorData?.floorLabel}) — Maslahat olish`,
+              area: model.area,
+              rooms: model.rooms,
+              floorTier: currentFloorData?.floorLabel,
+              price: currentPlan?.totalPrice || model.prices.fullPayDiscount,
+              paymentPlan: currentPlan?.name || "Konsultatsiya",
+              source: "Katalog maslahat"
+            })}
+            className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-white hover:bg-sky-50 border border-sky-300 text-sky-800 font-bold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+          >
+            <FileText className="w-3.5 h-3.5 text-sky-600" />
+            <span>Maslahat olish</span>
+          </button>
+
+          <a
+            href="tel:+998946032333"
+            className="w-full sm:w-auto p-3 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 font-bold text-xs transition-all flex items-center justify-center shrink-0"
+            title="Tezkor qo'ng'iroq"
+          >
+            <PhoneCall className="w-3.5 h-3.5 text-sky-600" />
+          </a>
         </div>
 
       </div>
+
     </div>
   );
 }
+
 
 export default function Catalog({ onBookApartment }) {
   const [selectedRooms, setSelectedRooms] = useState('all'); // 'all', '1', '2', '3'
@@ -393,7 +387,7 @@ export default function Catalog({ onBookApartment }) {
 
   return (
     <section id="catalog" className="py-24 bg-[#f0f7ff] relative border-b border-sky-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
@@ -516,8 +510,8 @@ export default function Catalog({ onBookApartment }) {
 
         </div>
 
-        {/* Xonadonlar ro'yxati */}
-        <div className="space-y-12">
+        {/* Xonadonlar ro'yxati (2 ta yonma-yon) */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
           {filteredModels.map((model) => (
             <ApartmentCard 
               key={model.typeCode}
