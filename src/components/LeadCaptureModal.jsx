@@ -9,6 +9,7 @@ import {
   PhoneCall
 } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
+import { sendTelegramLead } from '../utils/crmWebhook';
 
 export default function LeadCaptureModal({ isOpen, onClose, contextData }) {
   const [name, setName] = useState('');
@@ -32,7 +33,7 @@ export default function LeadCaptureModal({ isOpen, onClose, contextData }) {
     setPhone(val);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim()) {
       alert("Iltimos, ismingizni kiriting.");
@@ -44,10 +45,23 @@ export default function LeadCaptureModal({ isOpen, onClose, contextData }) {
     }
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      await sendTelegramLead({
+        name: name.trim(),
+        phone: phone.trim(),
+        project: "Yangi Qo‘yliq-2",
+        rooms: contextData?.apartment?.rooms || 2,
+        area: contextData?.apartment?.area || "54",
+        budget: contextData?.title || "24 soatga bepul bron qilish",
+        purpose: contextData?.apartment ? `${contextData.apartment.name} (${contextData.apartment.area} m²) bron qilish` : "Xonadon konsultatsiyasi",
+        source: `Sayt modali (${contextData?.title || "Tezkor bron"})`
+      });
+    } catch (err) {
+      console.error("Telegramga yuborishda xatolik:", err);
+    } finally {
       setIsSubmitting(false);
       setIsSuccess(true);
-    }, 600);
+    }
   };
 
   return (

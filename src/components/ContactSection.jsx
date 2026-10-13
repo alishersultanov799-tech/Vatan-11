@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PhoneCall, CheckCircle2, ShieldCheck, Download, Sparkles, User, Phone, Send } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
+import { sendTelegramLead } from '../utils/crmWebhook';
 
 export default function ContactSection() {
   const [name, setName] = useState('');
@@ -17,7 +18,7 @@ export default function ContactSection() {
     setPhone(val);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name.trim()) {
       alert("Iltimos, ismingizni kiriting.");
@@ -29,10 +30,23 @@ export default function ContactSection() {
     }
 
     setIsLoading(true);
-    setTimeout(() => {
+    try {
+      await sendTelegramLead({
+        name: name.trim(),
+        phone: phone.trim(),
+        project: "Yangi Qo‘yliq-2",
+        rooms: roomType,
+        area: roomType === '1' ? '41–49' : roomType === '2' ? '54–55' : '70–77',
+        budget: "Konsultatsiya va Narxlar ro‘yxati",
+        purpose: "Narxlar ro‘yxatini olish va maslahat",
+        source: "Sayt: Kontakt so‘rov bo‘limi"
+      });
+    } catch (err) {
+      console.error("Telegramga yuborishda xatolik:", err);
+    } finally {
       setIsLoading(false);
       setSubmitted(true);
-    }, 600);
+    }
   };
 
   return (
