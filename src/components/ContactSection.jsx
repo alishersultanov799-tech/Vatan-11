@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PhoneCall, CheckCircle2, ShieldCheck, Download, Sparkles, User, Phone, Send } from 'lucide-react';
+import { PhoneCall, CheckCircle2, ShieldCheck, Download, Sparkles, User, Phone, Send, Bot } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 import { sendTelegramLead } from '../utils/crmWebhook';
 
@@ -104,6 +104,31 @@ export default function ContactSection() {
                   </a>
                 </div>
               </div>
+
+              {/* AI Maslahatchi Telegram Bot Box */}
+              <a 
+                href={PROJECT_DETAILS.location.telegramBot}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 p-4 rounded-2xl bg-gradient-to-r from-sky-50 to-sky-100 border-2 border-sky-300 hover:border-sky-500 flex items-center justify-between group transition-all shadow-xs"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-sky-500 flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                    <Bot className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs font-black text-sky-950">AI Maslahatchi (@Vatan2333_bot)</span>
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    </div>
+                    <span className="text-[11px] text-slate-600 block">Kutmasdan 24/7 savollaringizga javob oling</span>
+                  </div>
+                </div>
+                <div className="text-sky-600 font-extrabold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>Kirish</span>
+                  <span>→</span>
+                </div>
+              </a>
             </div>
 
             {/* O'ng tomon: Forma */}
@@ -120,16 +145,27 @@ export default function ContactSection() {
                   <p className="text-xs sm:text-sm text-slate-600 mb-6 max-w-sm mx-auto">
                     Menejerimiz Alisher ({PROJECT_DETAILS.location.salesPhoneFormatted}) tez orada siz bilan bog‘lanadi va to‘liq narxlar katalogini taqdim etadi.
                   </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setName('');
-                      setPhone('+998 ');
-                    }}
-                    className="px-6 py-2.5 rounded-xl bg-white border border-sky-200 text-xs text-slate-700 hover:bg-sky-50 transition-colors cursor-pointer shadow-xs"
-                  >
-                    Yangi so‘rov yuborish
-                  </button>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 mb-4">
+                    <a
+                      href={PROJECT_DETAILS.location.telegramBot}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl sky-gradient-bg text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-md shadow-sky-600/20"
+                    >
+                      <Bot className="w-4 h-4 text-white" />
+                      <span>🤖 AI Maslahatchi botga o‘tish (@Vatan2333_bot)</span>
+                    </a>
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setName('');
+                        setPhone('+998 ');
+                      }}
+                      className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-white border border-sky-200 text-xs text-slate-700 hover:bg-sky-50 transition-colors cursor-pointer shadow-xs"
+                    >
+                      Yangi so‘rov
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">

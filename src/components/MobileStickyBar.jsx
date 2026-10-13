@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Send, Home } from 'lucide-react';
+import { Phone, Bot, Home } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
 export default function MobileStickyBar({ onScrollTo, onOpenBooking }) {
@@ -20,18 +20,24 @@ export default function MobileStickyBar({ onScrollTo, onOpenBooking }) {
           </span>
         </a>
 
-        {/* 2. Telegram */}
+        {/* 2. AI Maslahatchi Telegram Bot (@Vatan2333_bot) */}
         <a
-          href={PROJECT_DETAILS.location.telegramChannel}
+          href={PROJECT_DETAILS.location.telegramBot}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-sky-50 border border-sky-200 text-slate-800 active:scale-95 transition-transform"
+          className="flex flex-col items-center justify-center py-2 px-1 rounded-xl bg-gradient-to-b from-sky-50 to-sky-100/80 border-2 border-sky-400 text-slate-900 active:scale-95 transition-transform relative group shadow-xs"
+          title="AI Maslahatchi bot (@Vatan2333_bot)"
         >
-          <div className="w-7 h-7 rounded-full bg-sky-100 text-sky-600 flex items-center justify-center mb-1">
-            <Send className="w-3.5 h-3.5" />
+          <span className="absolute top-1 right-2 flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+
+          <div className="w-7 h-7 rounded-full bg-sky-500 text-white flex items-center justify-center mb-1 shadow-xs">
+            <Bot className="w-4 h-4" />
           </div>
-          <span className="text-[11px] font-black tracking-tight text-slate-800">
-            Telegram
+          <span className="text-[11px] font-black tracking-tight text-sky-950">
+            AI Maslahat
           </span>
         </a>
 

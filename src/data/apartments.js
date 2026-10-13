@@ -1631,7 +1631,10 @@ export const PROJECT_DETAILS = {
     salesPhone: "+998946032333",
     salesPhoneFormatted: "+998 94 603 23 33",
     managerName: "Alisher",
+    telegramBot: "https://t.me/Vatan2333_bot",
+    telegramBotUsername: "@Vatan2333_bot",
     telegramChannel: "https://t.me/yangiqoyliq_TJM",
+    telegramChannelUsername: "@yangiqoyliq_TJM",
     handoverDate: "2028-yil 4-chorak",
     workingHours: "Har kuni: 09:00 — 18:00 (Dam olish kunlarisiz)"
   }

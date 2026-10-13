@@ -109,13 +109,13 @@ async function askGeminiAI(userMessage, userName = 'Mijoz') {
     return generateSmartFallback(userMessage);
   }
 
-  const modelsToTry = ['gemini-flash-latest', 'gemini-3.5-flash-lite', 'gemini-2.5-flash'];
+  const modelsToTry = ['gemini-flash-latest', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite'];
 
   for (const model of modelsToTry) {
     try {
       const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 4000);
+      const timeoutId = setTimeout(() => controller.abort(), 2500);
 
       const requestBody = {
         systemInstruction: {
@@ -151,7 +151,7 @@ async function askGeminiAI(userMessage, userName = 'Mijoz') {
         }
       }
     } catch (err) {
-      // Keyingi modelga
+      // Keyingi modelga yoki fallbackga o'tish
     }
   }
 
@@ -163,58 +163,96 @@ function generateSmartFallback(msg) {
 
   if (text.includes('1 xona') || text.includes('1-xona') || text.includes('studio') || text.includes('bir xona')) {
     return `🏢 <b>1 xonali xonadonlar (22 m² dan 49 m² gacha):</b>\n\n` +
-      `• <b>Maydonlar:</b> 22, 25, 34, 39, 41, 43, 49 m²\n` +
-      `• <b>Boshlang‘ich to‘lov:</b> 60 mln so‘mdan\n` +
-      `• <b>Oylik to‘lov:</b> 4 mln so‘m (30 oy 0% foizsiz)\n` +
-      `• <b>100% to‘lovda:</b> 33% katta chegirma mavjud!\n\n` +
+      `• <b>Maydonlar:</b> 22 m² (studio), 25 m², 34 m², 39 m², 41 m², 43 m², 49 m²\n` +
+      `• <b>Boshlang‘ich to‘lov:</b> 60 mln so‘mdan boshlanadi\n` +
+      `• <b>Oylik to‘lov:</b> 4 mln so‘m (30 oy davomida 0% foizsiz!)\n` +
+      `• <b>100% to‘lovda:</b> 33% katta chegirma beriladi!\n` +
+      `• <b>Holati:</b> 70% tayyor ta'mirlangan (kommunikatsiyalar, devor, styajka, eshik, deraza)\n\n` +
       `Sizga aynan qaysi maydon ma'qulroq? Telefon raqamingizni qoldirsangiz, menejerimiz Alisher sizga barcha chizmalarni yuboradi!`;
   }
 
   if (text.includes('2 xona') || text.includes('2-xona') || text.includes('ikki xona')) {
     return `🏢 <b>2 xonali oilaviy xonadonlar (54 m² va 55 m²):</b>\n\n` +
-      `• <b>Maydonlar:</b> 54 m² va 55 m²\n` +
-      `• <b>Boshlang‘ich to‘lov:</b> 75 mln so‘mdan\n` +
-      `• <b>Oylik to‘lov:</b> 5 mln so‘m (30 oy 0% foizsiz)\n` +
-      `• <b>Topshirish:</b> 2028-yil 4-chorak (70% ta'mirlangan)\n\n` +
-      `Qaysi qavat sizga qulay: 2–4 (talabgir), 5–8 (arzonroq) yoki 9–12 (eng hamyonbop)?`;
+      `• <b>Maydonlar:</b> 54 m² va 55 m² (qulay oilaviy reja)\n` +
+      `• <b>Boshlang‘ich to‘lov:</b> 75 mln so‘mdan boshlanadi\n` +
+      `• <b>Oylik to‘lov:</b> 5 mln so‘m (30 oy davomida 0% foizsiz!)\n` +
+      `• <b>Topshirish muddati:</b> 2028-yil 4-chorak (70% ta'mirlangan)\n\n` +
+      `Qaysi qavat sizga qulay: 2–4 (talabgir), 5–8 (arzonroq) yoki 9–12 (eng hamyonbop)? Telefon raqamingizni yozsangiz, batafsil hisob-kitob qilib beramiz!`;
   }
 
   if (text.includes('3 xona') || text.includes('3-xona') || text.includes('uch xona')) {
     return `🏢 <b>3 xonali keng xonadonlar (70 m² va 77 m²):</b>\n\n` +
-      `• <b>Maydonlar:</b> 70 m² va 77 m²\n` +
-      `• <b>Boshlang‘ich to‘lov:</b> 99 mln so‘mdan\n` +
-      `• <b>Oylik to‘lov:</b> 6 mln so‘m (30 oy 0% foizsiz)\n` +
-      `• Katta mehmonxona va alohida yotoqxonalar!\n\n` +
-      `Batafsil ma'lumot va bron qilish uchun telefon raqamingizni qoldiring!`;
+      `• <b>Maydonlar:</b> 70 m² va 77 m² (keng mehmonxona, 2 ta yotoqxona, 2 ta sanuzel)\n` +
+      `• <b>Boshlang‘ich to‘lov:</b> 99 mln so‘mdan boshlanadi\n` +
+      `• <b>Oylik to‘lov:</b> 6 mln so‘m (30 oy davomida 0% foizsiz!)\n` +
+      `• <b>100% to‘lovda:</b> 33% gacha maxsus chegirma!\n\n` +
+      `Batafsil ma'lumot va bron qilish uchun telefon raqamingizni qoldiring, menejerimiz Alisher darhol bog‘lanadi!`;
   }
 
-  if (text.includes('narx') || text.includes('qancha') || text.includes('narxi') || text.includes('to‘lov') || text.includes('tolov') || text.includes('muddatli')) {
-    return `💰 <b>"Yangi Qo‘yliq-2" bo‘lib to‘lash shartlari (30 oy 0% ustama):</b>\n\n` +
-      `• <b>1 xonali:</b> Bosh to‘lov 60 mln so‘m / Oylik 4 mln so‘m\n` +
-      `• <b>2 xonali:</b> Bosh to‘lov 75 mln so‘m / Oylik 5 mln so‘m\n` +
-      `• <b>3 xonali:</b> Bosh to‘lov 99 mln so‘m / Oylik 6 mln so‘m\n\n` +
-      `🎁 <b>Chegirmalar:</b>\n` +
-      `• 100% to‘lovda — <b>33% chegirma!</b>\n` +
-      `• 50% bosh to‘lovda — <b>15% chegirma!</b>\n` +
-      `• 30% bosh to‘lovda — <b>10% chegirma!</b>\n\n` +
-      `Sizga qaysi to‘lov varianti ko‘proq qiziq?`;
+  if (text.includes('narx') || text.includes('qancha') || text.includes('narxi') || text.includes('to‘lov') || text.includes('tolov') || text.includes('muddatli') || text.includes('bo‘lib') || text.includes('bolib') || text.includes('boshlang') || text.includes('oylik')) {
+    return `💰 <b>"Yangi Qo‘yliq-2" bo‘lib to‘lash shartlari (30 oy 0% ustamasiz):</b>\n\n` +
+      `1️⃣ <b>1 xonali (22–49 m²):</b> Bosh to‘lov 60 mln so‘m | Oylik 4 mln so‘m\n` +
+      `2️⃣ <b>2 xonali (54–55 m²):</b> Bosh to‘lov 75 mln so‘m | Oylik 5 mln so‘m\n` +
+      `3️⃣ <b>3 xonali (70–77 m²):</b> Bosh to‘lov 99 mln so‘m | Oylik 6 mln so‘m\n\n` +
+      `🎁 <b>Maxsus chegirmalar:</b>\n` +
+      `• 100% to‘liq to‘lovda — <b>33% KATTA CHEGIRMA!</b>\n` +
+      `• 50% boshlang‘ich to‘lovda — <b>15% chegirma!</b>\n` +
+      `• 30% boshlang‘ich to‘lovda — <b>10% chegirma!</b>\n\n` +
+      `Qaysi variant sizga ma'qul? Aniq hisob-kitob uchun telefon raqamingizni qoldiring!`;
   }
 
-  if (text.includes('manzil') || text.includes('qayerda') || text.includes('lokatsiya') || text.includes('qayer') || text.includes('ofis')) {
+  if (text.includes('qavat') || text.includes('etaj') || text.includes('baland')) {
+    return `🏢 <b>Qavatlar bo‘yicha narxlar tasnifi (12 qavatli monolit):</b>\n\n` +
+      `• <b>2–4-qavatlar:</b> Eng talabgir standart qavatlar\n` +
+      `• <b>5–8-qavatlar:</b> O‘rtacha arzonlashtirilgan narxlar\n` +
+      `• <b>9–12-qavatlar:</b> Eng hamyonbop va eng arzon narxlar!\n\n` +
+      `Barcha qavatlarda zamonaviy tezyurar liftlar xizmat ko‘rsatadi. Sizga qaysi qavat ko‘proq ma'qul?`;
+  }
+
+  if (text.includes('manzil') || text.includes('qayerda') || text.includes('lokatsiya') || text.includes('qayer') || text.includes('ofis') || text.includes('mo‘ljal') || text.includes('moljal')) {
     return `📍 <b>Majmua va Sotuv ofisi manzili:</b>\n\n` +
-      `Toshkent viloyati, O‘rtachirchiq tumani, O‘choqli MFY (Yangi Toshkent hududi).\n` +
-      `<b>Bosh mo‘ljal:</b> Food City bozor chorrahasi ro‘parasi (atigi 2 daqiqa).\n\n` +
-      `🗺 <a href="https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8">Yandex Xaritada ofisni ko‘rish</a>\n\n` +
+      `Toshkent viloyati, O‘rtachirchiq tumani, O‘choqli MFY, Yashnobod ko‘chasi, 44a-uy (Yangi Toshkent hududi).\n` +
+      `<b>Bosh mo‘ljal:</b> Food City ulgurji savdo majmuasi chorrahasi ro‘parasi (atigi 2 daqiqa).\n` +
+      `Qo‘yliq metrosi va bozoridan — 8 daqiqa.\n\n` +
+      `🗺 <a href="https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8">Yandex Xaritada ofis lokatsiyasini ochish</a>\n\n` +
       `📞 <b>Menejer:</b> Alisher (+998 94 603 23 33)\n` +
-      `Ish vaqti: Har kuni 09:00 — 18:00`;
+      `⏰ Ish vaqti: Har kuni 09:00 — 18:00 (dam olish kunlarisiz)`;
   }
 
-  return `Assalomu alaykum! "VATAN" kompaniyasining "Yangi Qo‘yliq-2" majmuasi maslahatchisi xizmatingizda! 🏢\n\n` +
+  if (text.includes('topshirish') || text.includes('muddat') || text.includes('ta\'mir') || text.includes('tamir') || text.includes('qachon') || text.includes('holat')) {
+    return `🏗 <b>Topshirish muddati va ta'mirlash holati:</b>\n\n` +
+      `• <b>Topshirish vaqti:</b> 2028-yil 4-chorak\n` +
+      `• <b>Ta'mirlash holati:</b> <b>70% tayyor</b> holatda topshiriladi!\n` +
+      `• <b>Topshiriladigan narsalar:</b> Kirish mustahkam temir eshigi, sifatli plastik derazalar, suv, elektr, gaz tarmoqlari ulanadi, pol silliq styajka qilingan, devorlar gipslangan.\n\n` +
+      `Siz faqat o‘zingizga yoqqan oboy va pol qoplamasini o‘rnatasiz!`;
+  }
+
+  if (text.includes('maktab') || text.includes('bog‘cha') || text.includes('bogcha') || text.includes('infratuzilma') || text.includes('magazin') || text.includes('korzinka')) {
+    return `🌳 <b>13 gektarli keng infratuzilma:</b>\n\n` +
+      `• Zamonaviy maktab va bolalar bog‘chasi hudud ichida\n` +
+      `• Korzinka supermarketi va do‘konlar\n` +
+      `• Sun'iy ko‘l, ochiq amfiteatr va sayrgohlar\n` +
+      `• Xavfsiz bolalar maydonchalari va yerosti avtoturargohlari\n` +
+      `• 24/7 video-kuzatuv va qo‘riqlash tizimi`;
+  }
+
+  if (text.includes('menejer') || text.includes('alisher') || text.includes('telefon') || text.includes('aloqa') || text.includes('nomer')) {
+    return `📞 <b>Sotuv ofisi bilan aloqa:</b>\n\n` +
+      `• Bosh menejer: <b>Alisher</b>\n` +
+      `• Telefon: <a href="tel:+998946032333">+998 94 603 23 33</a>\n` +
+      `• Telegram: @alisher_yangiqoyliq\n` +
+      `• Rasmiy kanal: @yangiqoyliq_TJM\n` +
+      `• Ish vaqti: Har kuni 09:00 — 18:00\n\n` +
+      `Agar telefon raqamingizni yozsangiz, menejerimiz o‘zi sizga tezda qo‘ng‘iroq qiladi!`;
+  }
+
+  return `Assalomu alaykum! "VATAN" qurilish kompaniyasining <b>"Yangi Qo‘yliq-2"</b> turar-joy majmuasi rasmiy AI maslahatchisi xizmatingizda! 🏢✨\n\n` +
     `Bizda Yangi Toshkent hududida (Food City ro‘parasi) <b>30 oygacha 0% foizsiz</b> bo‘lib to‘lash imkoniyati mavjud:\n` +
-    `• 1 xonali (22–49 m²) — Bosh to‘lov 60 mln / Oylik 4 mln\n` +
-    `• 2 xonali (54–55 m²) — Bosh to‘lov 75 mln / Oylik 5 mln\n` +
-    `• 3 xonali (70–77 m²) — Bosh to‘lov 99 mln / Oylik 6 mln\n\n` +
-    `Quyidagi tugmalar orqali tanlashingiz yoki o‘zingizni qiziqtirgan savolingizni yozishingiz mumkin 👇`;
+    `• <b>1 xonali (22–49 m²):</b> Bosh to‘lov 60 mln | Oylik 4 mln\n` +
+    `• <b>2 xonali (54–55 m²):</b> Bosh to‘lov 75 mln | Oylik 5 mln\n` +
+    `• <b>3 xonali (70–77 m²):</b> Bosh to‘lov 99 mln | Oylik 6 mln\n\n` +
+    `🎁 100% to‘lovda <b>33% katta chegirma</b> mavjud!\n\n` +
+    `Quyidagi tugmalardan birini bosing yoki o‘zingizni qiziqtirgan savolingizni yozing 👇`;
 }
 
 function extractPhoneNumber(text) {

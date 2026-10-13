@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, PhoneCall, Sparkles, MapPin, Building2, ChevronRight, KeyRound } from 'lucide-react';
+import { Home, PhoneCall, Sparkles, MapPin, Building2, ChevronRight, KeyRound, Bot } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
 export default function Hero({ onOpenBooking, onScrollTo }) {
@@ -60,26 +60,38 @@ export default function Hero({ onOpenBooking, onScrollTo }) {
             </p>
 
             {/* CTA tugmalari */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
+            <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center lg:justify-start gap-2.5">
               
               {/* CTA 1: Xonadon tanlash */}
               <button 
                 onClick={() => onScrollTo('catalog')}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl sky-gradient-bg text-white font-extrabold text-xs sm:text-sm hover:brightness-110 shadow-lg shadow-sky-600/25 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl sky-gradient-bg text-white font-extrabold text-xs sm:text-sm hover:brightness-110 shadow-lg shadow-sky-600/25 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
               >
                 <Home className="w-4 h-4 text-white" />
                 <span>Xonadon tanlash</span>
                 <ChevronRight className="w-3.5 h-3.5 text-white/80 group-hover:translate-x-1 transition-transform" />
               </button>
 
-              {/* CTA 2: Maslahat olish */}
+              {/* CTA 2: 🤖 AI Maslahatchi Telegram Bot */}
+              <a 
+                href={PROJECT_DETAILS.location.telegramBot}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-gradient-to-r from-sky-50 to-sky-100 border-2 border-sky-400 hover:border-sky-600 text-sky-950 font-extrabold text-xs sm:text-sm shadow-xs transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                title="AI Maslahatchi Telegram bot (@Vatan2333_bot)"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <Bot className="w-4 h-4 text-sky-600 group-hover:rotate-12 transition-transform" />
+                <span>🤖 AI Maslahat olish</span>
+              </a>
+
+              {/* CTA 3: Maslahat olish */}
               <button 
                 onClick={() => onOpenBooking ? onOpenBooking({ title: "Bosh sahifadan konsultatsiya", source: "Hero CTA" }) : onScrollTo('contact')}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white border border-sky-300 hover:border-sky-500 text-sky-800 font-extrabold text-xs sm:text-sm hover:bg-sky-50 shadow-sm transition-all flex items-center justify-center gap-2 backdrop-blur-md transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                className="w-full sm:w-auto px-5 py-3.5 rounded-xl bg-white border border-sky-300 hover:border-sky-500 text-sky-800 font-extrabold text-xs sm:text-sm hover:bg-sky-50 shadow-xs transition-all flex items-center justify-center gap-2 backdrop-blur-md transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
               >
                 <PhoneCall className="w-4 h-4 text-sky-600 group-hover:scale-110 transition-transform" />
                 <span>Maslahat olish</span>
-                <ChevronRight className="w-3.5 h-3.5 text-sky-500 group-hover:translate-x-1 transition-transform" />
               </button>
 
             </div>

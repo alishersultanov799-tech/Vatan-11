@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Menu, X, Send } from 'lucide-react';
+import { Phone, Menu, X, Send, Bot } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
 export default function Navbar({ onOpenBooking, onScrollTo }) {
@@ -67,17 +67,18 @@ export default function Navbar({ onOpenBooking, onScrollTo }) {
           </nav>
 
           {/* Social, Call & CTA */}
-          <div className="hidden sm:flex items-center gap-3">
-            {/* Telegram Channel Button */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            {/* AI Bot Maslahatchi Button */}
             <a 
-              href={PROJECT_DETAILS.location.telegramChannel}
+              href={PROJECT_DETAILS.location.telegramBot}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-bold text-sky-600 hover:text-sky-700 transition-colors bg-sky-50 border border-sky-200 px-3 py-2 rounded-xl shadow-xs"
-              title="Telegram rasmiy kanalimiz"
+              className="flex items-center gap-1.5 text-xs font-bold text-sky-800 hover:text-sky-950 transition-all bg-sky-50 hover:bg-sky-100 border border-sky-300 px-3 py-2 rounded-xl shadow-xs"
+              title="AI Maslahatchi Telegram Bot: @Vatan2333_bot"
             >
-              <Send className="w-3.5 h-3.5" />
-              <span>Telegram</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <Bot className="w-3.5 h-3.5 text-sky-600" />
+              <span>AI Maslahat</span>
             </a>
 
             {/* Direct Phone Call */}
@@ -136,13 +137,23 @@ export default function Navbar({ onOpenBooking, onScrollTo }) {
 
           <div className="mt-4 pt-4 border-t border-sky-100 flex flex-col gap-2.5">
             <a 
+              href={PROJECT_DETAILS.location.telegramBot}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-sky-50 to-sky-100 border-2 border-sky-300 text-center text-xs font-black text-sky-950 flex items-center justify-center gap-2 shadow-xs"
+            >
+              <Bot className="w-4 h-4 text-sky-600" />
+              <span>🤖 AI Maslahatchi: @Vatan2333_bot</span>
+            </a>
+
+            <a 
               href={PROJECT_DETAILS.location.telegramChannel}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-2.5 px-4 rounded-xl bg-sky-50 border border-sky-200 text-center text-xs font-bold text-sky-600 flex items-center justify-center gap-2"
             >
               <Send className="w-3.5 h-3.5" />
-              <span>Telegram kanal: @yangiqoyliq_TJM</span>
+              <span>Telegram rasmiy kanal: @yangiqoyliq_TJM</span>
             </a>
 
             <a 

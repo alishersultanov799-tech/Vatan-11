@@ -72,3 +72,25 @@
 .animate-fade-in {
   animation: fadeIn 0.3s ease-out forwards;
 }
+
+/* Forcibly hide Netlify injected HUD badge / overlay on all screens */
+#nl-hud-frame,
+#nl-badge-frame,
+[id*="nl-hud"],
+[id*="nl-badge"],
+#netlify-drawer-badge,
+[data-netlify-hud],
+iframe[src*="netlify"],
+.netlify-badge {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  position: absolute !important;
+  left: -9999px !important;
+  bottom: -9999px !important;
+  clip: rect(0, 0, 0, 0) !important;
+  z-index: -9999 !important;
+}

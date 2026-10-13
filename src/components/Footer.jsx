@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock, ShieldCheck, Send, Navigation, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Clock, ShieldCheck, Send, Navigation, ExternalLink, Bot } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
 export default function Footer({ onScrollTo, onOpenBooking }) {
@@ -138,10 +138,20 @@ export default function Footer({ onScrollTo, onOpenBooking }) {
 
               <div className="pt-1 flex flex-col gap-2">
                 <a 
+                  href={PROJECT_DETAILS.location.telegramBot} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-black text-sky-800 hover:text-sky-950 transition-colors"
+                >
+                  <Bot className="w-3.5 h-3.5 text-sky-600" />
+                  <span>🤖 AI Maslahatchi: @Vatan2333_bot</span>
+                </a>
+
+                <a 
                   href={PROJECT_DETAILS.location.telegramChannel} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-sky-700 hover:text-sky-900 transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-sky-700 hover:text-sky-900 transition-colors"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Telegram kanal: @yangiqoyliq_TJM</span>

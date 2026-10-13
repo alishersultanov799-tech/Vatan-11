@@ -10,6 +10,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Disable Netlify Injected HUD & Badge on Mobile/Desktop -->
+    <script>
+      (function() {
+        try {
+          localStorage.setItem("nl-hud:public:v1", "hidden");
+          localStorage.setItem("nl-hud:owner-private:v1", "hidden");
+        } catch (e) {}
+
+        function purgeNetlifyBadge() {
+          const els = document.querySelectorAll(
+            '#nl-hud-frame, #nl-badge-frame, [id*="nl-hud"], [id*="nl-badge"], [id*="netlify-drawer"], [data-netlify-hud], script[data-nf-variant]'
+          );
+          els.forEach(function(el) {
+            try { el.remove(); } catch (err) {}
+          });
+        }
+
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', purgeNetlifyBadge);
+        } else {
+          purgeNetlifyBadge();
+        }
+
+        const observer = new MutationObserver(purgeNetlifyBadge);
+        observer.observe(document.documentElement, { childList: true, subtree: true });
+      })();
+    </script>
   </head>
   <body class="bg-[#0c0f14] text-slate-100 antialiased selection:bg-[#c58d51] selection:text-white">
     <div id="root"></div>

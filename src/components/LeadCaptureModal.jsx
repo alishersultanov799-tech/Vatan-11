@@ -6,7 +6,8 @@ import {
   Phone, 
   Send, 
   ShieldCheck, 
-  PhoneCall
+  PhoneCall,
+  Bot
 } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 import { sendTelegramLead } from '../utils/crmWebhook';
@@ -107,21 +108,33 @@ export default function LeadCaptureModal({ isOpen, onClose, contextData }) {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col gap-2.5">
               <a
-                href={`tel:${PROJECT_DETAILS.location.salesPhone}`}
-                className="flex-1 py-3.5 px-4 rounded-xl bg-white hover:bg-sky-50 border border-sky-300 text-sky-800 font-bold text-xs flex items-center justify-center gap-2 shadow-xs"
+                href={PROJECT_DETAILS.location.telegramBot}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 px-4 rounded-xl sky-gradient-bg text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-md shadow-sky-600/20"
               >
-                <PhoneCall className="w-4 h-4 text-sky-600" />
-                <span>To‘g‘ridan-to‘g‘ri qo‘ng‘iroq</span>
+                <Bot className="w-4 h-4 text-white" />
+                <span>🤖 AI Maslahatchi botga o‘tish (@Vatan2333_bot)</span>
               </a>
 
-              <button
-                onClick={onClose}
-                className="flex-1 py-3.5 px-6 rounded-xl sky-gradient-bg text-white font-extrabold text-xs cursor-pointer shadow-md"
-              >
-                Yopish
-              </button>
+              <div className="flex flex-col sm:flex-row gap-2.5">
+                <a
+                  href={`tel:${PROJECT_DETAILS.location.salesPhone}`}
+                  className="flex-1 py-3 px-4 rounded-xl bg-white hover:bg-sky-50 border border-sky-300 text-sky-800 font-bold text-xs flex items-center justify-center gap-2 shadow-xs"
+                >
+                  <PhoneCall className="w-4 h-4 text-sky-600" />
+                  <span>Qo‘ng‘iroq qilish</span>
+                </a>
+
+                <button
+                  onClick={onClose}
+                  className="flex-1 py-3 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs cursor-pointer"
+                >
+                  Yopish
+                </button>
+              </div>
             </div>
           </div>
         ) : (
