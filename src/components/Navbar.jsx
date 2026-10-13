@@ -30,20 +30,26 @@ export default function Navbar({ onOpenBooking, onScrollTo }) {
             onClick={() => handleNavClick('hero')}
             className="flex items-center gap-3.5 cursor-pointer group py-1"
           >
-            {/* Aylanib turuvchi oltin Vatan logosi */}
-            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br from-amber-50/80 via-white to-sky-50/80 border-2 border-amber-300/80 shadow-md group-hover:border-amber-400 group-hover:shadow-lg transition-all flex items-center justify-center p-1.5 shrink-0 overflow-hidden relative">
+            {/* Aylanib turuvchi Vatan logosi */}
+            <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-white border border-sky-200/90 shadow-sm flex items-center justify-center p-1 shrink-0 overflow-hidden relative group-hover:scale-105 transition-transform">
               <img 
-                src="/vatan-emblem.png" 
-                alt="VATAN Emblema" 
-                className="h-full w-full object-contain animate-spin-3d drop-shadow-sm"
+                src="/vatan-full-logo.png" 
+                alt="VATAN QK Logo" 
+                className="w-full h-full object-contain animate-spin-3d"
+                onError={(e) => { e.target.src = '/vatan-logo.png'; }}
               />
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl sm:text-[28px] font-black tracking-wider text-slate-950 flex items-center leading-none">
-                VATAN
-              </span>
-              <span className="text-xs sm:text-[13px] font-extrabold text-sky-800 tracking-wide mt-1">
-                Yangi Qo‘yliq-2 majmuasi
+              <div className="flex items-center gap-1.5 leading-none">
+                <span className="text-2xl sm:text-[28px] font-black tracking-wider text-slate-950">
+                  VATAN
+                </span>
+                <span className="text-xs sm:text-sm font-black px-1.5 py-0.5 rounded-md bg-sky-100 text-sky-800 border border-sky-300 tracking-wider">
+                  QK
+                </span>
+              </div>
+              <span className="text-xs sm:text-[13px] font-bold text-slate-600 tracking-wide mt-1">
+                Yangi Qo‘yliq-2 loyihasi
               </span>
             </div>
           </div>

@@ -241,7 +241,7 @@ export default function CompanyTrust({ onOpenBooking }) {
           {/* CTA Footer */}
           <div className="mt-10 pt-6 border-t border-sky-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
             <div>
-              <p className="text-sm font-semibold text-slate-900">Yangi Qo‘yliq-2 majmuasida qulay shartlarda xonadon band qilishni xohlaysizmi?</p>
+              <p className="text-sm font-semibold text-slate-900">Yangi Qo‘yliq-2 loyihasida qulay shartlarda xonadon band qilishni xohlaysizmi?</p>
               <p className="text-xs text-slate-600">Eng qulay boshlang‘ich narxlar va 30 oylik foizsiz bo‘lib to‘lash imkoniyati</p>
             </div>
             <button

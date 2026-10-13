@@ -13,8 +13,11 @@ export default function Footer({ onScrollTo, onOpenBooking }) {
           {/* Col 1: Brand & Logo */}
           <div>
             <div className="mb-4">
-              <span className="text-2xl font-black text-slate-900 tracking-wider">VATAN</span>
-              <span className="block text-xs text-sky-800 font-extrabold mt-0.5">{PROJECT_DETAILS.brandSubtitle}</span>
+              <div className="flex items-center gap-1.5 leading-none">
+                <span className="text-2xl font-black text-slate-900 tracking-wider">VATAN</span>
+                <span className="text-xs font-black px-1.5 py-0.5 rounded-md bg-sky-100 text-sky-800 border border-sky-300 tracking-wider">QK</span>
+              </div>
+              <span className="block text-xs text-sky-800 font-extrabold mt-1">{PROJECT_DETAILS.brandSubtitle}</span>
             </div>
 
             <p className="text-xs text-slate-600 leading-relaxed mb-4">
@@ -166,7 +169,7 @@ export default function Footer({ onScrollTo, onOpenBooking }) {
         <div className="pt-8 border-t border-sky-200/80 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-3">
           <p>© 2013 — 2026 "VATAN" qurilish kompaniyasi. Barcha huquqlar himoyalangan.</p>
           <div className="flex items-center gap-4">
-            <span>Yangi Qo‘yliq-2 Turar-joy majmuasi</span>
+            <span>Yangi Qo‘yliq-2 loyihasi</span>
             <span>•</span>
             <a 
               href={PROJECT_DETAILS.location.telegramChannel} 
