@@ -23,15 +23,15 @@ export default function Hero({ onOpenBooking, onScrollTo }) {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* 2 Ustunli asosiy Hero grid: Chapda matn & CTA, o'ngda 2-rasm (Qizil chiziq bilan belgilangan joy) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12 sm:mb-16">
+        {/* 2 Ustunli asosiy Hero grid: Chapda ixcham matn & CTA, o'ngda KATTA 2-rasm */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-10 sm:mb-14">
           
-          {/* Chap ustun (7 ustun): Sarlavha, ma'lumot va CTA tugmalari */}
-          <div className="lg:col-span-7 text-center lg:text-left">
+          {/* Chap ustun (5 ustun): Ixcham va nafis sarlavha, ma'lumot va CTA tugmalari */}
+          <div className="lg:col-span-5 text-center lg:text-left">
             
             {/* Floating Trust Badge with Brand Logo */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/95 border border-sky-200 text-sky-800 text-xs sm:text-sm font-semibold mb-6 shadow-md backdrop-blur-md">
-              <div className="w-6 h-6 rounded-md bg-white p-0.5 flex items-center justify-center overflow-hidden shrink-0 shadow-xs border border-sky-100">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 border border-sky-200 text-sky-800 text-[11px] sm:text-xs font-semibold mb-4 shadow-sm backdrop-blur-md">
+              <div className="w-5 h-5 rounded-md bg-white p-0.5 flex items-center justify-center overflow-hidden shrink-0 shadow-xs border border-sky-100">
                 <img 
                   src={PROJECT_DETAILS.brandLogo} 
                   alt="VATAN" 
@@ -42,56 +42,56 @@ export default function Hero({ onOpenBooking, onScrollTo }) {
               <span className="text-slate-800 font-bold">VATAN Qurilish Kompaniyasi</span>
               <span className="text-sky-300">|</span>
               <span className="text-sky-700 font-medium flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-sky-600" />
-                Yangi Toshkent hududi (Food City)
+                <MapPin className="w-3 h-3 text-sky-600" />
+                Food City ro‘parasi
               </span>
             </div>
 
-            {/* 1. Kuchli sarlavha */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 leading-[1.15] mb-5">
+            {/* 1. Kuchli, ixchamlashtirilgan sarlavha */}
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[34px] xl:text-[38px] font-black tracking-tight text-slate-900 leading-[1.2] mb-3.5">
               Yangi Qo‘yliq-2 — <br className="hidden sm:inline" />
               <span className="sky-gradient-text">Kelajakdagi shinam xonadoningiz</span>
             </h1>
 
-            {/* Subtitr */}
-            <p className="text-base sm:text-lg text-slate-700 font-normal leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+            {/* Subtitr - ixcham matn */}
+            <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0">
               Yangi Toshkent hududida joylashgan zamonaviy <span className="text-sky-700 font-bold">'Comfort class'</span> turar-joy majmuasi. 
               30 oygacha 0% foizsiz bo‘lib to‘lash, 70% tayyor ta’mirlash va 24 soatlik bepul bron qilish imkoniyati.
             </p>
 
-            {/* CTA tugmalari: Xonadon tanlash va Maslahat olish */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            {/* CTA tugmalari */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               
               {/* CTA 1: Xonadon tanlash */}
               <button 
                 onClick={() => onScrollTo('catalog')}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl sky-gradient-bg text-white font-black text-sm sm:text-base hover:brightness-110 shadow-xl shadow-sky-600/25 transition-all flex items-center justify-center gap-2.5 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl sky-gradient-bg text-white font-extrabold text-xs sm:text-sm hover:brightness-110 shadow-lg shadow-sky-600/25 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
               >
-                <Home className="w-5 h-5 text-white" />
+                <Home className="w-4 h-4 text-white" />
                 <span>Xonadon tanlash</span>
-                <ChevronRight className="w-4 h-4 text-white/80 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-3.5 h-3.5 text-white/80 group-hover:translate-x-1 transition-transform" />
               </button>
 
               {/* CTA 2: Maslahat olish */}
               <button 
                 onClick={() => onOpenBooking ? onOpenBooking({ title: "Bosh sahifadan konsultatsiya", source: "Hero CTA" }) : onScrollTo('contact')}
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white border-2 border-sky-300 hover:border-sky-500 text-sky-800 font-extrabold text-sm sm:text-base hover:bg-sky-50 shadow-md transition-all flex items-center justify-center gap-2.5 backdrop-blur-md transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white border border-sky-300 hover:border-sky-500 text-sky-800 font-extrabold text-xs sm:text-sm hover:bg-sky-50 shadow-sm transition-all flex items-center justify-center gap-2 backdrop-blur-md transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
               >
-                <PhoneCall className="w-5 h-5 text-sky-600 group-hover:scale-110 transition-transform" />
+                <PhoneCall className="w-4 h-4 text-sky-600 group-hover:scale-110 transition-transform" />
                 <span>Maslahat olish</span>
-                <ChevronRight className="w-4 h-4 text-sky-500 group-hover:translate-x-1 transition-transform" />
+                <ChevronRight className="w-3.5 h-3.5 text-sky-500 group-hover:translate-x-1 transition-transform" />
               </button>
 
             </div>
 
           </div>
 
-          {/* O'ng ustun (5 ustun): QIZIL CHIZIQ BILAN BELGILANGAN JOY (2-rasm) */}
-          <div className="lg:col-span-5">
-            <div className="relative group rounded-3xl overflow-hidden border-2 border-sky-200/90 bg-white shadow-2xl shadow-sky-900/15 transform hover:scale-[1.01] transition-all duration-300">
+          {/* O'ng ustun (7 ustun): KATTALASHTIRILGAN 2-RASM */}
+          <div className="lg:col-span-7">
+            <div className="relative group rounded-3xl overflow-hidden border-2 border-sky-300/80 bg-white shadow-2xl shadow-sky-900/20 transform hover:scale-[1.01] transition-all duration-300">
               
-              {/* 2-Rasm (Tungi arxitektura chizmasi & VATAN brendi) */}
-              <div className="aspect-[4/3] sm:aspect-[16/11] lg:aspect-[4/3] w-full overflow-hidden bg-slate-900">
+              {/* Katta 2-Rasm (Tungi arxitektura chizmasi & VATAN brendi) */}
+              <div className="aspect-[16/10] sm:aspect-[16/10] lg:aspect-[16/10] w-full overflow-hidden bg-slate-950">
                 <img 
                   src="/vatan-hero-night.jpg" 
                   alt="Yangi Qo‘yliq-2 Turar-joy majmuasi tungi 3D ko‘rinishi — VATAN" 
@@ -101,14 +101,14 @@ export default function Hero({ onOpenBooking, onScrollTo }) {
               </div>
 
               {/* Rasm ustidagi zamonaviy badge / overlay */}
-              <div className="absolute top-3.5 left-3.5 bg-slate-900/80 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full flex items-center gap-2 text-white text-xs font-bold shadow-lg">
+              <div className="absolute top-4 left-4 bg-slate-900/85 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full flex items-center gap-2 text-white text-xs font-bold shadow-xl">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>13 gektar zamonaviy hudud</span>
               </div>
 
-              <div className="absolute bottom-3.5 right-3.5 bg-white/95 backdrop-blur-md border border-sky-200 px-3 py-1.5 rounded-xl shadow-lg text-slate-900 text-xs font-black flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Comfort Class</span>
+              <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md border border-sky-200 px-3.5 py-1.5 rounded-xl shadow-xl text-slate-900 text-xs font-black flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>Comfort Class majmuasi</span>
               </div>
 
             </div>
