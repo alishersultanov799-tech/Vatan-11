@@ -1,9 +1,7 @@
 /**
- * Local Telegram AI Bot Polling Runner
- * Botni hoziroq kompyuteringizda sinab ko'rish uchun!
- * 
+ * Local Telegram AI Bot Polling Runner for "Yangi Qo‘yliq-2" (VATAN)
  * Bot: @Vatan2333_bot
- * Manager: 5677180840
+ * Manager: Alisher (5677180840 / +998 94 603 23 33)
  */
 
 import fs from 'fs';
@@ -33,53 +31,74 @@ const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 const SYSTEM_KNOWLEDGE_BASE = `
 Sen — "VATAN" qurilish kompaniyasining "Yangi Qo‘yliq-2" zamonaviy turar-joy majmuasi rasmiy professional AI-maslahatchisisan.
 
-LOYIHA VA KOMPANIYA HAQIDA ANIQ FAKTLAR:
-1. Kompaniya: "VATAN" qurilish kompaniyasi 2013-yildan buyon faoliyat yuritadi. 10 000+ topshirilgan xonadonlar, 7 000+ tijoriy noturar do‘konlar, davlat litsenziyasi va to‘liq qonuniy kafolatli shartnomalar.
+LOYIHA VA KOMPANIYA HAQIDA ASOSIY FAKTLAR:
+1. Kompaniya: "VATAN" qurilish kompaniyasi (2013-yildan buyon faoliyat yuritadi, 10 000+ topshirilgan xonadonlar, to‘liq qonuniy shartnomalar).
 2. Majmua: "Yangi Qo‘yliq-2" (Comfort class).
-3. Hududi: 13 gektar katta yashil hudud, 12 qavatli zilzilabardosh monolit binolar (jami 3 800 ta xonadon).
-4. Ta'mirlash holati: 70% tayyor ta'mirlash bilan topshiriladi (kirish temir eshiklari, zamonaviy derazalar, barcha kommunikatsiyalar — suv, elektr, gaz, pol styajkasi, devorlar gipslashgan).
+3. Hududi: 13 gektar, 12 qavatli zilzilabardosh monolit binolar (3 800 ta xonadon).
+4. Ta'mirlash holati: 70% tayyor ta'mirlash bilan topshiriladi (kirish temir eshigi, sifatli plastik derazalar, barcha kommunikatsiyalar — suv, elektr, gaz, pol styajkasi, devorlar gipslangan).
 5. Topshirish muddati: 2028-yil 4-chorak.
-6. Joylashuv va lokatsiya:
-   - Toshkent viloyati, O‘rtachirchiq tumani, O‘choqli MFY, Yashnobod ko‘chasi, 44a-uy (Yangi Toshkent hududi).
-   - Bosh mo‘ljal: Food City yirik agro-savdo majmuasi chorrahasi ro‘parasi (atigi 2 daqiqa).
-   - Qo‘yliq metrosi va dehqon bozoridan 8 daqiqa.
-   - Yandex Maps rasmiy ofis lokatsiyasi: https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8
-7. Infratuzilma: Hudud ichida zamonaviy maktab, bolalar bog‘chasi, Korzinka supermarketi, keng avtoturargoh, 13 gektar obodonlashtirilgan eko-zona, sun'iy ko‘l va ochiq amfiteatr.
+6. Joylashuv: Toshkent viloyati, O‘rtachirchiq tumani, O‘choqli MFY, Yashnobod ko‘chasi, 44a-uy (Yangi Toshkent hududi, Food City bozori ro‘parasi, Qo‘yliq metrosidan 8 daqiqa).
+   Yandex Maps: https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8
+7. Infratuzilma: Maktab, bolalar bog‘chasi, Korzinka supermarketi, sun'iy ko‘l, ochiq amfiteatr, bolalar maydonchalari, yerosti avtoturargohi.
 
-XONADONLAR TURLARI VA BO'LIB TO'LASH SHARTLARI (30 OY 0% FOIZSIZ):
-1) 1 xonali xonadonlar (7 xil planirovka):
-   - Maydonlari: 22 m² (studio), 25 m², 34 m², 39 m², 41 m², 43 m², 49 m².
-   - Boshlang‘ich to‘lov: 60 mln so‘mdan boshlanadi.
-   - Oylik to‘lov: 4 mln so‘m (30 oy davomida 0% foizsiz).
-   - 22 m² va 25 m² faqat 100% to‘lov bilan ham sotiladi (eng arzon variantlar).
-2) 2 xonali xonadonlar (2 xil oilaviy planirovka):
-   - Maydonlari: 54 m² va 55 m².
-   - Boshlang‘ich to‘lov: 75 mln so‘mdan boshlanadi.
-   - Oylik to‘lov: 5 mln so‘m (30 oy davomida 0% foizsiz).
-3) 3 xonali xonadonlar (2 xil keng planirovka):
-   - Maydonlari: 70 m² va 77 m².
-   - Boshlang‘ich to‘lov: 99 mln so‘mdan boshlanadi.
-   - Oylik to‘lov: 6 mln so‘m (30 oy davomida 0% foizsiz).
+QAT'IY VA MUHIM TO'LOV QOIDALARI (HECH QACHON ADASHTIRMA!):
 
-CHEGIRMALAR VA TO'LOV VARIANTLARI:
-- 100% to‘liq to‘lov qilinganda: 33% KATTA CHEGIRMA beriladi!
-- 50% boshlang‘ich to‘lovda: 15% chegirma.
-- 30% boshlang‘ich to‘lovda: 10% chegirma.
-- Qavatlar bo‘yicha farq: 2-3-4-qavatlar talabgir (standart), 5-6-7-8-qavatlar arzonroq, 9-10-11-12-qavatlar eng arzon narxlarda!
-- 31-oydagi qoldiq summa uchun: Naqd, Bank ipotekasi yoki Davlat subsidiyasi variantlari mavjud.
+1. FAQAT 100% TO'LOVGA SOTILADIGAN XONADONLAR (22 m², 25 m², 34 m², 39 m²):
+   ⚠️ BU XONADONLAR BO'LIB TO'LASHGA BERILMAYDI!
+   Bu xonadonlarni faqat 100% to'lovda 33% KATTA CHEGIRMA bilan uyni umumiy summasini to'liq to'lab olish mumkin!
+   
+   Aniq narxlari (33% chegirma bilan 100% to'lovda):
+   • 22 m² (Studio):
+     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 165 825 000 so'm (~165.8 mln)
+     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 158 455 000 so'm (~158.5 mln)
+     - 9–12-qavatlar: 1 m² = 6 867 500 so'm | Jami: 151 085 000 so'm (~151.1 mln)
+   • 25 m² (Studio):
+     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 188 437 500 so'm (~188.4 mln)
+     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 180 062 500 so'm (~180.1 mln)
+     - 9–12-qavatlar: 1 m² = 6 867 500 so'm | Jami: 171 687 500 so'm (~171.7 mln)
+   • 34 m² (1 xonali):
+     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 256 275 000 so'm (~256.3 mln)
+     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 244 885 000 so'm (~244.9 mln)
+     - 9–12-qavatlar: 1 m² = 6 867 500 so'm | Jami: 233 495 000 so'm (~233.5 mln)
+   • 39 m² (1 xonali):
+     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 293 962 500 so'm (~294.0 mln)
+     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 280 897 500 so'm (~280.9 mln)
+     - 9–12-qavatlar: 1 m² = 6 867 500 so'm | Jami: 267 832 500 so'm (~267.8 mln)
+
+2. 30 OYGACHA 0% FOIZSIZ BO'LIB TO'LASHGA BERILADIGAN XONADONLAR:
+   Faqat quyidagi xonadonlarni bo'lib to'lashga olish mumkin:
+   
+   A) 1 xonali (Faqat 41 m², 43 m², 49 m²):
+      - Boshlang‘ich to‘lov: 60 000 000 so‘m (60 mln)
+      - Oylik to‘lov: 4 000 000 so‘m (4 mln) — 30 oy 0% foizsiz!
+      - 100% to‘lovda (33% chegirma bilan):
+        * 41 m²: 1 m² = 6 867 500 – 7 537 500 so'm | Jami: 281.6 mln – 309.0 mln so'm
+        * 43 m²: 1 m² = 6 867 500 – 7 537 500 so'm | Jami: 295.3 mln – 324.1 mln so'm
+        * 49 m²: 1 m² = 6 867 500 – 7 537 500 so'm | Jami: 336.5 mln – 369.3 mln so'm
+
+   B) 2 xonali (54 m² va 55 m²):
+      - Boshlang‘ich to‘lov: 75 000 000 so‘m (75 mln)
+      - Oylik to‘lov: 5 000 000 so‘m (5 mln) — 30 oy 0% foizsiz!
+      - 100% to‘lovda (33% chegirma bilan):
+        * 54 m²: 1 m² = 6 532 500 – 7 202 500 so'm | Jami: 352.8 mln – 388.9 mln so'm
+        * 55 m²: 1 m² = 6 532 500 – 7 202 500 so'm | Jami: 359.3 mln – 396.1 mln so'm
+
+   C) 3 xonali (70 m² va 77 m²):
+      - Boshlang‘ich to‘lov: 99 000 000 so‘m (99 mln)
+      - Oylik to‘lov: 6 000 000 so‘m (6 mln) — 30 oy 0% foizsiz!
+      - 100% to‘lovda (33% chegirma bilan):
+        * 70 m²: 1 m² = 6 197 500 – 6 867 500 so'm | Jami: 433.8 mln – 480.7 mln so'm
+        * 77 m²: 1 m² = 6 197 500 – 6 867 500 so'm | Jami: 477.2 mln – 528.8 mln so'm
 
 ALOQA VA SOTUV OFISI:
-- Sotuv menejeri: Alisher
+- Bosh menejer: Alisher
 - Telefon: +998 94 603 23 33
 - Telegram: @alisher_yangiqoyliq
 - Ish vaqti: Har kuni 09:00 — 18:00 (dam olish kunlarisiz).
 
-SENING VAZIFANG VA XULQ-ATVORING:
-- Mijoz qaysi tilda yozsa (o‘zbek lotin, o‘zbek kirill yoki ruscha), aynan o‘sha tilda muloyim, samimiy va professional javob ber.
-- Javoblaring aniq, lo‘nda va tushunarli bo‘lsin. Keraksiz uzun jumlalar yozma, chiroyli emoji va punktlardan foydalan.
-- Narxlar, oylik to‘lovlar yoki maydonlar haqida so‘rashsa, yuqoridagi aniq raqamlarni keltir.
-- Har bir javobing oxirida mijozni harakatga unda: masalan, "Sizga aynan necha xonali xonadon ma'qulroq?", yoki "Aniq hisob-kitob qilishimiz uchun telefon raqamingizni qoldirasizmi, menejerimiz Alisher batafsil ma'lumot beradi".
-- Agar mijoz telefon raqamini yozsa, albatta minnatdorchilik bildir va tez orada menejer Alisher bog‘lanishini ayt.
+SENING JAVOBLARING:
+- Mijozning har qanday savoliga aniq raqamlar, 1 m² va umumiy narxlari bilan tushuntir.
+- 34 va 39 m² uylar bo'yicha so'rashsa, albatta ularni faqat 100% to'lovga olish mumkinligini, bo'lib to'lashga berilmasligini alohida ta'kidla!
 `;
 
 async function sendTelegramMessage(chatId, text, replyMarkup = null) {
@@ -130,7 +149,7 @@ async function askGeminiAI(userMessage, userName = 'Mijoz') {
           }
         ],
         generationConfig: {
-          temperature: 0.7,
+          temperature: 0.6,
           maxOutputTokens: 800
         }
       };
@@ -161,54 +180,220 @@ async function askGeminiAI(userMessage, userName = 'Mijoz') {
 function generateSmartFallback(msg) {
   const text = (msg || '').toLowerCase();
 
+  // 1. 22 m² Studio
+  if (text.includes('22')) {
+    return `💵 <b>22 m² Studio xonadon (FAQAT 100% TO‘LOVGA):</b>\n\n` +
+      `⚠️ <b>Eslatma:</b> 22 m² xonadon bo‘lib to‘lashga berilmaydi! Faqat 100% to‘lovda <b>33% KATTA CHEGIRMA</b> bilan to‘liq to‘lab sotib olinadi.\n\n` +
+      `📊 <b>Qavatlar bo‘yicha 1 m² va xonadonning umumiy narxi:</b>\n` +
+      `• <b>9–12-qavatlar (eng arzon):</b>\n` +
+      `  1 m²: <b>6 867 500 so‘m</b> | Jami: <b>151 085 000 so‘m</b> (~151.1 mln)\n` +
+      `• <b>5–8-qavatlar (arzonroq):</b>\n` +
+      `  1 m²: <b>7 202 500 so‘m</b> | Jami: <b>158 455 000 so‘m</b> (~158.5 mln)\n` +
+      `• <b>2–4-qavatlar (talabgir):</b>\n` +
+      `  1 m²: <b>7 537 500 so‘m</b> | Jami: <b>165 825 000 so‘m</b> (~165.8 mln)\n\n` +
+      `🏗 <b>Topshirish:</b> 2028-yil 4-chorak (70% tayyor ta'mirlangan).\n` +
+      `Batafsil ma'lumot olish yoki xonadonni bepul bron qilish uchun telefon raqamingizni qoldiring!`;
+  }
+
+  // 2. 25 m² Studio
+  if (text.includes('25')) {
+    return `💵 <b>25 m² Studio xonadon (FAQAT 100% TO‘LOVGA):</b>\n\n` +
+      `⚠️ <b>Eslatma:</b> 25 m² xonadon bo‘lib to‘lashga berilmaydi! Faqat 100% to‘lovda <b>33% KATTA CHEGIRMA</b> bilan to‘liq to‘lab sotib olinadi.\n\n` +
+      `📊 <b>Qavatlar bo‘yicha 1 m² va xonadonning umumiy narxi:</b>\n` +
+      `• <b>9–12-qavatlar (eng arzon):</b>\n` +
+      `  1 m²: <b>6 867 500 so‘m</b> | Jami: <b>171 687 500 so‘m</b> (~171.7 mln)\n` +
+      `• <b>5–8-qavatlar (arzonroq):</b>\n` +
+      `  1 m²: <b>7 202 500 so‘m</b> | Jami: <b>180 062 500 so‘m</b> (~180.1 mln)\n` +
+      `• <b>2–4-qavatlar (talabgir):</b>\n` +
+      `  1 m²: <b>7 537 500 so‘m</b> | Jami: <b>188 437 500 so‘m</b> (~188.4 mln)\n\n` +
+      `🏗 <b>Topshirish:</b> 2028-yil 4-chorak (70% tayyor ta'mirlangan).\n` +
+      `Qaysi qavat sizga qulayroq? Telefon raqamingizni yozsangiz, batafsil ma'lumot beramiz!`;
+  }
+
+  // 3. 34 m² (Faqat 100% to'lov!)
+  if (text.includes('34')) {
+    return `💵 <b>34 m² 1 xonali xonadon (FAQAT 100% TO‘LOVGA):</b>\n\n` +
+      `⚠️ <b>MUHIM:</b> 34 m² xonadon bo‘lib to‘lashga BERILMAYDI! Faqat 100% to‘lov bilan, <b>33% KATTA CHEGIRMA</b> narxida umumiy summasi to‘liq to‘lab sotib olinadi.\n\n` +
+      `📊 <b>Qavatlar bo‘yicha 1 m² va xonadonning umumiy narxi (33% chegirmada):</b>\n` +
+      `• <b>9–12-qavatlar (eng arzon):</b>\n` +
+      `  1 m²: <b>6 867 500 so‘m</b> | Jami: <b>233 495 000 so‘m</b> (~233.5 mln)\n` +
+      `• <b>5–8-qavatlar (arzonroq):</b>\n` +
+      `  1 m²: <b>7 202 500 so‘m</b> | Jami: <b>244 885 000 so‘m</b> (~244.9 mln)\n` +
+      `• <b>2–4-qavatlar (talabgir):</b>\n` +
+      `  1 m²: <b>7 537 500 so‘m</b> | Jami: <b>256 275 000 so‘m</b> (~256.3 mln)\n\n` +
+      `🏗 <b>Topshirish:</b> 2028-yil 4-chorak (70% ta'mirlangan).\n` +
+      `Bron qilish yoki ofisga tashrif buyurish uchun telefon raqamingizni qoldiring!`;
+  }
+
+  // 4. 39 m² (Faqat 100% to'lov!)
+  if (text.includes('39')) {
+    return `💵 <b>39 m² 1 xonali xonadon (FAQAT 100% TO‘LOVGA):</b>\n\n` +
+      `⚠️ <b>MUHIM:</b> 39 m² xonadon bo‘lib to‘lashga BERILMAYDI! Faqat 100% to‘lov bilan, <b>33% KATTA CHEGIRMA</b> narxida umumiy summasi to‘liq to‘lab sotib olinadi.\n\n` +
+      `📊 <b>Qavatlar bo‘yicha 1 m² va xonadonning umumiy narxi (33% chegirmada):</b>\n` +
+      `• <b>9–12-qavatlar (eng arzon):</b>\n` +
+      `  1 m²: <b>6 867 500 so‘m</b> | Jami: <b>267 832 500 so‘m</b> (~267.8 mln)\n` +
+      `• <b>5–8-qavatlar (arzonroq):</b>\n` +
+      `  1 m²: <b>7 202 500 so‘m</b> | Jami: <b>280 897 500 so‘m</b> (~280.9 mln)\n` +
+      `• <b>2–4-qavatlar (talabgir):</b>\n` +
+      `  1 m²: <b>7 537 500 so‘m</b> | Jami: <b>293 962 500 so‘m</b> (~294.0 mln)\n\n` +
+      `🏗 <b>Topshirish:</b> 2028-yil 4-chorak (70% ta'mirlangan).\n` +
+      `Menejerimiz Alisher (+998 94 603 23 33) bilan bog‘lanish uchun raqamingizni qoldiring!`;
+  }
+
+  // 5. Faqat 100% to'lov guruhi (22, 25, 34, 39)
+  if (text.includes('faqat 100') || text.includes('100% to') || text.includes('100 %')) {
+    return `💵 <b>FAQAT 100% TO‘LOVGA SOTILADIGAN XONADONLAR:</b>\n\n` +
+      `⚠️ <b>Eslatma:</b> 22, 25, 34 va 39 m² xonadonlar bo‘lib to‘lashga BERILMAYDI! Bu xonadonlarni faqat 100% to‘lovda <b>33% KATTA CHEGIRMA</b> bilan xonadonning umumiy summasini to‘liq to‘lab olish mumkin.\n\n` +
+      `• <b>22 m² (Studio):</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>151.1 mln – 165.8 mln so‘m</b>\n` +
+      `• <b>25 m² (Studio):</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>171.7 mln – 188.4 mln so‘m</b>\n` +
+      `• <b>34 m² (1 xona):</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>233.5 mln – 256.3 mln so‘m</b>\n` +
+      `• <b>39 m² (1 xona):</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>267.8 mln – 294.0 mln so‘m</b>\n\n` +
+      `Sizga aynan qaysi maydon qiziq? Raqamingizni qoldirsangiz, batafsil hisob-kitob qilib beramiz!`;
+  }
+
+  // 6. 41 m² (Bo'lib to'lash bor)
+  if (text.includes('41')) {
+    return `🏢 <b>41 m² 1 xonali xonadon:</b>\n\n` +
+      `✅ Bu xonadonni <b>30 oygacha 0% foizsiz bo‘lib to‘lash</b> imkoniyati mavjud!\n\n` +
+      `💰 <b>Bo‘lib to‘lash shartlari (30 oy 0%):</b>\n` +
+      `• <b>Boshlang‘ich to‘lov:</b> 60 000 000 so‘m (60 mln)\n` +
+      `• <b>Oylik to‘lov:</b> 4 000 000 so‘m (4 mln) — 30 oy ustamasiz!\n\n` +
+      `🎁 <b>Yoki 100% to‘lovda (33% katta chegirma):</b>\n` +
+      `• 9–12-qavatlar: 1 m² = 6 867 500 so‘m | Jami: <b>281 567 500 so‘m</b> (~281.6 mln)\n` +
+      `• 5–8-qavatlar: 1 m² = 7 202 500 so‘m | Jami: <b>295 302 500 so‘m</b> (~295.3 mln)\n` +
+      `• 2–4-qavatlar: 1 m² = 7 537 500 so‘m | Jami: <b>309 037 500 so‘m</b> (~309.0 mln)\n\n` +
+      `Xonadonni bron qilish uchun telefon raqamingizni qoldiring!`;
+  }
+
+  // 7. 43 m² (Bo'lib to'lash bor)
+  if (text.includes('43')) {
+    return `🏢 <b>43 m² 1 xonali xonadon:</b>\n\n` +
+      `✅ Bu xonadonni <b>30 oygacha 0% foizsiz bo‘lib to‘lash</b> imkoniyati mavjud!\n\n` +
+      `💰 <b>Bo‘lib to‘lash shartlari (30 oy 0%):</b>\n` +
+      `• <b>Boshlang‘ich to‘lov:</b> 60 000 000 so‘m (60 mln)\n` +
+      `• <b>Oylik to‘lov:</b> 4 000 000 so‘m (4 mln) — 30 oy ustamasiz!\n\n` +
+      `🎁 <b>Yoki 100% to‘lovda (33% katta chegirma):</b>\n` +
+      `• 9–12-qavatlar: 1 m² = 6 867 500 so‘m | Jami: <b>295 302 500 so‘m</b> (~295.3 mln)\n` +
+      `• 5–8-qavatlar: 1 m² = 7 202 500 so‘m | Jami: <b>309 707 500 so‘m</b> (~309.7 mln)\n` +
+      `• 2–4-qavatlar: 1 m² = 7 537 500 so‘m | Jami: <b>324 112 500 so‘m</b> (~324.1 mln)\n\n` +
+      `Xonadonni bron qilish uchun telefon raqamingizni qoldiring!`;
+  }
+
+  // 8. 49 m² (Bo'lib to'lash bor)
+  if (text.includes('49')) {
+    return `🏢 <b>49 m² 1 xonali keng xonadon:</b>\n\n` +
+      `✅ Bu xonadonni <b>30 oygacha 0% foizsiz bo‘lib to‘lash</b> imkoniyati mavjud!\n\n` +
+      `💰 <b>Bo‘lib to‘lash shartlari (30 oy 0%):</b>\n` +
+      `• <b>Boshlang‘ich to‘lov:</b> 60 000 000 so‘m (60 mln)\n` +
+      `• <b>Oylik to‘lov:</b> 4 000 000 so‘m (4 mln) — 30 oy ustamasiz!\n\n` +
+      `🎁 <b>Yoki 100% to‘lovda (33% katta chegirma):</b>\n` +
+      `• 9–12-qavatlar: 1 m² = 6 867 500 so‘m | Jami: <b>336 507 500 so‘m</b> (~336.5 mln)\n` +
+      `• 5–8-qavatlar: 1 m² = 7 202 500 so‘m | Jami: <b>352 922 500 so‘m</b> (~352.9 mln)\n` +
+      `• 2–4-qavatlar: 1 m² = 7 537 500 so‘m | Jami: <b>369 337 500 so‘m</b> (~369.3 mln)\n\n` +
+      `Xonadonni bron qilish uchun telefon raqamingizni qoldiring!`;
+  }
+
+  // 9. 1 xonali umumiy savol
   if (text.includes('1 xona') || text.includes('1-xona') || text.includes('studio') || text.includes('bir xona')) {
-    return `🏢 <b>1 xonali xonadonlar (22 m² dan 49 m² gacha):</b>\n\n` +
-      `• <b>Maydonlar:</b> 22 m² (studio), 25 m², 34 m², 39 m², 41 m², 43 m², 49 m²\n` +
-      `• <b>Boshlang‘ich to‘lov:</b> 60 mln so‘mdan boshlanadi\n` +
-      `• <b>Oylik to‘lov:</b> 4 mln so‘m (30 oy davomida 0% foizsiz!)\n` +
-      `• <b>100% to‘lovda:</b> 33% katta chegirma beriladi!\n` +
-      `• <b>Holati:</b> 70% tayyor ta'mirlangan (kommunikatsiyalar, devor, styajka, eshik, deraza)\n\n` +
-      `Sizga aynan qaysi maydon ma'qulroq? Telefon raqamingizni qoldirsangiz, menejerimiz Alisher sizga barcha chizmalarni yuboradi!`;
+    return `🏢 <b>1 xonali xonadonlar 2 toifaga bo‘linadi:</b>\n\n` +
+      `💵 <b>1. FAQAT 100% TO‘LOVGA (Bo‘lib to‘lash yo‘q, 33% chegirma bilan):</b>\n` +
+      `• <b>22 m²:</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>151.1 mln – 165.8 mln so‘m</b>\n` +
+      `• <b>25 m²:</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>171.7 mln – 188.4 mln so‘m</b>\n` +
+      `• <b>34 m²:</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>233.5 mln – 256.3 mln so‘m</b>\n` +
+      `• <b>39 m²:</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>267.8 mln – 294.0 mln so‘m</b>\n\n` +
+      `💰 <b>2. 30 OYGACHA 0% FOIZSIZ BO‘LIB TO‘LASHGA:</b>\n` +
+      `• <b>41, 43 va 49 m²</b> xonadonlar:\n` +
+      `  - <b>Boshlang‘ich to‘lov:</b> 60 mln so‘m\n` +
+      `  - <b>Oylik to‘lov:</b> 4 mln so‘m (30 oy davomida 0% ustama)\n` +
+      `  - 100% to‘lovda (33% chegirma): 281.6 mln – 369.3 mln so‘m\n\n` +
+      `Sizga qaysi to‘lov varianti ko‘proq ma'qul? Telefon raqamingizni qoldirsangiz, menejerimiz Alisher sizga barcha chizmalarni yuboradi!`;
   }
 
-  if (text.includes('2 xona') || text.includes('2-xona') || text.includes('ikki xona')) {
+  // 10. 54 m², 55 m² yoki 2 xonali
+  if (text.includes('54') || text.includes('55') || text.includes('2 xona') || text.includes('2-xona') || text.includes('ikki xona')) {
     return `🏢 <b>2 xonali oilaviy xonadonlar (54 m² va 55 m²):</b>\n\n` +
-      `• <b>Maydonlar:</b> 54 m² va 55 m² (qulay oilaviy reja)\n` +
-      `• <b>Boshlang‘ich to‘lov:</b> 75 mln so‘mdan boshlanadi\n` +
-      `• <b>Oylik to‘lov:</b> 5 mln so‘m (30 oy davomida 0% foizsiz!)\n` +
-      `• <b>Topshirish muddati:</b> 2028-yil 4-chorak (70% ta'mirlangan)\n\n` +
-      `Qaysi qavat sizga qulay: 2–4 (talabgir), 5–8 (arzonroq) yoki 9–12 (eng hamyonbop)? Telefon raqamingizni yozsangiz, batafsil hisob-kitob qilib beramiz!`;
+      `✅ Bu xonadonlarni <b>30 oygacha 0% foizsiz bo‘lib to‘lash</b> imkoniyati mavjud!\n\n` +
+      `💰 <b>Bo‘lib to‘lash shartlari (30 oy 0% ustama):</b>\n` +
+      `• <b>Boshlang‘ich to‘lov:</b> 75 000 000 so‘m (75 mln)\n` +
+      `• <b>Oylik to‘lov:</b> 5 000 000 so‘m (5 mln) — 30 oy davomida!\n\n` +
+      `🎁 <b>Yoki 100% to‘lovda (33% KATTA CHEGIRMA BILAN):</b>\n` +
+      `• <b>54 m²:</b>\n` +
+      `  - 9–12-qavatlar: 1 m² = 6 532 500 so‘m | Jami: <b>352 755 000 so‘m</b> (~352.8 mln)\n` +
+      `  - 5–8-qavatlar: 1 m² = 6 867 500 so‘m | Jami: <b>370 845 000 so‘m</b> (~370.8 mln)\n` +
+      `  - 2–4-qavatlar: 1 m² = 7 202 500 so‘m | Jami: <b>388 935 000 so‘m</b> (~388.9 mln)\n` +
+      `• <b>55 m²:</b>\n` +
+      `  - 9–12-qavatlar: 1 m² = 6 532 500 so‘m | Jami: <b>359 287 500 so‘m</b> (~359.3 mln)\n` +
+      `  - 5–8-qavatlar: 1 m² = 6 867 500 so‘m | Jami: <b>377 712 500 so‘m</b> (~377.7 mln)\n` +
+      `  - 2–4-qavatlar: 1 m² = 7 202 500 so‘m | Jami: <b>396 137 500 so‘m</b> (~396.1 mln)\n\n` +
+      `Topshirish: 2028-yil 4-chorak (70% ta'mirlangan). Telefon raqamingizni qoldiring, menejerimiz bog‘lanadi!`;
   }
 
-  if (text.includes('3 xona') || text.includes('3-xona') || text.includes('uch xona')) {
+  // 11. 70 m², 77 m² yoki 3 xonali
+  if (text.includes('70') || text.includes('77') || text.includes('3 xona') || text.includes('3-xona') || text.includes('uch xona')) {
     return `🏢 <b>3 xonali keng xonadonlar (70 m² va 77 m²):</b>\n\n` +
-      `• <b>Maydonlar:</b> 70 m² va 77 m² (keng mehmonxona, 2 ta yotoqxona, 2 ta sanuzel)\n` +
-      `• <b>Boshlang‘ich to‘lov:</b> 99 mln so‘mdan boshlanadi\n` +
-      `• <b>Oylik to‘lov:</b> 6 mln so‘m (30 oy davomida 0% foizsiz!)\n` +
-      `• <b>100% to‘lovda:</b> 33% gacha maxsus chegirma!\n\n` +
-      `Batafsil ma'lumot va bron qilish uchun telefon raqamingizni qoldiring, menejerimiz Alisher darhol bog‘lanadi!`;
+      `✅ Bu xonadonlarni <b>30 oygacha 0% foizsiz bo‘lib to‘lash</b> imkoniyati mavjud!\n\n` +
+      `💰 <b>Bo‘lib to‘lash shartlari (30 oy 0% ustama):</b>\n` +
+      `• <b>Boshlang‘ich to‘lov:</b> 99 000 000 so‘m (99 mln)\n` +
+      `• <b>Oylik to‘lov:</b> 6 000 000 so‘m (6 mln) — 30 oy davomida!\n\n` +
+      `🎁 <b>Yoki 100% to‘lovda (33% KATTA CHEGIRMA BILAN):</b>\n` +
+      `• <b>70 m²:</b>\n` +
+      `  - 9–12-qavatlar: 1 m² = 6 197 500 so‘m | Jami: <b>433 825 000 so‘m</b> (~433.8 mln)\n` +
+      `  - 5–8-qavatlar: 1 m² = 6 532 500 so‘m | Jami: <b>457 275 000 so‘m</b> (~457.3 mln)\n` +
+      `  - 2–4-qavatlar: 1 m² = 6 867 500 so‘m | Jami: <b>480 725 000 so‘m</b> (~480.7 mln)\n` +
+      `• <b>77 m²:</b>\n` +
+      `  - 9–12-qavatlar: 1 m² = 6 197 500 so‘m | Jami: <b>477 207 500 so‘m</b> (~477.2 mln)\n` +
+      `  - 5–8-qavatlar: 1 m² = 6 532 500 so‘m | Jami: <b>503 002 500 so‘m</b> (~503.0 mln)\n` +
+      `  - 2–4-qavatlar: 1 m² = 6 867 500 so‘m | Jami: <b>528 797 500 so‘m</b> (~528.8 mln)\n\n` +
+      `Katta oilalar uchun ideal kenglik! Telefon raqamingizni qoldiring, menejerimiz Alisher sizga yordam beradi!`;
   }
 
-  if (text.includes('narx') || text.includes('qancha') || text.includes('narxi') || text.includes('to‘lov') || text.includes('tolov') || text.includes('muddatli') || text.includes('bo‘lib') || text.includes('bolib') || text.includes('boshlang') || text.includes('oylik')) {
+  // 12. Barcha narxlar va 1 m² narxlari ("narx", "kvadrat", "1 m", "qancha", "prays", "katalog", "ro'yxat")
+  if (text.includes('narx') || text.includes('kvadrat') || text.includes('1 m') || text.includes('1m') || text.includes('qancha') || text.includes('prays') || text.includes('katalog') || text.includes('ro‘yxat') || text.includes('royxat')) {
+    return `📊 <b>"YANGI QO‘YLIQ-2" BARCHA XONADONLAR VA 1 M² NARXLARI:</b>\n\n` +
+      `💵 <b>1. FAQAT 100% TO‘LOVGA (33% CHEGIRMA BILAN) — Bo‘lib to‘lashga berilmaydi:</b>\n` +
+      `• <b>22 m² (Studio):</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>151.1 mln – 165.8 mln so‘m</b>\n` +
+      `• <b>25 m² (Studio):</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>171.7 mln – 188.4 mln so‘m</b>\n` +
+      `• <b>34 m² (1 xona):</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>233.5 mln – 256.3 mln so‘m</b>\n` +
+      `• <b>39 m² (1 xona):</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>267.8 mln – 294.0 mln so‘m</b>\n\n` +
+      `💰 <b>2. 30 OYGACHA 0% FOIZSIZ BO‘LIB TO‘LASHGA BERILADIGAN UYLAR:</b>\n` +
+      `🔹 <b>1 xonali (41, 43, 49 m²):</b>\n` +
+      `  • <b>Bosh to‘lov: 60 mln</b> | Oylik: 4 mln (30 oy)\n` +
+      `  • 41 m²: 1 m²: 6.87 – 7.54 mln | 100% to‘lovda: 281.6 – 309.0 mln\n` +
+      `  • 43 m²: 1 m²: 6.87 – 7.54 mln | 100% to‘lovda: 295.3 – 324.1 mln\n` +
+      `  • 49 m²: 1 m²: 6.87 – 7.54 mln | 100% to‘lovda: 336.5 – 369.3 mln\n\n` +
+      `🔹 <b>2 xonali (54, 55 m²):</b>\n` +
+      `  • <b>Bosh to‘lov: 75 mln</b> | Oylik: 5 mln (30 oy)\n` +
+      `  • 54 m²: 1 m²: 6.53 – 7.20 mln | 100% to‘lovda: 352.8 – 388.9 mln\n` +
+      `  • 55 m²: 1 m²: 6.53 – 7.20 mln | 100% to‘lovda: 359.3 – 396.1 mln\n\n` +
+      `🔹 <b>3 xonali (70, 77 m²):</b>\n` +
+      `  • <b>Bosh to‘lov: 99 mln</b> | Oylik: 6 mln (30 oy)\n` +
+      `  • 70 m²: 1 m²: 6.20 – 6.87 mln | 100% to‘lovda: 433.8 – 480.7 mln\n` +
+      `  • 77 m²: 1 m²: 6.20 – 6.87 mln | 100% to‘lovda: 477.2 – 528.8 mln\n\n` +
+      `Sizga aynan qaysi maydondagi xonadon qiziq? Telefon raqamingizni yozsangiz, xonadon chizmasini yuboramiz!`;
+  }
+
+  // 13. Bo'lib to'lash shartlari ("bo'lib", "bolib", "boshlang'ich", "oylik", "muddatli")
+  if (text.includes('bo‘lib') || text.includes('bolib') || text.includes('boshlang') || text.includes('oylik') || text.includes('muddatli') || text.includes('kredit') || text.includes('ipoteka')) {
     return `💰 <b>"Yangi Qo‘yliq-2" bo‘lib to‘lash shartlari (30 oy 0% ustamasiz):</b>\n\n` +
-      `1️⃣ <b>1 xonali (22–49 m²):</b> Bosh to‘lov 60 mln so‘m | Oylik 4 mln so‘m\n` +
-      `2️⃣ <b>2 xonali (54–55 m²):</b> Bosh to‘lov 75 mln so‘m | Oylik 5 mln so‘m\n` +
-      `3️⃣ <b>3 xonali (70–77 m²):</b> Bosh to‘lov 99 mln so‘m | Oylik 6 mln so‘m\n\n` +
-      `🎁 <b>Maxsus chegirmalar:</b>\n` +
-      `• 100% to‘liq to‘lovda — <b>33% KATTA CHEGIRMA!</b>\n` +
-      `• 50% boshlang‘ich to‘lovda — <b>15% chegirma!</b>\n` +
-      `• 30% boshlang‘ich to‘lovda — <b>10% chegirma!</b>\n\n` +
+      `⚠️ <b>Muhim eslatma:</b> 22, 25, 34 va 39 m² xonadonlar bo‘lib to‘lashga BERILMAYDI! Ular faqat 100% to‘lovda (33% chegirma bilan) to‘liq to‘lab olinadi.\n\n` +
+      `✅ <b>30 oygacha 0% foizsiz bo‘lib to‘lashga beriladigan xonadonlar:</b>\n` +
+      `1️⃣ <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov — <b>60 mln so‘m</b> | Oylik — <b>4 mln so‘m</b>\n` +
+      `2️⃣ <b>2 xonali (54, 55 m²):</b> Bosh to‘lov — <b>75 mln so‘m</b> | Oylik — <b>5 mln so‘m</b>\n` +
+      `3️⃣ <b>3 xonali (70, 77 m²):</b> Bosh to‘lov — <b>99 mln so‘m</b> | Oylik — <b>6 mln so‘m</b>\n\n` +
+      `🎁 100% to‘lovda esa <b>33% KATTA CHEGIRMA</b> beriladi!\n\n` +
       `Qaysi variant sizga ma'qul? Aniq hisob-kitob uchun telefon raqamingizni qoldiring!`;
   }
 
+  // 14. Qavatlar haqida
   if (text.includes('qavat') || text.includes('etaj') || text.includes('baland')) {
     return `🏢 <b>Qavatlar bo‘yicha narxlar tasnifi (12 qavatli monolit):</b>\n\n` +
-      `• <b>2–4-qavatlar:</b> Eng talabgir standart qavatlar\n` +
-      `• <b>5–8-qavatlar:</b> O‘rtacha arzonlashtirilgan narxlar\n` +
+      `• <b>2–4-qavatlar:</b> Eng talabgir standart qavatlar (1 m² eng yuqori narxda)\n` +
+      `• <b>5–8-qavatlar:</b> O‘rtacha arzonlashtirilgan qavatlar\n` +
       `• <b>9–12-qavatlar:</b> Eng hamyonbop va eng arzon narxlar!\n\n` +
       `Barcha qavatlarda zamonaviy tezyurar liftlar xizmat ko‘rsatadi. Sizga qaysi qavat ko‘proq ma'qul?`;
   }
 
+  // 15. Manzil va Lokatsiya
   if (text.includes('manzil') || text.includes('qayerda') || text.includes('lokatsiya') || text.includes('qayer') || text.includes('ofis') || text.includes('mo‘ljal') || text.includes('moljal')) {
     return `📍 <b>Majmua va Sotuv ofisi manzili:</b>\n\n` +
       `Toshkent viloyati, O‘rtachirchiq tumani, O‘choqli MFY, Yashnobod ko‘chasi, 44a-uy (Yangi Toshkent hududi).\n` +
@@ -219,6 +404,7 @@ function generateSmartFallback(msg) {
       `⏰ Ish vaqti: Har kuni 09:00 — 18:00 (dam olish kunlarisiz)`;
   }
 
+  // 16. Topshirish va ta'mir
   if (text.includes('topshirish') || text.includes('muddat') || text.includes('ta\'mir') || text.includes('tamir') || text.includes('qachon') || text.includes('holat')) {
     return `🏗 <b>Topshirish muddati va ta'mirlash holati:</b>\n\n` +
       `• <b>Topshirish vaqti:</b> 2028-yil 4-chorak\n` +
@@ -227,15 +413,7 @@ function generateSmartFallback(msg) {
       `Siz faqat o‘zingizga yoqqan oboy va pol qoplamasini o‘rnatasiz!`;
   }
 
-  if (text.includes('maktab') || text.includes('bog‘cha') || text.includes('bogcha') || text.includes('infratuzilma') || text.includes('magazin') || text.includes('korzinka')) {
-    return `🌳 <b>13 gektarli keng infratuzilma:</b>\n\n` +
-      `• Zamonaviy maktab va bolalar bog‘chasi hudud ichida\n` +
-      `• Korzinka supermarketi va do‘konlar\n` +
-      `• Sun'iy ko‘l, ochiq amfiteatr va sayrgohlar\n` +
-      `• Xavfsiz bolalar maydonchalari va yerosti avtoturargohlari\n` +
-      `• 24/7 video-kuzatuv va qo‘riqlash tizimi`;
-  }
-
+  // 17. Menejer bilan aloqa
   if (text.includes('menejer') || text.includes('alisher') || text.includes('telefon') || text.includes('aloqa') || text.includes('nomer')) {
     return `📞 <b>Sotuv ofisi bilan aloqa:</b>\n\n` +
       `• Bosh menejer: <b>Alisher</b>\n` +
@@ -246,13 +424,16 @@ function generateSmartFallback(msg) {
       `Agar telefon raqamingizni yozsangiz, menejerimiz o‘zi sizga tezda qo‘ng‘iroq qiladi!`;
   }
 
+  // Umumiy salomlashish
   return `Assalomu alaykum! "VATAN" qurilish kompaniyasining <b>"Yangi Qo‘yliq-2"</b> turar-joy majmuasi rasmiy AI maslahatchisi xizmatingizda! 🏢✨\n\n` +
-    `Bizda Yangi Toshkent hududida (Food City ro‘parasi) <b>30 oygacha 0% foizsiz</b> bo‘lib to‘lash imkoniyati mavjud:\n` +
-    `• <b>1 xonali (22–49 m²):</b> Bosh to‘lov 60 mln | Oylik 4 mln\n` +
-    `• <b>2 xonali (54–55 m²):</b> Bosh to‘lov 75 mln | Oylik 5 mln\n` +
-    `• <b>3 xonali (70–77 m²):</b> Bosh to‘lov 99 mln | Oylik 6 mln\n\n` +
-    `🎁 100% to‘lovda <b>33% katta chegirma</b> mavjud!\n\n` +
-    `Quyidagi tugmalardan birini bosing yoki o‘zingizni qiziqtirgan savolingizni yozing 👇`;
+    `📌 <b>ASOSIY TO‘LOV SHARTLARI:</b>\n` +
+    `💵 <b>Faqat 100% to‘lovga (33% chegirma bilan, bo‘lib to‘lash yo‘q):</b>\n` +
+    `• 22, 25, 34 va 39 m² xonadonlar (151.1 mln dan boshlanadi)\n\n` +
+    `💰 <b>30 oygacha 0% foizsiz bo‘lib to‘lashga beriladigan uylar:</b>\n` +
+    `• <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov 60 mln | Oylik 4 mln\n` +
+    `• <b>2 xonali (54, 55 m²):</b> Bosh to‘lov 75 mln | Oylik 5 mln\n` +
+    `• <b>3 xonali (70, 77 m²):</b> Bosh to‘lov 99 mln | Oylik 6 mln\n\n` +
+    `Quyidagi tugmalardan birini bosing yoki o‘zingizni qiziqtirgan savolni yozing 👇`;
 }
 
 function extractPhoneNumber(text) {
@@ -265,9 +446,10 @@ function extractPhoneNumber(text) {
 function getMainKeyboard() {
   return {
     keyboard: [
-      [{ text: "🏢 1 xonali (22–49 m²)" }, { text: "🏢 2 xonali (54–55 m²)" }],
-      [{ text: "🏢 3 xonali (70–77 m²)" }, { text: "💰 30 oy 0% bo‘lib to‘lash" }],
-      [{ text: "📍 Lokatsiya va Ofis" }, { text: "📱 Raqamimni qoldirish", request_contact: true }]
+      [{ text: "💵 Faqat 100% to‘lov (22, 25, 34, 39 m²)" }, { text: "💰 Bo‘lib to‘lash (41, 43, 49 m²)" }],
+      [{ text: "🏢 2 xonali (54, 55 m²)" }, { text: "🏢 3 xonali (70, 77 m²)" }],
+      [{ text: "📊 Barcha uy va 1 m² narxlari" }, { text: "📍 Lokatsiya va Ofis" }],
+      [{ text: "📱 Raqamimni qoldirish", request_contact: true }]
     ],
     resize_keyboard: true,
     one_time_keyboard: false
@@ -312,8 +494,14 @@ async function handleTelegramMessage(message) {
     const welcomeText = 
       `Assalomu alaykum, <b>${userName}</b>! 👋\n\n` +
       `Men — "VATAN" qurilish kompaniyasining <b>"Yangi Qo‘yliq-2"</b> turar-joy majmuasi rasmiy <b>AI maslahatchisiman</b>! 🏢✨\n\n` +
-      `Sizga xonadonlar narxlari, <b>30 oygacha 0% foizsiz</b> bo‘lib to‘lash shartlari va qulay lokatsiya bo‘yicha istalgan savolingizga javob berishga tayyorman.\n\n` +
-      `👇 Quyidagi tugmalardan birini tanlang yoki o‘zingizni qiziqtirgan savolni yozing:`;
+      `📌 <b>SHARTLARIMIZ BILAN TANISHING:</b>\n\n` +
+      `💵 <b>1. FAQAT 100% TO‘LOVGA (33% chegirma bilan, bo‘lib to‘lash yo‘q):</b>\n` +
+      `• 22, 25, 34 va 39 m² xonadonlar umumiy summasi to‘liq to‘lab sotiladi (151.1 mln dan boshlanadi).\n\n` +
+      `💰 <b>2. 30 OYGACHA 0% FOIZSIZ BO‘LIB TO‘LASH:</b>\n` +
+      `• <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov 60 mln | Oylik 4 mln\n` +
+      `• <b>2 xonali (54, 55 m²):</b> Bosh to‘lov 75 mln | Oylik 5 mln\n` +
+      `• <b>3 xonali (70, 77 m²):</b> Bosh to‘lov 99 mln | Oylik 6 mln\n\n` +
+      `👇 Kerakli bo‘limni tanlang yoki savolingizni yozing:`;
 
     await sendTelegramMessage(chatId, welcomeText, getMainKeyboard());
     console.log(`✅ /start javobi yuborildi.`);
