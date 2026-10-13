@@ -1,8 +1,57 @@
-import React from 'react';
-import { Home, PhoneCall, Sparkles, MapPin, Building2, ChevronRight, KeyRound, Bot } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Home, PhoneCall, Sparkles, MapPin, Building2, ChevronRight, KeyRound, Bot, Volume2, VolumeX, Play, Pause, Maximize, Video } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
 export default function Hero({ onOpenBooking, onScrollTo }) {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  // Sayt ochilganda videoni o'z-o'zidan ovozsiz (muted) holda ishga tushirish
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => setIsPlaying(true))
+          .catch(() => {
+            // Brauzer autoplay qoidalariga ko'ra ba'zida to'xtab turishi mumkin
+            setIsPlaying(false);
+          });
+      }
+    }
+  }, []);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const toggleMute = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    const nextMuted = !isMuted;
+    videoRef.current.muted = nextMuted;
+    setIsMuted(nextMuted);
+  };
+
+  const handleFullscreen = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    if (videoRef.current.requestFullscreen) {
+      videoRef.current.requestFullscreen();
+    } else if (videoRef.current.webkitRequestFullscreen) {
+      videoRef.current.webkitRequestFullscreen();
+    }
+  };
+
   return (
     <section id="hero" className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden bg-[#f0f7ff]">
       
@@ -23,7 +72,7 @@ export default function Hero({ onOpenBooking, onScrollTo }) {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* 2 Ustunli asosiy Hero grid: Chapda ixcham matn & CTA, o'ngda KATTA 2-rasm */}
+        {/* 2 Ustunli asosiy Hero grid: Chapda ixcham matn & CTA, o'ngda KATTA VIDEO */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center mb-10 sm:mb-14">
           
           {/* Chap ustun (5 ustun): Ixcham va nafis sarlavha, ma'lumot va CTA tugmalari */}
@@ -98,29 +147,86 @@ export default function Hero({ onOpenBooking, onScrollTo }) {
 
           </div>
 
-          {/* O'ng ustun (7 ustun): KATTALASHTIRILGAN 2-RASM */}
+          {/* O'ng ustun (7 ustun): VATAN 7777 VIDEO ROLIGI */}
           <div className="lg:col-span-7">
-            <div className="relative group rounded-3xl overflow-hidden border-2 border-sky-300/80 bg-white shadow-2xl shadow-sky-900/20 transform hover:scale-[1.01] transition-all duration-300">
+            <div className="relative group rounded-3xl overflow-hidden border-2 border-sky-300/80 bg-slate-950 shadow-2xl shadow-sky-900/20 transform hover:scale-[1.01] transition-all duration-300">
               
-              {/* Katta 2-Rasm (Tungi arxitektura chizmasi & VATAN brendi) */}
-              <div className="aspect-[16/10] sm:aspect-[16/10] lg:aspect-[16/10] w-full overflow-hidden bg-slate-950">
-                <img 
-                  src="/vatan-hero-night.jpg" 
-                  alt="Yangi Qo‘yliq-2 Turar-joy majmuasi tungi 3D ko‘rinishi — VATAN" 
-                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  loading="eager"
+              {/* Video rolik (Katta ekran / Mobil moslashuvchan) */}
+              <div 
+                className="aspect-[16/10] sm:aspect-[16/10] lg:aspect-[16/10] w-full overflow-hidden bg-slate-950 relative cursor-pointer"
+                onClick={togglePlay}
+              >
+                <video 
+                  ref={videoRef}
+                  src="/vatan-7777.mp4" 
+                  poster="/vatan-hero-night.jpg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover object-center"
                 />
+
+                {/* To'xtatilganda (Pause) o'rtada chiqadigan Play belgisi */}
+                {!isPlaying && (
+                  <div className="absolute inset-0 z-10 bg-slate-950/40 backdrop-blur-[2px] flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-white/95 text-sky-700 flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+                      <Play className="w-8 h-8 ml-1 fill-sky-700 text-sky-700" />
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* Rasm ustidagi zamonaviy badge / overlay */}
-              <div className="absolute top-4 left-4 bg-slate-900/85 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full flex items-center gap-2 text-white text-xs font-bold shadow-xl">
+              {/* Video ustidagi badge - Chap yuqorida */}
+              <div className="absolute top-4 left-4 z-20 bg-slate-900/85 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full flex items-center gap-2 text-white text-xs font-bold shadow-xl pointer-events-none">
                 <Sparkles className="w-3.5 h-3.5 text-amber-400" />
                 <span>13 gektar zamonaviy hudud</span>
               </div>
 
-              <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md border border-sky-200 px-3.5 py-1.5 rounded-xl shadow-xl text-slate-900 text-xs font-black flex items-center gap-1.5">
+              {/* Ovoz va To'liq ekran boshqaruvi - O'ng yuqorida */}
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+                {/* Ovoz tugmasi (Standart: ovozsiz / muted) */}
+                <button
+                  type="button"
+                  onClick={toggleMute}
+                  title={isMuted ? "Ovozni yoqish" : "Ovozni o‘chirish (Ovozsiz)"}
+                  className="px-3 py-1.5 rounded-full bg-slate-900/85 hover:bg-slate-900 text-white backdrop-blur-md border border-white/20 text-xs font-bold flex items-center gap-1.5 shadow-xl transition-all cursor-pointer group/vol"
+                >
+                  {isMuted ? (
+                    <>
+                      <VolumeX className="w-4 h-4 text-rose-400 group-hover/vol:scale-110 transition-transform" />
+                      <span className="hidden sm:inline text-[11px] font-semibold text-slate-200">Ovozsiz</span>
+                    </>
+                  ) : (
+                    <>
+                      <Volume2 className="w-4 h-4 text-emerald-400 group-hover/vol:scale-110 transition-transform" />
+                      <span className="hidden sm:inline text-[11px] font-semibold text-slate-200">Ovoz yoqilgan</span>
+                    </>
+                  )}
+                </button>
+
+                {/* To'liq ekranda tomosha qilish (Fullscreen) */}
+                <button
+                  type="button"
+                  onClick={handleFullscreen}
+                  title="To‘liq ekranda tomosha qilish"
+                  className="p-2 rounded-full bg-slate-900/85 hover:bg-slate-900 text-white backdrop-blur-md border border-white/20 shadow-xl transition-all cursor-pointer hover:scale-105"
+                >
+                  <Maximize className="w-4 h-4 text-sky-300" />
+                </button>
+              </div>
+
+              {/* Pastki chap badge - Video sharh */}
+              <div className="absolute bottom-4 left-4 z-20 bg-slate-950/80 backdrop-blur-md border border-white/15 px-3 py-1.5 rounded-xl text-white text-xs font-semibold flex items-center gap-2 shadow-xl pointer-events-none">
+                <Video className="w-3.5 h-3.5 text-sky-400" />
+                <span>Loyiha video ko‘rinishi</span>
+              </div>
+
+              {/* Pastki o'ng badge - loyihasi */}
+              <div className="absolute bottom-4 right-4 z-20 bg-white/95 backdrop-blur-md border border-sky-200 px-3.5 py-1.5 rounded-xl shadow-xl text-slate-900 text-xs font-black flex items-center gap-1.5 pointer-events-none">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>Comfort Class majmuasi</span>
+                <span>Comfort Class loyihasi</span>
               </div>
 
             </div>
