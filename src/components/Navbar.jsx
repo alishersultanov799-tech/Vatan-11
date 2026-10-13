@@ -81,37 +81,27 @@ export default function Navbar({ onOpenBooking, onScrollTo }) {
               <span>AI Maslahat</span>
             </a>
 
-            {/* Direct Phone Call */}
-            <a 
-              href={`tel:${PROJECT_DETAILS.location.salesPhone}`}
-              className="flex items-center gap-2 text-xs font-bold text-slate-800 hover:text-sky-600 transition-colors bg-white px-3.5 py-2 rounded-xl border border-sky-200 shadow-xs"
-            >
-              <Phone className="w-3.5 h-3.5 text-sky-500" />
-              <span>{PROJECT_DETAILS.location.salesPhoneFormatted}</span>
-            </a>
-
             {/* Consultation CTA */}
             <button
-              onClick={() => onOpenBooking({ title: "Menejer bilan tezkor maslahat", source: "Navbar" })}
+              onClick={() => onOpenBooking({ title: "Menejer bilan maslahat va ariza", source: "Navbar" })}
               className="px-4 py-2 rounded-xl sky-gradient-bg text-white font-extrabold text-xs hover:brightness-110 shadow-md shadow-sky-500/20 transition-all cursor-pointer"
             >
-              Maslahat olish
+              Ariza qoldirish
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
-            <a 
-              href={`tel:${PROJECT_DETAILS.location.salesPhone}`}
-              className="p-2 rounded-xl bg-white border border-sky-200 text-sky-600 shadow-xs"
-              title="Qo'ng'iroq qilish"
+            <button
+              onClick={() => onOpenBooking({ title: "Ariza qoldirish", source: "Mobile Navbar" })}
+              className="px-3 py-1.5 rounded-xl sky-gradient-bg text-white text-xs font-bold shadow-xs cursor-pointer"
             >
-              <Phone className="w-4 h-4" />
-            </a>
+              Ariza
+            </button>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-xl bg-white border border-sky-200 text-slate-700 hover:text-sky-600 shadow-xs"
+              className="p-2 rounded-xl bg-white border border-sky-200 text-slate-700 hover:text-sky-600 shadow-xs cursor-pointer"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -156,22 +146,14 @@ export default function Navbar({ onOpenBooking, onScrollTo }) {
               <span>Telegram rasmiy kanal: @yangiqoyliq_TJM</span>
             </a>
 
-            <a 
-              href={`tel:${PROJECT_DETAILS.location.salesPhone}`}
-              className="w-full py-3 px-4 rounded-xl bg-white border border-sky-200 text-center text-xs font-bold text-slate-800 flex items-center justify-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-sky-500" />
-              <span>{PROJECT_DETAILS.location.salesPhoneFormatted} (Alisher)</span>
-            </a>
-
             <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
-                onOpenBooking({ title: "Konsultatsiya olish", source: "Mobile Navbar" });
+                onOpenBooking({ title: "Ariza qoldirish", source: "Mobile Navbar" });
               }}
               className="w-full py-3 px-4 rounded-xl sky-gradient-bg text-white font-extrabold text-xs text-center shadow-md cursor-pointer"
             >
-              Maslahat olish
+              Ariza qoldirish
             </button>
           </div>
         </div>

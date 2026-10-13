@@ -10,7 +10,7 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import MobileStickyBar from './components/MobileStickyBar';
 import LeadCaptureModal from './components/LeadCaptureModal';
-import { Phone, Send, ArrowUp } from 'lucide-react';
+import { Bot, Send, ArrowUp } from 'lucide-react';
 import { PROJECT_DETAILS } from './data/apartments';
 
 export default function App() {
@@ -94,10 +94,10 @@ export default function App() {
       {/* 8. Futer (Kompaniya ma’lumotlari, rekvizitlar) */}
       <Footer 
         onScrollTo={scrollToSection}
-        onOpenBooking={() => handleOpenBooking({ title: "Menejer Alisher bilan bog‘lanish" })}
+        onOpenBooking={() => handleOpenBooking({ title: "Menejerdan konsultatsiya va ariza" })}
       />
 
-      {/* Desktop Suzuvchi Tezkor Tugmalar (Telegram & Telefon) */}
+      {/* Desktop Suzuvchi Tezkor Tugmalar (Telegram & AI Bot) */}
       <div className="hidden sm:flex fixed bottom-8 right-8 z-40 flex-col gap-3">
         {/* Telegram kanal tugmasi */}
         <a 
@@ -113,15 +113,17 @@ export default function App() {
           </span>
         </a>
 
-        {/* Qo‘ng‘iroq qilish tugmasi */}
+        {/* AI Maslahatchi Telegram Bot tugmasi */}
         <a 
-          href={`tel:${PROJECT_DETAILS.location.salesPhone}`}
-          className="w-13 h-13 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white p-3.5 shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center group relative border border-white/20 animate-pulse"
-          title={`Qo‘ng‘iroq qilish: ${PROJECT_DETAILS.location.salesPhoneFormatted}`}
+          href={PROJECT_DETAILS.location.telegramBot}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-13 h-13 rounded-2xl bg-gradient-to-tr from-sky-600 to-blue-500 text-white p-3.5 shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center group relative border border-white/20 animate-pulse"
+          title="AI Maslahatchi bot (@Vatan2333_bot)"
         >
-          <Phone className="w-6 h-6" />
+          <Bot className="w-6 h-6" />
           <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-xl bg-slate-900/95 text-white text-xs font-semibold whitespace-nowrap shadow-xl border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-            Menejer Alisher: {PROJECT_DETAILS.location.salesPhoneFormatted}
+            AI Maslahatchi (@Vatan2333_bot)
           </span>
         </a>
 

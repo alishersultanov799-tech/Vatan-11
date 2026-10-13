@@ -92,18 +92,27 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* To'g'ridan-to'g'ri telefon */}
-              <div className="p-4 rounded-2xl bg-sky-50 border border-sky-200 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl sky-gradient-bg flex items-center justify-center text-white shrink-0 shadow-sm">
-                  <PhoneCall className="w-5 h-5" />
+              {/* Rasmiy Telegram Kanal Box */}
+              <a 
+                href={PROJECT_DETAILS.location.telegramChannel}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-2xl bg-sky-50 border border-sky-200 hover:border-sky-400 flex items-center justify-between group transition-all shadow-xs"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#229ED9] flex items-center justify-center text-white shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                    <Send className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs font-black text-slate-900 block">Rasmiy Telegram kanal</span>
+                    <span className="text-[11px] text-slate-600 block">Yangiliklar va qurilish jarayoni: @yangiqoyliq_TJM</span>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-[11px] text-slate-500 block">Sotuv bo‘limi menejeri: {PROJECT_DETAILS.location.managerName}</span>
-                  <a href={`tel:${PROJECT_DETAILS.location.salesPhone}`} className="text-base font-extrabold text-slate-900 hover:text-sky-600 transition-colors">
-                    {PROJECT_DETAILS.location.salesPhoneFormatted}
-                  </a>
+                <div className="text-sky-600 font-extrabold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>A'zo bo'lish</span>
+                  <span>→</span>
                 </div>
-              </div>
+              </a>
 
               {/* AI Maslahatchi Telegram Bot Box */}
               <a 
@@ -143,7 +152,7 @@ export default function ContactSection() {
                     So‘rovingiz qabul qilindi!
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 mb-6 max-w-sm mx-auto">
-                    Menejerimiz Alisher ({PROJECT_DETAILS.location.salesPhoneFormatted}) tez orada siz bilan bog‘lanadi va to‘liq narxlar katalogini taqdim etadi.
+                    Menejerimiz Alisher tez orada siz bilan bog‘lanadi va to‘liq narxlar katalogini taqdim etadi.
                   </p>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 mb-4">
                     <a

@@ -93,8 +93,8 @@ export default function LeadCaptureModal({ isOpen, onClose, contextData }) {
             </h3>
             
             <p className="text-xs sm:text-sm text-slate-600 mb-6 max-w-sm mx-auto leading-relaxed">
-              Sotuv bo‘limi bosh menejeri <strong>{PROJECT_DETAILS.location.managerName}</strong> ({PROJECT_DETAILS.location.salesPhoneFormatted}) 
-              5 daqiqa ichida siz bilan bog‘lanadi va xonadonni 24 soatga bepul bron qilib beradi.
+              Sotuv bo‘limi menejeri <strong>{PROJECT_DETAILS.location.managerName}</strong> 
+              tez orada siz bilan bog‘lanadi va xonadonni 24 soatga bepul bron qilib beradi.
             </p>
 
             <div className="p-4 rounded-2xl bg-sky-50 border border-sky-200 mb-6 text-left text-xs space-y-1.5">
@@ -119,22 +119,22 @@ export default function LeadCaptureModal({ isOpen, onClose, contextData }) {
                 <span>🤖 AI Maslahatchi botga o‘tish (@Vatan2333_bot)</span>
               </a>
 
-              <div className="flex flex-col sm:flex-row gap-2.5">
-                <a
-                  href={`tel:${PROJECT_DETAILS.location.salesPhone}`}
-                  className="flex-1 py-3 px-4 rounded-xl bg-white hover:bg-sky-50 border border-sky-300 text-sky-800 font-bold text-xs flex items-center justify-center gap-2 shadow-xs"
-                >
-                  <PhoneCall className="w-4 h-4 text-sky-600" />
-                  <span>Qo‘ng‘iroq qilish</span>
-                </a>
+              <a
+                href={PROJECT_DETAILS.location.telegramChannel}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 font-bold text-xs flex items-center justify-center gap-2"
+              >
+                <Send className="w-3.5 h-3.5" />
+                <span>Telegram rasmiy kanal: @yangiqoyliq_TJM</span>
+              </a>
 
-                <button
-                  onClick={onClose}
-                  className="flex-1 py-3 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs cursor-pointer"
-                >
-                  Yopish
-                </button>
-              </div>
+              <button
+                onClick={onClose}
+                className="w-full py-2.5 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs cursor-pointer mt-1"
+              >
+                Yopish
+              </button>
             </div>
           </div>
         ) : (

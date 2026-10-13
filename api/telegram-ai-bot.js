@@ -3,7 +3,7 @@
  * Vercel Serverless Function (Node.js ES Module)
  * 
  * Bot: @Vatan2333_bot
- * Manager: Alisher (+998 94 603 23 33 / @alisher_yangiqoyliq)
+ * Manager: Alisher
  */
 
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || '8998702557:AAFTVRJ5dCy11whyAavAnUMdtL4R_fF6PkI';
@@ -17,7 +17,7 @@ LOYIHA VA KOMPANIYA HAQIDA ASOSIY FAKTLAR:
 1. Kompaniya: "VATAN" qurilish kompaniyasi (2013-yildan buyon faoliyat yuritadi, 10 000+ topshirilgan xonadonlar, to‘liq qonuniy shartnomalar).
 2. Majmua: "Yangi Qo‘yliq-2" (Comfort class).
 3. Hududi: 13 gektar, 12 qavatli zilzilabardosh monolit binolar (3 800 ta xonadon).
-4. Ta'mirlash holati: 70% tayyor ta'mirlash bilan topshiriladi (kirish temir eshigi, sifatli plastik derazalar, barcha kommunikatsiyalar — suv, elektr, gaz, pol styajkasi, devorlar gipslangan).
+4. Ta'mirlash holati: 70% tayyor ta'mirlash bilan topshiriladi (kirish temir eshigi, sifatli plastik derazalar, suv, elektr tarmoqlari ulanadi, pol silliq styajkasi, devorlar oq suvoqda). Majmuada gaz bo‘lmaydi (xavfsiz va zamonaviy elektr tizimi)!
 5. Topshirish muddati: 2028-yil 4-chorak.
 6. Joylashuv: Toshkent viloyati, O‘rtachirchiq tumani, O‘choqli MFY, Yashnobod ko‘chasi, 44a-uy (Yangi Toshkent hududi, Food City bozori ro‘parasi, Qo‘yliq metrosidan 8 daqiqa).
    Yandex Maps: https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8
@@ -72,15 +72,18 @@ QAT'IY VA MUHIM TO'LOV QOIDALARI (HECH QACHON ADASHTIRMA!):
         * 70 m²: 1 m² = 6 197 500 – 6 867 500 so'm | Jami: 433.8 mln – 480.7 mln so'm
         * 77 m²: 1 m² = 6 197 500 – 6 867 500 so'm | Jami: 477.2 mln – 528.8 mln so'm
 
-ALOQA VA SOTUV OFISI:
+ALOQA VA ARIZA TARTIBI:
 - Bosh menejer: Alisher
-- Telefon: +998 94 603 23 33
-- Telegram: @alisher_yangiqoyliq
+- Rasmiy Telegram kanal: @yangiqoyliq_TJM
 - Ish vaqti: Har kuni 09:00 — 18:00 (dam olish kunlarisiz).
 
-SENING JAVOBLARING:
-- Mijozning har qanday savoliga aniq raqamlar, 1 m² va umumiy narxlari bilan tushuntir.
-- 34 va 39 m² uylar bo'yicha so'rashsa, albatta ularni faqat 100% to'lovga olish mumkinligini, bo'lib to'lashga berilmasligini alohida ta'kidla!
+SENING JAVOB BERISH QOIDALARING:
+1. HECH QACHON telefon raqam berma (menejer telefon raqami ko‘rsatilmaydi)!
+2. Mijozlar bot orqali barcha ma'lumotlarni oladilar, yangiliklarni @yangiqoyliq_TJM kanalida kuzatadilar yoki botda ariza (telefon raqam) qoldiradilar.
+3. Mijoz telefon raqamini qoldirganda, sotuv menejeri o‘zi vaqti bo‘lganda mijoz bilan bog‘lanadi!
+4. Gaz haqida so‘rashsa, gaz bo‘lmaydi deb aniq javob ber (ekologik toza va xavfsiz elektr tizimi).
+5. Devorlar holati bo‘yicha so‘rashsa, devorlar oq suvoqda topshiriladi deb javob ber.
+6. 34 va 39 m² uylar bo'yicha so'rashsa, ularni faqat 100% to'lovga olish mumkinligini, bo'lib to'lashga berilmasligini alohida ta'kidla!
 `;
 
 async function sendTelegramMessage(chatId, text, replyMarkup = null) {
@@ -219,7 +222,7 @@ function generateSmartFallback(msg) {
       `• <b>2–4-qavatlar (talabgir):</b>\n` +
       `  1 m²: <b>7 537 500 so‘m</b> | Jami: <b>293 962 500 so‘m</b> (~294.0 mln)\n\n` +
       `🏗 <b>Topshirish:</b> 2028-yil 4-chorak (70% ta'mirlangan).\n` +
-      `Menejerimiz Alisher (+998 94 603 23 33) bilan bog‘lanish uchun raqamingizni qoldiring!`;
+      `Menejerimiz Alisher bilan bog‘lanish uchun raqamingizni qoldiring!`;
   }
 
   // 5. Faqat 100% to'lov guruhi (22, 25, 34, 39)
@@ -382,7 +385,8 @@ function generateSmartFallback(msg) {
       `<b>Bosh mo‘ljal:</b> Food City ulgurji savdo majmuasi chorrahasi ro‘parasi (atigi 2 daqiqa).\n` +
       `Qo‘yliq metrosi va bozoridan — 8 daqiqa.\n\n` +
       `🗺 <a href="https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8">Yandex Xaritada ofis lokatsiyasini ochish</a>\n\n` +
-      `📞 <b>Menejer:</b> Alisher (+998 94 603 23 33)\n` +
+      `• <b>Menejer:</b> Alisher\n` +
+      `• <b>Rasmiy Telegram kanal:</b> @yangiqoyliq_TJM\n` +
       `⏰ Ish vaqti: Har kuni 09:00 — 18:00 (dam olish kunlarisiz)`;
   }
 
@@ -391,7 +395,7 @@ function generateSmartFallback(msg) {
     return `🏗 <b>Topshirish muddati va ta'mirlash holati:</b>\n\n` +
       `• <b>Topshirish vaqti:</b> 2028-yil 4-chorak\n` +
       `• <b>Ta'mirlash holati:</b> <b>70% tayyor</b> holatda topshiriladi!\n` +
-      `• <b>Topshiriladigan narsalar:</b> Kirish mustahkam temir eshigi, sifatli plastik derazalar, suv, elektr, gaz tarmoqlari ulanadi, pol silliq styajka qilingan, devorlar gipslangan.\n\n` +
+      `• <b>Topshiriladigan narsalar:</b> Kirish mustahkam temir eshigi, sifatli plastik derazalar, suv, elektr tarmoqlari ulanadi, pol silliq styajka qilingan, <b>devorlar oq suvoqda</b> (majmuada gaz bo‘lmaydi, xavfsiz va zamonaviy elektr tizimi).\n\n` +
       `Siz faqat o‘zingizga yoqqan oboy va pol qoplamasini o‘rnatasiz!`;
   }
 
@@ -399,11 +403,9 @@ function generateSmartFallback(msg) {
   if (text.includes('menejer') || text.includes('alisher') || text.includes('telefon') || text.includes('aloqa') || text.includes('nomer')) {
     return `📞 <b>Sotuv ofisi bilan aloqa:</b>\n\n` +
       `• Bosh menejer: <b>Alisher</b>\n` +
-      `• Telefon: <a href="tel:+998946032333">+998 94 603 23 33</a>\n` +
-      `• Telegram: @alisher_yangiqoyliq\n` +
-      `• Rasmiy kanal: @yangiqoyliq_TJM\n` +
+      `• Rasmiy Telegram kanal: @yangiqoyliq_TJM\n` +
       `• Ish vaqti: Har kuni 09:00 — 18:00\n\n` +
-      `Agar telefon raqamingizni yozsangiz, menejerimiz o‘zi sizga tezda qo‘ng‘iroq qiladi!`;
+      `<i>Mijozlar bilan aloqa ariza asosida amalga oshiriladi. Botga telefon raqamingizni qoldirsangiz, menejerimiz vaqti bo‘lganda siz bilan bog‘lanadi!</i>`;
   }
 
   // Umumiy salomlashish
@@ -476,7 +478,7 @@ export default async function handler(req, res) {
     await sendTelegramMessage(
       chatId,
       `✅ <b>Rahmat, ${contactName}! Raqamingiz qabul qilindi.</b>\n\n` +
-      `Sotuv menejerimiz <b>Alisher</b> (+998 94 603 23 33) tez orada siz bilan bog‘lanadi va siz uchun eng qulay qavat va arzon narxdagi xonadonni tanlab beradi! 🏢✨`,
+      `Sotuv menejerimiz <b>Alisher</b> tez orada siz bilan bog‘lanadi va siz uchun eng qulay qavat va arzon narxdagi xonadonni tanlab beradi! 🏢✨`,
       getMainKeyboard()
     );
 
@@ -518,7 +520,7 @@ export default async function handler(req, res) {
 
   let finalReply = aiReply;
   if (detectedPhone && !aiReply.toLowerCase().includes('qabul qilindi')) {
-    finalReply += `\n\n✅ <i>Telefon raqamingiz qabul qilindi. Menejerimiz Alisher (+998 94 603 23 33) tez orada siz bilan bog‘lanadi!</i>`;
+    finalReply += `\n\n✅ <i>Telefon raqamingiz qabul qilindi. Menejerimiz Alisher tez orada siz bilan bog‘lanadi!</i>`;
   }
 
   await sendTelegramMessage(chatId, finalReply, getMainKeyboard());

@@ -1603,7 +1603,7 @@ export const PROJECT_DETAILS = {
     { title: "Kirish temir eshigi", desc: "Yuqori xavfsizlik sinfidagi qalin, shovqin o‘tkazmaydigan po‘lat eshik" },
     { title: "Barcha xonalararo ichki eshiklar", desc: "Xonadon ichidagi barcha sifatli eshiklar o‘rnatilgan" },
     { title: "Akfa premium shovqinsiz romlar", desc: "Ko‘p kamerali, ovoz va issiqlikni saqlovchi premium romlar" },
-    { title: "Barcha kommunal hisoblagichlar", desc: "Elektr, sovuq suv, issiq suv va gaz hisoblagichlari o‘rnatilgan" }
+    { title: "Barcha kommunal hisoblagichlar", desc: "Elektr, sovuq suv va issiq suv hisoblagichlari o‘rnatilgan" }
   ],
 
   // Qulay infratuzilma (Ikonkalar bilan)
@@ -1628,8 +1628,8 @@ export const PROJECT_DETAILS = {
     yandexLink: "https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8",
     yandexWidget: "https://yandex.com/map-widget/v1/org/93362741697",
     googleMapLink: "https://maps.app.goo.gl/rqxoui8NCAsDu1Ks9",
-    salesPhone: "+998946032333",
-    salesPhoneFormatted: "+998 94 603 23 33",
+    salesPhone: "",
+    salesPhoneFormatted: "",
     managerName: "Alisher",
     telegramBot: "https://t.me/Vatan2333_bot",
     telegramBotUsername: "@Vatan2333_bot",

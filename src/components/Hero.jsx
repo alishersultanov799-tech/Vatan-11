@@ -182,11 +182,13 @@ export default function Hero({ onOpenBooking, onScrollTo }) {
               <span>Topshirilish muddati: <strong className="text-slate-900">2028-yil 4-chorak</strong></span>
             </div>
             <a 
-              href={`tel:${PROJECT_DETAILS.location.salesPhone}`}
+              href={PROJECT_DETAILS.location.telegramBot}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sky-700 hover:text-sky-900 font-bold flex items-center gap-1.5 transition-colors"
             >
-              <PhoneCall className="w-3.5 h-3.5 text-sky-600" />
-              <span>Aloqa: {PROJECT_DETAILS.location.salesPhoneFormatted} (Alisher)</span>
+              <Bot className="w-4 h-4 text-sky-600" />
+              <span>AI Maslahatchi: @Vatan2333_bot</span>
             </a>
           </div>
 

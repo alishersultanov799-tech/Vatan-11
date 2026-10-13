@@ -20,7 +20,7 @@ export function buildCrmLeadPayload({
   return {
     client: {
       name: name || 'Noma\'lum mijoz',
-      phone: phone || '+998 94 603 23 33'
+      phone: phone || 'Ko‘rsatilmadi'
     },
     property: {
       project,
@@ -34,7 +34,7 @@ export function buildCrmLeadPayload({
     meta: {
       createdAt: timestamp,
       localDateTime: formattedDate,
-      assignedManager: 'Alisher (+998 94 603 23 33)',
+      assignedManager: 'Alisher',
       source
     }
   };

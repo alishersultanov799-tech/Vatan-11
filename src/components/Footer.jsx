@@ -121,16 +121,6 @@ export default function Footer({ onScrollTo, onOpenBooking }) {
                 </div>
               </div>
 
-              <div className="flex items-start gap-2.5">
-                <Phone className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
-                <div>
-                  <a href={`tel:${PROJECT_DETAILS.location.salesPhone}`} className="text-sm font-extrabold text-slate-900 hover:text-sky-600 transition-colors block">
-                    {PROJECT_DETAILS.location.salesPhoneFormatted}
-                  </a>
-                  <span className="text-[11px] text-slate-500">Menejer: {PROJECT_DETAILS.location.managerName}</span>
-                </div>
-              </div>
-
               <div className="flex items-center gap-2.5 text-xs text-slate-600">
                 <Clock className="w-4 h-4 text-sky-600 shrink-0" />
                 <span>Har kuni: 09:00 — 18:00 (Dam olish kunlarisiz)</span>
@@ -188,8 +178,13 @@ export default function Footer({ onScrollTo, onOpenBooking }) {
           <div className="flex items-center gap-4">
             <span>Yangi Qo‘yliq-2 Turar-joy majmuasi</span>
             <span>•</span>
-            <a href={`tel:${PROJECT_DETAILS.location.salesPhone}`} className="hover:text-sky-700 font-bold text-sky-800">
-              {PROJECT_DETAILS.location.salesPhoneFormatted}
+            <a 
+              href={PROJECT_DETAILS.location.telegramChannel} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-sky-700 font-bold text-sky-800"
+            >
+              @yangiqoyliq_TJM
             </a>
           </div>
         </div>

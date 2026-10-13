@@ -3,7 +3,7 @@ import {
   Maximize2, 
   Sparkles, 
   CreditCard, 
-  PhoneCall, 
+  Bot, 
   Eye, 
   X, 
   ShieldCheck, 
@@ -318,7 +318,7 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
         </div>
 
         {/* 4. HARAKAT TUGMALARI */}
-        <div className="flex flex-col sm:flex-row items-center gap-2 pt-4 mt-4 border-t border-sky-200/60">
+        <div className="flex flex-col gap-2.5 pt-4 mt-4 border-t border-sky-200/60">
           
           <button
             onClick={() => onBookApartment({
@@ -330,34 +330,35 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
               paymentPlan: currentPlan?.name || "100% to‘lov",
               source: "Katalog kartasi"
             })}
-            className="w-full sm:flex-1 py-3 px-4 rounded-xl sky-gradient-bg text-white font-extrabold text-xs hover:brightness-110 shadow-md shadow-sky-600/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+            className="w-full py-3 px-4 rounded-xl sky-gradient-bg text-white font-extrabold text-xs hover:brightness-110 shadow-md shadow-sky-600/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
           >
             <ShieldCheck className="w-3.5 h-3.5 text-white" />
             <span>Bron qilish (24 soat)</span>
           </button>
 
-          <button
-            onClick={() => onBookApartment({
-              title: `${model.title} (${currentFloorData?.floorLabel}) — Maslahat olish`,
-              area: model.area,
-              rooms: model.rooms,
-              floorTier: currentFloorData?.floorLabel,
-              price: currentPlan?.totalPrice || model.prices.fullPayDiscount,
-              paymentPlan: currentPlan?.name || "Konsultatsiya",
-              source: "Katalog maslahat"
-            })}
-            className="w-full sm:flex-1 py-3 px-4 rounded-xl bg-white hover:bg-sky-50 border border-sky-300 text-sky-800 font-bold text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-          >
-            <FileText className="w-3.5 h-3.5 text-sky-600" />
-            <span>Maslahat olish</span>
-          </button>
-
+          {/* AI Maslahatchi Telegram Bot havolasi (2-rasmdagi ko'rinish) */}
           <a
-            href="tel:+998946032333"
-            className="w-full sm:w-auto p-3 rounded-xl bg-sky-50 hover:bg-sky-100 border border-sky-200 text-sky-700 font-bold text-xs transition-all flex items-center justify-center shrink-0"
-            title="Tezkor qo'ng'iroq"
+            href="https://t.me/Vatan2333_bot"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-sky-50 to-sky-100/70 hover:from-sky-100 hover:to-sky-200/70 border-2 border-sky-300 hover:border-sky-500 flex items-center justify-between group transition-all shadow-xs cursor-pointer"
           >
-            <PhoneCall className="w-3.5 h-3.5 text-sky-600" />
+            <div className="flex items-center gap-2.5 min-w-0">
+              <div className="w-7 h-7 rounded-lg bg-sky-500 flex items-center justify-center text-white shrink-0 shadow-xs group-hover:scale-105 transition-transform">
+                <Bot className="w-4 h-4" />
+              </div>
+              <div className="text-left truncate">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[11px] font-black text-sky-950 truncate">AI Maslahatchi (@Vatan2333_bot)</span>
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                </div>
+                <span className="text-[10px] text-slate-500 block truncate font-medium">Kutmasdan 24/7 savollaringizga javob oling</span>
+              </div>
+            </div>
+            <div className="text-sky-600 font-extrabold text-[11px] flex items-center gap-0.5 shrink-0 ml-1.5 group-hover:translate-x-0.5 transition-transform">
+              <span>Kirish</span>
+              <span>→</span>
+            </div>
           </a>
         </div>
 

@@ -11,7 +11,8 @@ import {
   Train,
   GraduationCap,
   Trees,
-  Send
+  Send,
+  Bot
 } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
@@ -147,16 +148,21 @@ export default function LocationMap() {
             </div>
 
             <div className="pt-4 md:pt-0 md:px-6 flex items-start gap-4">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-600 shrink-0">
-                <Car className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-sky-600 shrink-0">
+                <Bot className="w-6 h-6" />
               </div>
               <div>
-                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">Menejer bilan aloqa:</span>
+                <span className="text-xs font-bold text-slate-500 uppercase tracking-wider block">AI Maslahatchi:</span>
                 <p className="text-base font-bold text-slate-900 mt-1">
-                  {PROJECT_DETAILS.location.managerName}
+                  @Vatan2333_bot
                 </p>
-                <a href={`tel:${PROJECT_DETAILS.location.salesPhone}`} className="text-xs text-sky-700 hover:text-sky-900 font-bold block mt-0.5">
-                  {PROJECT_DETAILS.location.salesPhoneFormatted}
+                <a 
+                  href={PROJECT_DETAILS.location.telegramBot}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-sky-700 hover:text-sky-900 font-bold block mt-0.5"
+                >
+                  Savol berish (24/7) →
                 </a>
               </div>
             </div>
@@ -330,13 +336,18 @@ export default function LocationMap() {
                 </a>
               </div>
 
-              {/* Aloqa overlay */}
-              <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md border border-sky-200 px-3.5 py-2 rounded-xl shadow-xl flex items-center gap-2 z-10">
-                <PhoneCall className="w-3.5 h-3.5 text-sky-600" />
-                <a href={`tel:${PROJECT_DETAILS.location.salesPhone}`} className="text-xs font-bold text-slate-900 hover:text-sky-600">
-                  {PROJECT_DETAILS.location.salesPhoneFormatted}
-                </a>
-              </div>
+              {/* AI Maslahatchi overlay */}
+              <a 
+                href={PROJECT_DETAILS.location.telegramBot}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-md border border-sky-200 px-3.5 py-2 rounded-xl shadow-xl flex items-center gap-2 z-10 hover:border-sky-400 transition-colors"
+              >
+                <Bot className="w-3.5 h-3.5 text-sky-600" />
+                <span className="text-xs font-bold text-slate-900">
+                  @Vatan2333_bot
+                </span>
+              </a>
             </div>
 
             <div className="p-4 bg-sky-50 border-t border-sky-100 flex flex-wrap items-center justify-between text-xs text-slate-500 gap-2">
