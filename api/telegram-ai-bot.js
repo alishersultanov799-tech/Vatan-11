@@ -90,53 +90,57 @@ async function sendTelegramMessage(chatId, text, replyMarkup = null) {
 // Gemini AI orqali aqlli javob olish
 async function askGeminiAI(userMessage, userName = 'Mijoz') {
   if (!GEMINI_API_KEY) {
-    // Agar Gemini API kaliti hali kiritilmagan bo'lsa, aqlli shablon javob qaytaramiz
     return generateSmartFallback(userMessage);
   }
 
-  try {
-    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
-    
-    const requestBody = {
-      systemInstruction: {
-        parts: [{ text: SYSTEM_KNOWLEDGE_BASE }]
-      },
-      contents: [
-        {
-          role: "user",
-          parts: [
-            { text: `Foydalanuvchi ismi: ${userName}\nFoydalanuvchi savoli: ${userMessage}` }
-          ]
+  const modelsToTry = ['gemini-flash-latest', 'gemini-3.5-flash-lite', 'gemini-2.5-flash'];
+
+  for (const model of modelsToTry) {
+    try {
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
+
+      const requestBody = {
+        systemInstruction: {
+          parts: [{ text: SYSTEM_KNOWLEDGE_BASE }]
+        },
+        contents: [
+          {
+            role: "user",
+            parts: [
+              { text: `Foydalanuvchi ismi: ${userName}\nFoydalanuvchi savoli: ${userMessage}` }
+            ]
+          }
+        ],
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 800
         }
-      ],
-      generationConfig: {
-        temperature: 0.7,
-        maxOutputTokens: 800
+      };
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(requestBody),
+        signal: controller.signal
+      });
+      clearTimeout(timeoutId);
+
+      if (response.ok) {
+        const data = await response.json();
+        const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (candidateText && candidateText.trim().length > 0) {
+          return candidateText;
+        }
       }
-    };
-
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(requestBody)
-    });
-
-    if (!response.ok) {
-      console.error('Gemini API Error status:', response.status);
-      return generateSmartFallback(userMessage);
+    } catch (err) {
+      // Keyingi modelga yoki fallbackga o'tish
     }
-
-    const data = await response.json();
-    const candidateText = data.candidates?.[0]?.content?.parts?.[0]?.text;
-
-    if (candidateText) {
-      return candidateText;
-    }
-    return generateSmartFallback(userMessage);
-  } catch (err) {
-    console.error('Gemini API Exception:', err);
-    return generateSmartFallback(userMessage);
   }
+
+  // Har qanday xatolikda tezkor va mukammal o'zbekcha javob qaytarish
+  return generateSmartFallback(userMessage);
 }
 
 // Aqlli fallback javob (Gemini kaliti yo'qligida yoki vaqtincha xatolikda uzluksiz ishlash uchun)
