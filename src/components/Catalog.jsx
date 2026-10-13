@@ -6,12 +6,14 @@ import {
   PhoneCall, 
   Eye, 
   X, 
-  ShieldCheck,
-  FileText,
-  Layers,
-  Building,
-  TrendingDown,
-  CheckCircle2
+  ShieldCheck, 
+  FileText, 
+  Layers, 
+  Building, 
+  TrendingDown, 
+  CheckCircle2, 
+  ArrowRight, 
+  Home 
 } from 'lucide-react';
 import { APARTMENT_MODELS } from '../data/apartments';
 
@@ -371,19 +373,60 @@ export default function Catalog({ onBookApartment }) {
   const [previewImage, setPreviewImage] = useState(null); // Lightbox zoom modal
   const [sortBy, setSortBy] = useState('area-asc'); // 'area-asc', 'price-asc', 'price-desc'
 
-  const filteredModels = useMemo(() => {
-    return APARTMENT_MODELS.filter((model) => {
-      if (selectedRooms !== 'all' && model.rooms !== parseInt(selectedRooms)) {
-        return false;
-      }
-      return true;
-    }).sort((a, b) => {
-      if (sortBy === 'area-asc') return a.area - b.area;
-      if (sortBy === 'price-asc') return a.prices.fullPayDiscount - b.prices.fullPayDiscount;
-      if (sortBy === 'price-desc') return b.prices.fullPayDiscount - a.prices.fullPayDiscount;
-      return 0;
-    });
-  }, [selectedRooms, sortBy]);
+  // 1-xonali, 2-xonali va 3-xonali toifalar
+  const roomCategories = useMemo(() => [
+    {
+      rooms: 1,
+      id: 'cat-1-room',
+      title: "1-Xonali Xonadonlar",
+      badge: "1 Xonali Planirovkalar To‘plami",
+      subtitle: "Ixcham studio va keng 1 xonali xonadonlar — yakka yashash yoki yosh oilalar uchun ideal qulaylik va eng hamyonbop narxlar.",
+      areaRange: "22 m² — 49 m²",
+      countText: "7 xil planirovka varianti",
+      initialPayment: "60 mln so‘mdan",
+      monthlyPayment: "4 mln so‘m (30 oy)",
+      models: APARTMENT_MODELS.filter(m => m.rooms === 1)
+    },
+    {
+      rooms: 2,
+      id: 'cat-2-room',
+      title: "2-Xonali Oilaviy Xonadonlar",
+      badge: "2 Xonali Planirovkalar To‘plami",
+      subtitle: "Oilaviy qulaylik va shinamlik uchun eng ommabop va talabgir, yorug‘ xonalar va keng dahlizli xonadonlar.",
+      areaRange: "54 m² va 55 m²",
+      countText: "2 xil planirovka varianti",
+      initialPayment: "75 mln so‘mdan",
+      monthlyPayment: "5 mln so‘m (30 oy)",
+      models: APARTMENT_MODELS.filter(m => m.rooms === 2)
+    },
+    {
+      rooms: 3,
+      id: 'cat-3-room',
+      title: "3-Xonali Keng & Shohona Xonadonlar",
+      badge: "3 Xonali Planirovkalar To‘plami",
+      subtitle: "Katta oilalar uchun maksimal kenglik, alohida yotoqxonalar, keng mehmonxona va yuqori darajadagi qulaylik.",
+      areaRange: "70 m² va 77 m²",
+      countText: "2 xil planirovka varianti",
+      initialPayment: "99 mln so‘mdan",
+      monthlyPayment: "6 mln so‘m (30 oy)",
+      models: APARTMENT_MODELS.filter(m => m.rooms === 3)
+    }
+  ], []);
+
+  // Filter va saralangan toifalar
+  const displayedCategories = useMemo(() => {
+    return roomCategories
+      .filter((cat) => selectedRooms === 'all' || cat.rooms === parseInt(selectedRooms))
+      .map((cat) => {
+        const sorted = [...cat.models].sort((a, b) => {
+          if (sortBy === 'area-asc') return a.area - b.area;
+          if (sortBy === 'price-asc') return a.prices.fullPayDiscount - b.prices.fullPayDiscount;
+          if (sortBy === 'price-desc') return b.prices.fullPayDiscount - a.prices.fullPayDiscount;
+          return 0;
+        });
+        return { ...cat, models: sorted };
+      });
+  }, [roomCategories, selectedRooms, sortBy]);
 
   return (
     <section id="catalog" className="py-24 bg-[#f0f7ff] relative border-b border-sky-100">
@@ -399,93 +442,120 @@ export default function Catalog({ onBookApartment }) {
             Xonadonlar Rejalari va <span className="sky-gradient-text">Narxlar Katalogi</span>
           </h2>
           <p className="text-slate-600 text-xs sm:text-base mt-3 leading-relaxed">
-            Quyida har bir xonadonning haqiqiy arxitektura planirovkasi keltirilgan. 
+            Quyida har bir xonadon toifasi — <strong className="text-slate-900">1-xonali, 2-xonali va 3-xonali</strong> xonadonlar alohida bo‘limlarga ajratib ko‘rsatilgan. 
             <strong className="text-slate-900"> Qavatlar (2–4, 5–8, 9–12)</strong> va <strong className="text-slate-900">boshlang‘ich to‘lov (100%, 50%, 30%, standart)</strong>ga qarab narxlar tejamkorligi va bo‘lib to‘lash jadvali avtomatik hisoblanadi.
           </p>
         </div>
 
-        {/* 3 ta toifa tezkor ko'rsatkichlari */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+        {/* 3 ta toifa tezkor tanlash ko'rsatkichlari */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           
           {/* 1 xonali */}
           <div 
-            onClick={() => setSelectedRooms('1')}
+            onClick={() => setSelectedRooms(selectedRooms === '1' ? 'all' : '1')}
             className={`p-5 rounded-2xl border cursor-pointer transition-all ${
               selectedRooms === '1'
-                ? 'bg-sky-50 border-2 border-sky-500 shadow-xl shadow-sky-500/10'
+                ? 'bg-sky-50 border-2 border-sky-500 shadow-xl shadow-sky-500/10 scale-[1.01]'
                 : 'bg-white border-sky-200 hover:border-sky-400 shadow-md'
             }`}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-bold text-slate-900">1 xonali xonadonlar</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-200">41, 43, 49 m²</span>
+              <span className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
+                <span>1 xonali xonadonlar</span>
+              </span>
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 font-extrabold border border-sky-200">
+                22 — 49 m² (7 ta)
+              </span>
             </div>
             <div className="text-xs text-slate-600 space-y-1">
               <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">60 mln so‘m</strong></p>
               <p>Oylik to‘lov: <strong className="text-emerald-700 text-sm">4 mln so‘m</strong> (30 oy)</p>
             </div>
+            <div className="mt-3 pt-2.5 border-t border-sky-100 flex items-center justify-between text-[11px] font-bold text-sky-700">
+              <span>{selectedRooms === '1' ? '✓ Tanlangan (Barchasini ko‘rish)' : 'Faqat 1-xonalilarni ko‘rish'}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </div>
           </div>
 
           {/* 2 xonali */}
           <div 
-            onClick={() => setSelectedRooms('2')}
+            onClick={() => setSelectedRooms(selectedRooms === '2' ? 'all' : '2')}
             className={`p-5 rounded-2xl border cursor-pointer transition-all ${
               selectedRooms === '2'
-                ? 'bg-sky-50 border-2 border-sky-500 shadow-xl shadow-sky-500/10'
+                ? 'bg-sky-50 border-2 border-sky-500 shadow-xl shadow-sky-500/10 scale-[1.01]'
                 : 'bg-white border-sky-200 hover:border-sky-400 shadow-md'
             }`}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-bold text-slate-900">2 xonali xonadonlar</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-200">54, 55 m²</span>
+              <span className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
+                <span>2 xonali xonadonlar</span>
+              </span>
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 font-extrabold border border-sky-200">
+                54, 55 m² (2 ta)
+              </span>
             </div>
             <div className="text-xs text-slate-600 space-y-1">
               <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">75 mln so‘m</strong></p>
               <p>Oylik to‘lov: <strong className="text-emerald-700 text-sm">5 mln so‘m</strong> (30 oy)</p>
             </div>
+            <div className="mt-3 pt-2.5 border-t border-sky-100 flex items-center justify-between text-[11px] font-bold text-sky-700">
+              <span>{selectedRooms === '2' ? '✓ Tanlangan (Barchasini ko‘rish)' : 'Faqat 2-xonalilarni ko‘rish'}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </div>
           </div>
 
           {/* 3 xonali */}
           <div 
-            onClick={() => setSelectedRooms('3')}
+            onClick={() => setSelectedRooms(selectedRooms === '3' ? 'all' : '3')}
             className={`p-5 rounded-2xl border cursor-pointer transition-all ${
               selectedRooms === '3'
-                ? 'bg-sky-50 border-2 border-sky-500 shadow-xl shadow-sky-500/10'
+                ? 'bg-sky-50 border-2 border-sky-500 shadow-xl shadow-sky-500/10 scale-[1.01]'
                 : 'bg-white border-sky-200 hover:border-sky-400 shadow-md'
             }`}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm font-bold text-slate-900">3 xonali xonadonlar</span>
-              <span className="text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold border border-emerald-200">70 m² (va 77 m²)</span>
+              <span className="text-sm font-bold text-slate-900 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span>3 xonali xonadonlar</span>
+              </span>
+              <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-extrabold border border-emerald-200">
+                70, 77 m² (2 ta)
+              </span>
             </div>
             <div className="text-xs text-slate-600 space-y-1">
               <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">99 mln so‘m</strong></p>
               <p>Oylik to‘lov: <strong className="text-emerald-700 text-sm">6 mln so‘m</strong> (30 oy)</p>
+            </div>
+            <div className="mt-3 pt-2.5 border-t border-sky-100 flex items-center justify-between text-[11px] font-bold text-sky-700">
+              <span>{selectedRooms === '3' ? '✓ Tanlangan (Barchasini ko‘rish)' : 'Faqat 3-xonalilarni ko‘rish'}</span>
+              <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </div>
 
         </div>
 
         {/* Filtr paneli */}
-        <div className="bg-white border border-sky-200 rounded-3xl p-5 sm:p-6 shadow-md mb-12 flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="bg-white border border-sky-200 rounded-3xl p-4 sm:p-5 shadow-md mb-12 flex flex-col md:flex-row items-center justify-between gap-4">
           
           {/* Xona tanlash tabs */}
           <div className="flex items-center gap-2 w-full md:w-auto">
-            <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider hidden sm:inline">Toifa:</span>
-            <div className="grid grid-cols-4 gap-1.5 bg-sky-50 p-1 rounded-xl border border-sky-200 w-full md:w-auto">
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider hidden sm:inline">Kategoriya:</span>
+            <div className="grid grid-cols-4 gap-1.5 bg-sky-50 p-1.5 rounded-2xl border border-sky-200 w-full md:w-auto">
               {[
-                { val: 'all', label: 'Barchasi' },
-                { val: '1', label: '1 xona' },
-                { val: '2', label: '2 xona' },
-                { val: '3', label: '3 xona' },
+                { val: 'all', label: 'Barchasi (11 ta)' },
+                { val: '1', label: '1 xonali (7 ta)' },
+                { val: '2', label: '2 xonali (2 ta)' },
+                { val: '3', label: '3 xonali (2 ta)' },
               ].map((item) => (
                 <button
                   key={item.val}
                   onClick={() => setSelectedRooms(item.val)}
-                  className={`px-4 py-2 text-xs font-bold rounded-lg transition-all cursor-pointer ${
+                  className={`px-3 sm:px-4 py-2 text-xs font-bold rounded-xl transition-all cursor-pointer text-center ${
                     selectedRooms === item.val
-                      ? 'sky-gradient-bg text-white shadow-md'
-                      : 'text-slate-600 hover:text-sky-700'
+                      ? 'sky-gradient-bg text-white shadow-md font-extrabold'
+                      : 'text-slate-600 hover:text-sky-800 hover:bg-sky-100/50'
                   }`}
                 >
                   {item.label}
@@ -500,7 +570,7 @@ export default function Catalog({ onBookApartment }) {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="bg-sky-50 border border-sky-200 text-xs text-slate-800 rounded-xl px-3 py-2 outline-none focus:border-sky-500 cursor-pointer shadow-xs"
+              className="bg-sky-50 border border-sky-200 text-xs text-slate-800 rounded-xl px-3 py-2 outline-none focus:border-sky-500 cursor-pointer shadow-xs font-medium"
             >
               <option value="area-asc">Maydon: kichikdan kattaga</option>
               <option value="price-asc">Narx: arzondan qimmatga</option>
@@ -510,15 +580,59 @@ export default function Catalog({ onBookApartment }) {
 
         </div>
 
-        {/* Xonadonlar ro'yxati (2 ta yonma-yon) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
-          {filteredModels.map((model) => (
-            <ApartmentCard 
-              key={model.typeCode}
-              model={model}
-              onBookApartment={onBookApartment}
-              setPreviewImage={setPreviewImage}
-            />
+        {/* Alohida-alohida toifalar bo'yicha xonadonlar (2 ta yonma-yon) */}
+        <div className="space-y-16">
+          {displayedCategories.map((category) => (
+            <div key={category.rooms} id={category.id} className="scroll-mt-24">
+              
+              {/* Har bir toifaning alohida sarlavhasi va ko'rsatkichlari */}
+              <div className="bg-gradient-to-r from-sky-100/90 via-white to-sky-50 border-2 border-sky-300 rounded-3xl p-5 sm:p-7 shadow-lg mb-8 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-80 h-full bg-gradient-to-l from-sky-200/40 to-transparent pointer-events-none" />
+                
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 relative z-10">
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-200/80 border border-sky-300 text-sky-900 text-xs font-black uppercase tracking-wider mb-2">
+                      <span className="w-2 h-2 rounded-full bg-sky-600 animate-pulse"></span>
+                      <span>{category.badge}</span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                      {category.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 mt-1.5 max-w-2xl leading-relaxed">
+                      {category.subtitle}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs shrink-0">
+                    <div className="bg-white px-3.5 py-2 rounded-2xl border border-sky-200 shadow-xs">
+                      <span className="text-[10px] text-slate-500 uppercase font-bold block">Variantlar & Maydon</span>
+                      <span className="text-xs sm:text-sm font-black text-slate-900">{category.areaRange} ({category.models.length} ta)</span>
+                    </div>
+                    <div className="bg-white px-3.5 py-2 rounded-2xl border border-emerald-200 shadow-xs">
+                      <span className="text-[10px] text-emerald-700 uppercase font-bold block">Boshlang‘ich to‘lov</span>
+                      <span className="text-xs sm:text-sm font-black text-emerald-800">{category.initialPayment}</span>
+                    </div>
+                    <div className="bg-white px-3.5 py-2 rounded-2xl border border-sky-200 shadow-xs">
+                      <span className="text-[10px] text-sky-700 uppercase font-bold block">Oylik (30 oy)</span>
+                      <span className="text-xs sm:text-sm font-black text-sky-900">{category.monthlyPayment}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 2 ta yonma-yon kartalar seti */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+                {category.models.map((model) => (
+                  <ApartmentCard 
+                    key={model.typeCode}
+                    model={model}
+                    onBookApartment={onBookApartment}
+                    setPreviewImage={setPreviewImage}
+                  />
+                ))}
+              </div>
+
+            </div>
           ))}
         </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock, ShieldCheck, Send } from 'lucide-react';
+import { MapPin, Phone, Clock, ShieldCheck, Send, Navigation, ExternalLink } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
 export default function Footer({ onScrollTo, onOpenBooking }) {
@@ -136,7 +136,7 @@ export default function Footer({ onScrollTo, onOpenBooking }) {
                 <span>Har kuni: 09:00 — 18:00 (Dam olish kunlarisiz)</span>
               </div>
 
-              <div className="pt-1">
+              <div className="pt-1 flex flex-col gap-2">
                 <a 
                   href={PROJECT_DETAILS.location.telegramChannel} 
                   target="_blank" 
@@ -145,6 +145,17 @@ export default function Footer({ onScrollTo, onOpenBooking }) {
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Telegram kanal: @yangiqoyliq_TJM</span>
+                </a>
+
+                <a 
+                  href={PROJECT_DETAILS.location.yandexLink} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 hover:text-sky-900 transition-colors"
+                >
+                  <Navigation className="w-3.5 h-3.5 text-sky-600" />
+                  <span>Yandex Xarita (Ofis va Qurilish lokatsiyasi)</span>
+                  <ExternalLink className="w-3 h-3 text-sky-500" />
                 </a>
               </div>
             </div>
