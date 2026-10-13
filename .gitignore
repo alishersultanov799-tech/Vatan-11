@@ -26,6 +26,8 @@ Thumbs.db
 *.zip
 *.tar.gz
 *.rar
+~$*
+*.tmp
 
 # Raw source asset folders (all assets are organized inside public/)
 Курилаётган уйлар/
