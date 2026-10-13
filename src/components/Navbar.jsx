@@ -7,10 +7,10 @@ export default function Navbar({ onOpenBooking, onScrollTo }) {
 
   const navLinks = [
     { label: "Bosh sahifa", target: "hero" },
-    { label: "Kompaniya", target: "company-trust" },
     { label: "Afzalliklar", target: "advantages" },
-    { label: "Uylar qiyofasi", target: "gallery" },
     { label: "Xonadonlar & Narxlar", target: "catalog" },
+    { label: "Tashrif buyurish", target: "visit" },
+    { label: "Savol-Javob", target: "faq" },
     { label: "Joylashuv", target: "location" },
     { label: "Bog‘lanish", target: "contact" },
   ];

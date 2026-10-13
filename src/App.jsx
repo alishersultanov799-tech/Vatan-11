@@ -6,6 +6,8 @@ import ProjectAdvantages from './components/ProjectAdvantages';
 import ComplexGallery from './components/ComplexGallery';
 import Catalog from './components/Catalog';
 import LocationMap from './components/LocationMap';
+import VisitBookingSection from './components/VisitBookingSection';
+import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import MobileStickyBar from './components/MobileStickyBar';
@@ -85,10 +87,18 @@ export default function App() {
         })}
       />
 
-      {/* 6. Joylashuv va Interaktiv xarita */}
+      {/* 7. Savdo ofisiga yoki Qurilish maydoniga Tashrifni bron qilish */}
+      <VisitBookingSection />
+
+      {/* 8. Joylashuv va Interaktiv xarita */}
       <LocationMap />
 
-      {/* 7. Rasmiy konsultatsiya va narxlar ro‘yxatini olish */}
+      {/* 9. Ko‘p beriladigan savollar (FAQ / Savol-Javob) */}
+      <FAQSection 
+        onOpenBooking={handleOpenBooking}
+      />
+
+      {/* 10. Rasmiy konsultatsiya va narxlar ro‘yxatini olish */}
       <ContactSection />
 
       {/* 8. Futer (Kompaniya ma’lumotlari, rekvizitlar) */}

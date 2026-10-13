@@ -12,7 +12,11 @@ export function buildCrmLeadPayload({
   area = '54',
   budget = '39 mln boshlang‘ich',
   purpose = 'Yashash uchun',
-  source = 'Vatan rasmiy sayti'
+  source = 'Vatan rasmiy sayti',
+  isVisit = false,
+  visitLocation = 'Savdo ofisi (Food City ro‘parasi)',
+  visitDate = '',
+  visitTime = ''
 }) {
   const timestamp = new Date().toISOString();
   const formattedDate = new Date().toLocaleString('uz-UZ', { timeZone: 'Asia/Tashkent' });
@@ -24,7 +28,7 @@ export function buildCrmLeadPayload({
     },
     property: {
       project,
-      rooms: Number(rooms) || rooms,
+      rooms: typeof rooms === 'number' ? `${rooms} xonali` : rooms,
       area: typeof area === 'string' && area.includes('m²') ? area : `${area} m²`
     },
     financial: {
@@ -35,7 +39,11 @@ export function buildCrmLeadPayload({
       createdAt: timestamp,
       localDateTime: formattedDate,
       assignedManager: 'Alisher',
-      source
+      source,
+      isVisit,
+      visitLocation,
+      visitDate,
+      visitTime
     }
   };
 }
@@ -43,12 +51,26 @@ export function buildCrmLeadPayload({
 export function formatTelegramLeadMessage(payload) {
   const { client, property, financial, meta } = payload;
 
+  if (meta.isVisit) {
+    return `📅 <b>YANGI TASHRIF BUYURISH ARIZASI</b>\n` +
+           `━━━━━━━━━━━━━━━━━━━━\n` +
+           `👤 <b>Mijoz:</b> ${client.name}\n` +
+           `📞 <b>Telefon:</b> <code>${client.phone}</code>\n` +
+           `📍 <b>Tashrif joyi:</b> ${meta.visitLocation}\n` +
+           `📆 <b>Belgilangan sana:</b> ${meta.visitDate || 'Belgilanmagan'}\n` +
+           `⏰ <b>Qulay vaqt:</b> ${meta.visitTime || 'Kun davomida'}\n` +
+           `🏠 <b>Qiziqtirayotgan xonadon:</b> ${property.rooms} (${property.area})\n` +
+           `🎯 <b>Izoh / Maqsad:</b> ${financial.purpose}\n` +
+           `🌐 <b>Manba:</b> ${meta.source}\n` +
+           `⏱ <b>Yuborildi:</b> ${meta.localDateTime}`;
+  }
+
   return `🔔 <b>YANGI ARIZA — VATAN SAYTI</b>\n` +
          `━━━━━━━━━━━━━━━━━━━━\n` +
          `👤 <b>Mijoz:</b> ${client.name}\n` +
          `📞 <b>Telefon:</b> <code>${client.phone}</code>\n` +
          `🏢 <b>Loyiha:</b> ${property.project}\n` +
-         `🏠 <b>Xonadon:</b> ${property.rooms} xonali (${property.area})\n` +
+         `🏠 <b>Xonadon:</b> ${property.rooms} (${property.area})\n` +
          `💰 <b>So‘rov / Shart:</b> ${financial.budget}\n` +
          `🎯 <b>Maqsad:</b> ${financial.purpose}\n` +
          `🌐 <b>Manba:</b> ${meta.source}\n` +
