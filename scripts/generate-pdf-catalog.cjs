@@ -109,7 +109,7 @@ if (fs.existsSync(heroImagePath)) {
 const highlights = [
   { title: "13 Gektar Hudud", desc: "12 qavatli monolit binolar, 3 800 ta xonadon, zilzilabardosh mustahkam poydevor" },
   { title: "70% Tayyor Ta’mir", desc: "Devorlar oq suvoqda, styajka, Akfa romlar, temir eshik, shaxsiy isitish tizimi" },
-  { title: "30 Oy 0% Bo‘lib To‘lash", desc: "60, 75 va 99 mln bosh to‘lov bilan 30 oy ustamasiz (yoki 100% to‘lovda 33% chegirma)" },
+  { title: "30 Oy 0% Bo‘lib To‘lash", desc: "29, 39 va 69 mln bosh to‘lov bilan 30 oy ustamasiz (yoki 100% to‘lovda 33% chegirma)" },
   { title: "2028 IV-Chorak", desc: "Kafolatlangan topshirish muddati, to‘liq davlat ro‘yxatidan o‘tgan shartnoma" }
 ];
 
@@ -284,27 +284,29 @@ const instThY = 362;
 doc.rect(45, instThY, 505, 18).fill(colors.primaryDark);
 doc.font(fontBold).fontSize(8).fillColor('#ffffff');
 doc.text("Xona & Maydon", 52, instThY + 5);
-doc.text("Bosh to‘lov", 155, instThY + 5);
-doc.text("Oylik to‘lov (30 oy)", 245, instThY + 5);
-doc.text("100% to‘lovda (33% chegirma)", 375, instThY + 5);
+doc.text("Bosh to‘lov", 145, instThY + 5);
+doc.text("Oylik (30 oy)", 225, instThY + 5);
+doc.text("31-oy qoldiq to‘lov", 305, instThY + 5);
+doc.text("100% to‘lovda (33%)", 415, instThY + 5);
 
 const instRows = [
-  { name: "1 xonali (41 m²)", init: "60 mln so‘m", monthly: "4 mln so‘m / oy", full: "281.6 — 309.0 mln" },
-  { name: "1 xonali (43 m²)", init: "60 mln so‘m", monthly: "4 mln so‘m / oy", full: "295.3 — 324.1 mln" },
-  { name: "1 xonali (49 m²)", init: "60 mln so‘m", monthly: "4 mln so‘m / oy", full: "336.5 — 369.3 mln" },
-  { name: "2 xonali (54 m²)", init: "75 mln so‘m", monthly: "5 mln so‘m / oy", full: "352.8 — 388.9 mln" },
-  { name: "2 xonali (55 m²)", init: "75 mln so‘m", monthly: "5 mln so‘m / oy", full: "359.3 — 396.1 mln" },
-  { name: "3 xonali (70 m²)", init: "99 mln so‘m", monthly: "6 mln so‘m / oy", full: "433.8 — 480.7 mln" },
-  { name: "3 xonali (77 m²)", init: "99 mln so‘m", monthly: "6 mln so‘m / oy", full: "477.2 — 528.8 mln" },
+  { name: "1 xonali (41 m²)", init: "29 mln so‘m", monthly: "4 mln so‘m / oy", rem: "271.2 — 312.2 mln", full: "281.6 — 309.0 mln" },
+  { name: "1 xonali (43 m²)", init: "29 mln so‘m", monthly: "4 mln so‘m / oy", rem: "291.7 — 334.7 mln", full: "295.3 — 324.1 mln" },
+  { name: "1 xonali (49 m²)", init: "29 mln so‘m", monthly: "4 mln so‘m / oy", rem: "353.2 — 402.2 mln", full: "336.5 — 369.3 mln" },
+  { name: "2 xonali (54 m²)", init: "39 mln so‘m", monthly: "5 mln so‘m / oy", rem: "337.5 — 391.5 mln", full: "352.8 — 388.9 mln" },
+  { name: "2 xonali (55 m²)", init: "39 mln so‘m", monthly: "5 mln so‘m / oy", rem: "347.2 — 402.2 mln", full: "359.3 — 396.1 mln" },
+  { name: "3 xonali (70 m²)", init: "69 mln so‘m", monthly: "6 mln so‘m / oy", rem: "398.5 — 468.5 mln", full: "433.8 — 480.7 mln" },
+  { name: "3 xonali (77 m²)", init: "69 mln so‘m", monthly: "6 mln so‘m / oy", rem: "463.2 — 540.2 mln", full: "477.2 — 528.8 mln" },
 ];
 
 instRows.forEach((row, idx) => {
   const rY = instThY + 18 + idx * 23;
   doc.rect(45, rY, 505, 23).fill(idx % 2 === 0 ? '#f8fafc' : '#ffffff');
   doc.font(fontBold).fontSize(8.5).fillColor(colors.dark).text(row.name, 52, rY + 6);
-  doc.font(fontBold).fontSize(8.5).fillColor(colors.secondary).text(row.init, 155, rY + 6);
-  doc.font(fontBold).fontSize(8.5).fillColor(colors.primaryDark).text(row.monthly, 245, rY + 6);
-  doc.font(fontRegular).fontSize(8).fillColor(colors.gray).text(row.full, 375, rY + 6);
+  doc.font(fontBold).fontSize(8.5).fillColor(colors.secondary).text(row.init, 145, rY + 6);
+  doc.font(fontBold).fontSize(8.5).fillColor(colors.primaryDark).text(row.monthly, 225, rY + 6);
+  doc.font(fontBold).fontSize(8).fillColor(colors.amber).text(row.rem, 305, rY + 6);
+  doc.font(fontRegular).fontSize(8).fillColor(colors.gray).text(row.full, 415, rY + 6);
 });
 
 // To'lov xulosasi
@@ -375,9 +377,10 @@ function renderApartmentRow(y, h, apt) {
   if (apt.isInstallment) {
     doc.rect(dx, curY, dw, 36).fill(colors.secondaryLight);
     doc.font(fontBold).fontSize(8.5).fillColor(colors.secondary).text("Bo‘lib to‘lash (30 oy 0% foizsiz):", dx + 6, curY + 4);
-    doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(`• Boshlang‘ich to‘lov: ${apt.initPay}`, dx + 10, curY + 16);
-    doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(`• Oylik to‘lov: ${apt.monthlyPay}`, dx + 160, curY + 16);
-    doc.font(fontRegular).fontSize(7.5).fillColor(colors.gray).text(`• 100% to‘lovda (33% chegirma bilan): ${apt.fullPay}`, dx + 10, curY + 26);
+    doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(`• Bosh to‘lov: ${apt.initPay}`, dx + 10, curY + 16);
+    doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(`• Oylik: ${apt.monthlyPay}`, dx + 160, curY + 16);
+    doc.font(fontBold).fontSize(7.5).fillColor(colors.primaryDark).text(`• 31-oy qoldiq: ${apt.remPay || '—'}`, dx + 10, curY + 26);
+    doc.font(fontRegular).fontSize(7.5).fillColor(colors.gray).text(`• 100% to‘lov: ${apt.fullPay}`, dx + 160, curY + 26);
     curY += 40;
   } else {
     doc.rect(dx, curY, dw, 30).fill(colors.amberLight);
@@ -502,19 +505,20 @@ renderApartmentRow(326, 230, {
 // 41 m²
 renderApartmentRow(564, 230, {
   title: "1B-41 | 41 m² (1 xonali — 30 oy bo‘lib to‘lash)",
-  badge: "30 oy 0% foizsiz bo‘lib to‘lash",
+  badge: "Bosh to‘lov: 29 mln | Oylik: 4 mln",
   badgeColor: colors.secondary,
   image: "41.jpg",
   area: "41.0 m²",
   payType: "30 oy 0% bo‘lib to‘lash",
   isInstallment: true,
-  initPay: "60 000 000 so‘m",
+  initPay: "29 000 000 so‘m",
   monthlyPay: "4 000 000 so‘m (30 oy 0%)",
+  remPay: "271.2 — 312.2 mln so‘m",
   fullPay: "281.6 — 309.0 mln so‘m",
   p9: "281 567 500 so‘m (9–12-qavat)",
   p5: "295 302 500 so‘m (5–8-qavat)",
   p2: "309 037 500 so‘m (2–4-qavat)",
-  desc: "30 oygacha 0% foizsiz bo‘lib to‘lash imkoniga ega eng talabgir 1 xonali uy! Boshiga 60 mln to‘lab, har oy 4 mln dan to‘lanadi."
+  desc: "30 oygacha 0% foizsiz bo‘lib to‘lash imkoniga ega eng talabgir 1 xonali uy! Boshiga 29 mln to‘lab, har oy 4 mln dan to‘lanadi. 31-oy qoldiq to‘lanadi."
 });
 
 drawFooter(5);
@@ -527,62 +531,65 @@ drawHeader("6-BO‘LIM: 1 VA 2 XONALI XONADONLAR REJASI (43, 49, 54 m²)");
 
 doc.font(fontBold).fontSize(14).fillColor(colors.dark).text("Keng 1 va 2 Xonali Oilaviy Uylar", 35, 50);
 doc.font(fontRegular).fontSize(8.5).fillColor(colors.gray).text(
-  "30 oy davomida 0% foizsiz bo‘lib to‘lashga beriladigan qulay xonadonlar (bosh to‘lov 60 va 75 mln so‘m):",
+  "30 oy davomida 0% foizsiz bo‘lib to‘lashga beriladigan qulay xonadonlar (bosh to‘lov 29 va 39 mln so‘m):",
   35, 68
 );
 
 // 43 m²
 renderApartmentRow(88, 230, {
   title: "1C-43 | 43 m² (1 xonali keng)",
-  badge: "Bosh to‘lov: 60 mln | Oylik: 4 mln",
+  badge: "Bosh to‘lov: 29 mln | Oylik: 4 mln",
   badgeColor: colors.secondary,
   image: "43.jpg",
   area: "43.0 m²",
   payType: "30 oy 0% bo‘lib to‘lash",
   isInstallment: true,
-  initPay: "60 000 000 so‘m",
+  initPay: "29 000 000 so‘m",
   monthlyPay: "4 000 000 so‘m (30 oy 0%)",
+  remPay: "291.7 — 334.7 mln so‘m",
   fullPay: "295.3 — 324.1 mln so‘m",
   p9: "295 302 500 so‘m (9–12-qavat)",
   p5: "309 707 500 so‘m (5–8-qavat)",
   p2: "324 112 500 so‘m (2–4-qavat)",
-  desc: "Keng 1 xonali xonadon. Katta oyna, alohida shinam oshxona va balkon. Yosh oilalar uchun uzoq yillik qulay sharoit."
+  desc: "Keng 1 xonali xonadon. Katta oyna, alohida shinam oshxona va balkon. Boshiga 29 mln so‘m to‘lab, oyiga 4 mln dan 30 oy ustamasiz to‘lanadi."
 });
 
 // 49 m²
 renderApartmentRow(326, 230, {
   title: "1D-49 | 49 m² (1 xonali ulkan / evro-2)",
-  badge: "Bosh to‘lov: 60 mln | Oylik: 4 mln",
+  badge: "Bosh to‘lov: 29 mln | Oylik: 4 mln",
   badgeColor: colors.secondary,
   image: "49.jpg",
   area: "49.0 m²",
   payType: "30 oy 0% bo‘lib to‘lash",
   isInstallment: true,
-  initPay: "60 000 000 so‘m",
+  initPay: "29 000 000 so‘m",
   monthlyPay: "4 000 000 so‘m (30 oy 0%)",
+  remPay: "353.2 — 402.2 mln so‘m",
   fullPay: "336.5 — 369.3 mln so‘m",
   p9: "336 507 500 so‘m (9–12-qavat)",
   p5: "352 922 500 so‘m (5–8-qavat)",
   p2: "369 337 500 so‘m (2–4-qavat)",
-  desc: "Eng katta 1 xonali xonadon. Istakka ko‘ra bemalol 2 xonaga (evro-ikki xona) aylantirish mumkin. Katta yotoqxona va keng oshxona."
+  desc: "Eng katta 1 xonali xonadon. Istakka ko‘ra bemalol 2 xonaga aylantirish mumkin. Boshiga 29 mln to‘lab, har oy 4 mln dan 30 oy ustamasiz to‘lanadi."
 });
 
 // 54 m² (2 xonali)
 renderApartmentRow(564, 230, {
   title: "2A-54 | 54 m² (2 xonali eng talabgir)",
-  badge: "Bosh to‘lov: 75 mln | Oylik: 5 mln",
+  badge: "Bosh to‘lov: 39 mln | Oylik: 5 mln",
   badgeColor: colors.secondary,
   image: "54.jpg",
   area: "54.0 m²",
   payType: "30 oy 0% bo‘lib to‘lash",
   isInstallment: true,
-  initPay: "75 000 000 so‘m",
+  initPay: "39 000 000 so‘m",
   monthlyPay: "5 000 000 so‘m (30 oy 0%)",
+  remPay: "337.5 — 391.5 mln so‘m",
   fullPay: "352.8 — 388.9 mln so‘m",
   p9: "352 755 000 so‘m (9–12-qavat)",
   p5: "370 845 000 so‘m (5–8-qavat)",
   p2: "388 935 000 so‘m (2–4-qavat)",
-  desc: "Majmuadagi eng talabgir 2 xonali oilaviy reja! Mehmonxona, yotoqxona, alohida oshxona va sanuzel. 30 oy ustamasiz grafik."
+  desc: "Majmuadagi eng talabgir 2 xonali oilaviy reja! Mehmonxona, yotoqxona va oshxona. Boshiga 39 mln to‘lab, oyiga 5 mln dan to‘lanadi."
 });
 
 drawFooter(6);
@@ -602,55 +609,58 @@ doc.font(fontRegular).fontSize(8.5).fillColor(colors.gray).text(
 // 55 m² (2 xonali)
 renderApartmentRow(88, 230, {
   title: "2B-55 | 55 m² (2 xonali shinam)",
-  badge: "Bosh to‘lov: 75 mln | Oylik: 5 mln",
+  badge: "Bosh to‘lov: 39 mln | Oylik: 5 mln",
   badgeColor: colors.secondary,
   image: "55.jpg",
   area: "55.0 m²",
   payType: "30 oy 0% bo‘lib to‘lash",
   isInstallment: true,
-  initPay: "75 000 000 so‘m",
+  initPay: "39 000 000 so‘m",
   monthlyPay: "5 000 000 so‘m (30 oy 0%)",
+  remPay: "347.2 — 402.2 mln so‘m",
   fullPay: "359.3 — 396.1 mln so‘m",
   p9: "359 287 500 so‘m (9–12-qavat)",
   p5: "377 692 500 so‘m (5–8-qavat)",
   p2: "396 097 500 so‘m (2–4-qavat)",
-  desc: "Shinam ikki tomonlama yorug‘lik tushuvchi 2 xonali uy. Ota-onalar va farzandlar uchun alohida xonalar, qulay oshxona va balkon."
+  desc: "Shinam ikki tomonlama yorug‘lik tushuvchi 2 xonali uy. Ota-onalar va farzandlar uchun alohida xonalar, qulay oshxona va balkon. Boshiga 39 mln to‘lab, har oy 5 mln to‘lanadi."
 });
 
 // 70 m² (3 xonali)
 renderApartmentRow(326, 230, {
   title: "3A-70 | 70 m² (3 xonali oilaviy)",
-  badge: "Bosh to‘lov: 99 mln | Oylik: 6 mln",
+  badge: "Bosh to‘lov: 69 mln | Oylik: 6 mln",
   badgeColor: colors.secondary,
   image: "70.jpg",
   area: "70.0 m²",
   payType: "30 oy 0% bo‘lib to‘lash",
   isInstallment: true,
-  initPay: "99 000 000 so‘m",
+  initPay: "69 000 000 so‘m",
   monthlyPay: "6 000 000 so‘m (30 oy 0%)",
+  remPay: "398.5 — 468.5 mln so‘m",
   fullPay: "433.8 — 480.7 mln so‘m",
   p9: "433 825 000 so‘m (9–12-qavat)",
   p5: "457 275 000 so‘m (5–8-qavat)",
   p2: "480 725 000 so‘m (2–4-qavat)",
-  desc: "3 xonali ideal oilaviy reja. Katta mehmonxona, ota-onalar yotoqxonasi, bolalar xonasi va keng oshxona. 30 oy 0% ustama bilan."
+  desc: "3 xonali ideal oilaviy reja. Katta mehmonxona, ota-onalar yotoqxonasi, bolalar xonasi va keng oshxona. Boshiga 69 mln to‘lab, oyiga 6 mln dan to‘lanadi."
 });
 
 // 77 m² (3 xonali premium)
 renderApartmentRow(564, 230, {
   title: "3B-77 | 77 m² (3 xonali premium — 2 ta sanuzel)",
-  badge: "Bosh to‘lov: 99 mln | Oylik: 6 mln",
+  badge: "Bosh to‘lov: 69 mln | Oylik: 6 mln",
   badgeColor: colors.secondary,
   image: "77.jpg",
   area: "77.0 m²",
   payType: "30 oy 0% bo‘lib to‘lash",
   isInstallment: true,
-  initPay: "99 000 000 so‘m",
+  initPay: "69 000 000 so‘m",
   monthlyPay: "6 000 000 so‘m (30 oy 0%)",
+  remPay: "463.2 — 540.2 mln so‘m",
   fullPay: "477.2 — 528.8 mln so‘m",
   p9: "477 207 500 so‘m (9–12-qavat)",
   p5: "503 002 500 so‘m (5–8-qavat)",
   p2: "528 797 500 so‘m (2–4-qavat)",
-  desc: "Majmuadagi eng katta va hashamatli 3 xonali xonadon! 2 ta sanuzel, keng balkon, ulkan panoramik oynalar va keng xonalar."
+  desc: "Majmuadagi eng katta va hashamatli 3 xonali xonadon! 2 ta sanuzel, keng balkon, ulkan panoramik oynalar. Boshiga 69 mln to‘lab, oyiga 6 mln dan to‘lanadi."
 });
 
 drawFooter(7);

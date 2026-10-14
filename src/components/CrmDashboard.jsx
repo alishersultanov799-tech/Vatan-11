@@ -60,7 +60,7 @@ export default function CrmDashboard({ onClose, onOpenSite }) {
   const [newLeadName, setNewLeadName] = useState('');
   const [newLeadPhone, setNewLeadPhone] = useState('+998 ');
   const [newLeadRooms, setNewLeadRooms] = useState('2 xonali (54 m²)');
-  const [newLeadPayment, setNewLeadPayment] = useState('30 oy 0% bo‘lib to‘lash (75 mln)');
+  const [newLeadPayment, setNewLeadPayment] = useState('30 oy 0% bo‘lib to‘lash (39 mln)');
   const [newLeadNotes, setNewLeadNotes] = useState('');
 
   // Izoh tahrirlash modali
@@ -111,7 +111,7 @@ export default function CrmDashboard({ onClose, onOpenSite }) {
       rooms: newLeadRooms.includes('(') ? newLeadRooms.split('(')[0].trim() : newLeadRooms,
       area: newLeadRooms.includes('(') ? newLeadRooms.split('(')[1].replace(')', '').trim() : '54 m²',
       paymentType: newLeadPayment,
-      initialPayment: newLeadPayment.includes('75') ? '75 mln' : newLeadPayment.includes('60') ? '60 mln' : newLeadPayment.includes('99') ? '99 mln' : 'To‘liq to‘lov',
+      initialPayment: newLeadPayment.includes('39') ? '39 mln' : newLeadPayment.includes('29') ? '29 mln' : newLeadPayment.includes('69') ? '69 mln' : 'To‘liq to‘lov',
       notes: newLeadNotes.trim() || 'Ofisda kiritilgan mijoz',
       status: 'Yangi ariza',
       source: 'Menejer (CRM)',
@@ -785,9 +785,9 @@ export default function CrmDashboard({ onClose, onOpenSite }) {
                     onChange={(e) => setNewLeadPayment(e.target.value)}
                     className="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold bg-slate-50 focus:outline-none focus:border-sky-500"
                   >
-                    <option value="30 oy 0% bo‘lib to‘lash (75 mln)">30 oy 0% (75 mln bosh)</option>
-                    <option value="30 oy 0% bo‘lib to‘lash (60 mln)">30 oy 0% (60 mln bosh)</option>
-                    <option value="30 oy 0% bo‘lib to‘lash (99 mln)">30 oy 0% (99 mln bosh)</option>
+                    <option value="30 oy 0% bo‘lib to‘lash (39 mln)">30 oy 0% (39 mln bosh)</option>
+                    <option value="30 oy 0% bo‘lib to‘lash (29 mln)">30 oy 0% (29 mln bosh)</option>
+                    <option value="30 oy 0% bo‘lib to‘lash (69 mln)">30 oy 0% (69 mln bosh)</option>
                     <option value="100% to‘lov (33% chegirma)">100% to‘lov (33% chegirma)</option>
                   </select>
                 </div>
