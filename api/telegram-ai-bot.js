@@ -549,101 +549,70 @@ async function handleTelegramUpdate(update) {
   return { ok: true };
 }
 
-// Netlify Functions v2 (Standard Web Request/Response)
-export default async (req, context) => {
-  const url = new URL(req.url);
+// Universal Serverless Handler (Works seamlessly on Vercel, Netlify, and Node)
+export default async function handler(req, res) {
+  // 1. If called in Web standard Request/Response environment (Vercel Edge or Netlify v2)
+  if (!res || typeof res.status !== 'function') {
+    const url = new URL(req.url, 'https://localhost');
 
+    if (req.method === 'GET') {
+      const action = url.searchParams.get('action');
+      if (action === 'setWebhook') {
+        const targetUrl = url.searchParams.get('url') || `${url.origin}/api/telegram-ai-bot`;
+        const tgRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook?url=${encodeURIComponent(targetUrl)}`);
+        const tgData = await tgRes.json();
+        return new Response(JSON.stringify({ success: true, targetUrl, telegram: tgData }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+      return new Response(JSON.stringify({ status: "online", bot: "@Vatan2333_bot" }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
+    if (req.method === 'POST') {
+      try {
+        const update = await req.json();
+        const result = await handleTelegramUpdate(update);
+        return new Response(JSON.stringify(result), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      } catch (e) {
+        return new Response(JSON.stringify({ ok: false, error: e.message }), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' }
+        });
+      }
+    }
+
+    return new Response("Method not allowed", { status: 405 });
+  }
+
+  // 2. Standard Node.js Serverless Handler (Vercel Serverless Function)
   if (req.method === 'GET') {
-    const action = url.searchParams.get('action');
-    const targetUrl = url.searchParams.get('url');
-
+    const action = req.query?.action;
     if (action === 'setWebhook') {
-      const webhookUrl = targetUrl || `${url.origin}/.netlify/functions/telegram-ai-bot`;
-      const tgRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook?url=${encodeURIComponent(webhookUrl)}`);
+      const host = req.headers['x-forwarded-host'] || req.headers.host;
+      const targetUrl = req.query?.url || `https://${host}/api/telegram-ai-bot`;
+      const tgRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook?url=${encodeURIComponent(targetUrl)}`);
       const tgData = await tgRes.json();
-      return new Response(JSON.stringify({ success: true, webhookUrl, telegram: tgData }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return res.status(200).json({ success: true, targetUrl, telegram: tgData });
     }
-
-    if (action === 'getWebhookInfo') {
-      const tgRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getWebhookInfo`);
-      const tgData = await tgRes.json();
-      return new Response(JSON.stringify({ success: true, telegram: tgData }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      });
-    }
-
-    return new Response(JSON.stringify({
-      status: "online",
-      project: "Yangi Qo‘yliq-2 AI Telegram Bot (Netlify Function)",
-      bot: "@Vatan2333_bot",
-      geminiConfigured: !!GEMINI_API_KEY
-    }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return res.status(200).json({ status: "online", bot: "@Vatan2333_bot" });
   }
 
   if (req.method === 'POST') {
     try {
-      const update = await req.json();
+      const update = typeof req.body === 'string' ? JSON.parse(req.body) : req.body;
       const result = await handleTelegramUpdate(update);
-      return new Response(JSON.stringify(result), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return res.status(200).json(result);
     } catch (e) {
-      return new Response(JSON.stringify({ ok: false, error: e.message }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      });
+      return res.status(200).json({ ok: false, error: e.message });
     }
   }
 
-  return new Response("Method not allowed", { status: 405 });
-};
-
-// Netlify Functions v1 / AWS Lambda Handler fallback
-export const handler = async (event) => {
-  if (event.httpMethod === 'GET') {
-    const params = event.queryStringParameters || {};
-    if (params.action === 'setWebhook') {
-      const webhookUrl = params.url || `https://${event.headers.host}/.netlify/functions/telegram-ai-bot`;
-      const tgRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook?url=${encodeURIComponent(webhookUrl)}`);
-      const tgData = await tgRes.json();
-      return {
-        statusCode: 200,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ success: true, webhookUrl, telegram: tgData })
-      };
-    }
-    return {
-      statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ status: "online", bot: "@Vatan2333_bot" })
-    };
-  }
-
-  if (event.httpMethod === 'POST') {
-    try {
-      const update = JSON.parse(event.body || '{}');
-      const result = await handleTelegramUpdate(update);
-      return {
-        statusCode: 200,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(result)
-      };
-    } catch (e) {
-      return {
-        statusCode: 200,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ok: false, error: e.message })
-      };
-    }
-  }
-
-  return { statusCode: 405, body: "Method not allowed" };
-};
+  return res.status(405).send("Method not allowed");
+}
