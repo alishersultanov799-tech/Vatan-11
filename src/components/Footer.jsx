@@ -2,7 +2,7 @@ import React from 'react';
 import { MapPin, Phone, Clock, ShieldCheck, Send, Navigation, ExternalLink, Bot } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
-export default function Footer({ onScrollTo, onOpenBooking }) {
+export default function Footer({ onScrollTo, onOpenBooking, onOpenCrm }) {
   return (
     <footer className="bg-[#e0f0fd] border-t border-sky-200 text-slate-600 text-xs pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -168,8 +168,17 @@ export default function Footer({ onScrollTo, onOpenBooking }) {
         {/* Bottom Legal bar */}
         <div className="pt-8 border-t border-sky-200/80 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-3">
           <p>© 2013 — 2026 "VATAN" qurilish kompaniyasi. Barcha huquqlar himoyalangan.</p>
-          <div className="flex items-center gap-4">
-            <span>Yangi Qo‘yliq-2 loyihasi</span>
+          <div className="flex items-center gap-3">
+            {onOpenCrm && (
+              <button
+                onClick={onOpenCrm}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-sky-100 hover:bg-sky-200 text-sky-900 font-bold text-[11px] transition-all cursor-pointer border border-sky-300"
+                title="Menejer va rahbariyat uchun CRM tizimi"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 text-sky-700" />
+                <span>CRM Boshqaruv (PIN: 7777)</span>
+              </button>
+            )}
             <span>•</span>
             <a 
               href={PROJECT_DETAILS.location.telegramChannel} 

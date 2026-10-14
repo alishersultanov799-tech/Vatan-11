@@ -50,6 +50,7 @@ export function buildCrmLeadPayload({
 
 export function formatTelegramLeadMessage(payload) {
   const { client, property, financial, meta } = payload;
+  const crmFooter = `\n\n📊 <b>CRM Tizimida ko‘rish:</b>\n👉 <a href="https://vatan-11-p5nw.vercel.app/#crm">https://vatan-11-p5nw.vercel.app/#crm</a> (PIN: 7777)`;
 
   if (meta.isVisit) {
     return `📅 <b>YANGI TASHRIF BUYURISH ARIZASI</b>\n` +
@@ -62,7 +63,8 @@ export function formatTelegramLeadMessage(payload) {
            `🏠 <b>Qiziqtirayotgan xonadon:</b> ${property.rooms} (${property.area})\n` +
            `🎯 <b>Izoh / Maqsad:</b> ${financial.purpose}\n` +
            `🌐 <b>Manba:</b> ${meta.source}\n` +
-           `⏱ <b>Yuborildi:</b> ${meta.localDateTime}`;
+           `⏱ <b>Yuborildi:</b> ${meta.localDateTime}` +
+           crmFooter;
   }
 
   return `🔔 <b>YANGI ARIZA — VATAN SAYTI</b>\n` +
@@ -75,11 +77,22 @@ export function formatTelegramLeadMessage(payload) {
          `🎯 <b>Maqsad:</b> ${financial.purpose}\n` +
          `🌐 <b>Manba:</b> ${meta.source}\n` +
          `👨‍💼 <b>Menejer:</b> ${meta.assignedManager}\n` +
-         `⏰ <b>Vaqt:</b> ${meta.localDateTime}`;
+         `⏰ <b>Vaqt:</b> ${meta.localDateTime}` +
+         crmFooter;
 }
+
+import { addLeadToCrm } from './crmStorage';
 
 export async function sendTelegramLead(leadData) {
   try {
+    // 1. Saqlash (CRM ma'lumotlar omboriga)
+    try {
+      addLeadToCrm(leadData);
+    } catch (storageErr) {
+      console.warn("CRM saqlash xatosi:", storageErr);
+    }
+
+    // 2. Telegramga xabar yuborish
     const payload = buildCrmLeadPayload(leadData);
     const text = formatTelegramLeadMessage(payload);
     const chatId = leadData.chatId || DEFAULT_TELEGRAM_CHAT_ID;

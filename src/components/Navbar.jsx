@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Phone, Menu, X, Send, Bot } from 'lucide-react';
+import { Phone, Menu, X, Send, Bot, ShieldCheck } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
-export default function Navbar({ onOpenBooking, onScrollTo }) {
+export default function Navbar({ onOpenBooking, onScrollTo, onOpenCrm }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -156,6 +156,19 @@ export default function Navbar({ onOpenBooking, onScrollTo }) {
             >
               Ariza qoldirish
             </button>
+
+            {onOpenCrm && (
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  onOpenCrm();
+                }}
+                className="w-full py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold text-center flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 text-sky-700" />
+                <span>CRM Boshqaruv (PIN: 7777)</span>
+              </button>
+            )}
           </div>
         </div>
       )}

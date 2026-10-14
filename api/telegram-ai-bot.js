@@ -469,6 +469,46 @@ function getMainKeyboard() {
   };
 }
 
+function detectLeadIntent(text) {
+  const t = (text || '').toLowerCase();
+  
+  // Xonadon
+  let rooms = '1–2 xonali (aniqlanadi)';
+  if (t.includes('3 xona') || t.includes('3-xona') || t.includes('70') || t.includes('77')) {
+    rooms = '3 xonali (70–77 m²)';
+  } else if (t.includes('2 xona') || t.includes('2-xona') || t.includes('54') || t.includes('55')) {
+    rooms = '2 xonali (54–55 m²)';
+  } else if (t.includes('41') || t.includes('43') || t.includes('49')) {
+    rooms = '1 xonali (41–49 m², bo‘lib to‘lash)';
+  } else if (t.includes('22') || t.includes('25') || t.includes('34') || t.includes('39') || t.includes('stud')) {
+    rooms = 'Studiya / 1 xonali (100% to‘lov)';
+  }
+
+  // To'lov turi
+  let payment = '30 oy 0% yoki 100% to‘lov';
+  if (t.includes('100') || t.includes('naqd') || t.includes('chegirma')) {
+    payment = '100% to‘lov (33% chegirma)';
+  } else if (t.includes('bo‘lib') || t.includes('bolib') || t.includes('oylik') || t.includes('bosh')) {
+    payment = '30 oy 0% foizsiz bo‘lib to‘lash';
+  }
+
+  // Qidiruv mavzusi / niyat
+  let intentTopic = 'Umumiy ma’lumot va narxlar';
+  if (t.includes('bosh') || t.includes('oylik') || t.includes('30 oy')) {
+    intentTopic = 'Boshlang‘ich to‘lov va 30 oylik grafik';
+  } else if (t.includes('chegirma') || t.includes('100%')) {
+    intentTopic = '100% to‘lovdagi 33% chegirmalar';
+  } else if (t.includes('tamir') || t.includes('ta\'mir') || t.includes('remont') || t.includes('suvoq')) {
+    intentTopic = '70% tayyor ta’mir va oq suvoq holati';
+  } else if (t.includes('tashrif') || t.includes('ofis') || t.includes('manzil') || t.includes('qayerda')) {
+    intentTopic = 'Savdo ofisiga tashrif va manzil';
+  } else if (t.includes('topshirish') || t.includes('qachon') || t.includes('muddat')) {
+    intentTopic = 'Topshirish muddati (2028-yil 4-chorak)';
+  }
+
+  return { rooms, payment, intentTopic };
+}
+
 async function handleTelegramUpdate(update) {
   if (!update || (!update.message && !update.callback_query)) {
     return { ok: true, note: "No message" };
@@ -487,12 +527,15 @@ async function handleTelegramUpdate(update) {
     const contactName = message.contact.first_name || userName;
 
     const leadNotice = 
-      `🔥 <b>YANGI ARIZA (Telegram Bot Kontakt)!</b>\n\n` +
+      `🔥 <b>YANGI ARIZA (Telegram Bot Kontakt)!</b>\n` +
+      `━━━━━━━━━━━━━━━━━━━━\n` +
       `👤 <b>Mijoz:</b> ${contactName}\n` +
-      `📞 <b>Telefon:</b> ${contactPhone}\n` +
+      `📞 <b>Telefon:</b> <code>${contactPhone}</code>\n` +
       `💬 <b>Telegram:</b> ${userUsername}\n` +
       `📍 <b>Loyiha:</b> Yangi Qo‘yliq-2 (Comfort class)\n` +
       `⏰ <b>Vaqt:</b> ${new Date().toLocaleString('uz-UZ', { timeZone: 'Asia/Tashkent' })}\n\n` +
+      `📊 <b>CRM Tizimida ko‘rish:</b>\n` +
+      `👉 <a href="https://vatan-11-p5nw.vercel.app/#crm">https://vatan-11-p5nw.vercel.app/#crm</a> (PIN: 7777)\n\n` +
       `⚡️ <i>Mijoz botdagi 'Raqamimni qoldirish' tugmasini bosdi. Zudlik bilan bog‘laning!</i>`;
 
     await sendTelegramMessage(MANAGER_CHAT_ID, leadNotice);
@@ -504,6 +547,38 @@ async function handleTelegramUpdate(update) {
       getMainKeyboard()
     );
 
+    return { ok: true };
+  }
+
+  // /crm yoki /admin buyruqlari — Boshqaruv paneli havolasi
+  if (userText === '/crm' || userText === '/admin' || userText === '/stat' || userText === '/statistika') {
+    const crmReportText = 
+      `📊 <b>VATAN QK — Intelligent CRM & Analitika Tizimi</b>\n` +
+      `━━━━━━━━━━━━━━━━━━━━\n\n` +
+      `Hurmatli <b>${userName}</b>,\n` +
+      `Mijozlar oqimi, kelib tushayotgan arizalar, ularning qidiruv qiziqishlari va kunlik/haftalik/oylik taqqoslash tizimi faol:\n\n` +
+      `🔗 <b>CRM Dashboard havolasi:</b>\n` +
+      `👉 <a href="https://vatan-11-p5nw.vercel.app/#crm">https://vatan-11-p5nw.vercel.app/#crm</a>\n\n` +
+      `🔐 <b>Kirish PIN kodi:</b> <code>7777</code>\n\n` +
+      `📌 <b>CRM Tizimi imkoniyatlari:</b>\n` +
+      `• <b>Mijoz kartochkasi:</b> Ism, telefon, xona turi, to‘lov turi, izoh/taklif\n` +
+      `• <b>Tezkor aloqa:</b> 1 ta bosishda qo‘ng‘iroq yoki Telegramda yozish\n` +
+      `• <b>Muddati bo‘yicha tahlil:</b> Bugun (Kunlik), Shu hafta, Shu oy va Barchasi\n` +
+      `• <b>Qidiruv tahlili:</b> Mijozlar eng ko‘p nimalarni so‘rayotgani va foizlar\n` +
+      `• <b>Excel eksport:</b> Barcha arizalarni Excel (CSV) formatda yuklab olish`;
+
+    const crmKeyboard = {
+      inline_keyboard: [
+        [
+          { text: "📊 CRM Panelini ochish (PIN: 7777)", url: "https://vatan-11-p5nw.vercel.app/#crm" }
+        ],
+        [
+          { text: "🌐 Rasmiy saytga o‘tish", url: "https://vatan-11-p5nw.vercel.app/" }
+        ]
+      ]
+    };
+
+    await sendTelegramMessage(chatId, crmReportText, crmKeyboard);
     return { ok: true };
   }
 
@@ -526,13 +601,20 @@ async function handleTelegramUpdate(update) {
 
   const detectedPhone = extractPhoneNumber(userText);
   if (detectedPhone) {
+    const intent = detectLeadIntent(userText);
     const leadNotice = 
-      `🔥 <b>YANGI MIJOZ TELEFONI (AI Bot Chatidan)!</b>\n\n` +
+      `🔥 <b>YANGI MIJOZ TELEFONI (AI Bot Chatidan)!</b>\n` +
+      `━━━━━━━━━━━━━━━━━━━━\n` +
       `👤 <b>Mijoz:</b> ${userName}\n` +
-      `📞 <b>Telefon:</b> ${detectedPhone}\n` +
+      `📞 <b>Telefon:</b> <code>${detectedPhone}</code>\n` +
       `💬 <b>Telegram:</b> ${userUsername}\n` +
+      `🏢 <b>Qiziqqan xona:</b> ${intent.rooms}\n` +
+      `💰 <b>To‘lov afzalligi:</b> ${intent.payment}\n` +
+      `🎯 <b>Qidiruv mavzusi:</b> ${intent.intentTopic}\n` +
       `📝 <b>Xabar matni:</b> "${userText}"\n` +
       `⏰ <b>Vaqt:</b> ${new Date().toLocaleString('uz-UZ', { timeZone: 'Asia/Tashkent' })}\n\n` +
+      `📊 <b>CRM Tizimida ko‘rish:</b>\n` +
+      `👉 <a href="https://vatan-11-p5nw.vercel.app/#crm">https://vatan-11-p5nw.vercel.app/#crm</a> (PIN: 7777)\n\n` +
       `⚡️ <i>Mijoz botda telefon raqamini qoldirdi. Zudlik bilan bog‘laning!</i>`;
 
     await sendTelegramMessage(MANAGER_CHAT_ID, leadNotice);

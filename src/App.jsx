@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import CompanyTrust from './components/CompanyTrust';
@@ -12,13 +12,35 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import MobileStickyBar from './components/MobileStickyBar';
 import LeadCaptureModal from './components/LeadCaptureModal';
+import CrmDashboard from './components/CrmDashboard';
 import { Bot, Send, ArrowUp } from 'lucide-react';
 import { PROJECT_DETAILS } from './data/apartments';
 
 export default function App() {
+  const [viewMode, setViewMode] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const hash = window.location.hash;
+      const path = window.location.pathname;
+      return (hash === '#crm' || path === '/crm' || path === '/admin') ? 'crm' : 'site';
+    }
+    return 'site';
+  });
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [modalContext, setModalContext] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // URL Hash orqali CRM ga o'tishni kuzatish
+  useEffect(() => {
+    const handleHash = () => {
+      if (window.location.hash === '#crm') {
+        setViewMode('crm');
+      } else if (window.location.hash === '#site' || window.location.hash === '') {
+        // Sayt holatiga qaytish
+      }
+    };
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   // Smooth scroll handler
   const scrollToSection = (sectionId) => {
@@ -47,6 +69,30 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleOpenCrm = () => {
+    setViewMode('crm');
+    window.location.hash = 'crm';
+  };
+
+  if (viewMode === 'crm') {
+    return (
+      <CrmDashboard 
+        onClose={() => {
+          setViewMode('site');
+          if (window.location.hash === '#crm') {
+            window.location.hash = '';
+          }
+        }}
+        onOpenSite={() => {
+          setViewMode('site');
+          if (window.location.hash === '#crm') {
+            window.location.hash = '';
+          }
+        }}
+      />
+    );
+  }
+
   return (
     <div className="min-h-screen bg-[#f0f7ff] text-slate-800 font-sans selection:bg-sky-500 selection:text-white pb-16 sm:pb-0">
       
@@ -54,6 +100,7 @@ export default function App() {
       <Navbar 
         onOpenBooking={() => handleOpenBooking({ title: "24 soatga bepul bron qilish" })} 
         onScrollTo={scrollToSection} 
+        onOpenCrm={handleOpenCrm}
       />
 
       {/* 2. Asosiy taklif (Hero bloki) */}
@@ -105,6 +152,7 @@ export default function App() {
       <Footer 
         onScrollTo={scrollToSection}
         onOpenBooking={() => handleOpenBooking({ title: "Menejerdan konsultatsiya va ariza" })}
+        onOpenCrm={handleOpenCrm}
       />
 
       {/* Desktop Suzuvchi Tezkor Tugmalar (Telegram & AI Bot) */}
