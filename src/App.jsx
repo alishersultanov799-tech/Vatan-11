@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import MobileStickyBar from './components/MobileStickyBar';
 import LeadCaptureModal from './components/LeadCaptureModal';
 import CrmDashboard from './components/CrmDashboard';
+import PdfDownloadModal from './components/PdfDownloadModal';
 import { Bot, Send, ArrowUp } from 'lucide-react';
 import { PROJECT_DETAILS } from './data/apartments';
 
@@ -26,18 +27,22 @@ export default function App() {
     return 'site';
   });
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
   const [modalContext, setModalContext] = useState(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // URL Hash orqali CRM ga o'tishni kuzatish
+  // URL Hash orqali CRM yoki PDF ga o'tishni kuzatish
   useEffect(() => {
     const handleHash = () => {
       if (window.location.hash === '#crm') {
         setViewMode('crm');
-      } else if (window.location.hash === '#site' || window.location.hash === '') {
-        // Sayt holatiga qaytish
+      } else if (window.location.hash === '#pdf') {
+        setIsPdfModalOpen(true);
       }
     };
+    if (typeof window !== 'undefined' && window.location.hash === '#pdf') {
+      setIsPdfModalOpen(true);
+    }
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
@@ -101,12 +106,14 @@ export default function App() {
         onOpenBooking={() => handleOpenBooking({ title: "24 soatga bepul bron qilish" })} 
         onScrollTo={scrollToSection} 
         onOpenCrm={handleOpenCrm}
+        onOpenPdfModal={() => setIsPdfModalOpen(true)}
       />
 
       {/* 2. Asosiy taklif (Hero bloki) */}
       <Hero 
         onOpenBooking={() => handleOpenBooking({ title: "Yangi Qo‘yliq-2 bo‘yicha maslahat" })} 
         onScrollTo={scrollToSection} 
+        onOpenPdfModal={() => setIsPdfModalOpen(true)}
       />
 
       {/* 3. Kompaniya haqida va Ishonch bloki (13 yillik tajriba, 6 ta loyiha, roadmap) */}
@@ -132,6 +139,7 @@ export default function App() {
           apartment: apt,
           title: apt.title || `${apt.name} (${apt.area} m²) — 24 soatga bepul bron qilish`
         })}
+        onOpenPdfModal={() => setIsPdfModalOpen(true)}
       />
 
       {/* 7. Savdo ofisiga yoki Qurilish maydoniga Tashrifni bron qilish */}
@@ -208,6 +216,12 @@ export default function App() {
         isOpen={isBookingModalOpen}
         onClose={() => setIsBookingModalOpen(false)}
         contextData={modalContext}
+      />
+
+      {/* 5. 📥 PDF Taqdimotni (Prezentatsiya) yuklab olish modali */}
+      <PdfDownloadModal 
+        isOpen={isPdfModalOpen}
+        onClose={() => setIsPdfModalOpen(false)}
       />
     </div>
   );

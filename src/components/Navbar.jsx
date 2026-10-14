@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Phone, Menu, X, Send, Bot, ShieldCheck } from 'lucide-react';
+import { Phone, Menu, X, Send, Bot, ShieldCheck, Download } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
-export default function Navbar({ onOpenBooking, onScrollTo, onOpenCrm }) {
+export default function Navbar({ onOpenBooking, onScrollTo, onOpenCrm, onOpenPdfModal }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -69,6 +69,18 @@ export default function Navbar({ onOpenBooking, onScrollTo, onOpenCrm }) {
 
           {/* Social, Call & CTA */}
           <div className="hidden sm:flex items-center gap-2.5">
+            {/* PDF Katalog Download Button */}
+            {onOpenPdfModal && (
+              <button
+                onClick={onOpenPdfModal}
+                className="flex items-center gap-1.5 text-xs font-bold text-sky-900 hover:text-sky-950 transition-all bg-sky-100/90 hover:bg-sky-200 border border-sky-300 px-3 py-2 rounded-xl shadow-xs cursor-pointer"
+                title="Barcha uylar va narxlar katalogini (PDF) yuklab olish"
+              >
+                <Download className="w-3.5 h-3.5 text-sky-700" />
+                <span>PDF Katalog</span>
+              </button>
+            )}
+
             {/* AI Bot Maslahatchi Button */}
             <a 
               href={PROJECT_DETAILS.location.telegramBot}
@@ -146,6 +158,19 @@ export default function Navbar({ onOpenBooking, onScrollTo, onOpenCrm }) {
               <Send className="w-3.5 h-3.5" />
               <span>Telegram rasmiy kanal: @yangiqoyliq_TJM</span>
             </a>
+
+            {onOpenPdfModal && (
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  onOpenPdfModal();
+                }}
+                className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xs font-black text-center flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                <span>PDF Katalogini yuklab olish (14 MB)</span>
+              </button>
+            )}
 
             <button
               onClick={() => {

@@ -460,8 +460,8 @@ function getMainKeyboard() {
     keyboard: [
       [{ text: "💵 Faqat 100% to‘lov (22, 25, 34, 39 m²)" }, { text: "💰 Bo‘lib to‘lash (41, 43, 49 m²)" }],
       [{ text: "🏢 2 xonali (54, 55 m²)" }, { text: "🏢 3 xonali (70, 77 m²)" }],
-      [{ text: "📊 Barcha uy va 1 m² narxlari" }, { text: "📍 Lokatsiya va Ofis" }],
-      [{ text: "❓ Ko‘p beriladigan savollar" }, { text: "📅 Ofisga tashrif buyurish" }],
+      [{ text: "📊 Barcha uy va 1 m² narxlari" }, { text: "📥 PDF Taqdimotni yuklab olish" }],
+      [{ text: "❓ Ko‘p beriladigan savollar" }, { text: "📍 Lokatsiya va Ofis" }],
       [{ text: "📱 Raqamimni qoldirish", request_contact: true }]
     ],
     resize_keyboard: true,
@@ -579,6 +579,47 @@ async function handleTelegramUpdate(update) {
     };
 
     await sendTelegramMessage(chatId, crmReportText, crmKeyboard);
+    return { ok: true };
+  }
+
+  // PDF Taqdimotni yuklab olish
+  const lowerText = userText.toLowerCase();
+  if (
+    userText === '📥 PDF Taqdimotni yuklab olish' ||
+    lowerText === '/pdf' ||
+    lowerText.includes('pdf') ||
+    lowerText.includes('prezentatsiya') ||
+    lowerText.includes('taqdimot') ||
+    (lowerText.includes('katalog') && !lowerText.includes('barcha'))
+  ) {
+    const pdfMessage = 
+      `📥 <b>"YANGI QO‘YLIQ-2" RASMIY PDF TAQDIMOTI VA NARXLAR KATALOGI</b>\n` +
+      `━━━━━━━━━━━━━━━━━━━━\n\n` +
+      `Hurmatli <b>${userName}</b>,\n` +
+      `Ko‘pchilik xaridorlarimiz uyni oilasi (turmush o‘rtog‘i, ota-onasi) bilan maslahatlashib xarid qiladi. ` +
+      `Siz to‘liq reja-chizmalar, qavatlar bo‘yicha narxlar va 0% bo‘lib to‘lash shartlarini PDF formatda saqlab olishingiz mumkin:\n\n` +
+      `🔗 <b>To‘g‘ridan-to‘g‘ri yuklab olish havolasi:</b>\n` +
+      `👉 <a href="https://vatan-11-p5nw.vercel.app/vatan-yangi-qoyliq-2-katalog.pdf">https://vatan-11-p5nw.vercel.app/vatan-yangi-qoyliq-2-katalog.pdf</a>\n\n` +
+      `📄 <b>PDF Taqdimot ichida:</b>\n` +
+      `• Barcha 11 ta xonadonning 2D/3D reja-chizmalari (22–77 m²);\n` +
+      `• 100% to‘lovdagi 33% chegirma narxlari;\n` +
+      `• 30 oygacha 0% foizsiz bo‘lib to‘lash grafikasi (bosh to‘lov 60/75/99 mln);\n` +
+      `• 70% tayyor ta’mir va Infratuzilma qulayliklari;\n` +
+      `• Savdo ofisi lokatsiyasi va kafolatlar.\n\n` +
+      `💡 <i>Faylni yuklab olib, oila a'zolaringiz bilan birgalikda tanishib chiqing!</i>`;
+
+    const pdfKeyboard = {
+      inline_keyboard: [
+        [
+          { text: "📥 PDF Katalogini yuklab olish (14 MB)", url: "https://vatan-11-p5nw.vercel.app/vatan-yangi-qoyliq-2-katalog.pdf" }
+        ],
+        [
+          { text: "🌐 Rasmiy saytda ko‘rish", url: "https://vatan-11-p5nw.vercel.app/#catalog" }
+        ]
+      ]
+    };
+
+    await sendTelegramMessage(chatId, pdfMessage, pdfKeyboard);
     return { ok: true };
   }
 

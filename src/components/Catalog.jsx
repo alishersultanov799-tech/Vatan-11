@@ -13,9 +13,11 @@ import {
   TrendingDown, 
   CheckCircle2, 
   ArrowRight, 
-  Home 
+  Home,
+  Download 
 } from 'lucide-react';
 import { APARTMENT_MODELS } from '../data/apartments';
+import PdfCatalogBanner from './PdfCatalogBanner';
 
 // Helper formatters
 const formatPrice = (amount) => {
@@ -369,7 +371,7 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
 }
 
 
-export default function Catalog({ onBookApartment }) {
+export default function Catalog({ onBookApartment, onOpenPdfModal }) {
   const [selectedRooms, setSelectedRooms] = useState('all'); // 'all', '1', '2', '3'
   const [previewImage, setPreviewImage] = useState(null); // Lightbox zoom modal
   const [sortBy, setSortBy] = useState('area-asc'); // 'area-asc', 'price-asc', 'price-desc'
@@ -537,6 +539,9 @@ export default function Catalog({ onBookApartment }) {
 
         </div>
 
+        {/* 5. 📥 PDF Taqdimotni (Prezentatsiya) yuklab olish bloki */}
+        <PdfCatalogBanner onOpenPdfModal={onOpenPdfModal} />
+
         {/* Filtr paneli */}
         <div className="bg-white border border-sky-200 rounded-3xl p-4 sm:p-5 shadow-md mb-12 flex flex-col md:flex-row items-center justify-between gap-4">
           
@@ -635,6 +640,31 @@ export default function Catalog({ onBookApartment }) {
 
             </div>
           ))}
+        </div>
+
+        {/* Pastki PDF yuklab olish CTA qatori */}
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-white border-2 border-sky-200 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0 border border-sky-300">
+              <Download className="w-6 h-6 text-sky-600 animate-pulse" />
+            </div>
+            <div>
+              <h4 className="text-base sm:text-lg font-black text-slate-900">
+                Oilaviy maslahatlashuv uchun to‘liq PDF taqdimotni saqlab oling
+              </h4>
+              <p className="text-xs text-slate-500 mt-0.5">
+                Barcha 11 ta xonadon chizmalari, 30 oy 0% to‘lov grafiki va 33% chegirmalar jadvali bitta faylda.
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={onOpenPdfModal}
+            className="w-full sm:w-auto px-6 py-3.5 rounded-2xl sky-gradient-bg text-white font-extrabold text-xs shadow-lg shadow-sky-600/25 hover:brightness-110 active:scale-98 transition-all flex items-center justify-center gap-2.5 shrink-0 cursor-pointer"
+          >
+            <Download className="w-4 h-4" />
+            <span>PDF Katalogini yuklab olish (14 MB)</span>
+          </button>
         </div>
 
       </div>

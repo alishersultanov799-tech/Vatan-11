@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Home, PhoneCall, Sparkles, MapPin, Building2, ChevronRight, KeyRound, Bot, Volume2, VolumeX, Play, Pause, Maximize, Video } from 'lucide-react';
+import { Home, PhoneCall, Sparkles, MapPin, Building2, ChevronRight, KeyRound, Bot, Volume2, VolumeX, Play, Pause, Maximize, Video, Download } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
-export default function Hero({ onOpenBooking, onScrollTo }) {
+export default function Hero({ onOpenBooking, onScrollTo, onOpenPdfModal }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
@@ -142,6 +142,18 @@ export default function Hero({ onOpenBooking, onScrollTo }) {
                 <PhoneCall className="w-4 h-4 text-sky-600 group-hover:scale-110 transition-transform" />
                 <span>Maslahat olish</span>
               </button>
+
+              {/* CTA 4: 📥 PDF Taqdimot */}
+              {onOpenPdfModal && (
+                <button 
+                  onClick={onOpenPdfModal}
+                  className="w-full sm:w-auto px-4 py-3.5 rounded-xl bg-sky-100 hover:bg-sky-200 border border-sky-300 text-sky-900 font-extrabold text-xs sm:text-sm shadow-xs transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group"
+                  title="Barcha uylar va narxlar katalogini (PDF) yuklab olish"
+                >
+                  <Download className="w-4 h-4 text-sky-700 group-hover:scale-110 transition-transform" />
+                  <span>📥 PDF Taqdimot (14 MB)</span>
+                </button>
+              )}
 
             </div>
 
