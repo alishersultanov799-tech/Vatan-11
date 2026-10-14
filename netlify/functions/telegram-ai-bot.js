@@ -21,7 +21,7 @@ LOYIHA VA KOMPANIYA HAQIDA ASOSIY FAKTLAR:
 5. Topshirish muddati: 2028-yil 4-chorak.
 6. Joylashuv: Toshkent viloyati, O‘rtachirchiq tumani, O‘choqli MFY, Yashnobod ko‘chasi, 44a-uy (Yangi Toshkent hududi, Food City bozori ro‘parasi, Qo‘yliq metrosidan 8 daqiqa).
    Yandex Maps: https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8
-7. Infratuzilma: Maktab, bolalar bog‘chasi, Korzinka supermarketi, sun'iy ko‘l, ochiq amfiteatr, bolalar maydonchalari, yerosti avtoturargohi.
+7. Infratuzilma: Maktab, bolalar bog‘chasi, Korzinka supermarketi, sun'iy ko‘l, ochiq amfiteatr, bolalar maydonchalari, yer usti avtoturargohi.
 
 QAT'IY VA MUHIM TO'LOV QOIDALARI (HECH QACHON ADASHTIRMA!):
 
@@ -408,6 +408,34 @@ function generateSmartFallback(msg) {
       `<i>Mijozlar bilan aloqa ariza asosida amalga oshiriladi. Botga telefon raqamingizni qoldirsangiz, menejerimiz vaqti bo‘lganda siz bilan bog‘lanadi!</i>`;
   }
 
+  // 18. Ko'p beriladigan savollar (FAQ)
+  if (text.includes('savol') || text.includes('faq')) {
+    return `❓ <b>ENG KO‘P BERILADIGAN SAVOLLAR VA JAVOBLAR:</b>\n\n` +
+      `1️⃣ <b>Xonadonlar qanday holatda topshiriladi?</b>\n` +
+      `👉 <b>70% tayyor:</b> oq suvoq, kirish temir eshigi, sifatli deraza romlari, xonadon shaxtasiga olib kirilgan elektr va suv tizimlari.\n\n` +
+      `2️⃣ <b>Topshirish muddati qachon?</b>\n` +
+      `👉 <b>2028-yil 4-chorak</b>da to‘liq topshiriladi.\n\n` +
+      `3️⃣ <b>Gaz bo‘ladimi?</b>\n` +
+      `👉 Xavfsizlik talablariga asosan xonadonlarda gaz bo‘lmaydi. Zamonaviy xavfsiz elektr plitalar, uzluksiz elektr ta’minoti hamda shaxsiy isitish orqali honadonlar isitiladi.\n\n` +
+      `4️⃣ <b>Bo‘lib to‘lashda ustama (foiz) bormi?</b>\n` +
+      `👉 Mutlaqo 0% ustamasiz, 30 oygacha foizsiz (41–77 m² uylar uchun).\n\n` +
+      `5️⃣ <b>Infratuzilma qanday?</b>\n` +
+      `👉 13 gektarda maktab, bog‘cha, poliklinika, masjid, amfiteatr, yer usti parking va 24/7 qo‘riqlash mavjud.\n\n` +
+      `Qo‘shimcha savolingiz bo‘lsa, yozib yuboring yoki quyida telefon raqamingizni qoldiring! 👇`;
+  }
+
+  // 19. Ofisga yoki obyektga tashrif buyurish
+  if (text.includes('tashrif') || text.includes('ofisga bor') || text.includes('kelmoqchiman') || text.includes('korsat') || text.includes('joyida')) {
+    return `📅 <b>SAVDO OFISIMIZGA YOKI QURILISH MAYDONIGA TASHRIF BUYURING!</b>\n\n` +
+      `Sizni Food City ro‘parasidagi zamonaviy savdo ofisimizda mamnuniyat bilan kutib olamiz:\n` +
+      `☕ <b>Qahva ustida konsultatsiya:</b> byudjetingizga mos individual to‘lov rejasi va 33% gacha chegirmalar;\n` +
+      `🏗 <b>Qurilish maydoni:</b> 13 gektarlik hudud va ish jarayonini jonli ko‘rish;\n` +
+      `📄 <b>Hujjatlar:</b> Barcha rasmiy qonuniy litsenziya va shartnoma namunalari bilan tanishuv.\n\n` +
+      `📍 <b>Manzil:</b> Yangi Toshkent, Food City ro‘parasi (Qo‘yliq metrosidan 10 daqiqa)\n` +
+      `⏰ <b>Tashrif vaqti:</b> Har kuni 17:00 gacha\n\n` +
+      `Sizni ofisda kutib olishimiz uchun telefon raqamingizni qoldiring yoki 'Raqamimni qoldirish' tugmasini bosing 👇`;
+  }
+
   // Umumiy salomlashish
   return `Assalomu alaykum! "VATAN" qurilish kompaniyasining <b>"Yangi Qo‘yliq-2"</b> turar-joy majmuasi rasmiy AI maslahatchisi xizmatingizda! 🏢✨\n\n` +
     `📌 <b>ASOSIY TO‘LOV SHARTLARI:</b>\n` +
@@ -433,6 +461,7 @@ function getMainKeyboard() {
       [{ text: "💵 Faqat 100% to‘lov (22, 25, 34, 39 m²)" }, { text: "💰 Bo‘lib to‘lash (41, 43, 49 m²)" }],
       [{ text: "🏢 2 xonali (54, 55 m²)" }, { text: "🏢 3 xonali (70, 77 m²)" }],
       [{ text: "📊 Barcha uy va 1 m² narxlari" }, { text: "📍 Lokatsiya va Ofis" }],
+      [{ text: "❓ Ko‘p beriladigan savollar" }, { text: "📅 Ofisga tashrif buyurish" }],
       [{ text: "📱 Raqamimni qoldirish", request_contact: true }]
     ],
     resize_keyboard: true,
