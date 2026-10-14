@@ -48,17 +48,24 @@ function drawHeader(title = "VATAN QURILISH KOMPANIYASI | YANGI QO‘YLIQ-2") {
   doc.rect(35, 18, 525, 24).fill(colors.cardBg);
   doc.rect(35, 18, 525, 24).stroke(colors.border);
   doc.font(fontBold).fontSize(8.5).fillColor(colors.primaryDark);
-  doc.text(title, 45, 25, { width: 380 });
-  doc.font(fontRegular).fontSize(8).fillColor(colors.gray);
-  doc.text("Topshirilish: 2028-yil 4-chorak", 430, 25, { align: 'right', width: 120 });
+  doc.text(title, 45, 25, { width: 310 });
+  doc.font(fontBold).fontSize(8.5).fillColor(colors.secondary);
+  doc.text("Menejer Alisher: +998 94 603 23 33", 355, 25, { align: 'right', width: 195 });
 }
 
 function drawFooter(pageNum) {
-  doc.strokeColor(colors.border).lineWidth(1).moveTo(35, 810).lineTo(560, 810).stroke();
+  doc.strokeColor(colors.border).lineWidth(1).moveTo(35, 807).lineTo(560, 807).stroke();
+  
+  // Highlighted pill for Menejer Alisher
+  doc.rect(35, 811, 205, 18).fillAndStroke(colors.primaryLight, colors.border);
+  doc.font(fontBold).fontSize(8.5).fillColor(colors.primaryDark);
+  doc.text("Menejer Alisher: +998 94 603 23 33", 42, 815);
+
   doc.font(fontRegular).fontSize(7.5).fillColor(colors.gray);
-  doc.text("Savdo ofisi: Food City ro‘parasi | Tel: Menejerdan ariza orqali | Telegram: @yangiqoyliq_TJM | Bot: @Vatan2333_bot", 35, 817, { width: 440 });
+  doc.text("Savdo ofisi: Food City ro‘parasi | Bot: @Vatan2333_bot", 248, 815, { width: 230 });
+
   doc.font(fontBold).fontSize(8).fillColor(colors.primaryDark);
-  doc.text(`Sahifa ${pageNum} / ${TOTAL_PAGES}`, 480, 817, { align: 'right', width: 80 });
+  doc.text(`Sahifa ${pageNum} / ${TOTAL_PAGES}`, 485, 815, { align: 'right', width: 75 });
 }
 
 // ==========================================
@@ -78,7 +85,12 @@ if (fs.existsSync(fullLogoPath)) {
 
 doc.font(fontBold).fontSize(20).fillColor(colors.dark).text("VATAN", 125, 38);
 doc.font(fontBold).fontSize(10).fillColor(colors.primaryDark).text("QURILISH KOMPANIYASI (2013-YILDAN BUYON)", 125, 61);
-doc.font(fontRegular).fontSize(8).fillColor(colors.gray).text("10 000+ topshirilgan xonadonlar | 6 ta yirik muvaffaqiyatli loyihalar", 125, 74);
+doc.font(fontRegular).fontSize(8).fillColor(colors.gray).text("10 000+ topshirilgan xonadonlar | 6 ta yirik loyihalar", 125, 74);
+
+// Top right contact box on Cover
+doc.rect(360, 38, 190, 44).fillAndStroke(colors.secondaryLight, colors.secondary);
+doc.font(fontBold).fontSize(7.5).fillColor(colors.secondary).text("SAVDO VA BRON QILISH MENEJERI:", 368, 44);
+doc.font(fontBold).fontSize(10.5).fillColor(colors.dark).text("Alisher: +998 94 603 23 33", 368, 57);
 
 // Main Title Card
 doc.rect(35, 100, 525, 78).fillAndStroke(colors.primaryLight, colors.border);
@@ -113,12 +125,13 @@ highlights.forEach((h, i) => {
 doc.rect(35, 650, 525, 145).fillAndStroke('#ffffff', colors.border);
 doc.font(fontBold).fontSize(11).fillColor(colors.dark).text("SAVDO OFISI VA RASMIY BOG‘LANISH:", 48, 663);
 doc.font(fontRegular).fontSize(8.5).fillColor(colors.dark).text(
+  "• Rasmiy Savdo Menejeri: Alisher (+998 94 603 23 33) — Qo‘ng‘iroq va Telegram orqali 24/7\n" +
   "• Manzil: Toshkent viloyati, O‘rtachirchiq tumani, Yangi Toshkent hududi (Food City ro‘parasi)\n" +
   "• Metro: Qo‘yliq metrosidan atigi 8 daqiqalik masofa | Tashrif vaqti: 09:00 — 17:00 gacha\n" +
   "• Rasmiy AI Maslahatchi Telegram Bot: @Vatan2333_bot (24/7 savollarga javob beradi)\n" +
   "• Rasmiy Telegram Kanalimiz: @yangiqoyliq_TJM (Qurilish jarayonidan jonli videolar)\n" +
   "• Rasmiy Veb-Sayt: https://vatan-11-p5nw.vercel.app/",
-  48, 683, { lineGap: 4 }
+  48, 680, { lineGap: 3.5 }
 );
 
 drawFooter(1);
@@ -310,7 +323,7 @@ doc.rect(35, 715, 525, 80).fillAndStroke(colors.primaryLight, colors.border);
 doc.font(fontBold).fontSize(9.5).fillColor(colors.primaryDark).text("SAVDO OFISIGA TASHRIF BUYURIB XONADONNI TANLASH:", 45, 727);
 doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(
   "Haftaning istalgan kuni soat 17:00 gacha Food City ro‘parasidagi savdo ofisimizga tashrif buyurishingiz mumkin. " +
-  "Menejerimiz Alisher sizga barcha qavatlar, ko‘rinishlar (view) va to‘lov shartnomalarini taqdim etadi.",
+  "Menejerimiz Alisher (+998 94 603 23 33) sizga barcha qavatlar, ko‘rinishlar (view) va to‘lov shartnomalarini taqdim etadi.",
   45, 743, { width: 505, lineGap: 2.5 }
 );
 
@@ -718,6 +731,7 @@ steps.forEach((st, idx) => {
 doc.rect(35, 658, 525, 140).fillAndStroke('#ffffff', colors.border);
 doc.font(fontBold).fontSize(10.5).fillColor(colors.primaryDark).text("SAVDO OFISIMIZGA TASHRIF BUYURING:", 48, 670);
 doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(
+  "• Rasmiy Savdo Menejeri: Alisher (+998 94 603 23 33) — Qo‘ng‘iroq va Telegram orqali 24/7\n" +
   "• Manzil: Toshkent viloyati, O‘rtachirchiq tumani, Yangi Toshkent hududi (Food City ro‘parasi)\n" +
   "• Ish vaqti: Har kuni 09:00 dan 18:00 gacha (Dam olish kunlarisiz uzluksiz ishlaymiz)\n" +
   "• Tashrif va konsultatsiya: 17:00 gacha tashrif buyurishingiz mumkin\n\n" +
