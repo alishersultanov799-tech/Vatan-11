@@ -37,8 +37,7 @@ export default function VisitBookingSection() {
     '10:00 – 12:00',
     '12:00 – 14:00',
     '14:00 – 16:00',
-    '16:00 – 18:00',
-    '18:00 – 20:00'
+    '16:00 – 17:00'
   ];
 
   const apartmentOptions = [
@@ -339,7 +338,7 @@ export default function VisitBookingSection() {
                     <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-2">
                       3. Qulay vaqt oralig‘i:
                     </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
                       {timeSlots.map((slot) => (
                         <button
                           key={slot}

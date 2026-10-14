@@ -30,7 +30,7 @@ export default function FAQSection({ onOpenBooking }) {
     {
       category: 'condition',
       question: "Xonadonlar qanday holatda topshiriladi?",
-      answer: "Xonadonlar 70% tayyor holda topshiriladi: barcha devorlar sifatli oq suvoq (shpaklyovka) qilingan, sifatli temir kirish eshigi o‘rnatilgan, zamonaviy ikki qavatli deraza romlari qo‘yilgan, elektr toki, ichimlik suvi va kanalizatsiya quvurlari montaj qilingan. Siz faqat o‘zingizga yoqqan uslubda kosmetik ta’mirlash (oboy, pol, kafel) qilsangiz kifoya.",
+      answer: "Xonadonlar 70% tayyor holda topshiriladi: barcha devorlar sifatli oq suvoq (shpaklyovka) qilingan, sifatli temir kirish eshigi o‘rnatilgan, zamonaviy ikki qavatli deraza romlari qo‘yilgan, elektr toki, ichimlik suvi va kanalizatsiya quvurlari xonadon shaxtasiga olib kirilgan. Siz faqat o‘zingizga yoqqan uslubda kosmetik ta’mirlash (oboy, pol, kafel) qilsangiz kifoya.",
       icon: Building2,
       badge: "70% Tayyor ta'mir"
     },
@@ -58,7 +58,7 @@ export default function FAQSection({ onOpenBooking }) {
     {
       category: 'infrastructure',
       question: "Oshxona va isitish tizimi qanday bo‘ladi, gaz bo‘ladimi?",
-      answer: "Xavfsizlik va zamonaviy shaharsozlik talablariga asosan ko‘p qavatli bino ichida xonadonlarda gaz bo‘lmaydi. Xonadonlar zamonaviy, ekologik xavfsiz va elektr quvvatini tejovchi induksion/elektr plitalar uchun to‘liq quvvatli elektr tarmog‘i, uzluksiz elektr ta’minoti hamda markazlashtirilgan isitish va issiq suv infratuzilmasi bilan ta’minlanadi.",
+      answer: "Xavfsizlik va zamonaviy shaharsozlik talablariga asosan ko‘p qavatli bino ichida xonadonlarda gaz bo‘lmaydi. Xonadonlar zamonaviy, ekologik xavfsiz va elektr quvvatini tejovchi induksion/elektr plitalar uchun to‘liq quvvatli elektr tarmog‘i, uzluksiz elektr ta’minoti hamda shaxsiy isitish tizimi va issiq suv infratuzilmasi bilan ta’minlanadi.",
       icon: ShieldCheck,
       badge: "Xavfsiz va zamonaviy"
     },
@@ -72,14 +72,14 @@ export default function FAQSection({ onOpenBooking }) {
     {
       category: 'payment',
       question: "Xarid qilishda qanday hujjatlar imzolanadi?",
-      answer: "Barcha xaridlar to‘liq qonuniy va notarial kuchga ega shartnoma asosida amalga oshiriladi. Shartnomada xonadonning topshirilish muddati, maydoni, qavati va narxi qat’iy kafolatlanadi. Hech qanday yashirin yoki qo‘shimcha to‘lovlar yo‘q.",
+      answer: "Barcha xaridlar to‘liq qonuniy kuchga ega shartnoma asosida amalga oshiriladi. Shartnomada xonadonning topshirilish muddati, maydoni, qavati va narxi qat’iy kafolatlanadi. Hech qanday yashirin yoki qo‘shimcha to‘lovlar yo‘q.",
       icon: FileCheck2,
       badge: "Qonuniy kafolat"
     },
     {
       category: 'infrastructure',
       question: "Loyiha qayerda joylashgan va savdo ofisiga qanday boriladi?",
-      answer: "Majmua Yangi Toshkent yo‘nalishida, Food City yirik savdo majmuasining to‘g‘ri ro‘parasida joylashgan. Qo‘yliq metro bekatidan avtomobilda bor-yo‘g‘i 5 daqiqalik masofada. Sayt orqali tashrif buyurish uchun vaqt belgilasangiz, menejerimiz sizni ofisda kutib oladi.",
+      answer: "Majmua Yangi Toshkent yo‘nalishida, Food City yirik savdo majmuasining to‘g‘ri ro‘parasida joylashgan. Qo‘yliq metro bekatidan avtomobilda 10 daqiqalik masofada. Sayt orqali tashrif buyurish uchun vaqt belgilasangiz, menejerimiz sizni ofisda kutib oladi.",
       icon: MapPin,
       badge: "Food City ro‘parasi"
     }

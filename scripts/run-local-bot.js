@@ -430,11 +430,11 @@ function generateSmartFallback(msg) {
   if (text.includes('savol') || text.includes('faq')) {
     return `❓ <b>ENG KO‘P BERILADIGAN SAVOLLAR VA JAVOBLAR:</b>\n\n` +
       `1️⃣ <b>Xonadonlar qanday holatda topshiriladi?</b>\n` +
-      `👉 <b>70% tayyor:</b> oq suvoq, kirish temir eshigi, sifatli deraza romlari, montaj qilingan elektr va suv tizimlari.\n\n` +
+      `👉 <b>70% tayyor:</b> oq suvoq, kirish temir eshigi, sifatli deraza romlari, xonadon shaxtasiga olib kirilgan elektr va suv tizimlari.\n\n` +
       `2️⃣ <b>Topshirish muddati qachon?</b>\n` +
       `👉 <b>2028-yil 4-chorak</b>da to‘liq topshiriladi.\n\n` +
       `3️⃣ <b>Gaz bo‘ladimi?</b>\n` +
-      `👉 Xavfsizlik talablariga asosan xonadonlarda gaz bo‘lmaydi. Zamonaviy xavfsiz elektr plitalar va markazlashgan isitish/issiq suv bo‘ladi.\n\n` +
+      `👉 Xavfsizlik talablariga asosan xonadonlarda gaz bo‘lmaydi. Zamonaviy xavfsiz elektr plitalar hamda shaxsiy isitish tizimi/issiq suv bo‘ladi.\n\n` +
       `4️⃣ <b>Bo‘lib to‘lashda ustama (foiz) bormi?</b>\n` +
       `👉 Mutlaqo 0% ustamasiz, 30 oygacha foizsiz (41–77 m² uylar uchun).\n\n` +
       `5️⃣ <b>Infratuzilma qanday?</b>\n` +
@@ -448,9 +448,9 @@ function generateSmartFallback(msg) {
       `Sizni Food City ro‘parasidagi zamonaviy savdo ofisimizda mamnuniyat bilan kutib olamiz:\n` +
       `☕ <b>Qahva ustida konsultatsiya:</b> byudjetingizga mos individual to‘lov rejasi va 33% gacha chegirmalar;\n` +
       `🏗 <b>Qurilish maydoni:</b> 13 gektarlik hudud va ish jarayonini jonli ko‘rish;\n` +
-      `📄 <b>Hujjatlar:</b> Barcha rasmiy litsenziya va shartnoma namunalari bilan tanishuv.\n\n` +
-      `📍 <b>Manzil:</b> Yangi Toshkent, Food City ro‘parasi (Qo‘yliq metrosidan 5 daqiqa)\n` +
-      `⏰ <b>Ish vaqti:</b> Har kuni 09:00 — 18:00\n\n` +
+      `📄 <b>Hujjatlar:</b> Barcha rasmiy qonuniy litsenziya va shartnoma namunalari bilan tanishuv.\n\n` +
+      `📍 <b>Manzil:</b> Yangi Toshkent, Food City ro‘parasi (Qo‘yliq metrosidan 10 daqiqa)\n` +
+      `⏰ <b>Tashrif vaqti:</b> Har kuni 17:00 gacha\n\n` +
       `Sizni ofisda kutib olishimiz uchun telefon raqamingizni qoldiring yoki 'Raqamimni qoldirish' tugmasini bosing 👇`;
   }
 
