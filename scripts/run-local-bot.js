@@ -39,7 +39,7 @@ LOYIHA VA KOMPANIYA HAQIDA ASOSIY FAKTLAR:
 5. Topshirish muddati: 2028-yil 4-chorak.
 6. Joylashuv: Toshkent viloyati, O‘rtachirchiq tumani, O‘choqli MFY, Yashnobod ko‘chasi, 44a-uy (Yangi Toshkent hududi, Food City bozori ro‘parasi, Qo‘yliq metrosidan 8 daqiqa).
    Yandex Maps: https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8
-7. Infratuzilma: Maktab, bolalar bog‘chasi, Korzinka supermarketi, sun'iy ko‘l, ochiq amfiteatr, bolalar maydonchalari, yerosti avtoturargohi.
+7. Infratuzilma: Maktab, bolalar bog‘chasi, Korzinka supermarketi, sun'iy ko‘l, ochiq amfiteatr, bolalar maydonchalari, yer usti avtoturargohi.
 
 QAT'IY VA MUHIM TO'LOV QOIDALARI (HECH QACHON ADASHTIRMA!):
 
@@ -434,11 +434,11 @@ function generateSmartFallback(msg) {
       `2️⃣ <b>Topshirish muddati qachon?</b>\n` +
       `👉 <b>2028-yil 4-chorak</b>da to‘liq topshiriladi.\n\n` +
       `3️⃣ <b>Gaz bo‘ladimi?</b>\n` +
-      `👉 Xavfsizlik talablariga asosan xonadonlarda gaz bo‘lmaydi. Zamonaviy xavfsiz elektr plitalar hamda shaxsiy isitish tizimi/issiq suv bo‘ladi.\n\n` +
+      `👉 Xavfsizlik talablariga asosan xonadonlarda gaz bo‘lmaydi. Zamonaviy xavfsiz elektr plitalar, uzluksiz elektr ta’minoti hamda shaxsiy isitish orqali honadonlar isitiladi.\n\n` +
       `4️⃣ <b>Bo‘lib to‘lashda ustama (foiz) bormi?</b>\n` +
       `👉 Mutlaqo 0% ustamasiz, 30 oygacha foizsiz (41–77 m² uylar uchun).\n\n` +
       `5️⃣ <b>Infratuzilma qanday?</b>\n` +
-      `👉 13 gektarda maktab, bog‘cha, poliklinika, masjid, amfiteatr, yerosti parking va 24/7 qo‘riqlash mavjud.\n\n` +
+      `👉 13 gektarda maktab, bog‘cha, poliklinika, masjid, amfiteatr, yer usti parking va 24/7 qo‘riqlash mavjud.\n\n` +
       `Qo‘shimcha savolingiz bo‘lsa, yozib yuboring yoki quyida telefon raqamingizni qoldiring! 👇`;
   }
 

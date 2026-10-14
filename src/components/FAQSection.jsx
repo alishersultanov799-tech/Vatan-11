@@ -58,14 +58,14 @@ export default function FAQSection({ onOpenBooking }) {
     {
       category: 'infrastructure',
       question: "Oshxona va isitish tizimi qanday bo‘ladi, gaz bo‘ladimi?",
-      answer: "Xavfsizlik va zamonaviy shaharsozlik talablariga asosan ko‘p qavatli bino ichida xonadonlarda gaz bo‘lmaydi. Xonadonlar zamonaviy, ekologik xavfsiz va elektr quvvatini tejovchi induksion/elektr plitalar uchun to‘liq quvvatli elektr tarmog‘i, uzluksiz elektr ta’minoti hamda shaxsiy isitish tizimi va issiq suv infratuzilmasi bilan ta’minlanadi.",
+      answer: "Xavfsizlik va zamonaviy shaharsozlik talablariga asosan ko‘p qavatli bino ichida xonadonlarda gaz bo‘lmaydi. Xonadonlar zamonaviy, ekologik xavfsiz va elektr quvvatini tejovchi induksion/elektr plitalar uchun to‘liq quvvatli elektr tarmog‘i, uzluksiz elektr ta’minoti hamda shaxsiy isitish orqali honadonlar isitiladi.",
       icon: ShieldCheck,
       badge: "Xavfsiz va zamonaviy"
     },
     {
       category: 'infrastructure',
       question: "Hududda (13 gektarda) qanday qulayliklar bo‘ladi?",
-      answer: "13 gektarlik yirik zamonaviy loyiha ichida: zamonaviy davlat maktabi, bolalar bog‘chasi, poliklinika, masjid, ochiq amfiteatr, bolalar o‘yingohlari, sport trenajyor maydonchalari, avtomobillar uchun keng yerosti avtoturargohi hamda 24/7 rejimda ishlovchi professional qo‘riqlash va videokuzatuv tizimi joylashadi.",
+      answer: "13 gektarlik yirik zamonaviy loyiha ichida: zamonaviy davlat maktabi, bolalar bog‘chasi, poliklinika, masjid, ochiq amfiteatr, bolalar o‘yingohlari, sport trenajyor maydonchalari, avtomobillar uchun keng yer usti avtoturargohi hamda 24/7 rejimda ishlovchi professional qo‘riqlash va videokuzatuv tizimi joylashadi.",
       icon: MapPin,
       badge: "13 Gektar infratuzilma"
     },
