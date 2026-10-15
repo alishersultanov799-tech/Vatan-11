@@ -99,13 +99,28 @@ async function sendTelegramMessage(chatId, text, replyMarkup = null) {
     body.reply_markup = replyMarkup;
   }
 
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  });
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
 
-  return await res.json();
+    const data = await res.json();
+    if (!data.ok && data.description && data.description.includes("can't parse entities")) {
+      delete body.parse_mode;
+      const retryRes = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      return await retryRes.json();
+    }
+    return data;
+  } catch (err) {
+    console.error('sendTelegramMessage xatosi:', err);
+    return { ok: false, error: err.message };
+  }
 }
 
 async function askGeminiAI(userMessage, userName = 'Mijoz') {
@@ -113,13 +128,13 @@ async function askGeminiAI(userMessage, userName = 'Mijoz') {
     return generateSmartFallback(userMessage);
   }
 
-  const modelsToTry = ['gemini-flash-latest', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite'];
+  const modelsToTry = ['gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite'];
 
   for (const model of modelsToTry) {
     try {
       const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 2500);
+      const timeoutId = setTimeout(() => controller.abort(), 7000);
 
       const requestBody = {
         systemInstruction: {

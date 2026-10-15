@@ -32,14 +32,9 @@ async function main() {
   }
 
   if (command === 'set') {
-    if (!targetUrl) {
-      console.error('❌ Xato: Webhook URL ko\'rsatilmadi!');
-      console.log('Misol: node scripts/setup-webhook.js set https://sizning-domen.vercel.app/api/telegram-ai-bot');
-      return;
-    }
-
-    console.log(`🚀 Webhook o'rnatilmoqda: ${targetUrl}`);
-    const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/setWebhook?url=${encodeURIComponent(targetUrl)}`);
+    const finalUrl = targetUrl || 'https://vatan-11-p5nw.vercel.app/api/telegram-ai-bot';
+    console.log(`🚀 Webhook o'rnatilmoqda: ${finalUrl}`);
+    const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/setWebhook?url=${encodeURIComponent(finalUrl)}`);
     const data = await res.json();
     console.log('Natija:');
     console.dir(data, { depth: null });

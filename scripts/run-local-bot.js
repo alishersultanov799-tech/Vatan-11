@@ -117,13 +117,28 @@ async function sendTelegramMessage(chatId, text, replyMarkup = null) {
     body.reply_markup = replyMarkup;
   }
 
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
-  });
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
 
-  return await res.json();
+    const data = await res.json();
+    if (!data.ok && data.description && data.description.includes("can't parse entities")) {
+      delete body.parse_mode;
+      const retryRes = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      return await retryRes.json();
+    }
+    return data;
+  } catch (err) {
+    console.error('sendTelegramMessage xatosi:', err);
+    return { ok: false, error: err.message };
+  }
 }
 
 async function askGeminiAI(userMessage, userName = 'Mijoz') {
@@ -131,13 +146,13 @@ async function askGeminiAI(userMessage, userName = 'Mijoz') {
     return generateSmartFallback(userMessage);
   }
 
-  const modelsToTry = ['gemini-flash-latest', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite'];
+  const modelsToTry = ['gemini-3.5-flash', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite'];
 
   for (const model of modelsToTry) {
     try {
       const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${GEMINI_API_KEY}`;
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 2500);
+      const timeoutId = setTimeout(() => controller.abort(), 7000);
 
       const requestBody = {
         systemInstruction: {
@@ -565,13 +580,42 @@ async function handleTelegramMessage(message) {
   console.log(`🤖 AI javob yubordi.`);
 }
 
+const PRODUCTION_WEBHOOK_URL = 'https://vatan-11-p5nw.vercel.app/api/telegram-ai-bot';
+
+async function restoreCloudWebhook() {
+  try {
+    console.log('\n🔄 Vercel bulutli webhooki qayta tiklanmoqda...');
+    const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook?url=${encodeURIComponent(PRODUCTION_WEBHOOK_URL)}`);
+    const data = await res.json();
+    if (data.ok) {
+      console.log(`✅ 24/7 ishlovchi Webhook muvaffaqiyatli tiklandi: ${PRODUCTION_WEBHOOK_URL}`);
+    } else {
+      console.log('Webhook tiklash natijasi:', data);
+    }
+  } catch (err) {
+    console.error('Webhook tiklashda xatolik:', err.message);
+  }
+}
+
+// Jarayon to'xtatilganda (Ctrl+C yoki yopilganda) bulutli webhookni tiklaymiz
+process.on('SIGINT', async () => {
+  await restoreCloudWebhook();
+  process.exit(0);
+});
+
+process.on('SIGTERM', async () => {
+  await restoreCloudWebhook();
+  process.exit(0);
+});
+
 async function startPolling() {
   console.log('🤖 @Vatan2333_bot AI Polling ishga tushmoqda...');
 
   // Webhookni o'chiramiz (polling ishlashi uchun)
   await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/deleteWebhook`);
   console.log('✅ Webhook tozalandi, jonli polling boshlandi.');
-  console.log('⚡️ Endi Telegramda @Vatan2333_bot ga xabar yuborib ko‘rishingiz mumkin!\n');
+  console.log('⚡️ Endi Telegramda @Vatan2333_bot ga xabar yuborib ko‘rishingiz mumkin!');
+  console.log('💡 Dasturni to‘xtatish uchun: Ctrl+C bosing (Vercel webhook avtomatik qayta tiklanadi).\n');
 
   let offset = 0;
 
