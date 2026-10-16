@@ -11,7 +11,8 @@ import {
   Clock, 
   MapPin,
   Flame,
-  CheckCircle2
+  CheckCircle2,
+  ArrowUpDown
 } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
@@ -33,6 +34,13 @@ export default function FAQSection({ onOpenBooking }) {
       answer: "Xonadonlar 70% tayyor holda topshiriladi: barcha devorlar sifatli oq suvoq (shpaklyovka) qilingan, sifatli temir kirish eshigi o‘rnatilgan, zamonaviy ikki qavatli deraza romlari qo‘yilgan, elektr toki, ichimlik suvi va kanalizatsiya quvurlari xonadon shaxtasiga olib kirilgan. Siz faqat o‘zingizga yoqqan uslubda kosmetik ta’mirlash (oboy, pol, kafel) qilsangiz kifoya.",
       icon: Building2,
       badge: "70% Tayyor ta'mir"
+    },
+    {
+      category: 'condition',
+      question: "Binoda liftlar bormi va har bir pod'ezdda nechtadan lift o‘rnatiladi?",
+      answer: "Ha, albatta! Aholining qulay harakatlanishi va qavatlar orasida kutib qolmasligi uchun har bir pod'ezdda (kirish yo‘lagida) 2 tadan zamonaviy, shovqinsiz va tezyurar liftlar (yo‘lovchi hamda yuk tashish uchun) o‘rnatiladi.",
+      icon: ArrowUpDown,
+      badge: "2 ta lift / pod'ezd"
     },
     {
       category: 'payment',

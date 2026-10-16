@@ -16,7 +16,7 @@ Sen — "VATAN" qurilish kompaniyasining "Yangi Qo‘yliq-2" zamonaviy turar-joy
 LOYIHA VA KOMPANIYA HAQIDA ASOSIY FAKTLAR:
 1. Kompaniya: "VATAN" qurilish kompaniyasi (2013-yildan buyon faoliyat yuritadi, 10 000+ topshirilgan xonadonlar, to‘liq qonuniy shartnomalar).
 2. Majmua: "Yangi Qo‘yliq-2" (Comfort class).
-3. Hududi: 13 gektar, 12 qavatli zilzilabardosh monolit binolar (3 800 ta xonadon).
+3. Hududi: 13 gektar, 12 qavatli zilzilabardosh monolit binolar (3 800 ta xonadon). Har bir pod'ezdda 2 tadan zamonaviy, shovqinsiz va tezyurar liftlar (yo‘lovchi hamda yuk tashish uchun) o‘rnatiladi.
 4. Ta'mirlash holati: 70% tayyor ta'mirlash bilan topshiriladi (kirish temir eshigi, sifatli plastik derazalar, suv, elektr tarmoqlari ulanadi, pol silliq styajkasi, devorlar oq suvoqda). Majmuada gaz bo‘lmaydi (xavfsiz va zamonaviy elektr tizimi)!
 5. Topshirish muddati: 2028-yil 4-chorak.
 6. Joylashuv: Toshkent viloyati, O‘rtachirchiq tumani, O‘choqli MFY, Yashnobod ko‘chasi, 44a-uy (Yangi Toshkent hududi, Food City bozori ro‘parasi, Qo‘yliq metrosidan 8 daqiqa).
@@ -85,6 +85,7 @@ SENING JAVOB BERISH QOIDALARING:
 4. Gaz haqida so‘rashsa, gaz bo‘lmaydi deb aniq javob ber (ekologik toza va xavfsiz elektr tizimi).
 5. Devorlar holati bo‘yicha so‘rashsa, devorlar oq suvoqda topshiriladi deb javob ber.
 6. 34 va 39 m² uylar bo'yicha so'rashsa, ularni faqat 100% to'lovga olish mumkinligini, bo'lib to'lashga berilmasligini alohida ta'kidla!
+7. Liftlar haqida so‘rashsa: Har bir pod'ezdda (kirish yo‘lagida) 2 tadan zamonaviy, shovqinsiz va tezyurar liftlar (yo‘lovchi hamda yuk tashish uchun) o‘rnatilishini ma'lum qil!
 `;
 
 async function sendTelegramMessage(chatId, text, replyMarkup = null) {
@@ -426,7 +427,17 @@ function generateSmartFallback(msg) {
       `<i>Menejerimiz Alisherga to‘g‘ridan-to‘g‘ri Telegram orqali yozib barcha savollaringizga tezkor javob olishingiz mumkin!</i>`;
   }
 
-  // 18. Ko'p beriladigan savollar (FAQ)
+  // 18. Liftlar haqida ("lift", "liftlar", "podyezd", "pod'ezd")
+  if (text.includes('lift') || text.includes('podyezd') || text.includes('pod\'ezd') || text.includes('podezd')) {
+    return `🛗 <b>"YANGI QO‘YLIQ-2" MAJMUASIDA LIFTLAR:</b>\n\n` +
+      `✅ <b>Har bir pod'ezdda (kirish yo‘lagida) 2 tadan</b> zamonaviy, shovqinsiz va tezyurar liftlar o‘rnatiladi!\n\n` +
+      `• 1 ta qulay yo‘lovchi lifti\n` +
+      `• 1 ta keng yuk tashish (yuk-yo‘lovchi) lifti\n` +
+      `• 12 qavatli binolarda aholi va mehmonlarning kutib qolmasdan, tezkor va qulay harakatlanishi ta'minlanadi.\n\n` +
+      `Savollaringiz bo‘lsa, yozib qoldiring yoki menejerimiz bilan bog‘lanish uchun telefon raqamingizni qoldiring! 👇`;
+  }
+
+  // 19. Ko'p beriladigan savollar (FAQ)
   if (text.includes('savol') || text.includes('faq')) {
     return `❓ <b>ENG KO‘P BERILADIGAN SAVOLLAR VA JAVOBLAR:</b>\n\n` +
       `1️⃣ <b>Xonadonlar qanday holatda topshiriladi?</b>\n` +
@@ -439,6 +450,8 @@ function generateSmartFallback(msg) {
       `👉 Mutlaqo 0% ustamasiz, 30 oygacha foizsiz (41–77 m² uylar uchun).\n\n` +
       `5️⃣ <b>Infratuzilma qanday?</b>\n` +
       `👉 13 gektarda maktab, bog‘cha, poliklinika, masjid, amfiteatr, yer usti parking va 24/7 qo‘riqlash mavjud.\n\n` +
+      `6️⃣ <b>Har bir pod'ezdda nechtadan lift bo‘ladi?</b>\n` +
+      `👉 Har bir pod'ezdda <b>2 tadan</b> zamonaviy shovqinsiz tezyurar liftlar (yo‘lovchi va yuk tashish uchun) xizmat ko‘rsatadi.\n\n` +
       `Qo‘shimcha savolingiz bo‘lsa, yozib yuboring yoki quyida telefon raqamingizni qoldiring! 👇`;
   }
 

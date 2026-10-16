@@ -11,12 +11,21 @@ import {
   Waves, 
   Sparkles, 
   CheckCircle, 
-  ArrowRight
+  ArrowRight,
+  ArrowUpDown
 } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/apartments';
 
 export default function ProjectAdvantages({ onOpenBooking, onScrollTo }) {
   const infraItems = [
+    {
+      name: "Har bir pod'ezdda 2 tadan lift",
+      desc: "Har bir pod'ezdda (kirish yo‘lagida) 2 tadan zamonaviy shovqinsiz tezyurar yo‘lovchi va yuk liftlari",
+      icon: ArrowUpDown,
+      color: "text-blue-500",
+      bg: "bg-blue-500/10",
+      border: "border-blue-500/30"
+    },
     {
       name: "Zamonaviy maktab",
       desc: "Bolalaringiz yo‘ldan o‘tmasdan qatnaydigan yaqin maktab (hudud ichida)",
@@ -113,11 +122,11 @@ export default function ProjectAdvantages({ onOpenBooking, onScrollTo }) {
               </span>
               <h3 className="text-2xl font-black text-slate-900 mb-2">Comfort Class (12 qavat)</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                12 qavatli mustahkam monolit pishiq konstruksiya, pishiq g‘isht devorlar hamda zamonaviy shovqinsiz tezyurar liftlar.
+                12 qavatli mustahkam monolit pishiq konstruksiya, pishiq g‘isht devorlar hamda har bir pod'ezdda 2 tadan zamonaviy shovqinsiz tezyurar liftlar.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-sky-100 flex items-center text-xs text-sky-700 font-semibold">
-              <span>Seysmik chidamlilik: 9 ball</span>
+              <span>Seysmik chidamlilik: 9 ball • 2 ta lift / pod'ezd</span>
             </div>
           </div>
 

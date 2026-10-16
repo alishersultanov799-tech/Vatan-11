@@ -199,7 +199,7 @@ doc.font(fontRegular).fontSize(8).fillColor(colors.gray).text(
   "• Zilzilabardoshlik: 9 ballik zilzilaga bardosh beruvchi yaxlit temir-beton monolit karkas tizimi.\n" +
   "• G‘isht devorlar: Yuqori issiqlik va shovqin izolyatsiyasini ta'minlovchi pishiq g‘isht terimi.\n" +
   "• 24/7 Qo‘riqlash: Videokuzatuv kameralari, yopiq xavfsiz hovli va domofon tizimi.\n" +
-  "• Shovqinsiz tezyurar liftlar: Har bir podyezdda yuk va yo‘lovchi tashuvchi zamonaviy liftlar.",
+  "• Shovqinsiz tezyurar liftlar: Har bir pod'ezdda 2 tadan zamonaviy yuk va yo‘lovchi tashuvchi liftlar.",
   45, 574, { lineGap: 4 }
 );
 

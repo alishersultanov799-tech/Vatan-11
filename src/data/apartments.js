@@ -1494,7 +1494,7 @@ export const PROJECT_DETAILS = {
   // Asosiy ko'rsatkichlar
   keyMetrics: [
     { label: "Umumiy hudud maydoni", value: "13 gektar", icon: "map-pin", desc: "Katta va toza yashil maydon" },
-    { label: "Balandlik & Monolit", value: "12 qavat", icon: "building", desc: "Monolit pishiq konstruksiya (9 ball)" },
+    { label: "Balandlik & Monolit", value: "12 qavat", icon: "building", desc: "Monolit pishiq konstruksiya (9 ball) • 2 ta lift / pod'ezd" },
     { label: "Shinam xonadonlar fondi", value: "3 800 ta", icon: "home", desc: "Turli maydondagi qulay xonadonlar" },
     { label: "Ta’mirlash holati", value: "70% tayyor", icon: "wrench", desc: "Oq suvoq va eshiklar bilan topshiriladi" }
   ],
@@ -1608,6 +1608,7 @@ export const PROJECT_DETAILS = {
 
   // Qulay infratuzilma (Ikonkalar bilan)
   infrastructures: [
+    { name: "Har bir pod'ezdda 2 tadan lift", icon: "arrow-up-down", time: "Har bir blokda", desc: "Har bir pod'ezdda 2 tadan zamonaviy, shovqinsiz va tezyurar liftlar" },
     { name: "Zamonaviy maktab", icon: "school", time: "Hudud ichida", desc: "Farzandlar xavfsiz piyoda qatnaydigan maktab" },
     { name: "Bolalar bog‘chasi", icon: "baby", time: "Hudud ichida", desc: "Shinam va xavfsiz bolalar tarbiya maskani" },
     { name: "Korzinka supermarketi", icon: "shopping-cart", time: "1 daqiqa", desc: "Kunlik sifatli oziq-ovqat va maishiy xaridlar" },

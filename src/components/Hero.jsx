@@ -270,7 +270,7 @@ export default function Hero({ onOpenBooking, onScrollTo, onOpenPdfModal }) {
                 <Building2 className="w-5 h-5" />
                 <span className="text-2xl sm:text-4xl font-black text-slate-900 group-hover:text-sky-600 transition-colors">12 qavat</span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-500 font-medium">Monolit pishiq konstruksiya</p>
+              <p className="text-xs sm:text-sm text-slate-500 font-medium">Monolit konstruksiya • 2 ta lift / pod'ezd</p>
             </div>
 
             {/* Vizitka 3: 3 800 ta xonadon */}
