@@ -10,7 +10,7 @@ export default function ComplexGallery({ onScrollTo }) {
       fallback: "/photo_2026-05-09_09-00-52 (2).jpg",
       title: "12 qavatli zamonaviy monolit uylar",
       tag: "Fasad arxitekturasi",
-      desc: "Seysmik 9 ballga bardoshli temir-beton monolit pishiq karkas va pishiq g‘isht devorlar."
+      desc: "Seysmik 9 ballga bardoshli temir-beton monolit mustahkam karkas va sifatli blok devorlar."
     },
     {
       src: "/complex/building-2.jpg",

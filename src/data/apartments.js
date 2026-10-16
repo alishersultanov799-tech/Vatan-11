@@ -1938,7 +1938,7 @@ export const PROJECT_DETAILS = {
 
   // 70% tayyor ta'mirlash holati (Devorlar, eshiklar, romlar)
   repairFeatures: [
-    { title: "Xonalar to‘liq bo‘lingan", desc: "Pishiq g‘isht va bloklar bilan barcha xona devorlari ko‘tarilgan" },
+    { title: "Xonalar to‘liq bo‘lingan", desc: "Mustahkam sifatli bloklar bilan barcha xona devorlari ko‘tarilgan" },
     { title: "Sifatli oq suvoq", desc: "Devorlar tekislangan va pardozlashga (oboy/bo‘yoq) 100% tayyor" },
     { title: "Kirish temir eshigi", desc: "Yuqori xavfsizlik sinfidagi qalin, shovqin o‘tkazmaydigan po‘lat eshik" },
     { title: "Barcha xonalararo ichki eshiklar", desc: "Xonadon ichidagi barcha sifatli eshiklar o‘rnatilgan" },

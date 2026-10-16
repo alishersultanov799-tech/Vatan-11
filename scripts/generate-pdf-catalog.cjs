@@ -108,7 +108,7 @@ if (fs.existsSync(heroImagePath)) {
 // 4 Feature Highlights Grid
 const highlights = [
   { title: "13 Gektar Hudud", desc: "12 qavatli monolit binolar, 3 800 ta xonadon, zilzilabardosh mustahkam poydevor" },
-  { title: "70% Tayyor Ta’mir", desc: "Devorlar oq suvoqda, styajka, Akfa romlar, temir eshik, shaxsiy isitish tizimi" },
+  { title: "70% Tayyor Ta’mir", desc: "Devorlar oq suvoqda, Akfa romlar, temir eshik, shaxsiy isitish tizimi" },
   { title: "30 Oy 0% Bo‘lib To‘lash", desc: "29, 39 va 69 mln bosh to‘lov bilan 30 oy ustamasiz (yoki 100% to‘lovda 33% chegirma)" },
   { title: "2028 IV-Chorak", desc: "Kafolatlangan topshirish muddati, to‘liq davlat ro‘yxatidan o‘tgan shartnoma" }
 ];
@@ -155,8 +155,7 @@ doc.font(fontBold).fontSize(10.5).fillColor(colors.secondary).text("70% TAYYOR T
 
 const repairs = [
   { t: "Devorlar sifatli oq suvoqda", d: "Barcha ichki devorlar tekislangan, pardozlashga (oboy yoki bo‘yoq) 100% tayyor." },
-  { t: "Xonalar to‘liq bo‘lingan", d: "Pishiq g‘isht va mustahkam bloklar bilan xonadon xonalari to‘liq ajratilgan." },
-  { t: "Pol silliq styajkasi", d: "Laminat yoki kafellarni to‘g‘ridan-to‘g‘ri yotqizishga tayyor ideal tekis pol." },
+  { t: "Xonalar to‘liq bo‘lingan", d: "Mustahkam bloklar bilan xonadon xonalari to‘liq ajratilgan." },
   { t: "Akfa premium shovqinsiz romlar", d: "Ko‘p kamerali, ko‘cha shovqinini o‘tkazmaydigan, issiqlikni saqlovchi romlar." },
   { t: "Kirish temir eshigi & ichki eshiklar", d: "Qalin xavfsiz temir kirish eshigi va xonalararo sifatli ichki eshiklar o‘rnatilgan." },
   { t: "Xonadon shaxtasiga kommunikatsiya", d: "Suv va elektr hisoblagichlari xonadon shaxtasiga olib kirilgan." },
@@ -164,7 +163,7 @@ const repairs = [
 ];
 
 repairs.forEach((r, idx) => {
-  const y = 120 + idx * 23;
+  const y = 122 + idx * 26;
   doc.circle(48, y + 4, 3).fill(colors.secondary);
   doc.font(fontBold).fontSize(8.5).fillColor(colors.dark).text(r.t + " — ", 58, y, { continued: true });
   doc.font(fontRegular).fontSize(8).fillColor(colors.gray).text(r.d);
@@ -197,7 +196,7 @@ doc.rect(35, 542, 525, 130).fillAndStroke('#ffffff', colors.border);
 doc.font(fontBold).fontSize(10.5).fillColor(colors.dark).text("ZILZILABARDOSH MONOLIT QURILISH VA XAVFSIZLIK:", 45, 554);
 doc.font(fontRegular).fontSize(8).fillColor(colors.gray).text(
   "• Zilzilabardoshlik: 9 ballik zilzilaga bardosh beruvchi yaxlit temir-beton monolit karkas tizimi.\n" +
-  "• G‘isht devorlar: Yuqori issiqlik va shovqin izolyatsiyasini ta'minlovchi pishiq g‘isht terimi.\n" +
+  "• Mustahkam blok devorlar: Yuqori issiqlik va shovqin izolyatsiyasini ta'minlovchi sifatli blok terimi.\n" +
   "• 24/7 Qo‘riqlash: Videokuzatuv kameralari, yopiq xavfsiz hovli va domofon tizimi.\n" +
   "• Shovqinsiz tezyurar liftlar: Har bir pod'ezdda 2 tadan zamonaviy yuk va yo‘lovchi tashuvchi liftlar.",
   45, 574, { lineGap: 4 }

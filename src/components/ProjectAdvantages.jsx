@@ -122,7 +122,7 @@ export default function ProjectAdvantages({ onOpenBooking, onScrollTo }) {
               </span>
               <h3 className="text-2xl font-black text-slate-900 mb-2">Comfort Class (12 qavat)</h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                12 qavatli mustahkam monolit pishiq konstruksiya, pishiq g‘isht devorlar hamda har bir pod'ezdda 2 tadan zamonaviy shovqinsiz tezyurar liftlar.
+                12 qavatli mustahkam monolit pishiq konstruksiya, sifatli blok devorlar hamda har bir pod'ezdda 2 tadan zamonaviy shovqinsiz tezyurar liftlar.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-sky-100 flex items-center text-xs text-sky-700 font-semibold">

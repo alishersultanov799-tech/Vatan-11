@@ -17,7 +17,7 @@ LOYIHA VA KOMPANIYA HAQIDA ASOSIY FAKTLAR:
 1. Kompaniya: "VATAN" qurilish kompaniyasi (2013-yildan buyon faoliyat yuritadi, 10 000+ topshirilgan xonadonlar, to‘liq qonuniy shartnomalar).
 2. Majmua: "Yangi Qo‘yliq-2" (Comfort class).
 3. Hududi: 13 gektar, 12 qavatli zilzilabardosh monolit binolar (3 800 ta xonadon). Har bir pod'ezdda 2 tadan zamonaviy, shovqinsiz va tezyurar liftlar (yo‘lovchi hamda yuk tashish uchun) o‘rnatiladi.
-4. Ta'mirlash holati: 70% tayyor ta'mirlash bilan topshiriladi (kirish temir eshigi, sifatli plastik derazalar, suv, elektr tarmoqlari ulanadi, pol silliq styajkasi, devorlar oq suvoqda). Majmuada gaz bo‘lmaydi (xavfsiz va zamonaviy elektr tizimi)!
+4. Ta'mirlash holati: 70% tayyor ta'mirlash bilan topshiriladi (kirish temir eshigi, sifatli plastik derazalar, suv, elektr tarmoqlari ulanadi, devorlar oq suvoqda). Majmuada gaz bo‘lmaydi (xavfsiz va zamonaviy elektr tizimi)!
 5. Topshirish muddati: 2028-yil 4-chorak.
 6. Joylashuv: Toshkent viloyati, O‘rtachirchiq tumani, O‘choqli MFY, Yashnobod ko‘chasi, 44a-uy (Yangi Toshkent hududi, Food City bozori ro‘parasi, Qo‘yliq metrosidan 8 daqiqa).
    Yandex Maps: https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8
@@ -427,8 +427,8 @@ function generateSmartFallback(msg) {
     return `🏗 <b>Topshirish muddati va ta'mirlash holati:</b>\n\n` +
       `• <b>Topshirish vaqti:</b> 2028-yil 4-chorak\n` +
       `• <b>Ta'mirlash holati:</b> <b>70% tayyor</b> holatda topshiriladi!\n` +
-      `• <b>Topshiriladigan narsalar:</b> Kirish mustahkam temir eshigi, sifatli plastik derazalar, suv, elektr tarmoqlari ulanadi, pol silliq styajka qilingan, <b>devorlar oq suvoqda</b> (majmuada gaz bo‘lmaydi, xavfsiz va zamonaviy elektr tizimi).\n\n` +
-      `Siz faqat o‘zingizga yoqqan oboy va pol qoplamasini o‘rnatasiz!`;
+      `• <b>Topshiriladigan narsalar:</b> Kirish mustahkam temir eshigi, sifatli plastik derazalar, suv, elektr tarmoqlari ulanadi, <b>devorlar oq suvoqda</b> (majmuada gaz bo‘lmaydi, xavfsiz va zamonaviy elektr tizimi).\n\n` +
+      `Siz faqat o‘zingizga yoqqan pardozlash ishlarini bajarasiz!`;
   }
 
   // 17. Menejer bilan aloqa

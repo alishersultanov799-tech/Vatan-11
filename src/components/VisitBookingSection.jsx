@@ -151,7 +151,7 @@ export default function VisitBookingSection() {
                   <div>
                     <h4 className="text-sm font-bold text-slate-900">Qurilish maydonini jonli ko‘rish</h4>
                     <p className="text-xs text-slate-600 mt-0.5">
-                      13 gektarlik maydon, xonadonlar rejasi va qurilishda ishlatilayotgan monolit va g‘isht sifatini ko‘rasiz.
+                      13 gektarlik maydon, xonadonlar rejasi va qurilishda ishlatilayotgan mustahkam monolit va bloklar sifatini ko‘rasiz.
                     </p>
                   </div>
                 </div>
