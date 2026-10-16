@@ -91,12 +91,13 @@ QAT'IY VA MUHIM TO'LOV QOIDALARI (HECH QACHON ADASHTIRMA!):
         * 77 m²: 1 m² = 6 197 500 – 6 867 500 so'm | Jami: 477.2 mln – 528.8 mln so'm
 
 ALOQA VA ARIZA TARTIBI:
-- Bosh menejer: Alisher
+- Bosh menejer: Alisher (@alisher_yangiqoyliq)
+- Menejer bilan to‘g‘ridan-to‘g‘ri Telegram havolasi: https://t.me/alisher_yangiqoyliq
 - Rasmiy Telegram kanal: @yangiqoyliq_TJM
 - Ish vaqti: Har kuni 09:00 — 18:00 (dam olish kunlarisiz).
 
 SENING JAVOB BERISH QOIDALARING:
-1. HECH QACHON telefon raqam berma (menejer telefon raqami ko‘rsatilmaydi)!
+1. Menejer bilan bog‘lanish, telefon yoki aloqa so‘ralsa: Bosh menejerimiz Alisher ekanligini, unga Telegram orqali to‘g‘ridan-to‘g‘ri @alisher_yangiqoyliq (https://t.me/alisher_yangiqoyliq) profiliga yozishlari mumkinligini yoki botdagi "✍️ Menejer Alisherga yozish" tugmasini bosishni ma'lum qil!
 2. Mijozlar bot orqali barcha ma'lumotlarni oladilar, yangiliklarni @yangiqoyliq_TJM kanalida kuzatadilar yoki botda ariza (telefon raqam) qoldiradilar.
 3. Mijoz telefon raqamini qoldirganda, sotuv menejeri o‘zi vaqti bo‘lganda mijoz bilan bog‘lanadi!
 4. Gaz haqida so‘rashsa, gaz bo‘lmaydi deb aniq javob ber (ekologik toza va xavfsiz elektr tizimi).
@@ -434,11 +435,13 @@ function generateSmartFallback(msg) {
 
   // 17. Menejer bilan aloqa
   if (text.includes('menejer') || text.includes('alisher') || text.includes('telefon') || text.includes('aloqa') || text.includes('nomer')) {
-    return `📞 <b>Sotuv ofisi bilan aloqa:</b>\n\n` +
+    return `👨‍💼 <b>Sotuv ofisi va Bosh menejer bilan aloqa:</b>\n\n` +
       `• Bosh menejer: <b>Alisher</b>\n` +
+      `• Telegram: @alisher_yangiqoyliq\n` +
+      `• To‘g‘ridan-to‘g‘ri yozish: https://t.me/alisher_yangiqoyliq\n` +
       `• Rasmiy Telegram kanal: @yangiqoyliq_TJM\n` +
       `• Ish vaqti: Har kuni 09:00 — 18:00\n\n` +
-      `<i>Mijozlar bilan aloqa ariza asosida amalga oshiriladi. Botga telefon raqamingizni qoldirsangiz, menejerimiz vaqti bo‘lganda siz bilan bog‘lanadi!</i>`;
+      `<i>Menejerimiz Alisherga to‘g‘ridan-to‘g‘ri Telegram orqali yozib barcha savollaringizga tezkor javob olishingiz mumkin!</i>`;
   }
 
   // 18. Ko'p beriladigan savollar (FAQ)
@@ -495,6 +498,7 @@ function getMainKeyboard() {
       [{ text: "🏢 2 xonali (54, 55 m²)" }, { text: "🏢 3 xonali (70, 77 m²)" }],
       [{ text: "📊 Barcha uy va 1 m² narxlari" }, { text: "📍 Lokatsiya va Ofis" }],
       [{ text: "❓ Ko‘p beriladigan savollar" }, { text: "📅 Ofisga tashrif buyurish" }],
+      [{ text: "✍️ Menejer Alisherga yozish" }],
       [{ text: "📱 Raqamimni qoldirish", request_contact: true }]
     ],
     resize_keyboard: true,
@@ -507,6 +511,7 @@ async function handleTelegramMessage(message) {
   const userText = (message.text || '').trim();
   const userName = `${message.from?.first_name || ''} ${message.from?.last_name || ''}`.trim() || 'Hurmatli mijoz';
   const userUsername = message.from?.username ? `@${message.from.username}` : 'Mavjud emas';
+  const lowerText = userText.toLowerCase();
 
   console.log(`📩 Xabar keldi [${userName} / ${chatId}]: "${userText}"`);
 
@@ -536,6 +541,68 @@ async function handleTelegramMessage(message) {
     return;
   }
 
+  // Menejer Alisherga yozish
+  if (
+    userText === '✍️ Menejer Alisherga yozish' ||
+    userText === 'Menejer Alisherga yozish' ||
+    lowerText === '/alisher' ||
+    lowerText === '/menejer' ||
+    lowerText === 'menejer' ||
+    lowerText.includes('alisherga yozish') ||
+    lowerText.includes('menejerga yozish')
+  ) {
+    const managerMessage = 
+      `👨‍💼 <b>BOSH SOTUV MENEJERI: ALISHER</b>\n` +
+      `━━━━━━━━━━━━━━━━━━━━\n\n` +
+      `Hurmatli <b>${userName}</b>!\n\n` +
+      `Siz "Yangi Qo‘yliq-2" turar-joy majmuasi bosh sotuv menejeri <b>Alisher</b> bilan to‘g‘ridan-to‘g‘ri Telegram orqali bog‘lanishingiz mumkin:\n\n` +
+      `🏢 <b>Menejer sizga quyidagilarda yordam beradi:</b>\n` +
+      `• Bo‘sh qolgan eng qulay qavat va arzon xonadonlarni tanlash;\n` +
+      `• 100% to‘lovda 33% gacha maxsus chegirma hisob-kitobi;\n` +
+      `• 30 oygacha 0% foizsiz bo‘lib to‘lash shartnomasi;\n` +
+      `• Savdo ofisiga yoki qurilish maydoniga tashrif buyurish.\n\n` +
+      `💬 <b>Telegram:</b> @alisher_yangiqoyliq\n` +
+      `⏰ <b>Ish vaqti:</b> Har kuni 09:00 — 18:00\n\n` +
+      `👇 <b>Menejerga to‘g‘ridan-to‘g‘ri yozish uchun quyidagi tugmani bosing:</b>`;
+
+    const managerKeyboard = {
+      inline_keyboard: [
+        [
+          { 
+            text: "💬 Menejer Alisherga yozish (@alisher_yangiqoyliq) ↗️", 
+            url: "https://t.me/alisher_yangiqoyliq" 
+          }
+        ],
+        [
+          { 
+            text: "📢 Rasmiy Telegram kanalimiz", 
+            url: "https://t.me/yangiqoyliq_TJM" 
+          }
+        ],
+        [
+          { 
+            text: "🌐 Rasmiy veb-sayt", 
+            url: "https://vatan-11-p5nw.vercel.app/" 
+          }
+        ]
+      ]
+    };
+
+    try {
+      const managerNotice = 
+        `ℹ️ <b>Mijoz botda 'Menejer Alisherga yozish' tugmasini bosdi!</b>\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `👤 <b>Mijoz:</b> ${userName}\n` +
+        `💬 <b>Telegram:</b> ${userUsername}\n` +
+        `⏰ <b>Vaqt:</b> ${new Date().toLocaleString('uz-UZ', { timeZone: 'Asia/Tashkent' })}`;
+      await sendTelegramMessage(MANAGER_CHAT_ID, managerNotice);
+    } catch (e) {}
+
+    await sendTelegramMessage(chatId, managerMessage, managerKeyboard);
+    console.log(`👨‍💼 Menejer Alisherga yozish menyusi yuborildi.`);
+    return;
+  }
+
   if (userText === '/start') {
     const welcomeText = 
       `Assalomu alaykum, <b>${userName}</b>! 👋\n\n` +
@@ -547,6 +614,7 @@ async function handleTelegramMessage(message) {
       `• <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov 29 mln | Oylik 4 mln\n` +
       `• <b>2 xonali (54, 55 m²):</b> Bosh to‘lov 39 mln | Oylik 5 mln\n` +
       `• <b>3 xonali (70, 77 m²):</b> Bosh to‘lov 69 mln | Oylik 6 mln\n\n` +
+      `👨‍💼 <b>Bosh menejer:</b> Alisher (@alisher_yangiqoyliq)\n\n` +
       `👇 Kerakli bo‘limni tanlang yoki savolingizni yozing:`;
 
     await sendTelegramMessage(chatId, welcomeText, getMainKeyboard());
