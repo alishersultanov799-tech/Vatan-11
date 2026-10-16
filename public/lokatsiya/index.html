@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Dron Xaritasi — Qurilayotgan Uy va Infratuzilma (5 km)</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- MapLibre GL JS -->
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Dron HUD (Heads-Up Display) ustki qatlami -->
+  <div id="drone-hud">
+    <div class="hud-top-bar">
+      <div class="hud-item rec-indicator">
+        <span class="blinking-dot"></span>
+        <span class="hud-label">REC</span>
+        <span class="hud-val">4K 60FPS</span>
+      </div>
+      <div class="hud-item telemetry">
+        <span class="hud-label">BALANDLIK:</span>
+        <span class="hud-val" id="hud-altitude">350m</span>
+      </div>
+      <div class="hud-item telemetry">
+        <span class="hud-label">GIMBAL:</span>
+        <span class="hud-val" id="hud-pitch">-62°</span>
+      </div>
+      <div class="hud-item telemetry">
+        <span class="hud-label">GPS KOORD.:</span>
+        <span class="hud-val">41.2021°N, 69.3354°E</span>
+      </div>
+      <div class="hud-item hud-battery">
+        <i data-lucide="battery-charging" class="hud-icon"></i>
+        <span class="hud-val">97%</span>
+      </div>
+      <div class="hud-item hud-signal">
+        <i data-lucide="wifi" class="hud-icon"></i>
+        <span class="hud-val">HD LIVE</span>
+      </div>
+    </div>
+
+    <!-- Dron krossxayr (Nishon belgisi) -->
+    <div class="hud-crosshair" id="hud-crosshair">
+      <div class="crosshair-circle"></div>
+      <div class="crosshair-h"></div>
+      <div class="crosshair-v"></div>
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+      <div class="target-info" id="target-info">
+        <span class="target-title">LOYIHA MARKAZI</span>
+        <span class="target-dist">RTH ASOSIY NUQTA</span>
+      </div>
+    </div>
+
+    <!-- Dron kompas / Bearing burchagi -->
+    <div class="hud-compass" id="hud-compass">
+      <div class="compass-marker" id="compass-marker">▲ SHIMOL</div>
+    </div>
+  </div>
+
+  <!-- Asosiy 3D xarita konteyneri -->
+  <div id="map"></div>
+
+  <!-- Tezkor dron boshqaruv paneli (Floating Drone Controls) -->
+  <div class="drone-control-bar">
+    <button class="drone-btn active" id="btn-drone-view" title="3D Dron ko'rinishi (60° burchak)">
+      <i data-lucide="video"></i>
+      <span>3D Dron Kadri</span>
+    </button>
+    <button class="drone-btn" id="btn-top-view" title="Vertikal Dron (90° Yuqoridan qarash)">
+      <i data-lucide="compass"></i>
+      <span>Yuqoridan (90°)</span>
+    </button>
+    <button class="drone-btn" id="btn-orbit-tour" title="Loyiha atrofida 360° parvoz">
+      <i data-lucide="rotate-cw"></i>
+      <span id="orbit-text">360° Orbit Parvozi</span>
+    </button>
+    <button class="drone-btn" id="btn-auto-tour" title="Barcha obyektlar ustidan avto-parvoz">
+      <i data-lucide="plane"></i>
+      <span id="tour-text">Dron Ekskursiyasi</span>
+    </button>
+    <button class="drone-btn highlight" id="btn-rth" title="Qurilayotgan uy markaziga qaytish">
+      <i data-lucide="home"></i>
+      <span>Uyga Qaytish (RTH)</span>
+    </button>
+
+    <div class="control-divider"></div>
+
+    <!-- Xarita qatlami (Sun'iy yo'ldosh / Vektor) -->
+    <button class="drone-btn" id="btn-toggle-layer" title="Xarita turini o'zgartirish">
+      <i data-lucide="layers"></i>
+      <span id="layer-text">Sun'iy Yo'ldosh</span>
+    </button>
+    <button class="drone-btn" id="btn-toggle-radars" title="1-5 km radius doiralarini yoqish/o'chirish">
+      <i data-lucide="radar"></i>
+      <span>5 km Radar</span>
+    </button>
+  </div>
+
+  <!-- Chap tomon: Infratuzilma katalogi paneli (Glassmorphism Sidebar) -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="brand">
+        <div class="drone-logo">
+          <i data-lucide="navigation"></i>
+        </div>
+        <div>
+          <h2>AERO-VIEW 3D</h2>
+          <p>Yangi Uy Loyihasi & Infratuzilma</p>
+        </div>
+      </div>
+      <button class="toggle-sidebar-btn" id="toggle-sidebar" title="Panelni berkitish/ochish">
+        <i data-lucide="chevron-left"></i>
+      </button>
+    </div>
+
+    <!-- Asosiy lokatsiya kartochkasi -->
+    <div class="home-card">
+      <div class="home-card-header">
+        <span class="badge-live">Markaziy Nuqta</span>
+        <span class="badge-radius">Radius: 5 km</span>
+      </div>
+      <h3>🏗️ Qurilayotgan Uy / Loyiha Joyi</h3>
+      <p class="home-address">
+        <i data-lucide="map-pin"></i>
+        <span>Toshkent vil., O‘rta Chirchiq t., O‘choqli MFY (Bektemir tutashuvi)</span>
+      </p>
+      <div class="home-metrics">
+        <div class="metric">
+          <span class="metric-num" id="total-pois">30+</span>
+          <span class="metric-lbl">Obyektlar</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">5 km</span>
+          <span class="metric-lbl">Qamrov radiusi</span>
+        </div>
+        <div class="metric">
+          <span class="metric-num">7 daq</span>
+          <span class="metric-lbl">Metroga (avto)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Qidiruv va filtrlar -->
+    <div class="filter-section">
+      <div class="search-box">
+        <i data-lucide="search"></i>
+        <input type="text" id="search-input" placeholder="Obyekt yoki ko'chani izlash...">
+      </div>
+
+      <!-- Kategoriya tablari -->
+      <div class="categories-scroll" id="categories-container">
+        <!-- JS dinamik yaratadi -->
+      </div>
+    </div>
+
+    <!-- Obyektlar ro'yxati -->
+    <div class="poi-list" id="poi-list">
+      <!-- Dinamik kartochkalar -->
+    </div>
+
+    <!-- Quyi axborot qatori -->
+    <div class="sidebar-footer">
+      <span><i data-lucide="crosshair"></i> Obyektni tanlang — Dron 3D kadrda uchib boradi</span>
+    </div>
+  </aside>
+
+  <!-- Masofa va Dron Telemetriya modali (Pastki o'ng burchak) -->
+  <div class="distance-hud-card" id="distance-card" style="display: none;">
+    <button class="close-card-btn" id="close-dist-card">&times;</button>
+    <div class="dist-header">
+      <span class="poi-category-badge" id="card-cat">Kategoriya</span>
+      <span class="dist-val" id="card-distance">0.0 km</span>
+    </div>
+    <h4 id="card-name">Obyekt Nomi</h4>
+    <p id="card-address" class="card-address">Manzil...</p>
+    <div class="card-travel-times">
+      <div class="travel-item">
+        <i data-lucide="car"></i>
+        <span id="card-car-time">~5 daq</span>
+      </div>
+      <div class="travel-item">
+        <i data-lucide="footprints"></i>
+        <span id="card-walk-time">~25 daq</span>
+      </div>
+      <div class="travel-item">
+        <i data-lucide="navigation"></i>
+        <span id="card-bearing">Shimol</span>
+      </div>
+    </div>
+    <div class="card-actions">
+      <button class="action-btn fly-btn" id="btn-fly-again">
+        <i data-lucide="video"></i> Dron bilan yaqinlashish
+      </button>
+      <button class="action-btn yandex-btn" id="btn-open-yandex" target="_blank">
+        <i data-lucide="external-link"></i> Xaritada ochish
+      </button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

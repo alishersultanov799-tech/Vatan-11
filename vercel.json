@@ -2,7 +2,15 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/((?!api/|.*\\..*).*)",
+      "source": "/lokatsiya",
+      "destination": "/lokatsiya/index.html"
+    },
+    {
+      "source": "/karta",
+      "destination": "/lokatsiya/index.html"
+    },
+    {
+      "source": "/((?!api/|lokatsiya|karta|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]

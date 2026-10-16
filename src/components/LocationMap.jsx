@@ -278,6 +278,18 @@ export default function LocationMap() {
                   <MapPin className="w-3.5 h-3.5" />
                   <span>Google Xarita</span>
                 </button>
+
+                <a
+                  href="/lokatsiya"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-1.5 rounded-xl font-extrabold text-xs transition-all cursor-pointer flex items-center gap-1.5 bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 text-white shadow-md hover:brightness-110 border border-sky-400/40"
+                  title="5 km radiusdagi barcha infratuzilmani 3D dron kamerasida tomosha qilish"
+                >
+                  <Compass className="w-3.5 h-3.5 text-cyan-200 animate-pulse" />
+                  <span>🛸 3D Dron Kamerasini Ochish</span>
+                  <ExternalLink className="w-3 h-3 text-cyan-200" />
+                </a>
               </div>
 
               <a 

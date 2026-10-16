@@ -1,2 +1,5 @@
-/api/*  /.netlify/functions/:splat  200
-/*      /index.html                 200
+/lokatsiya        /lokatsiya/index.html   200
+/karta            /lokatsiya/index.html   200
+/api/*            /.netlify/functions/:splat  200
+/*                /index.html                 200
+
