@@ -51,10 +51,10 @@ export default function FAQSection({ onOpenBooking }) {
     },
     {
       category: 'payment',
-      question: "Qaysi xonadonlar faqat 100% to‘lovda sotiladi?",
-      answer: "Kichik va ixcham 22 m², 25 m², 34 m² va 39 m² xonadonlar faqat 100% to‘liq to‘lov bilan sotiladi. Ushbu xonadonlar uchun kompaniya tomonidan 33% maxsus chegirma beriladi, bu esa 1 m² narxini bozor narxlaridan sezilarli darajada hamyonbop qiladi.",
+      question: "22, 25, 34 va 39 m² xonadonlar uchun to‘lov shartlari qanday?",
+      answer: "22, 25, 34 va 39 m² xonadonlar 33% maxsus chegirmada taqdim etiladi. Mijozlar ushbu xonadonlarni 2 xil usulda xarid qilishlari mumkin:\n1) 100% to‘liq to‘lov (33% chegirma bilan);\n2) Bosh to‘lov + Kadastrda qoldiq to‘lov: boshlang‘ich to‘lov (22 va 25 m² uchun 146.58 mln so‘m, 34 va 39 m² uchun 177 mln so‘m) to‘lanadi, qurilish davrida oylik to‘lov talab etilmaydi (0 so‘m), qolgan summa esa 2028-yil 4-chorakda (kadastr chiqqanda) to‘lanadi. 33% chegirma to‘liq saqlanadi!",
       icon: Sparkles,
-      badge: "33% Chegirma"
+      badge: "33% Chegirma + Kadastr"
     },
     {
       category: 'condition',

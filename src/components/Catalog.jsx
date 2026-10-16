@@ -35,7 +35,7 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
   const [selectedFloor, setSelectedFloor] = useState('2-4');
   
   // Payment plan state for standard apartments
-  const [selectedPlanId, setSelectedPlanId] = useState('plan_fixed');
+  const [selectedPlanId, setSelectedPlanId] = useState(() => model.isCadastreSplit ? 'plan_kadastr' : 'plan_fixed');
 
   const currentFloorData = model.floorsData ? model.floorsData[selectedFloor] : null;
 
@@ -78,6 +78,10 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
             {model.onlyFullPayment ? (
               <span className="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[11px] font-black border border-amber-300">
                 Faqat 100% to‘lov
+              </span>
+            ) : model.isCadastreSplit ? (
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-300">
+                Bosh to‘lov + Kadastr (33% chegirma)
               </span>
             ) : (
               <span className="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-700 text-[11px] font-bold border border-sky-200">
@@ -206,7 +210,7 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+              <div className={`grid gap-1.5 ${model.isCadastreSplit ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'}`}>
                 {currentFloorData.paymentPlans.map((pl) => (
                   <button
                     key={pl.id}
@@ -267,8 +271,50 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
                 )}
               </div>
 
-              {/* 30 oylik taqsimot */}
-              {!model.onlyFullPayment && currentPlan.isInstallment && (
+              {/* 2 bosqichli Kadastrda qoldiq to'lash taqsimoti (22, 25, 34, 39 m²) */}
+              {!model.onlyFullPayment && currentPlan.isCadastreSplit && (
+                <div className="p-3.5 rounded-xl bg-gradient-to-br from-emerald-50/70 via-white to-sky-50/60 border-2 border-emerald-300/80 shadow-xs">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] font-black text-emerald-950 flex items-center gap-1.5">
+                      <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                      <span>2 bosqichli to‘lov (33% chegirma to‘liq saqlanadi):</span>
+                    </span>
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-black border border-emerald-300">
+                      Oylik to‘lov 0 so‘m
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-center">
+                    <div className="bg-white p-2.5 rounded-xl border border-emerald-200 shadow-xs">
+                      <span className="text-[9px] text-slate-500 uppercase font-bold block">1-bosqich: Bosh to‘lov</span>
+                      <span className="text-sm font-black text-emerald-800 block mt-0.5">
+                        {formatShortMln(currentPlan.initialPayment)}
+                      </span>
+                      <span className="text-[9px] text-slate-500 block mt-0.5">Shartnoma tuzilganda</span>
+                    </div>
+
+                    <div className="bg-white p-2.5 rounded-xl border border-sky-200 shadow-xs">
+                      <span className="text-[9px] text-slate-500 uppercase font-bold block">2-bosqich: Kadastr chiqqanda</span>
+                      <span className="text-sm font-black text-sky-800 block mt-0.5">
+                        {currentPlan.remainingBalance === 0 ? "0 so‘m (To‘liq yopiladi)" : formatShortMln(currentPlan.remainingBalance)}
+                      </span>
+                      <span className="text-[9px] text-slate-500 block mt-0.5">2028-yil 4-chorak</span>
+                    </div>
+                  </div>
+
+                  <div className="mt-2.5 pt-2 border-t border-emerald-200/60 flex items-center justify-between text-[10px] text-slate-600">
+                    <span className="font-semibold text-emerald-900">
+                      ✨ Qurilish davrida hech qanday oylik to‘lov talab qilinmaydi!
+                    </span>
+                    <span className="font-bold text-slate-700">
+                      Kadastr: <strong className="text-slate-900">2028 IV-chorak</strong>
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              {/* 30 oylik taqsimot (41-77 m² xonadonlar uchun) */}
+              {!model.onlyFullPayment && currentPlan.isInstallment && !currentPlan.isCadastreSplit && (
                 <div className="p-3 rounded-xl bg-white border border-sky-200">
                   <span className="text-[11px] font-bold text-slate-900 block mb-2">
                     30 Oygacha Bo‘lib To‘lash (0% ustama):
@@ -386,8 +432,8 @@ export default function Catalog({ onBookApartment, onOpenPdfModal }) {
       subtitle: "Ixcham studio va keng 1 xonali xonadonlar — yakka yashash yoki yosh oilalar uchun ideal qulaylik va eng hamyonbop narxlar.",
       areaRange: "22 m² — 49 m²",
       countText: "7 xil planirovka varianti",
-      initialPayment: "29 mln so‘mdan",
-      monthlyPayment: "4 mln so‘m (30 oy)",
+      initialPayment: "29 mln so‘mdan (yoki kadastr to‘lovi)",
+      monthlyPayment: "4 mln so‘m (yoki 0 so‘m oylik)",
       models: APARTMENT_MODELS.filter(m => m.rooms === 1)
     },
     {
@@ -446,7 +492,7 @@ export default function Catalog({ onBookApartment, onOpenPdfModal }) {
           </h2>
           <p className="text-slate-600 text-xs sm:text-base mt-3 leading-relaxed">
             Quyida har bir xonadon toifasi — <strong className="text-slate-900">1-xonali, 2-xonali va 3-xonali</strong> xonadonlar alohida bo‘limlarga ajratib ko‘rsatilgan. 
-            <strong className="text-slate-900"> Qavatlar (2–4, 5–8, 9–12)</strong> va <strong className="text-slate-900">boshlang‘ich to‘lov (100%, 50%, 30%, standart)</strong>ga qarab narxlar tejamkorligi va bo‘lib to‘lash jadvali avtomatik hisoblanadi.
+            <strong className="text-slate-900"> Qavatlar (2–4, 5–8, 9–12)</strong> va <strong className="text-slate-900">boshlang‘ich to‘lov (100%, 50%, 30%, standart hamda 22–39 m² uchun bosh to‘lov + kadastr)</strong>ga qarab narxlar tejamkorligi va bo‘lib to‘lash jadvali avtomatik hisoblanadi.
           </p>
         </div>
 
@@ -472,8 +518,8 @@ export default function Catalog({ onBookApartment, onOpenPdfModal }) {
               </span>
             </div>
             <div className="text-xs text-slate-600 space-y-1">
-              <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">29 mln so‘m</strong></p>
-              <p>Oylik to‘lov: <strong className="text-emerald-700 text-sm">4 mln so‘m</strong> (30 oy)</p>
+              <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">29 mln so‘m</strong> (yoki 22–39 m² ga bosh to‘lov + kadastr)</p>
+              <p>Oylik to‘lov: <strong className="text-emerald-700 text-sm">4 mln so‘m</strong> (30 oy) / 22–39 m² da 0 so‘m</p>
             </div>
             <div className="mt-3 pt-2.5 border-t border-sky-100 flex items-center justify-between text-[11px] font-bold text-sky-700">
               <span>{selectedRooms === '1' ? '✓ Tanlangan (Barchasini ko‘rish)' : 'Faqat 1-xonalilarni ko‘rish'}</span>

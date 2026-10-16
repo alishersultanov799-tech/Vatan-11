@@ -227,45 +227,43 @@ doc.font(fontRegular).fontSize(8.5).fillColor(colors.gray).text(
   35, 68
 );
 
-// JADVAL 1: FAQAT 100% TO'LOV
+// JADVAL 1: 100% TO'LOV YOKI BOSH TO'LOV + KADASTRDA QOLDIQ
 doc.rect(35, 88, 525, 215).fillAndStroke('#ffffff', colors.border);
 doc.rect(35, 88, 525, 24).fill(colors.amberLight);
-doc.font(fontBold).fontSize(9.5).fillColor(colors.amber).text("1. FAQAT 100% TO‘LOVGA SOTILADIGAN XONADONLAR (33% CHEGIRMA BILAN):", 45, 95);
+doc.font(fontBold).fontSize(9.5).fillColor(colors.amber).text("1. 22, 25, 34 VA 39 m²: 100% TO‘LOV YOKI BOSH TO‘LOV + KADASTR (33% CHEGIRMA):", 45, 95);
 
 doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(
-  "• Eslatma: Bu xonadonlar (22, 25, 34 va 39 m²) bo‘lib to‘lashga berilmaydi! 33% chegirma narxida to‘liq to‘lab olinadi:",
+  "• Yangi shart: 100% to‘liq to‘lash yoki Bosh to‘lov qilib, qoldig‘ini 2028 IV-chorakda (kadastr chiqqanda) to‘lash mumkin (oylik: 0 so‘m):",
   45, 118
 );
 
-// 100% Table Header
+// 100% & Cadastre Table Header
 const thY = 133;
 doc.rect(45, thY, 505, 18).fill(colors.primaryDark);
 doc.font(fontBold).fontSize(8).fillColor('#ffffff');
-doc.text("Maydon", 52, thY + 5);
-doc.text("Xonalar", 105, thY + 5);
-doc.text("9–12-qavatlar (Eng arzon)", 165, thY + 5);
-doc.text("5–8-qavatlar (Arzonroq)", 300, thY + 5);
-doc.text("2–4-qavatlar (Talabgir)", 430, thY + 5);
+doc.text("Maydon & Xona", 52, thY + 5);
+doc.text("Bosh to‘lov", 140, thY + 5);
+doc.text("Kadastrda qoldiq (2028 IV)", 230, thY + 5);
+doc.text("100% To‘lov narxi (33% chegirma)", 375, thY + 5);
 
 const fullPayRows = [
-  { area: "22 m²", rooms: "Studio", f9: "151.1 mln (6.87 mln/m²)", f5: "158.5 mln (7.20 mln/m²)", f2: "165.8 mln (7.54 mln/m²)" },
-  { area: "25 m²", rooms: "Studio", f9: "171.7 mln (6.87 mln/m²)", f5: "180.1 mln (7.20 mln/m²)", f2: "188.4 mln (7.54 mln/m²)" },
-  { area: "34 m²", rooms: "1 xonali", f9: "233.5 mln (6.87 mln/m²)", f5: "244.9 mln (7.20 mln/m²)", f2: "256.3 mln (7.54 mln/m²)" },
-  { area: "39 m²", rooms: "1 xonali", f9: "267.8 mln (6.87 mln/m²)", f5: "280.9 mln (7.20 mln/m²)", f2: "294.0 mln (7.54 mln/m²)" },
+  { area: "22 m² (Studio)", init: "146.6 mln so‘m", rem: "0 — 19.3 mln so‘m", full: "146.6 — 165.8 mln so‘m" },
+  { area: "25 m² (Studio)", init: "146.6 mln so‘m", rem: "25.1 — 41.9 mln so‘m", full: "171.7 — 188.4 mln so‘m" },
+  { area: "34 m² (1 xonali)", init: "177.0 mln so‘m", rem: "56.5 — 79.3 mln so‘m", full: "233.5 — 256.3 mln so‘m" },
+  { area: "39 m² (1 xonali)", init: "177.0 mln so‘m", rem: "90.8 — 117.0 mln so‘m", full: "267.8 — 294.0 mln so‘m" },
 ];
 
 fullPayRows.forEach((row, idx) => {
   const rY = thY + 18 + idx * 24;
   doc.rect(45, rY, 505, 24).fill(idx % 2 === 0 ? '#f8fafc' : '#ffffff');
   doc.font(fontBold).fontSize(8.5).fillColor(colors.dark).text(row.area, 52, rY + 7);
-  doc.font(fontRegular).fontSize(8).fillColor(colors.gray).text(row.rooms, 105, rY + 7);
-  doc.font(fontBold).fontSize(8).fillColor(colors.secondary).text(row.f9, 165, rY + 7);
-  doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(row.f5, 300, rY + 7);
-  doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(row.f2, 430, rY + 7);
+  doc.font(fontBold).fontSize(8.5).fillColor(colors.secondary).text(row.init, 140, rY + 7);
+  doc.font(fontBold).fontSize(8.5).fillColor(colors.primaryDark).text(row.rem, 230, rY + 7);
+  doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(row.full, 375, rY + 7);
 });
 
 doc.font(fontRegular).fontSize(7.5).fillColor(colors.gray).text(
-  "* Izoh: 9–12-qavatlar narxi eng arzon. Qavat qanchalik yuqorilasa, narx shunchalik hamyonbop bo‘ladi.",
+  "* Izoh: 22–39 m² uylarda qurilish davrida oylik to‘lov 0 so‘m! 33% chegirma to‘liq saqlanadi. 100% to‘lov yoki bosh to‘lov + kadastr.",
   45, 283
 );
 
@@ -374,7 +372,15 @@ function renderApartmentRow(y, h, apt) {
   curY += 24;
 
   // Row 2: Bo'lib to'lash shartlari yoki 100% to'lov sharti
-  if (apt.isInstallment) {
+  if (apt.isCadastreSplit) {
+    doc.rect(dx, curY, dw, 36).fill(colors.secondaryLight);
+    doc.font(fontBold).fontSize(8).fillColor(colors.secondary).text("Bosh to‘lov + Kadastrda qoldiq (33% chegirmada):", dx + 6, curY + 4);
+    doc.font(fontRegular).fontSize(7.5).fillColor(colors.dark).text(`• Bosh to‘lov: ${apt.initPay}`, dx + 10, curY + 16);
+    doc.font(fontBold).fontSize(7.5).fillColor(colors.secondary).text(`• Oylik: 0 so‘m`, dx + 160, curY + 16);
+    doc.font(fontBold).fontSize(7.5).fillColor(colors.primaryDark).text(`• Kadastrda qoldiq: ${apt.remPay || '0 so‘m'}`, dx + 10, curY + 26);
+    doc.font(fontRegular).fontSize(7.5).fillColor(colors.gray).text(`• 100% to‘lov: ${apt.fullPay}`, dx + 160, curY + 26);
+    curY += 40;
+  } else if (apt.isInstallment) {
     doc.rect(dx, curY, dw, 36).fill(colors.secondaryLight);
     doc.font(fontBold).fontSize(8.5).fillColor(colors.secondary).text("Bo‘lib to‘lash (30 oy 0% foizsiz):", dx + 6, curY + 4);
     doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(`• Bosh to‘lov: ${apt.initPay}`, dx + 10, curY + 16);
@@ -422,40 +428,46 @@ function renderApartmentRow(y, h, apt) {
 doc.addPage();
 drawHeader("4-BO‘LIM: STUDIYA XONADONLAR REJASI (22 VA 25 m²)");
 
-doc.font(fontBold).fontSize(14).fillColor(colors.dark).text("Ixcham Studio Xonadonlar (Faqat 100% To‘lovga)", 35, 50);
+doc.font(fontBold).fontSize(14).fillColor(colors.dark).text("Ixcham Studio Xonadonlar (100% yoki Bosh to‘lov + Kadastr)", 35, 50);
 doc.font(fontRegular).fontSize(8.5).fillColor(colors.gray).text(
-  "Yakka yashash, talabalar yoki ijaraga berish investitsiyasi uchun poytaxtdagi eng hamyonbop xonadonlar (33% chegirmada):",
+  "Yakka yashash, talabalar yoki ijaraga berish investitsiyasi uchun (33% chegirmada, oylik to‘lov 0 so‘m):",
   35, 68
 );
 
 // 22 m² Studio
 renderApartmentRow(88, 345, {
   title: "1A-22 | 22 m² Zamonaviy Studio",
-  badge: "151.1 mln so‘mdan boshlanadi",
+  badge: "Bosh to‘lov + Kadastrda qoldiq",
   badgeColor: colors.secondary,
   image: "22.jpg",
   area: "22.0 m²",
-  payType: "Faqat 100% to‘lov",
-  isInstallment: false,
-  p9: "151 085 000 so‘m (6 867 500 so‘m / m²)",
+  payType: "100% / Bosh to‘lov+Kadastr",
+  isCadastreSplit: true,
+  initPay: "146 575 000 so‘m",
+  remPay: "0 — 19.3 mln so‘m",
+  fullPay: "146.6 — 165.8 mln so‘m",
+  p9: "146 575 000 so‘m (6 662 500 so‘m / m²)",
   p5: "158 455 000 so‘m (7 202 500 so‘m / m²)",
   p2: "165 825 000 so‘m (7 537 500 so‘m / m²)",
-  desc: "Ixcham studio format. Dahliz, sanuzel va yashash/oshxona maydoni birlashtirilgan. Katta oyna tufayli xona tabiiy yorug‘lik bilan to‘la. 70% tayyor ta’mir bilan topshiriladi (devorlar oq suvoqda, styajka, Akfa rom, temir eshik)."
+  desc: "Ixcham studio format. 33% chegirmada: 100% to‘lash yoki 146.6 mln bosh to‘lov qilib, qoldiqni (0-19.3 mln) 2028 IV-chorakda (kadastrda) to‘lash mumkin. Oylik 0 so‘m. 70% tayyor ta’mir bilan topshiriladi."
 });
 
 // 25 m² Studio
 renderApartmentRow(445, 345, {
   title: "1A-25 | 25 m² Shinam Studio",
-  badge: "171.7 mln so‘mdan boshlanadi",
+  badge: "Bosh to‘lov + Kadastrda qoldiq",
   badgeColor: colors.secondary,
   image: "25.jpg",
   area: "25.0 m²",
-  payType: "Faqat 100% to‘lov",
-  isInstallment: false,
+  payType: "100% / Bosh to‘lov+Kadastr",
+  isCadastreSplit: true,
+  initPay: "146 575 000 so‘m",
+  remPay: "25.1 — 41.9 mln so‘m",
+  fullPay: "171.7 — 188.4 mln so‘m",
   p9: "171 687 500 so‘m (6 867 500 so‘m / m²)",
   p5: "180 062 500 so‘m (7 202 500 so‘m / m²)",
   p2: "188 437 500 so‘m (7 537 500 so‘m / m²)",
-  desc: "25 m² shinam studio formati. Kengroq dahliz, alohida oshxona burchagi, to‘liq sanuzel. Yosh oilalar uchun ajoyib boshlang‘ich uy yoki Food City yaqinida yuqori talabga ega ijara aktivi. 33% chegirma bilan to‘liq to‘lab olinadi."
+  desc: "25 m² shinam studio format. 33% chegirmada: 100% to‘lash yoki 146.6 mln bosh to‘lov qilib, qoldiqni (25.1-41.9 mln) 2028 IV-chorakda (kadastrda) to‘lash mumkin. Oylik 0 so‘m. 70% tayyor ta’mir bilan topshiriladi."
 });
 
 drawFooter(4);
@@ -468,38 +480,44 @@ drawHeader("5-BO‘LIM: 1 XONALI XONADONLAR REJASI (34, 39, 41 m²)");
 
 doc.font(fontBold).fontSize(14).fillColor(colors.dark).text("Keng 1 Xonali Xonadonlar Rejalari", 35, 50);
 doc.font(fontRegular).fontSize(8.5).fillColor(colors.gray).text(
-  "Alohida oshxona, keng yotoqxona va balkonga ega qulay 1 xonali xonadonlar (100% to‘lov va 30 oy 0% bo‘lib to‘lash):",
+  "Alohida oshxona, keng yotoqxona va balkonga ega qulay 1 xonali uylar (100%, kadastrda to‘lov yoki 30 oy 0% bo‘lib to‘lash):",
   35, 68
 );
 
 // 34 m²
 renderApartmentRow(88, 230, {
   title: "1B-34 | 34 m² (1 xonali shinam)",
-  badge: "Faqat 100% to‘lov (33% chegirma)",
-  badgeColor: colors.amber,
+  badge: "Bosh to‘lov + Kadastrda qoldiq",
+  badgeColor: colors.secondary,
   image: "34.jpg",
   area: "34.0 m²",
-  payType: "Faqat 100% to‘lov",
-  isInstallment: false,
+  payType: "100% / Bosh to‘lov+Kadastr",
+  isCadastreSplit: true,
+  initPay: "177 000 000 so‘m",
+  remPay: "56.5 — 79.3 mln so‘m",
+  fullPay: "233.5 — 256.3 mln so‘m",
   p9: "233 495 000 so‘m (6.87 mln/m²)",
   p5: "244 885 000 so‘m (7.20 mln/m²)",
   p2: "256 275 000 so‘m (7.54 mln/m²)",
-  desc: "Alohida oshxona, yotoqxona, dahliz va balkon. To‘liq mustaqil 1 xonali xonadon. Bo‘lib to‘lashga berilmaydi, 33% chegirma bilan sotiladi."
+  desc: "Alohida oshxona, yotoqxona va balkon. 33% chegirma: 100% to‘lash yoki 177 mln bosh to‘lov qilib, qoldiqni 2028 IV-chorakda (kadastrda) to‘lash mumkin. Oylik 0 so‘m."
 });
 
 // 39 m²
 renderApartmentRow(326, 230, {
   title: "1B-39 | 39 m² (1 xonali yorug‘)",
-  badge: "Faqat 100% to‘lov (33% chegirma)",
-  badgeColor: colors.amber,
+  badge: "Bosh to‘lov + Kadastrda qoldiq",
+  badgeColor: colors.secondary,
   image: "39.jpg",
   area: "39.0 m²",
-  payType: "Faqat 100% to‘lov",
-  isInstallment: false,
+  payType: "100% / Bosh to‘lov+Kadastr",
+  isCadastreSplit: true,
+  initPay: "177 000 000 so‘m",
+  remPay: "90.8 — 117.0 mln so‘m",
+  fullPay: "267.8 — 294.0 mln so‘m",
   p9: "267 832 500 so‘m (6.87 mln/m²)",
   p5: "280 897 500 so‘m (7.20 mln/m²)",
   p2: "293 962 500 so‘m (7.54 mln/m²)",
-  desc: "Katta oynali, quyosh nuri mo‘l tushadigan keng 1 xonali xonadon. Keng yotoqxona va qulay oshxona. Bo‘lib to‘lashga berilmaydi."
+  desc: "Katta oynali yorug‘ xonadon. 33% chegirma: 100% to‘lash yoki 177 mln bosh to‘lov qilib, qoldiqni 2028 IV-chorakda (kadastrda) to‘lash mumkin. Oylik 0 so‘m."
 });
 
 // 41 m²

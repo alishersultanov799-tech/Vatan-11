@@ -44,7 +44,7 @@ export default function VisitBookingSection() {
     { label: '2 xonali (54–55 m²) — Bo‘lib to‘lash 39 mln', val: '2 xonali (54–55 m²)' },
     { label: '1 xonali (41–49 m²) — Bo‘lib to‘lash 29 mln', val: '1 xonali (41–49 m²)' },
     { label: '3 xonali (70–77 m²) — Bo‘lib to‘lash 69 mln', val: '3 xonali (70–77 m²)' },
-    { label: '100% to‘lovli ixcham (22, 25, 34, 39 m²) — 33% chegirma', val: '100% to‘lovli (22–39 m²)' }
+    { label: 'Ixcham (22, 25, 34, 39 m²) — Bosh to‘lov + Kadastr / 100% (33% chegirma)', val: 'Ixcham (22–39 m²) Kadastr/100%' }
   ];
 
   const handlePhoneChange = (e) => {

@@ -11,7 +11,7 @@ export const APARTMENT_MODELS = [
     "title": "1 xonali studio (22 m²)",
     "description": "Ixcham, barcha qulayliklari mujassamlashgan zamonaviy studio format.",
     "image": "/22.jpg",
-    "onlyFullPayment": true,
+    "onlyFullPayment": false,
     "floorsData": {
       "2-4": {
         "floorLabel": "2-3-4-qavatlar",
@@ -19,7 +19,35 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 165825000,
           "pricePerM2": 7537500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 165825000,
+            "pricePerM2": 7537500,
+            "initialPayment": 165825000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 165825000,
+            "pricePerM2": 7537500,
+            "initialPayment": 146575000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 19250000,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       },
       "5-8": {
         "floorLabel": "5-6-7-8-qavatlar",
@@ -27,24 +55,81 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 158455000,
           "pricePerM2": 7202500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 158455000,
+            "pricePerM2": 7202500,
+            "initialPayment": 158455000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 158455000,
+            "pricePerM2": 7202500,
+            "initialPayment": 146575000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 11880000,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       },
       "9-12": {
         "floorLabel": "9-10-11-12-qavatlar",
         "badge": "Eng hamyonbop",
         "fullPayment": {
-          "totalPrice": 151085000,
-          "pricePerM2": 6867500
-        }
+          "totalPrice": 146575000,
+          "pricePerM2": 6662500
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 146575000,
+            "pricePerM2": 6662500,
+            "initialPayment": 146575000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 146575000,
+            "pricePerM2": 6662500,
+            "initialPayment": 146575000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       }
     },
     "prices": {
       "standard": 165825000,
       "fullPayDiscount": 165825000,
       "pricePerM2": 7537500,
-      "minPrice": 151085000,
+      "minPrice": 146575000,
       "maxPrice": 165825000
-    }
+    },
+    "isCadastreSplit": true
   },
   {
     "typeCode": "1A-25",
@@ -53,7 +138,7 @@ export const APARTMENT_MODELS = [
     "title": "1 xonali shinam studio (25 m²)",
     "description": "Qulay rejalashtirish, katta oynali dahliz, alohida oshxona zonasi va sanuzel.",
     "image": "/25.jpg",
-    "onlyFullPayment": true,
+    "onlyFullPayment": false,
     "floorsData": {
       "2-4": {
         "floorLabel": "2-3-4-qavatlar",
@@ -61,7 +146,35 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 188437500,
           "pricePerM2": 7537500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 188437500,
+            "pricePerM2": 7537500,
+            "initialPayment": 188437500,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 188437500,
+            "pricePerM2": 7537500,
+            "initialPayment": 146575000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 41862500,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       },
       "5-8": {
         "floorLabel": "5-6-7-8-qavatlar",
@@ -69,7 +182,35 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 180062500,
           "pricePerM2": 7202500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 180062500,
+            "pricePerM2": 7202500,
+            "initialPayment": 180062500,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 180062500,
+            "pricePerM2": 7202500,
+            "initialPayment": 146575000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 33487500,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       },
       "9-12": {
         "floorLabel": "9-10-11-12-qavatlar",
@@ -77,7 +218,35 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 171687500,
           "pricePerM2": 6867500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 171687500,
+            "pricePerM2": 6867500,
+            "initialPayment": 171687500,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 171687500,
+            "pricePerM2": 6867500,
+            "initialPayment": 146575000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 25112500,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       }
     },
     "prices": {
@@ -86,7 +255,8 @@ export const APARTMENT_MODELS = [
       "pricePerM2": 7537500,
       "minPrice": 171687500,
       "maxPrice": 188437500
-    }
+    },
+    "isCadastreSplit": true
   },
   {
     "typeCode": "1B-34",
@@ -95,7 +265,7 @@ export const APARTMENT_MODELS = [
     "title": "1 xonali qulay xonadon (34 m²)",
     "description": "Dahliz, alohida oshxona, shinam yotoqxona va keng ochiq balkon.",
     "image": "/34.jpg",
-    "onlyFullPayment": true,
+    "onlyFullPayment": false,
     "floorsData": {
       "2-4": {
         "floorLabel": "2-3-4-qavatlar",
@@ -103,7 +273,35 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 256275000,
           "pricePerM2": 7537500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 256275000,
+            "pricePerM2": 7537500,
+            "initialPayment": 256275000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 256275000,
+            "pricePerM2": 7537500,
+            "initialPayment": 177000000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 79275000,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       },
       "5-8": {
         "floorLabel": "5-6-7-8-qavatlar",
@@ -111,7 +309,35 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 244885000,
           "pricePerM2": 7202500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 244885000,
+            "pricePerM2": 7202500,
+            "initialPayment": 244885000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 244885000,
+            "pricePerM2": 7202500,
+            "initialPayment": 177000000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 67885000,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       },
       "9-12": {
         "floorLabel": "9-10-11-12-qavatlar",
@@ -119,7 +345,35 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 233495000,
           "pricePerM2": 6867500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 233495000,
+            "pricePerM2": 6867500,
+            "initialPayment": 233495000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 233495000,
+            "pricePerM2": 6867500,
+            "initialPayment": 177000000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 56495000,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       }
     },
     "prices": {
@@ -128,7 +382,8 @@ export const APARTMENT_MODELS = [
       "pricePerM2": 7537500,
       "minPrice": 233495000,
       "maxPrice": 256275000
-    }
+    },
+    "isCadastreSplit": true
   },
   {
     "typeCode": "1B-39",
@@ -137,7 +392,7 @@ export const APARTMENT_MODELS = [
     "title": "1 xonali yorug‘ xonadon (39 m²)",
     "description": "Katta derazali, quyosh nuri to‘la tushadigan shinam xonadon.",
     "image": "/39.jpg",
-    "onlyFullPayment": true,
+    "onlyFullPayment": false,
     "floorsData": {
       "2-4": {
         "floorLabel": "2-3-4-qavatlar",
@@ -145,7 +400,35 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 293962500,
           "pricePerM2": 7537500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 293962500,
+            "pricePerM2": 7537500,
+            "initialPayment": 293962500,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 293962500,
+            "pricePerM2": 7537500,
+            "initialPayment": 177000000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 116962500,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       },
       "5-8": {
         "floorLabel": "5-6-7-8-qavatlar",
@@ -153,7 +436,35 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 280897500,
           "pricePerM2": 7202500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 280897500,
+            "pricePerM2": 7202500,
+            "initialPayment": 280897500,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 280897500,
+            "pricePerM2": 7202500,
+            "initialPayment": 177000000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 103897500,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       },
       "9-12": {
         "floorLabel": "9-10-11-12-qavatlar",
@@ -161,7 +472,35 @@ export const APARTMENT_MODELS = [
         "fullPayment": {
           "totalPrice": 267832500,
           "pricePerM2": 6867500
-        }
+        },
+        "paymentPlans": [
+          {
+            "id": "plan_full",
+            "name": "100% to‘lov",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 267832500,
+            "pricePerM2": 6867500,
+            "initialPayment": 267832500,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 0,
+            "isInstallment": false,
+            "isCadastreSplit": false
+          },
+          {
+            "id": "plan_kadastr",
+            "name": "Bosh to‘lov + Kadastrda qoldiq",
+            "discountBadge": "33% chegirma",
+            "totalPrice": 267832500,
+            "pricePerM2": 6867500,
+            "initialPayment": 177000000,
+            "monthlyPayment": 0,
+            "paid30m": 0,
+            "remainingBalance": 90832500,
+            "isInstallment": true,
+            "isCadastreSplit": true
+          }
+        ]
       }
     },
     "prices": {
@@ -170,7 +509,8 @@ export const APARTMENT_MODELS = [
       "pricePerM2": 7537500,
       "minPrice": 267832500,
       "maxPrice": 293962500
-    }
+    },
+    "isCadastreSplit": true
   },
   {
     "typeCode": "1A-41",
