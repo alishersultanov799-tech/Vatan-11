@@ -46,39 +46,39 @@ export default function ComplexGallery({ onScrollTo }) {
   };
 
   return (
-    <section id="gallery" className="py-24 bg-[#eaf4fd] relative overflow-hidden border-b border-sky-100">
+    <section id="gallery" className="py-16 sm:py-20 bg-[#eaf4fd] relative overflow-hidden border-b border-sky-100">
       
       {/* Ambient background glows */}
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-sky-200/40 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-200/40 rounded-full blur-[160px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-100 border border-sky-200 text-sky-800 text-xs font-bold tracking-widest uppercase mb-3">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-100 border border-sky-200 text-sky-800 text-[11px] font-bold tracking-widest uppercase mb-2.5">
             <Building2 className="w-3.5 h-3.5 text-sky-600" />
             <span>Loyiha me'morchiligi</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
             Ko‘p Qavatli Uylarimiz <span className="sky-gradient-text">Qiyofasi</span>
           </h2>
-          <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+          <p className="mt-2.5 text-slate-600 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
             "Yangi Qo‘yliq-2" — 12 qavatli Comfort class turar-joy majmuasi. 
             Zamonaviy fasad, mustahkam monolit poydevor, keng yashil hovli va qulay eko-infratuzilma uyg‘unligi.
           </p>
         </div>
 
-        {/* 4 ta Ko'p qavatli uy kartalari (2x2 Grid) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-12">
+        {/* 4 ta Ko'p qavatli uy kartalari (1 qator — 4 ustun, ixcham o'lcham) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-8">
           {galleryImages.map((item, idx) => (
             <div 
               key={idx}
               onClick={() => setActiveImageIndex(idx)}
-              className="group relative rounded-3xl bg-white border border-sky-200 hover:border-sky-400 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col"
+              className="group relative rounded-2xl bg-white border border-sky-200 hover:border-sky-400 overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col"
             >
-              {/* Rasm konteyneri */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-sky-100">
+              {/* Rasm konteyneri (Ixcham nisbat) */}
+              <div className="relative aspect-[4/3] overflow-hidden bg-sky-100">
                 <img 
                   src={item.src} 
                   alt={item.title}
@@ -93,35 +93,35 @@ export default function ComplexGallery({ onScrollTo }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
 
                 {/* Tag nishoni */}
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-sky-950/80 backdrop-blur-md border border-white/20 text-white text-xs font-bold shadow-lg flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-sky-400"></span>
+                <div className="absolute top-2.5 left-2.5 px-2.5 py-0.5 rounded-full bg-sky-950/80 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold shadow-sm flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-sky-400"></span>
                   <span>{item.tag}</span>
                 </div>
 
                 {/* Zoom belgisi */}
-                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-lg">
-                  <Maximize2 className="w-4 h-4 text-white" />
+                <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm">
+                  <Maximize2 className="w-3.5 h-3.5 text-white" />
                 </div>
               </div>
 
-              {/* Matn qismi */}
-              <div className="p-6 flex flex-col justify-between flex-1 bg-white">
+              {/* Matn qismi (Ixcham va tekis balandlikda) */}
+              <div className="p-4 flex flex-col justify-between flex-1 bg-white">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-black text-slate-900 group-hover:text-sky-600 transition-colors mb-2">
+                  <h3 className="text-sm sm:text-base font-black text-slate-900 group-hover:text-sky-600 transition-colors line-clamp-2 min-h-[40px] leading-snug mb-1.5">
                     {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="text-[11px] text-slate-600 leading-relaxed line-clamp-3 min-h-[48px]">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-sky-100 flex items-center justify-between text-xs">
+                <div className="mt-3 pt-2.5 border-t border-sky-100 flex items-center justify-between text-[11px]">
                   <span className="text-sky-700 font-bold flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
-                    12 qavatli monolit bino
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>12 qavatli</span>
                   </span>
-                  <span className="text-slate-500 group-hover:text-sky-600 transition-colors font-medium underline">
-                    Kattalashtirib ko‘rish →
+                  <span className="text-slate-500 group-hover:text-sky-600 transition-colors font-semibold text-[10px]">
+                    Kattalashtirish →
                   </span>
                 </div>
               </div>
@@ -133,7 +133,7 @@ export default function ComplexGallery({ onScrollTo }) {
         <div className="text-center">
           <button
             onClick={() => onScrollTo && onScrollTo('catalog')}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl sky-gradient-bg text-white font-extrabold text-sm sm:text-base hover:brightness-110 shadow-xl shadow-sky-600/25 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl sky-gradient-bg text-white font-extrabold text-xs sm:text-sm hover:brightness-110 shadow-lg shadow-sky-600/25 transition-all cursor-pointer"
           >
             <span>Ushbu uylardan xonadon tanlash</span>
             <span>→</span>
