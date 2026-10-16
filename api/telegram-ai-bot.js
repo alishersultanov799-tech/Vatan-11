@@ -73,13 +73,13 @@ QAT'IY VA MUHIM TO'LOV QOIDALARI (HECH QACHON ADASHTIRMA!):
         * 77 m²: 1 m² = 6 197 500 – 6 867 500 so'm | Jami: 477.2 mln – 528.8 mln so'm
 
 ALOQA VA ARIZA TARTIBI:
-- Bosh menejer: Alisher (@alisher_yangiqoyliq)
+- Sotuv menejeri: Alisher (@alisher_yangiqoyliq)
 - Menejer bilan to‘g‘ridan-to‘g‘ri Telegram havolasi: https://t.me/alisher_yangiqoyliq
 - Rasmiy Telegram kanal: @yangiqoyliq_TJM
 - Ish vaqti: Har kuni 09:00 — 18:00 (dam olish kunlarisiz).
 
 SENING JAVOB BERISH QOIDALARING:
-1. Menejer bilan bog‘lanish, telefon yoki aloqa so‘ralsa: Bosh menejerimiz Alisher ekanligini, unga Telegram orqali to‘g‘ridan-to‘g‘ri @alisher_yangiqoyliq (https://t.me/alisher_yangiqoyliq) profiliga yozishlari mumkinligini yoki botdagi "✍️ Menejer Alisherga yozish" tugmasini bosishni ma'lum qil!
+1. Menejer bilan bog‘lanish, telefon yoki aloqa so‘ralsa: Sotuv menejerimiz Alisher ekanligini, unga Telegram orqali to‘g‘ridan-to‘g‘ri @alisher_yangiqoyliq (https://t.me/alisher_yangiqoyliq) profiliga yozishlari mumkinligini yoki botdagi "✍️ Menejer Alisherga yozish" tugmasini bosishni ma'lum qil!
 2. Mijozlar bot orqali barcha ma'lumotlarni oladilar, yangiliklarni @yangiqoyliq_TJM kanalida kuzatadilar yoki botda ariza (telefon raqam) qoldiradilar.
 3. Mijoz telefon raqamini qoldirganda, sotuv menejeri o‘zi vaqti bo‘lganda mijoz bilan bog‘lanadi!
 4. Gaz haqida so‘rashsa, gaz bo‘lmaydi deb aniq javob ber (ekologik toza va xavfsiz elektr tizimi).
@@ -417,8 +417,8 @@ function generateSmartFallback(msg) {
 
   // 17. Menejer bilan aloqa
   if (text.includes('menejer') || text.includes('alisher') || text.includes('telefon') || text.includes('aloqa') || text.includes('nomer')) {
-    return `👨‍💼 <b>Sotuv ofisi va Bosh menejer bilan aloqa:</b>\n\n` +
-      `• Bosh menejer: <b>Alisher</b>\n` +
+    return `👨‍💼 <b>Sotuv ofisi va Sotuv menejeri bilan aloqa:</b>\n\n` +
+      `• Sotuv menejeri: <b>Alisher</b>\n` +
       `• Telegram: @alisher_yangiqoyliq\n` +
       `• To‘g‘ridan-to‘g‘ri yozish: https://t.me/alisher_yangiqoyliq\n` +
       `• Rasmiy Telegram kanal: @yangiqoyliq_TJM\n` +
@@ -653,10 +653,10 @@ async function handleTelegramUpdate(update) {
     lowerText.includes('menejerga yozish')
   ) {
     const managerMessage = 
-      `👨‍💼 <b>BOSH SOTUV MENEJERI: ALISHER</b>\n` +
+      `👨‍💼 <b>SOTUV MENEJERI: ALISHER</b>\n` +
       `━━━━━━━━━━━━━━━━━━━━\n\n` +
       `Hurmatli <b>${userName}</b>!\n\n` +
-      `Siz "Yangi Qo‘yliq-2" turar-joy majmuasi bosh sotuv menejeri <b>Alisher</b> bilan to‘g‘ridan-to‘g‘ri Telegram orqali bog‘lanishingiz mumkin:\n\n` +
+      `Siz "Yangi Qo‘yliq-2" turar-joy majmuasi sotuv menejeri <b>Alisher</b> bilan to‘g‘ridan-to‘g‘ri Telegram orqali bog‘lanishingiz mumkin:\n\n` +
       `🏢 <b>Menejer sizga quyidagilarda yordam beradi:</b>\n` +
       `• Bo‘sh qolgan eng qulay qavat va arzon xonadonlarni tanlash;\n` +
       `• 100% to‘lovda 33% gacha maxsus chegirma hisob-kitobi;\n` +
@@ -714,7 +714,7 @@ async function handleTelegramUpdate(update) {
       `• <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov 29 mln | Oylik 4 mln\n` +
       `• <b>2 xonali (54, 55 m²):</b> Bosh to‘lov 39 mln | Oylik 5 mln\n` +
       `• <b>3 xonali (70, 77 m²):</b> Bosh to‘lov 69 mln | Oylik 6 mln\n\n` +
-      `👨‍💼 <b>Bosh menejer:</b> Alisher (@alisher_yangiqoyliq)\n\n` +
+      `👨‍💼 <b>Sotuv menejeri:</b> Alisher (@alisher_yangiqoyliq)\n\n` +
       `👇 Kerakli bo‘limni tanlang yoki savolingizni yozing:`;
 
     await sendTelegramMessage(chatId, welcomeText, getMainKeyboard());
