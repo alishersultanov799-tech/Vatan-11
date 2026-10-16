@@ -179,6 +179,24 @@ export default function App() {
           </span>
         </a>
 
+        {/* Instagram sahifa tugmasi */}
+        <a 
+          href={PROJECT_DETAILS.location.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-13 h-13 rounded-2xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white p-3.5 shadow-2xl hover:scale-110 active:scale-95 transition-all flex items-center justify-center group relative border border-white/20"
+          title="Instagram sahifamiz: @yangi_qoyliqkotta_bozori"
+        >
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+          </svg>
+          <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-xl bg-slate-900/95 text-white text-xs font-semibold whitespace-nowrap shadow-xl border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+            Instagram (@yangi_qoyliqkotta_bozori • 83.5K)
+          </span>
+        </a>
+
         {/* AI Maslahatchi Telegram Bot tugmasi */}
         <a 
           href={PROJECT_DETAILS.location.telegramBot}

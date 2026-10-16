@@ -97,6 +97,7 @@ ALOQA VA ARIZA TARTIBI:
 - Sotuv menejeri: Alisher (@alisher_yangiqoyliq)
 - Menejer bilan to‘g‘ridan-to‘g‘ri Telegram havolasi: https://t.me/alisher_yangiqoyliq
 - Rasmiy Telegram kanal: @yangiqoyliq_TJM
+- Rasmiy Instagram sahifa: @yangi_qoyliqkotta_bozori (https://www.instagram.com/yangi_qoyliqkotta_bozori/ — 83.5K obunachi)
 - Ish vaqti: Har kuni 09:00 — 18:00 (dam olish kunlarisiz).
 
 SENING JAVOB BERISH QOIDALARING:
@@ -437,6 +438,7 @@ function generateSmartFallback(msg) {
       `🗺 <a href="https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8">Yandex Xaritada ofis lokatsiyasini ochish</a>\n\n` +
       `• <b>Menejer:</b> Alisher\n` +
       `• <b>Rasmiy Telegram kanal:</b> @yangiqoyliq_TJM\n` +
+      `• <b>Rasmiy Instagram:</b> @yangi_qoyliqkotta_bozori (83.5K obunachi)\n` +
       `⏰ Ish vaqti: Har kuni 09:00 — 18:00 (dam olish kunlarisiz)`;
   }
 
@@ -456,6 +458,7 @@ function generateSmartFallback(msg) {
       `• Telegram: @alisher_yangiqoyliq\n` +
       `• To‘g‘ridan-to‘g‘ri yozish: https://t.me/alisher_yangiqoyliq\n` +
       `• Rasmiy Telegram kanal: @yangiqoyliq_TJM\n` +
+      `• Rasmiy Instagram: @yangi_qoyliqkotta_bozori (83.5K obunachi)\n` +
       `• Ish vaqti: Har kuni 09:00 — 18:00\n\n` +
       `<i>Menejerimiz Alisherga to‘g‘ridan-to‘g‘ri Telegram orqali yozib barcha savollaringizga tezkor javob olishingiz mumkin!</i>`;
   }
@@ -606,6 +609,12 @@ async function handleTelegramMessage(message) {
           { 
             text: "📢 Rasmiy Telegram kanalimiz", 
             url: "https://t.me/yangiqoyliq_TJM" 
+          }
+        ],
+        [
+          { 
+            text: "📸 Rasmiy Instagram (@yangi_qoyliqkotta_bozori)", 
+            url: "https://www.instagram.com/yangi_qoyliqkotta_bozori/" 
           }
         ],
         [

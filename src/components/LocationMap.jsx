@@ -352,15 +352,31 @@ export default function LocationMap() {
 
             <div className="p-4 bg-sky-50 border-t border-sky-100 flex flex-wrap items-center justify-between text-xs text-slate-500 gap-2">
               <span>Sotuv menejeri: <strong className="text-slate-800">Alisher</strong></span>
-              <a 
-                href={PROJECT_DETAILS.location.telegramChannel} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1"
-              >
-                <Send className="w-3 h-3" />
-                <span>Telegram: @yangiqoyliq_TJM</span>
-              </a>
+              <div className="flex items-center gap-3">
+                <a 
+                  href={PROJECT_DETAILS.location.telegramChannel} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sky-600 hover:text-sky-800 font-bold flex items-center gap-1"
+                >
+                  <Send className="w-3 h-3" />
+                  <span>Telegram</span>
+                </a>
+                <span>•</span>
+                <a 
+                  href={PROJECT_DETAILS.location.instagram} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-pink-600 hover:text-pink-800 font-bold flex items-center gap-1"
+                >
+                  <svg className="w-3.5 h-3.5 text-pink-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                  </svg>
+                  <span>Instagram (83.5K)</span>
+                </a>
+              </div>
             </div>
 
           </div>

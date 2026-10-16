@@ -129,6 +129,20 @@ export default function LeadCaptureModal({ isOpen, onClose, contextData }) {
                 <span>Telegram rasmiy kanal: @yangiqoyliq_TJM</span>
               </a>
 
+              <a
+                href={PROJECT_DETAILS.location.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-pink-50 to-rose-50 hover:from-pink-100 hover:to-rose-100 border border-pink-200 text-pink-700 font-bold text-xs flex items-center justify-center gap-2"
+              >
+                <svg className="w-3.5 h-3.5 text-pink-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                </svg>
+                <span>Instagram: @yangi_qoyliqkotta_bozori (83.5K)</span>
+              </a>
+
               <button
                 onClick={onClose}
                 className="w-full py-2.5 px-6 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold text-xs cursor-pointer mt-1"

@@ -94,6 +94,22 @@ export default function Navbar({ onOpenBooking, onScrollTo, onOpenCrm, onOpenPdf
               <span>AI Maslahat</span>
             </a>
 
+            {/* Instagram Sahifamiz Button */}
+            <a 
+              href={PROJECT_DETAILS.location.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:flex items-center gap-1.5 text-xs font-bold text-pink-700 hover:text-pink-900 transition-all bg-gradient-to-r from-pink-50 to-rose-50 hover:from-pink-100 hover:to-rose-100 border border-pink-200 px-3 py-2 rounded-xl shadow-xs"
+              title="Rasmiy Instagram sahifamiz: @yangi_qoyliqkotta_bozori (83.5K)"
+            >
+              <svg className="w-3.5 h-3.5 text-pink-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+              </svg>
+              <span>Instagram (83.5K)</span>
+            </a>
+
             {/* Consultation CTA */}
             <button
               onClick={() => onOpenBooking({ title: "Menejer bilan maslahat va ariza", source: "Navbar" })}
@@ -157,6 +173,20 @@ export default function Navbar({ onOpenBooking, onScrollTo, onOpenCrm, onOpenPdf
             >
               <Send className="w-3.5 h-3.5" />
               <span>Telegram rasmiy kanal: @yangiqoyliq_TJM</span>
+            </a>
+
+            <a 
+              href={PROJECT_DETAILS.location.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-pink-50 to-rose-50 border border-pink-200 text-center text-xs font-bold text-pink-700 flex items-center justify-center gap-2"
+            >
+              <svg className="w-3.5 h-3.5 text-pink-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+              </svg>
+              <span>Instagram: @yangi_qoyliqkotta_bozori (83.5K)</span>
             </a>
 
             {onOpenPdfModal && (

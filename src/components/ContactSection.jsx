@@ -138,6 +138,35 @@ export default function ContactSection() {
                   <span>→</span>
                 </div>
               </a>
+
+              {/* Rasmiy Instagram Sahifa Box */}
+              <a 
+                href={PROJECT_DETAILS.location.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 p-4 rounded-2xl bg-gradient-to-r from-pink-50 via-rose-50 to-amber-50 border border-pink-200 hover:border-pink-400 flex items-center justify-between group transition-all shadow-xs"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] flex items-center justify-center text-white shrink-0 shadow-sm group-hover:scale-105 transition-transform">
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <circle cx="12" cy="12" r="4" />
+                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs font-black text-slate-900">Rasmiy Instagram sahifa</span>
+                      <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-pink-100 text-pink-700 border border-pink-200">83.5K</span>
+                    </div>
+                    <span className="text-[11px] text-slate-600 block">@yangi_qoyliqkotta_bozori • Jonli videolar</span>
+                  </div>
+                </div>
+                <div className="text-pink-600 font-extrabold text-xs flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                  <span>Kuzatish</span>
+                  <span>→</span>
+                </div>
+              </a>
             </div>
 
             {/* O'ng tomon: Forma */}

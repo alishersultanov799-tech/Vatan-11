@@ -1969,13 +1969,16 @@ export const PROJECT_DETAILS = {
     yandexLink: "https://yandex.com/maps/org/93362741697?si=paavuny8ar13tb74cnyu5e4ny8",
     yandexWidget: "https://yandex.com/map-widget/v1/org/93362741697",
     googleMapLink: "https://maps.app.goo.gl/rqxoui8NCAsDu1Ks9",
-    salesPhone: "",
-    salesPhoneFormatted: "",
+    salesPhone: "+998 94 603 23 33",
+    salesPhoneFormatted: "+998 (94) 603-23-33",
     managerName: "Alisher",
     telegramBot: "https://t.me/Vatan2333_bot",
     telegramBotUsername: "@Vatan2333_bot",
     telegramChannel: "https://t.me/yangiqoyliq_TJM",
     telegramChannelUsername: "@yangiqoyliq_TJM",
+    instagram: "https://www.instagram.com/yangi_qoyliqkotta_bozori/",
+    instagramUsername: "@yangi_qoyliqkotta_bozori",
+    instagramFollowers: "83.5K",
     handoverDate: "2028-yil 4-chorak",
     workingHours: "Har kuni: 09:00 — 18:00 (Dam olish kunlarisiz)"
   }

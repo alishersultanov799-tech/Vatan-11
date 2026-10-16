@@ -130,6 +130,7 @@ doc.font(fontRegular).fontSize(8.5).fillColor(colors.dark).text(
   "• Metro: Qo‘yliq metrosidan atigi 8 daqiqalik masofa | Tashrif vaqti: 09:00 — 17:00 gacha\n" +
   "• Rasmiy AI Maslahatchi Telegram Bot: @Vatan2333_bot (24/7 savollarga javob beradi)\n" +
   "• Rasmiy Telegram Kanalimiz: @yangiqoyliq_TJM (Qurilish jarayonidan jonli videolar)\n" +
+  "• Rasmiy Instagram Sahifamiz: @yangi_qoyliqkotta_bozori (83 500+ obunachi)\n" +
   "• Rasmiy Veb-Sayt: https://vatan-11-p5nw.vercel.app/",
   48, 680, { lineGap: 3.5 }
 );
@@ -764,6 +765,7 @@ doc.font(fontRegular).fontSize(8).fillColor(colors.dark).text(
   "• Tashrif va konsultatsiya: 17:00 gacha tashrif buyurishingiz mumkin\n\n" +
   "• Rasmiy AI Maslahatchi Telegram Bot: @Vatan2333_bot\n" +
   "• Rasmiy Telegram Kanal: @yangiqoyliq_TJM\n" +
+  "• Rasmiy Instagram: @yangi_qoyliqkotta_bozori (83.5K obunachi)\n" +
   "• Rasmiy Veb-Sayt: https://vatan-11-p5nw.vercel.app/",
   48, 688, { lineGap: 3.5 }
 );

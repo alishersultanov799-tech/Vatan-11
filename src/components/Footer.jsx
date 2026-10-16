@@ -141,6 +141,20 @@ export default function Footer({ onScrollTo, onOpenBooking, onOpenCrm }) {
                 </a>
 
                 <a 
+                  href={PROJECT_DETAILS.location.instagram} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-semibold text-pink-700 hover:text-pink-900 transition-colors"
+                >
+                  <svg className="w-3.5 h-3.5 text-pink-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <circle cx="12" cy="12" r="4" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+                  </svg>
+                  <span>Instagram: @yangi_qoyliqkotta_bozori (83.5K)</span>
+                </a>
+
+                <a 
                   href={PROJECT_DETAILS.location.yandexLink} 
                   target="_blank" 
                   rel="noopener noreferrer"
@@ -187,6 +201,20 @@ export default function Footer({ onScrollTo, onOpenBooking, onOpenCrm }) {
               className="hover:text-sky-700 font-bold text-sky-800"
             >
               @yangiqoyliq_TJM
+            </a>
+            <span>•</span>
+            <a 
+              href={PROJECT_DETAILS.location.instagram} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-pink-700 font-bold text-pink-700 flex items-center gap-1"
+            >
+              <svg className="w-3 h-3 text-pink-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
+              </svg>
+              <span>Instagram (83.5K)</span>
             </a>
           </div>
         </div>
