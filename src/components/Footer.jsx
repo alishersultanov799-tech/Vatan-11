@@ -87,6 +87,11 @@ export default function Footer({ onScrollTo, onOpenBooking, onOpenCrm }) {
                 </button>
               </li>
               <li>
+                <button onClick={() => onScrollTo('roadmap')} className="hover:text-sky-700 transition-colors cursor-pointer text-slate-600">
+                  Davom etayotgan loyihalar (Roadmap)
+                </button>
+              </li>
+              <li>
                 <button onClick={() => onScrollTo('location')} className="hover:text-sky-700 transition-colors cursor-pointer text-slate-600">
                   Joylashuv va Food City mo‘ljali
                 </button>

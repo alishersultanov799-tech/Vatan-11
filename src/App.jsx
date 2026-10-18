@@ -5,6 +5,7 @@ import CompanyTrust from './components/CompanyTrust';
 import ProjectAdvantages from './components/ProjectAdvantages';
 import ComplexGallery from './components/ComplexGallery';
 import Catalog from './components/Catalog';
+import ProjectRoadmap from './components/ProjectRoadmap';
 import LocationMap from './components/LocationMap';
 import VisitBookingSection from './components/VisitBookingSection';
 import FAQSection from './components/FAQSection';
@@ -116,7 +117,7 @@ export default function App() {
         onOpenPdfModal={() => setIsPdfModalOpen(true)}
       />
 
-      {/* 3. Kompaniya haqida va Ishonch bloki (13 yillik tajriba, 6 ta loyiha, roadmap) */}
+      {/* 3. Kompaniya haqida va Ishonch bloki (13 yillik tajriba, 6 ta loyiha) */}
       <CompanyTrust 
         onOpenBooking={() => handleOpenBooking({ title: "Qurilish kompaniyasi bo‘yicha konsultatsiya" })} 
       />
@@ -142,21 +143,26 @@ export default function App() {
         onOpenPdfModal={() => setIsPdfModalOpen(true)}
       />
 
-      {/* 7. Savdo ofisiga yoki Qurilish maydoniga Tashrifni bron qilish */}
+      {/* 7. Davom etayotgan loyihalar grafigi (Roadmap timeline) */}
+      <ProjectRoadmap 
+        onOpenBooking={handleOpenBooking}
+      />
+
+      {/* 8. Savdo ofisiga yoki Qurilish maydoniga Tashrifni bron qilish */}
       <VisitBookingSection />
 
-      {/* 8. Joylashuv va Interaktiv xarita */}
+      {/* 9. Joylashuv va Interaktiv xarita */}
       <LocationMap />
 
-      {/* 9. Ko‘p beriladigan savollar (FAQ / Savol-Javob) */}
+      {/* 10. Ko‘p beriladigan savollar (FAQ / Savol-Javob) */}
       <FAQSection 
         onOpenBooking={handleOpenBooking}
       />
 
-      {/* 10. Rasmiy konsultatsiya va narxlar ro‘yxatini olish */}
+      {/* 11. Rasmiy konsultatsiya va narxlar ro‘yxatini olish */}
       <ContactSection />
 
-      {/* 8. Futer (Kompaniya ma’lumotlari, rekvizitlar) */}
+      {/* 12. Futer (Kompaniya ma’lumotlari, rekvizitlar) */}
       <Footer 
         onScrollTo={scrollToSection}
         onOpenBooking={() => handleOpenBooking({ title: "Menejerdan konsultatsiya va ariza" })}
