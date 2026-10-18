@@ -508,12 +508,11 @@ function extractPhoneNumber(text) {
 function getMainKeyboard() {
   return {
     keyboard: [
+      [{ text: "📱 Raqamimni qoldirish", request_contact: true }, { text: "✍️ Menejer Alisherga yozish" }],
       [{ text: "💵 100% / Kadastr (22, 25, 34, 39 m²)" }, { text: "💰 Bo‘lib to‘lash (41, 43, 49 m²)" }],
       [{ text: "🏢 2 xonali (54, 55 m²)" }, { text: "🏢 3 xonali (70, 77 m²)" }],
       [{ text: "📊 Barcha uy va 1 m² narxlari" }, { text: "📥 PDF Taqdimotni yuklab olish" }],
-      [{ text: "❓ Ko‘p beriladigan savollar" }, { text: "📍 Lokatsiya va Ofis" }],
-      [{ text: "✍️ Menejer Alisherga yozish" }],
-      [{ text: "📱 Raqamimni qoldirish", request_contact: true }]
+      [{ text: "❓ Ko‘p beriladigan savollar" }, { text: "📍 Lokatsiya va Ofis" }]
     ],
     resize_keyboard: true,
     one_time_keyboard: false
@@ -600,6 +599,17 @@ async function handleTelegramUpdate(update) {
       getMainKeyboard()
     );
 
+    return { ok: true };
+  }
+
+  // Raqamimni qoldirish tugmasi matn ko'rinishida bosilganda
+  if (userText === '📱 Raqamimni qoldirish' || userText === 'Raqamimni qoldirish') {
+    await sendTelegramMessage(
+      chatId,
+      `📱 <b>Telefon raqamingizni qoldirish:</b>\n\n` +
+      `Hurmatli <b>${userName}</b>! Menejerimiz sizga eng arzon narxlar va qulay qavatlar bo‘yicha ma'lumot berishi uchun pastdagi <b>'📱 Raqamimni qoldirish'</b> tugmasini bosib kontakt yuboring yoki telefon raqamingizni yozib qoldiring (masalan: <code>+998 90 123 45 67</code>) 👇`,
+      getMainKeyboard()
+    );
     return { ok: true };
   }
 
