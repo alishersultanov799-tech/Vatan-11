@@ -97,6 +97,25 @@ async function run() {
     } catch (e) {
       console.error('Xatolik:', e.message);
     }
+  } else if (command === 'auto-heal') {
+    try {
+      const hookRes = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getWebhookInfo`);
+      const hook = await hookRes.json();
+      if (!hook.result?.url || hook.result.url !== VERCEL_WEBHOOK_URL) {
+        console.log("⚠️ Webhook o'chiq yoki ulanmagan ekan. 24/7 bulutli rejim avtomatik yoqilmoqda...");
+        const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/setWebhook?url=${encodeURIComponent(VERCEL_WEBHOOK_URL)}`);
+        const data = await res.json();
+        if (data.ok) {
+          console.log("✅ Webhook muvaffaqiyatli tiklandi! Bot 24/7 bulutli rejimda ishlamoqda.");
+        } else {
+          console.log("❌ Webhookni tiklashda xatolik:", data);
+        }
+      } else {
+        console.log("🟢 Webhook faol holatda. Bot 24/7 bulutli rejimda uzluksiz ishlamoqda.");
+      }
+    } catch (e) {
+      console.error('Auto-heal xatosi:', e.message);
+    }
   }
 }
 

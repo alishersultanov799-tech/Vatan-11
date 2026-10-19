@@ -3,10 +3,16 @@ chcp 65001 > nul
 cd /d "%~dp0"
 set NODE_TLS_REJECT_UNAUTHORIZED=0
 
+echo 🔍 Bot va Webhook aloqasi tekshirilmoqda...
+node scripts/bot-helper.js auto-heal
+timeout /t 1 > nul
+
 :MENU
 cls
 echo ================================================================
 echo    VATAN - "YANGI QO'YLIQ-2" TELEGRAM BOTI (@Vatan2333_bot)
+echo ================================================================
+echo 🟢 Tizim: 24/7 Bulutli rejim avtomatik nazorat qilinmoqda!
 echo ================================================================
 echo.
 echo   [1] 🚀 24/7 BULUTLI REJIMNI YOQISH (Vercel Webhook)
