@@ -106,10 +106,15 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
       {/* 2. Arxitektura chizmasi rasmi */}
       <div className="mb-4">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
-            <Eye className="w-3.5 h-3.5 text-sky-600" />
-            <span>Arxitektura chizmasi (3D & 2D)</span>
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1.5">
+              <Eye className="w-3.5 h-3.5 text-sky-600" />
+              <span>Arxitektura chizmasi (3D & 2D)</span>
+            </span>
+            <span className="px-2 py-0.5 rounded-md bg-sky-100 text-sky-800 text-[10px] font-extrabold border border-sky-200">
+              {model.area} m² aniq planirovka
+            </span>
+          </div>
           <button
             onClick={() => setPreviewImage(model.image)}
             className="text-[11px] text-sky-700 hover:text-sky-900 flex items-center gap-1 bg-sky-50 hover:bg-sky-100 px-2.5 py-1 rounded-lg border border-sky-200 transition-all cursor-pointer shadow-xs"
@@ -119,15 +124,15 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
           </button>
         </div>
 
-        {/* Rasm konteyneri */}
+        {/* Rasm konteyneri (1800x2367 nisbatida maydonni 100% sifatli va to'liq to'ldirish) */}
         <div 
           onClick={() => setPreviewImage(model.image)}
-          className="relative w-full h-[320px] sm:h-[400px] rounded-2xl bg-[#f8fbff] border-2 border-sky-200 hover:border-sky-400 p-2 sm:p-3 flex items-center justify-center overflow-hidden group cursor-pointer shadow-sm transition-all"
+          className="relative w-full max-w-[560px] mx-auto aspect-[1800/2367] rounded-2xl bg-[#281d17] border-2 border-sky-200 hover:border-sky-400 overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-all flex items-center justify-center"
         >
           <img 
             src={model.image} 
             alt={`${model.title} planirovka chizmasi`}
-            className="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-300 drop-shadow-[0_8px_16px_rgba(2,132,199,0.12)]"
+            className="w-full h-full object-contain group-hover:scale-[1.02] transition-transform duration-300"
             loading="lazy"
           />
           
@@ -137,11 +142,6 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
               <Maximize2 className="w-3.5 h-3.5 text-sky-600" />
               <span>To‘liq ekranda ko‘rish (HD Zoom)</span>
             </div>
-          </div>
-
-          <div className="absolute bottom-2.5 left-2.5 px-2.5 py-1 rounded-lg bg-white/90 border border-sky-200 text-sky-900 text-[11px] font-bold shadow-xs flex items-center gap-1.5">
-            <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse"></span>
-            <span>{model.area} m² aniq planirovka</span>
           </div>
         </div>
 
