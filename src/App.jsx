@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import CompanyTrust from './components/CompanyTrust';
+import CompletedProjects from './components/CompletedProjects';
 import ProjectAdvantages from './components/ProjectAdvantages';
 import ComplexGallery from './components/ComplexGallery';
 import Catalog from './components/Catalog';
@@ -117,23 +118,12 @@ export default function App() {
         onOpenPdfModal={() => setIsPdfModalOpen(true)}
       />
 
-      {/* 3. Kompaniya haqida va Ishonch bloki (13 yillik tajriba, 6 ta loyiha) */}
+      {/* 3. Kompaniya haqida va Ishonch statistikasi (13 yillik tajriba, 10 000+ xonadon) */}
       <CompanyTrust 
         onOpenBooking={() => handleOpenBooking({ title: "Qurilish kompaniyasi bo‘yicha konsultatsiya" })} 
       />
 
-      {/* 4. Loyiha afzalliklari (Comfort class, 70% tayyor, infratuzilma) */}
-      <ProjectAdvantages 
-        onOpenBooking={() => handleOpenBooking({ title: "Loyiha afzalliklari va xarid qilish" })} 
-        onScrollTo={scrollToSection} 
-      />
-
-      {/* 5. Ko‘p qavatli uylarimiz qiyofasi (Uy rasmlari galereyasi) */}
-      <ComplexGallery 
-        onScrollTo={scrollToSection}
-      />
-
-      {/* 6. Xonadonlar rejasi va narxlar katalogi (1, 2, 3 xonali arxitektura chizmalari) */}
+      {/* 4. Xonadonlar rejasi va narxlar katalogi (1, 2, 3 xonali arxitektura chizmalari) */}
       <Catalog 
         onBookApartment={(apt) => handleOpenBooking({
           type: 'apartment_booking',
@@ -143,7 +133,21 @@ export default function App() {
         onOpenPdfModal={() => setIsPdfModalOpen(true)}
       />
 
-      {/* 7. Davom etayotgan loyihalar grafigi (Roadmap timeline) */}
+      {/* 5. Muvaffaqiyatli topshirilgan 6 ta yirik loyiha (Amaldagi portfelimiz) */}
+      <CompletedProjects />
+
+      {/* 6. Loyiha afzalliklari (Comfort class, 70% tayyor, infratuzilma) */}
+      <ProjectAdvantages 
+        onOpenBooking={() => handleOpenBooking({ title: "Loyiha afzalliklari va xarid qilish" })} 
+        onScrollTo={scrollToSection} 
+      />
+
+      {/* 7. Ko‘p qavatli uylarimiz qiyofasi (Uy rasmlari galereyasi) */}
+      <ComplexGallery 
+        onScrollTo={scrollToSection}
+      />
+
+      {/* 8. Davom etayotgan loyihalar grafigi (Roadmap timeline) */}
       <ProjectRoadmap 
         onOpenBooking={handleOpenBooking}
       />
