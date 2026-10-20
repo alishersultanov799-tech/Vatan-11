@@ -12,19 +12,21 @@ cls
 echo ================================================================
 echo    VATAN - "YANGI QO'YLIQ-2" TELEGRAM BOTI (@Vatan2333_bot)
 echo ================================================================
-echo 🟢 Tizim: 24/7 Bulutli rejim avtomatik nazorat qilinmoqda!
+echo 🟢 TIZIM HOLATI: 24/7 Bulutli rejim faol (Vercel Cloud)!
+echo 💡 Bot kompyuter o'chiq bo'lsa ham 24 soat uzluksiz ishlaydi.
 echo ================================================================
 echo.
-echo   [1] 🚀 24/7 BULUTLI REJIMNI YOQISH (Vercel Webhook)
-echo       - Kompyuter o'chiq bo'lsa ham bot 24/7 ishlayveradi.
+echo   [1] 🚀 24/7 BULUTLI REJIMNI QAYTA YOQISH (Tavsiya etiladi)
+echo       - Webhookni qayta ulaydi va barcha aloqani tekshiradi.
 echo.
-echo   [2] 💻 KOMPYUTERDA JONLI ISHLATISH (Local Polling)
-echo       - Jonli savol-javoblarni terminalda kuzatish uchun.
-echo       - Dastur to'xtatilganda 24/7 bulutli rejim avtomatik tiklanadi.
+echo   [2] 🔍 BOT VA WEBHOOK HOLATINI TEKSHIRISH
+echo       - Botning hozirgi holati va xabarlar oqimini ko'rish.
 echo.
-echo   [3] 🔍 BOT VA WEBHOOK HOLATINI TEKSHIRISH
+echo   [3] 📨 TELEGRAMGA TEST XABAR YUBORISH (Aloqa tekshiruvi)
+echo       - Menejer Telegramiga sinov xabari yuborish.
 echo.
-echo   [4] 📨 TELEGRAMGA TEST XABAR YUBORISH (Aloqa tekshiruvi)
+echo   [4] 💻 TEST/DASTURCHI REJIMI (Kompyuterda jonli kuzatish)
+echo       - Faqat terminalda sinov uchun (to'xtatganda 24/7 rejim tiklanadi).
 echo.
 echo   [5] ❌ Chiqish
 echo.
@@ -32,9 +34,9 @@ echo ================================================================
 set /p opt="Tanlovingizni kiriting [1-5]: "
 
 if "%opt%"=="1" goto SET_WEBHOOK
-if "%opt%"=="2" goto RUN_LOCAL
-if "%opt%"=="3" goto CHECK_STATUS
-if "%opt%"=="4" goto TEST_MSG
+if "%opt%"=="2" goto CHECK_STATUS
+if "%opt%"=="3" goto TEST_MSG
+if "%opt%"=="4" goto RUN_LOCAL
 if "%opt%"=="5" exit /b
 goto MENU
 
