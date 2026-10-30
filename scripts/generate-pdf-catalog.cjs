@@ -523,7 +523,7 @@ renderApartmentRow(326, 230, {
 // 41 m²
 renderApartmentRow(564, 230, {
   title: "1B-41 | 41 m² (1 xonali — 30 oy bo‘lib to‘lash)",
-  badge: "Bosh to‘lov: 29 mln | Oylik: 4 mln",
+  badge: "Bosh to‘lov: 29–49 mln | Oylik: 4 mln",
   badgeColor: colors.secondary,
   image: "41.jpg",
   area: "41.0 m²",
@@ -556,7 +556,7 @@ doc.font(fontRegular).fontSize(8.5).fillColor(colors.gray).text(
 // 43 m²
 renderApartmentRow(88, 230, {
   title: "1C-43 | 43 m² (1 xonali keng)",
-  badge: "Bosh to‘lov: 29 mln | Oylik: 4 mln",
+  badge: "Bosh to‘lov: 29–49 mln | Oylik: 4 mln",
   badgeColor: colors.secondary,
   image: "43.jpg",
   area: "43.0 m²",
@@ -575,7 +575,7 @@ renderApartmentRow(88, 230, {
 // 49 m²
 renderApartmentRow(326, 230, {
   title: "1D-49 | 49 m² (1 xonali ulkan / evro-2)",
-  badge: "Bosh to‘lov: 29 mln | Oylik: 4 mln",
+  badge: "Bosh to‘lov: 29–49 mln | Oylik: 4 mln",
   badgeColor: colors.secondary,
   image: "49.jpg",
   area: "49.0 m²",
@@ -594,7 +594,7 @@ renderApartmentRow(326, 230, {
 // 54 m² (2 xonali)
 renderApartmentRow(564, 230, {
   title: "2A-54 | 54 m² (2 xonali eng talabgir)",
-  badge: "Bosh to‘lov: 39 mln | Oylik: 5 mln",
+  badge: "Bosh to‘lov: 39–59 mln | Oylik: 5 mln",
   badgeColor: colors.secondary,
   image: "54.jpg",
   area: "54.0 m²",
@@ -627,7 +627,7 @@ doc.font(fontRegular).fontSize(8.5).fillColor(colors.gray).text(
 // 55 m² (2 xonali)
 renderApartmentRow(88, 230, {
   title: "2B-55 | 55 m² (2 xonali shinam)",
-  badge: "Bosh to‘lov: 39 mln | Oylik: 5 mln",
+  badge: "Bosh to‘lov: 39–59 mln | Oylik: 5 mln",
   badgeColor: colors.secondary,
   image: "55.jpg",
   area: "55.0 m²",

@@ -1,7 +1,7 @@
 // Real residential complex apartment models based on architectural designs and Excel price matrix of "VATAN"
 // Loyiha: "Yangi Qo‘yliq-2" turar-joy majmuasi (Comfort Class)
 // Qavatlar: 2-4 qavatlar, 5-8 qavatlar (arzonroq), 9-12 qavatlar (eng arzon)
-// Bosh to'lov variantlari: 100% to'lov (33% chegirma), 50% bosh to'lov (15% chegirma), 30% bosh to'lov (10% chegirma), Standart (29/39/69 mln)
+// Bosh to'lov variantlari: 100% to'lov (33% chegirma), 50% bosh to'lov (17% chegirma), 30% bosh to'lov (12% chegirma), Standart (29–49 mln / 39–59 mln / 99–100 mln)
 
 export const APARTMENT_MODELS = [
   {
@@ -427,6 +427,18 @@ export const APARTMENT_MODELS = [
             "remainingBalance": 116962500,
             "isInstallment": true,
             "isCadastreSplit": true
+          },
+          {
+            "id": "plan_50",
+            "name": "50% bosh to‘lov",
+            "discountBadge": "17% chegirma",
+            "totalPrice": 364162500,
+            "pricePerM2": 9337500,
+            "initialPayment": 182081250,
+            "monthlyPayment": 4000000,
+            "paid30m": 120000000,
+            "remainingBalance": 62081250,
+            "isInstallment": true
           }
         ]
       },
@@ -463,6 +475,18 @@ export const APARTMENT_MODELS = [
             "remainingBalance": 103897500,
             "isInstallment": true,
             "isCadastreSplit": true
+          },
+          {
+            "id": "plan_50",
+            "name": "50% bosh to‘lov",
+            "discountBadge": "17% chegirma",
+            "totalPrice": 347977500,
+            "pricePerM2": 8922500,
+            "initialPayment": 173988750,
+            "monthlyPayment": 4000000,
+            "paid30m": 120000000,
+            "remainingBalance": 53988750,
+            "isInstallment": true
           }
         ]
       },
@@ -499,6 +523,18 @@ export const APARTMENT_MODELS = [
             "remainingBalance": 90832500,
             "isInstallment": true,
             "isCadastreSplit": true
+          },
+          {
+            "id": "plan_50",
+            "name": "50% bosh to‘lov",
+            "discountBadge": "17% chegirma",
+            "totalPrice": 331792500,
+            "pricePerM2": 8507500,
+            "initialPayment": 165896250,
+            "monthlyPayment": 4000000,
+            "paid30m": 120000000,
+            "remainingBalance": 45896250,
+            "isInstallment": true
           }
         ]
       }
@@ -543,38 +579,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (29 mln bosh to‘lov)",
+            "name": "Standart (49 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 461250000,
             "pricePerM2": 11250000,
-            "initialPayment": 29000000,
+            "initialPayment": 49000000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 312250000,
+            "remainingBalance": 292250000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 415125000,
-            "pricePerM2": 10125000,
-            "initialPayment": 124537500,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 405900000,
+            "pricePerM2": 9900000,
+            "initialPayment": 121770000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 170587500,
+            "remainingBalance": 164130000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 392062500,
-            "pricePerM2": 9562500,
-            "initialPayment": 196031250,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 382837500,
+            "pricePerM2": 9337500,
+            "initialPayment": 191418750,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 76031250,
+            "remainingBalance": 71418750,
             "isInstallment": true
           }
         ]
@@ -601,38 +637,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (29 mln bosh to‘lov)",
+            "name": "Standart (49 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 440750000,
             "pricePerM2": 10750000,
-            "initialPayment": 29000000,
+            "initialPayment": 49000000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 291750000,
+            "remainingBalance": 271750000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 396675000,
-            "pricePerM2": 9675000,
-            "initialPayment": 119002500,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 387860000,
+            "pricePerM2": 9460000,
+            "initialPayment": 116358000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 157672500,
+            "remainingBalance": 151502000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 374637500,
-            "pricePerM2": 9137500,
-            "initialPayment": 187318750,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 365822500,
+            "pricePerM2": 8922500,
+            "initialPayment": 182911250,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 67318750,
+            "remainingBalance": 62911250,
             "isInstallment": true
           }
         ]
@@ -672,25 +708,25 @@ export const APARTMENT_MODELS = [
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 378225000,
-            "pricePerM2": 9225000,
-            "initialPayment": 113467500,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 369820000,
+            "pricePerM2": 9020000,
+            "initialPayment": 110946000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 144757500,
+            "remainingBalance": 138874000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 357212500,
-            "pricePerM2": 8712500,
-            "initialPayment": 178606250,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 348807500,
+            "pricePerM2": 8507500,
+            "initialPayment": 174403750,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 58606250,
+            "remainingBalance": 54403750,
             "isInstallment": true
           }
         ]
@@ -735,26 +771,26 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (29 mln bosh to‘lov)",
+            "name": "Standart (49 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 483750000,
             "pricePerM2": 11250000,
-            "initialPayment": 29000000,
+            "initialPayment": 49000000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 334750000,
+            "remainingBalance": 314750000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 483750000,
-            "pricePerM2": 11250000,
-            "initialPayment": 145125000,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 425700000,
+            "pricePerM2": 9900000,
+            "initialPayment": 127710000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 218625000,
+            "remainingBalance": 177990000,
             "isInstallment": true
           }
         ]
@@ -781,26 +817,26 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (29 mln bosh to‘lov)",
+            "name": "Standart (49 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 462250000,
             "pricePerM2": 10750000,
-            "initialPayment": 29000000,
+            "initialPayment": 49000000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 313250000,
+            "remainingBalance": 293250000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 462250000,
-            "pricePerM2": 10750000,
-            "initialPayment": 138675000,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 406780000,
+            "pricePerM2": 9460000,
+            "initialPayment": 122034000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 203575000,
+            "remainingBalance": 164746000,
             "isInstallment": true
           }
         ]
@@ -840,13 +876,13 @@ export const APARTMENT_MODELS = [
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 440750000,
-            "pricePerM2": 10250000,
-            "initialPayment": 132225000,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 387860000,
+            "pricePerM2": 9020000,
+            "initialPayment": 116358000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 188525000,
+            "remainingBalance": 151502000,
             "isInstallment": true
           }
         ]
@@ -891,38 +927,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (29 mln bosh to‘lov)",
+            "name": "Standart (49 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 551250000,
             "pricePerM2": 11250000,
-            "initialPayment": 29000000,
+            "initialPayment": 49000000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 402250000,
+            "remainingBalance": 382250000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 496125000,
-            "pricePerM2": 10125000,
-            "initialPayment": 148837500,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 463540000,
+            "pricePerM2": 9460000,
+            "initialPayment": 139062000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 227287500,
+            "remainingBalance": 204478000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 468562500,
-            "pricePerM2": 9562500,
-            "initialPayment": 234281250,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 437202500,
+            "pricePerM2": 8922500,
+            "initialPayment": 218601250,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 114281250,
+            "remainingBalance": 98601250,
             "isInstallment": true
           }
         ]
@@ -949,38 +985,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (29 mln bosh to‘lov)",
+            "name": "Standart (49 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 526750000,
             "pricePerM2": 10750000,
-            "initialPayment": 29000000,
+            "initialPayment": 49000000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 377750000,
+            "remainingBalance": 357750000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 474075000,
-            "pricePerM2": 9675000,
-            "initialPayment": 142222500,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 441980000,
+            "pricePerM2": 9020000,
+            "initialPayment": 132594000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 211852500,
+            "remainingBalance": 189386000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 447737500,
-            "pricePerM2": 9137500,
-            "initialPayment": 223868750,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 416867500,
+            "pricePerM2": 8507500,
+            "initialPayment": 208433750,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 103868750,
+            "remainingBalance": 88433750,
             "isInstallment": true
           }
         ]
@@ -1020,25 +1056,25 @@ export const APARTMENT_MODELS = [
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 452025000,
-            "pricePerM2": 9225000,
-            "initialPayment": 135607500,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 420420000,
+            "pricePerM2": 8580000,
+            "initialPayment": 126126000,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 196417500,
+            "remainingBalance": 174294000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 426912500,
-            "pricePerM2": 8712500,
-            "initialPayment": 213456250,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 396532500,
+            "pricePerM2": 8092500,
+            "initialPayment": 198266250,
             "monthlyPayment": 4000000,
             "paid30m": 120000000,
-            "remainingBalance": 93456250,
+            "remainingBalance": 78266250,
             "isInstallment": true
           }
         ]
@@ -1083,38 +1119,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (39 mln bosh to‘lov)",
+            "name": "Standart (59 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 580500000,
             "pricePerM2": 10750000,
-            "initialPayment": 39000000,
+            "initialPayment": 59000000,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 391500000,
+            "remainingBalance": 371500000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 522450000,
-            "pricePerM2": 9675000,
-            "initialPayment": 156735000,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 510840000,
+            "pricePerM2": 9460000,
+            "initialPayment": 153252000,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 215715000,
+            "remainingBalance": 207588000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 493425000,
-            "pricePerM2": 9137500,
-            "initialPayment": 246712500,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 481815000,
+            "pricePerM2": 8922500,
+            "initialPayment": 240907500,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 96712500,
+            "remainingBalance": 90907500,
             "isInstallment": true
           }
         ]
@@ -1141,38 +1177,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (39 mln bosh to‘lov)",
+            "name": "Standart (59 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 553500000,
             "pricePerM2": 10250000,
-            "initialPayment": 39000000,
+            "initialPayment": 59000000,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 364500000,
+            "remainingBalance": 344500000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 498150000,
-            "pricePerM2": 9225000,
-            "initialPayment": 149445000,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 487080000,
+            "pricePerM2": 9020000,
+            "initialPayment": 146124000,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 198705000,
+            "remainingBalance": 190956000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 470475000,
-            "pricePerM2": 8712500,
-            "initialPayment": 235237500,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 459405000,
+            "pricePerM2": 8507500,
+            "initialPayment": 229702500,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 85237500,
+            "remainingBalance": 79702500,
             "isInstallment": true
           }
         ]
@@ -1212,25 +1248,25 @@ export const APARTMENT_MODELS = [
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 473850000,
-            "pricePerM2": 8775000,
-            "initialPayment": 142155000,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 463320000,
+            "pricePerM2": 8580000,
+            "initialPayment": 138996000,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 181695000,
+            "remainingBalance": 174324000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 447525000,
-            "pricePerM2": 8287500,
-            "initialPayment": 223762500,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 436995000,
+            "pricePerM2": 8092500,
+            "initialPayment": 218497500,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 73762500,
+            "remainingBalance": 68497500,
             "isInstallment": true
           }
         ]
@@ -1275,38 +1311,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (39 mln bosh to‘lov)",
+            "name": "Standart (59 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 591250000,
             "pricePerM2": 10750000,
-            "initialPayment": 39000000,
+            "initialPayment": 59000000,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 402250000,
+            "remainingBalance": 382250000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 532125000,
-            "pricePerM2": 9675000,
-            "initialPayment": 159637500,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 496100000,
+            "pricePerM2": 9020000,
+            "initialPayment": 148830000,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 222487500,
+            "remainingBalance": 197270000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 502562500,
-            "pricePerM2": 9137500,
-            "initialPayment": 251281250,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 467912500,
+            "pricePerM2": 8507500,
+            "initialPayment": 233956250,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 101281250,
+            "remainingBalance": 83956250,
             "isInstallment": true
           }
         ]
@@ -1333,38 +1369,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (39 mln bosh to‘lov)",
+            "name": "Standart (59 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 563750000,
             "pricePerM2": 10250000,
-            "initialPayment": 39000000,
+            "initialPayment": 59000000,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 374750000,
+            "remainingBalance": 354750000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 507375000,
-            "pricePerM2": 9225000,
-            "initialPayment": 152212500,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 471900000,
+            "pricePerM2": 8580000,
+            "initialPayment": 141570000,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 205162500,
+            "remainingBalance": 180330000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 479187500,
-            "pricePerM2": 8712500,
-            "initialPayment": 239593750,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 445087500,
+            "pricePerM2": 8092500,
+            "initialPayment": 222543750,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 89593750,
+            "remainingBalance": 72543750,
             "isInstallment": true
           }
         ]
@@ -1404,25 +1440,25 @@ export const APARTMENT_MODELS = [
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 482625000,
-            "pricePerM2": 8775000,
-            "initialPayment": 144787500,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 447700000,
+            "pricePerM2": 8140000,
+            "initialPayment": 134310000,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 187837500,
+            "remainingBalance": 163390000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 455812500,
-            "pricePerM2": 8287500,
-            "initialPayment": 227906250,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 422262500,
+            "pricePerM2": 7677500,
+            "initialPayment": 211131250,
             "monthlyPayment": 5000000,
             "paid30m": 150000000,
-            "remainingBalance": 77906250,
+            "remainingBalance": 61131250,
             "isInstallment": true
           }
         ]
@@ -1467,38 +1503,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (69 mln bosh to‘lov)",
+            "name": "Standart (99 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 717500000,
             "pricePerM2": 10250000,
-            "initialPayment": 69000000,
+            "initialPayment": 99000000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 468500000,
+            "remainingBalance": 438500000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 645750000,
-            "pricePerM2": 9225000,
-            "initialPayment": 193725000,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 631400000,
+            "pricePerM2": 9020000,
+            "initialPayment": 189420000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 272025000,
+            "remainingBalance": 261980000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 609875000,
-            "pricePerM2": 8712500,
-            "initialPayment": 304937500,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 595525000,
+            "pricePerM2": 8507500,
+            "initialPayment": 297762500,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 124937500,
+            "remainingBalance": 117762500,
             "isInstallment": true
           }
         ]
@@ -1525,38 +1561,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (69 mln bosh to‘lov)",
+            "name": "Standart (99 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 682500000,
             "pricePerM2": 9750000,
-            "initialPayment": 69000000,
+            "initialPayment": 99000000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 433500000,
+            "remainingBalance": 403500000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 614250000,
-            "pricePerM2": 8775000,
-            "initialPayment": 184275000,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 600600000,
+            "pricePerM2": 8580000,
+            "initialPayment": 180180000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 249975000,
+            "remainingBalance": 240420000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 580125000,
-            "pricePerM2": 8287500,
-            "initialPayment": 290062500,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 566475000,
+            "pricePerM2": 8092500,
+            "initialPayment": 283237500,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 110062500,
+            "remainingBalance": 103237500,
             "isInstallment": true
           }
         ]
@@ -1583,38 +1619,38 @@ export const APARTMENT_MODELS = [
           },
           {
             "id": "plan_fixed",
-            "name": "Standart (69 mln bosh to‘lov)",
+            "name": "Standart (99 mln bosh to‘lov)",
             "discountBadge": "0% ustama",
             "totalPrice": 647500000,
             "pricePerM2": 9250000,
-            "initialPayment": 69000000,
+            "initialPayment": 99000000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 398500000,
+            "remainingBalance": 368500000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
             "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 582750000,
-            "pricePerM2": 8325000,
-            "initialPayment": 174825000,
+            "discountBadge": "12% chegirma",
+            "totalPrice": 569800000,
+            "pricePerM2": 8140000,
+            "initialPayment": 170940000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 227925000,
+            "remainingBalance": 218860000,
             "isInstallment": true
           },
           {
             "id": "plan_50",
             "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 550375000,
-            "pricePerM2": 7862500,
-            "initialPayment": 275187500,
+            "discountBadge": "17% chegirma",
+            "totalPrice": 537425000,
+            "pricePerM2": 7677500,
+            "initialPayment": 268712500,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 95187500,
+            "remainingBalance": 88712500,
             "isInstallment": true
           }
         ]
@@ -1658,39 +1694,27 @@ export const APARTMENT_MODELS = [
             "isInstallment": false
           },
           {
-            "id": "plan_fixed",
-            "name": "Standart (69 mln bosh to‘lov)",
-            "discountBadge": "0% ustama",
-            "totalPrice": 789250000,
-            "pricePerM2": 10250000,
-            "initialPayment": 69000000,
+            "id": "plan_20",
+            "name": "100 mln bosh to‘lov (20% chegirma)",
+            "discountBadge": "20% chegirma",
+            "totalPrice": 631400000,
+            "pricePerM2": 8200000,
+            "initialPayment": 100000000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 540250000,
+            "remainingBalance": 351400000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
-            "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 710325000,
-            "pricePerM2": 9225000,
-            "initialPayment": 213097500,
+            "name": "100 mln bosh to‘lov (30% chegirma)",
+            "discountBadge": "30% chegirma",
+            "totalPrice": 552475000,
+            "pricePerM2": 7175000,
+            "initialPayment": 100000000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 317227500,
-            "isInstallment": true
-          },
-          {
-            "id": "plan_50",
-            "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 670862500,
-            "pricePerM2": 8712500,
-            "initialPayment": 335431250,
-            "monthlyPayment": 6000000,
-            "paid30m": 180000000,
-            "remainingBalance": 155431250,
+            "remainingBalance": 272475000,
             "isInstallment": true
           }
         ]
@@ -1716,39 +1740,27 @@ export const APARTMENT_MODELS = [
             "isInstallment": false
           },
           {
-            "id": "plan_fixed",
-            "name": "Standart (69 mln bosh to‘lov)",
-            "discountBadge": "0% ustama",
-            "totalPrice": 750750000,
-            "pricePerM2": 9750000,
-            "initialPayment": 69000000,
+            "id": "plan_20",
+            "name": "100 mln bosh to‘lov (20% chegirma)",
+            "discountBadge": "20% chegirma",
+            "totalPrice": 600600000,
+            "pricePerM2": 7800000,
+            "initialPayment": 100000000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 501750000,
+            "remainingBalance": 320600000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
-            "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 675675000,
-            "pricePerM2": 8775000,
-            "initialPayment": 202702500,
+            "name": "100 mln bosh to‘lov (30% chegirma)",
+            "discountBadge": "30% chegirma",
+            "totalPrice": 525525000,
+            "pricePerM2": 6825000,
+            "initialPayment": 100000000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 292972500,
-            "isInstallment": true
-          },
-          {
-            "id": "plan_50",
-            "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 638137500,
-            "pricePerM2": 8287500,
-            "initialPayment": 319068750,
-            "monthlyPayment": 6000000,
-            "paid30m": 180000000,
-            "remainingBalance": 139068750,
+            "remainingBalance": 245525000,
             "isInstallment": true
           }
         ]
@@ -1774,50 +1786,38 @@ export const APARTMENT_MODELS = [
             "isInstallment": false
           },
           {
-            "id": "plan_fixed",
-            "name": "Standart (69 mln bosh to‘lov)",
-            "discountBadge": "0% ustama",
-            "totalPrice": 712250000,
-            "pricePerM2": 9250000,
-            "initialPayment": 69000000,
+            "id": "plan_20",
+            "name": "100 mln bosh to‘lov (20% chegirma)",
+            "discountBadge": "20% chegirma",
+            "totalPrice": 569800000,
+            "pricePerM2": 7400000,
+            "initialPayment": 100000000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 463250000,
+            "remainingBalance": 289800000,
             "isInstallment": true
           },
           {
             "id": "plan_30",
-            "name": "30% bosh to‘lov",
-            "discountBadge": "10% chegirma",
-            "totalPrice": 641025000,
-            "pricePerM2": 8325000,
-            "initialPayment": 192307500,
+            "name": "100 mln bosh to‘lov (30% chegirma)",
+            "discountBadge": "30% chegirma",
+            "totalPrice": 498575000,
+            "pricePerM2": 6475000,
+            "initialPayment": 100000000,
             "monthlyPayment": 6000000,
             "paid30m": 180000000,
-            "remainingBalance": 268717500,
-            "isInstallment": true
-          },
-          {
-            "id": "plan_50",
-            "name": "50% bosh to‘lov",
-            "discountBadge": "15% chegirma",
-            "totalPrice": 605412500,
-            "pricePerM2": 7862500,
-            "initialPayment": 302706250,
-            "monthlyPayment": 6000000,
-            "paid30m": 180000000,
-            "remainingBalance": 122706250,
+            "remainingBalance": 218575000,
             "isInstallment": true
           }
         ]
       }
     },
     "prices": {
-      "standard": 789250000,
+      "standard": 631400000,
       "fullPayDiscount": 528797500,
       "pricePerM2": 6867500,
       "minPrice": 477207500,
-      "maxPrice": 789250000
+      "maxPrice": 631400000
     }
   }
 ];

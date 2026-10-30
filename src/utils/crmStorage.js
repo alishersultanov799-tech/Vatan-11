@@ -153,7 +153,7 @@ export function addLeadToCrm(leadData) {
       rooms: leadData.rooms ? (typeof leadData.rooms === 'string' && leadData.rooms.includes('xonali') ? leadData.rooms : `${leadData.rooms} xonali`) : '2 xonali',
       area: leadData.area ? (typeof leadData.area === 'string' && leadData.area.includes('m²') ? leadData.area : `${leadData.area} m²`) : '54 m²',
       paymentType: leadData.budget || (leadData.isVisit ? 'Tashrifda aniqlanadi' : '30 oy 0% bo‘lib to‘lash'),
-      initialPayment: leadData.rooms?.toString().includes('3') ? '99 mln' : leadData.rooms?.toString().includes('1') ? '60 mln' : '75 mln',
+      initialPayment: leadData.rooms?.toString().includes('3') ? '99–100 mln' : leadData.rooms?.toString().includes('1') ? '29–49 mln' : '39–59 mln',
       notes: leadData.purpose || (leadData.isVisit ? `Tashrif: ${leadData.visitLocation} | ${leadData.visitDate} ${leadData.visitTime}` : 'Sayt orqali qoldirilgan ariza'),
       status: 'Yangi ariza',
       source: leadData.source || 'Sayt arizasi',
@@ -257,7 +257,7 @@ export function calculateCrmAnalytics(leads, timeframe = 'all') {
 
   // Mijozlar eng ko'p qidirayotgan top savollar & mavzular reytingi
   const topTopics = [
-    { title: "30 oygacha 0% foizsiz bo‘lib to‘lash (60/75/99 mln bosh to‘lov)", count: Math.round(total * 0.44) || 18, share: 44, trend: '+14%' },
+    { title: "30 oygacha 0% foizsiz bo‘lib to‘lash (29/39/99 mln bosh to‘lov)", count: Math.round(total * 0.44) || 18, share: 44, trend: '+14%' },
     { title: "100% to‘lovdagi 33% chegirmalar (22, 25, 34, 39 m² uylar)", count: Math.round(total * 0.25) || 10, share: 25, trend: '+8%' },
     { title: "70% tayyor ta’mir, oq suvoq va shaxsiy isitish tizimi", count: Math.round(total * 0.15) || 6, share: 15, trend: '+4%' },
     { title: "Savdo ofisi yoki obyektga tashrif buyurish (Food City)", count: Math.round(total * 0.10) || 4, share: 10, trend: '+12%' },

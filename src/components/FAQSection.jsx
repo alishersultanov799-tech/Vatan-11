@@ -45,7 +45,7 @@ export default function FAQSection({ onOpenBooking }) {
     {
       category: 'payment',
       question: "Bo‘lib to‘lash shartlari qanday va ustama (foiz) bormi?",
-      answer: "Bizda mutlaqo 0% ustamasiz, 30 oygacha foizsiz bo‘lib to‘lash imkoniyati mavjud. Bo‘lib to‘lash 41 m² dan 77 m² gacha bo‘lgan uylar uchun amal qiladi:\n• 41, 43, 49 m² uylar uchun: bosh to‘lov 29 mln so‘m;\n• 54, 55 m² uylar uchun: bosh to‘lov 39 mln so‘m;\n• 70, 77 m² uylar uchun: bosh to‘lov 69 mln so‘m to‘lab xarid qilishingiz mumkin.",
+      answer: "Bizda mutlaqo 0% ustamasiz, 30 oygacha foizsiz bo‘lib to‘lash imkoniyati mavjud. Bo‘lib to‘lash 41 m² dan 77 m² gacha bo‘lgan uylar uchun amal qiladi:\n• 41, 43, 49 m² uylar uchun: bosh to‘lov 29 mln so‘m (9–12-qavatlar) yoki 49 mln so‘m (2–8-qavatlar);\n• 54, 55 m² uylar uchun: bosh to‘lov 39 mln so‘m (9–12-qavatlar) yoki 59 mln so‘m (2–8-qavatlar);\n• 70 m² uy uchun: bosh to‘lov 99 mln so‘m, 77 m² uy uchun: 100 mln so‘m (20% va 30% chegirmada) to‘lab xarid qilishingiz mumkin.",
       icon: Coins,
       badge: "0% Foizsiz muddat"
     },
