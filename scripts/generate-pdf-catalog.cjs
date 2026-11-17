@@ -247,8 +247,8 @@ doc.text("Kadastrda qoldiq (2028 IV)", 230, thY + 5);
 doc.text("100% To‘lov narxi (33% chegirma)", 375, thY + 5);
 
 const fullPayRows = [
-  { area: "22 m² (Studio)", init: "146.6 mln so‘m", rem: "0 — 19.3 mln so‘m", full: "146.6 — 165.8 mln so‘m" },
-  { area: "25 m² (Studio)", init: "146.6 mln so‘m", rem: "25.1 — 41.9 mln so‘m", full: "171.7 — 188.4 mln so‘m" },
+  { area: "22 m² (Studio)", init: "144.0 mln so‘m", rem: "2.6 — 21.8 mln so‘m", full: "146.6 — 165.8 mln so‘m" },
+  { area: "25 m² (Studio)", init: "144.0 mln so‘m", rem: "27.7 — 44.4 mln so‘m", full: "171.7 — 188.4 mln so‘m" },
   { area: "34 m² (1 xonali)", init: "177.0 mln so‘m", rem: "56.5 — 79.3 mln so‘m", full: "233.5 — 256.3 mln so‘m" },
   { area: "39 m² (1 xonali)", init: "177.0 mln so‘m", rem: "90.8 — 117.0 mln so‘m", full: "267.8 — 294.0 mln so‘m" },
 ];
@@ -288,13 +288,13 @@ doc.text("31-oy qoldiq to‘lov", 305, instThY + 5);
 doc.text("100% to‘lovda (33%)", 415, instThY + 5);
 
 const instRows = [
-  { name: "1 xonali (41 m²)", init: "29 mln so‘m", monthly: "4 mln so‘m / oy", rem: "271.2 — 312.2 mln", full: "281.6 — 309.0 mln" },
-  { name: "1 xonali (43 m²)", init: "29 mln so‘m", monthly: "4 mln so‘m / oy", rem: "291.7 — 334.7 mln", full: "295.3 — 324.1 mln" },
-  { name: "1 xonali (49 m²)", init: "29 mln so‘m", monthly: "4 mln so‘m / oy", rem: "353.2 — 402.2 mln", full: "336.5 — 369.3 mln" },
-  { name: "2 xonali (54 m²)", init: "39 mln so‘m", monthly: "5 mln so‘m / oy", rem: "337.5 — 391.5 mln", full: "352.8 — 388.9 mln" },
-  { name: "2 xonali (55 m²)", init: "39 mln so‘m", monthly: "5 mln so‘m / oy", rem: "347.2 — 402.2 mln", full: "359.3 — 396.1 mln" },
-  { name: "3 xonali (70 m²)", init: "69 mln so‘m", monthly: "6 mln so‘m / oy", rem: "398.5 — 468.5 mln", full: "433.8 — 480.7 mln" },
-  { name: "3 xonali (77 m²)", init: "69 mln so‘m", monthly: "6 mln so‘m / oy", rem: "463.2 — 540.2 mln", full: "477.2 — 528.8 mln" },
+  { name: "1 xonali (41 m²)", init: "59 mln so‘m", monthly: "4 mln so‘m / oy", rem: "241.2 — 282.3 mln so‘m", full: "281.6 — 309.0 mln" },
+  { name: "1 xonali (43 m²)", init: "59 mln so‘m", monthly: "4 mln so‘m / oy", rem: "261.8 — 304.8 mln so‘m", full: "295.3 — 324.1 mln" },
+  { name: "1 xonali (49 m²)", init: "59 mln so‘m", monthly: "4 mln so‘m / oy", rem: "323.2 — 372.3 mln so‘m", full: "336.5 — 369.3 mln" },
+  { name: "2 xonali (54 m²)", init: "69 mln so‘m", monthly: "5 mln so‘m / oy", rem: "307.5 — 361.5 mln so‘m", full: "352.8 — 388.9 mln" },
+  { name: "2 xonali (55 m²)", init: "69 mln so‘m", monthly: "5 mln so‘m / oy", rem: "317.2 — 372.3 mln so‘m", full: "359.3 — 396.1 mln" },
+  { name: "3 xonali (70 m²)", init: "89 mln so‘m", monthly: "6 mln so‘m / oy", rem: "378.5 — 448.5 mln so‘m", full: "433.8 — 480.7 mln" },
+  { name: "3 xonali (77 m²)", init: "89 mln so‘m", monthly: "6 mln so‘m / oy", rem: "443.2 — 520.2 mln so‘m", full: "477.2 — 528.8 mln" },
 ];
 
 instRows.forEach((row, idx) => {
@@ -449,7 +449,7 @@ renderApartmentRow(88, 345, {
   p9: "146 575 000 so‘m (6 662 500 so‘m / m²)",
   p5: "158 455 000 so‘m (7 202 500 so‘m / m²)",
   p2: "165 825 000 so‘m (7 537 500 so‘m / m²)",
-  desc: "Ixcham studio format. 33% chegirmada: 100% to‘lash yoki 146.6 mln bosh to‘lov qilib, qoldiqni (0-19.3 mln) 2028 IV-chorakda (kadastrda) to‘lash mumkin. Oylik 0 so‘m. 70% tayyor ta’mir bilan topshiriladi."
+  desc: "Ixcham studio format. 33% chegirmada: 100% to‘lash yoki 144 mln bosh to‘lov qilib, qoldiqni 12 oy ichida to‘lash imkoniyati."
 });
 
 // 25 m² Studio
@@ -467,7 +467,7 @@ renderApartmentRow(445, 345, {
   p9: "171 687 500 so‘m (6 867 500 so‘m / m²)",
   p5: "180 062 500 so‘m (7 202 500 so‘m / m²)",
   p2: "188 437 500 so‘m (7 537 500 so‘m / m²)",
-  desc: "25 m² shinam studio format. 33% chegirmada: 100% to‘lash yoki 146.6 mln bosh to‘lov qilib, qoldiqni (25.1-41.9 mln) 2028 IV-chorakda (kadastrda) to‘lash mumkin. Oylik 0 so‘m. 70% tayyor ta’mir bilan topshiriladi."
+  desc: "25 m² shinam studio format. 33% chegirmada: 100% to‘lash yoki 144 mln bosh to‘lov qilib, qoldiqni 12 oy ichida to‘lash mumkin."
 });
 
 drawFooter(4);
@@ -523,7 +523,7 @@ renderApartmentRow(326, 230, {
 // 41 m²
 renderApartmentRow(564, 230, {
   title: "1B-41 | 41 m² (1 xonali — 30 oy bo‘lib to‘lash)",
-  badge: "Bosh to‘lov: 29–49 mln | Oylik: 4 mln",
+  badge: "Bosh to‘lov: 59 mln | Oylik: 4 mln",
   badgeColor: colors.secondary,
   image: "41.jpg",
   area: "41.0 m²",
@@ -536,7 +536,7 @@ renderApartmentRow(564, 230, {
   p9: "281 567 500 so‘m (9–12-qavat)",
   p5: "295 302 500 so‘m (5–8-qavat)",
   p2: "309 037 500 so‘m (2–4-qavat)",
-  desc: "30 oygacha 0% foizsiz bo‘lib to‘lash imkoniga ega eng talabgir 1 xonali uy! Boshiga 29 mln to‘lab, har oy 4 mln dan to‘lanadi. 31-oy qoldiq to‘lanadi."
+  desc: "30 oygacha 0% foizsiz bo‘lib to‘lash imkoniga ega eng talabgir 1 xonali uy! Boshiga 59 mln to‘lab, har oy 4 mln so‘mdan 30 oy davomida to‘lang."
 });
 
 drawFooter(5);
@@ -549,14 +549,14 @@ drawHeader("6-BO‘LIM: 1 VA 2 XONALI XONADONLAR REJASI (43, 49, 54 m²)");
 
 doc.font(fontBold).fontSize(14).fillColor(colors.dark).text("Keng 1 va 2 Xonali Oilaviy Uylar", 35, 50);
 doc.font(fontRegular).fontSize(8.5).fillColor(colors.gray).text(
-  "30 oy davomida 0% foizsiz bo‘lib to‘lashga beriladigan qulay xonadonlar (bosh to‘lov 29 va 39 mln so‘m):",
+  "30 oy davomida 0% foizsiz bo‘lib to‘lashga beriladigan qulay xonadonlar (bosh to‘lov 59 va 69 mln so‘m):",
   35, 68
 );
 
 // 43 m²
 renderApartmentRow(88, 230, {
   title: "1C-43 | 43 m² (1 xonali keng)",
-  badge: "Bosh to‘lov: 29–49 mln | Oylik: 4 mln",
+  badge: "Bosh to‘lov: 59 mln | Oylik: 4 mln",
   badgeColor: colors.secondary,
   image: "43.jpg",
   area: "43.0 m²",
@@ -569,13 +569,13 @@ renderApartmentRow(88, 230, {
   p9: "295 302 500 so‘m (9–12-qavat)",
   p5: "309 707 500 so‘m (5–8-qavat)",
   p2: "324 112 500 so‘m (2–4-qavat)",
-  desc: "Keng 1 xonali xonadon. Katta oyna, alohida shinam oshxona va balkon. Boshiga 29 mln so‘m to‘lab, oyiga 4 mln dan 30 oy ustamasiz to‘lanadi."
+  desc: "Keng 1 xonali xonadon. Katta oyna, alohida shinam oshxona va balkon. Boshiga 59 mln so‘m to‘lab, oyiga 4 mln so‘mdan 30 oy davomida to‘lang."
 });
 
 // 49 m²
 renderApartmentRow(326, 230, {
   title: "1D-49 | 49 m² (1 xonali ulkan / evro-2)",
-  badge: "Bosh to‘lov: 29–49 mln | Oylik: 4 mln",
+  badge: "Bosh to‘lov: 59 mln | Oylik: 4 mln",
   badgeColor: colors.secondary,
   image: "49.jpg",
   area: "49.0 m²",
@@ -588,13 +588,13 @@ renderApartmentRow(326, 230, {
   p9: "336 507 500 so‘m (9–12-qavat)",
   p5: "352 922 500 so‘m (5–8-qavat)",
   p2: "369 337 500 so‘m (2–4-qavat)",
-  desc: "Eng katta 1 xonali xonadon. Istakka ko‘ra bemalol 2 xonaga aylantirish mumkin. Boshiga 29 mln to‘lab, har oy 4 mln dan 30 oy ustamasiz to‘lanadi."
+  desc: "Eng katta 1 xonali xonadon. Istakka ko‘ra bemalol 2 xonaga aylantirish mumkin. Boshiga 59 mln so‘m to‘lab, har oy 4 mln so‘mdan bo‘lib to‘lang."
 });
 
 // 54 m² (2 xonali)
 renderApartmentRow(564, 230, {
   title: "2A-54 | 54 m² (2 xonali eng talabgir)",
-  badge: "Bosh to‘lov: 39–59 mln | Oylik: 5 mln",
+  badge: "Bosh to‘lov: 69 mln | Oylik: 5 mln",
   badgeColor: colors.secondary,
   image: "54.jpg",
   area: "54.0 m²",
@@ -607,7 +607,7 @@ renderApartmentRow(564, 230, {
   p9: "352 755 000 so‘m (9–12-qavat)",
   p5: "370 845 000 so‘m (5–8-qavat)",
   p2: "388 935 000 so‘m (2–4-qavat)",
-  desc: "Majmuadagi eng talabgir 2 xonali oilaviy reja! Mehmonxona, yotoqxona va oshxona. Boshiga 39 mln to‘lab, oyiga 5 mln dan to‘lanadi."
+  desc: "Majmuadagi eng talabgir 2 xonali oilaviy reja! Mehmonxona, yotoqxona va oshxona. Boshiga 69 mln to‘lab, oyiga 5 mln so‘mdan bo‘lib to‘lang."
 });
 
 drawFooter(6);
@@ -627,7 +627,7 @@ doc.font(fontRegular).fontSize(8.5).fillColor(colors.gray).text(
 // 55 m² (2 xonali)
 renderApartmentRow(88, 230, {
   title: "2B-55 | 55 m² (2 xonali shinam)",
-  badge: "Bosh to‘lov: 39–59 mln | Oylik: 5 mln",
+  badge: "Bosh to‘lov: 69 mln | Oylik: 5 mln",
   badgeColor: colors.secondary,
   image: "55.jpg",
   area: "55.0 m²",
@@ -640,7 +640,7 @@ renderApartmentRow(88, 230, {
   p9: "359 287 500 so‘m (9–12-qavat)",
   p5: "377 692 500 so‘m (5–8-qavat)",
   p2: "396 097 500 so‘m (2–4-qavat)",
-  desc: "Shinam ikki tomonlama yorug‘lik tushuvchi 2 xonali uy. Ota-onalar va farzandlar uchun alohida xonalar, qulay oshxona va balkon. Boshiga 39 mln to‘lab, har oy 5 mln to‘lanadi."
+  desc: "Shinam ikki tomonlama yorug‘lik tushuvchi 2 xonali uy. Ota-onalar va farzandlar uchun alohida xonalar, keng dahliz. Boshiga 69 mln to‘lov bilan 30 oyga oling."
 });
 
 // 70 m² (3 xonali)
@@ -659,7 +659,7 @@ renderApartmentRow(326, 230, {
   p9: "433 825 000 so‘m (9–12-qavat)",
   p5: "457 275 000 so‘m (5–8-qavat)",
   p2: "480 725 000 so‘m (2–4-qavat)",
-  desc: "3 xonali ideal oilaviy reja. Katta mehmonxona, ota-onalar yotoqxonasi, bolalar xonasi va keng oshxona. Boshiga 69 mln to‘lab, oyiga 6 mln dan to‘lanadi."
+  desc: "3 xonali ideal oilaviy reja. Katta mehmonxona, ota-onalar yotoqxonasi, bolalar xonasi va keng oshxona. Boshiga 89 mln to‘lab, oyiga 6 mln so‘mdan to‘lang."
 });
 
 // 77 m² (3 xonali premium)
@@ -678,7 +678,7 @@ renderApartmentRow(564, 230, {
   p9: "477 207 500 so‘m (9–12-qavat)",
   p5: "503 002 500 so‘m (5–8-qavat)",
   p2: "528 797 500 so‘m (2–4-qavat)",
-  desc: "Majmuadagi eng katta va hashamatli 3 xonali xonadon! 2 ta sanuzel, keng balkon, ulkan panoramik oynalar. Boshiga 69 mln to‘lab, oyiga 6 mln dan to‘lanadi."
+  desc: "Majmuadagi eng katta va hashamatli 3 xonali xonadon! 2 ta sanuzel, keng balkon, ulkan panoramali oynalar. Boshiga 89 mln to‘lab xarid qiling."
 });
 
 drawFooter(7);

@@ -47,8 +47,8 @@ QAT'IY VA MUHIM TO'LOV QOIDALARI (HECH QACHON ADASHTIRMA!):
    Ushbu xonadonlar uchun 33% maxsus chegirmada 2 xil to'lov varianti mavjud:
    A) 100% to'liq to'lov (33% chegirma bilan).
    B) Bosh to'lov + Kadastrda qoldiq to'lov (33% chegirma to'liq saqlanadi!):
-      - 22 m² va 25 m² uylar uchun: Bosh to'lov — 146 575 000 so'm (146.6 mln). Qoldiq summa 2028-yil 4-chorakda (kadastr chiqqanda) to'lanadi. Qurilish davrida oylik to'lov 0 so'm (talab etilmaydi)!
-      - 34 m² va 39 m² uylar uchun: Bosh to'lov — 177 000 000 so'm (177.0 mln). Qoldiq summa 2028-yil 4-chorakda (kadastr chiqqanda) to'lanadi. Qurilish davrida oylik to'lov 0 so'm (talab etilmaydi)!
+      - 22 m² va 25 m² uylar uchun: Bosh to'lov — 144 000 000 so'm (144.0 mln). Qoldiq summa 12 oy ichida yoki 2028-yil 4-chorakda (kadastr chiqqanda) to'lanadi. Qurilish davrida oylik to'lov 0 so'm (talab etilmaydi)!
+      - 34 m² va 39 m² uylar uchun: Bosh to'lov — 177 000 000 so'm (177.0 mln). Qoldiq summa 12 oy ichida yoki 2028-yil 4-chorakda (kadastr chiqqanda) to'lanadi. Qurilish davrida oylik to'lov 0 so'm (talab etilmaydi)!
    
    Aniq narxlari (33% chegirmada):
    • 22 m² (Studio):
@@ -350,7 +350,7 @@ function generateSmartFallback(msg) {
     return `🏢 <b>2 xonali oilaviy xonadonlar (54 m² va 55 m²):</b>\n\n` +
       `✅ Bu xonadonlarni <b>30 oygacha 0% foizsiz bo‘lib to‘lash</b> imkoniyati mavjud!\n\n` +
       `💰 <b>Bo‘lib to‘lash shartlari (30 oy 0% ustama):</b>\n` +
-      `• <b>Boshlang‘ich to‘lov:</b> 39 mln (9–12-qavatlar) / 59 mln so‘m (2–8-qavatlar)\n` +
+      `• <b>Boshlang‘ich to‘lov:</b> 69 000 000 so‘m (69 mln)\n` +
       `• <b>Oylik to‘lov:</b> 5 000 000 so‘m (5 mln) — 30 oy davomida!\n\n` +
       `🎁 <b>Yoki 100% to‘lovda (33% KATTA CHEGIRMA BILAN):</b>\n` +
       `• <b>54 m²:</b>\n` +
@@ -369,7 +369,7 @@ function generateSmartFallback(msg) {
     return `🏢 <b>3 xonali keng xonadonlar (70 m² va 77 m²):</b>\n\n` +
       `✅ Bu xonadonlarni <b>30 oygacha 0% foizsiz bo‘lib to‘lash</b> imkoniyati mavjud!\n\n` +
       `💰 <b>Bo‘lib to‘lash shartlari (30 oy 0% ustama):</b>\n` +
-      `• <b>Boshlang‘ich to‘lov:</b> 99 mln so‘m (70 m²) / 100 mln so‘m (77 m²)\n` +
+      `• <b>Boshlang‘ich to‘lov:</b> 89 000 000 so‘m (89 mln)\n` +
       `• <b>Oylik to‘lov:</b> 6 000 000 so‘m (6 mln) — 30 oy davomida!\n\n` +
       `🎁 <b>Yoki 100% to‘lovda (33% KATTA CHEGIRMA BILAN):</b>\n` +
       `• <b>70 m²:</b>\n` +
@@ -393,16 +393,16 @@ function generateSmartFallback(msg) {
       `• <b>39 m² (1 xona):</b> 1 m²: 6.87 – 7.54 mln | Jami: <b>267.8 mln – 294.0 mln so‘m</b>\n\n` +
       `💰 <b>2. 30 OYGACHA 0% FOIZSIZ BO‘LIB TO‘LASHGA BERILADIGAN UYLAR:</b>\n` +
       `🔹 <b>1 xonali (41, 43, 49 m²):</b>\n` +
-      `  • <b>Bosh to‘lov: 29 mln (9–12) / 49 mln (2–8)</b> | Oylik: 4 mln (30 oy)\n` +
+      `  • <b>Bosh to‘lov: 59 mln</b> | Oylik: 4 mln (30 oy)\n` +
       `  • 41 m²: 1 m²: 6.87 – 7.54 mln | 100% to‘lovda: 281.6 – 309.0 mln\n` +
       `  • 43 m²: 1 m²: 6.87 – 7.54 mln | 100% to‘lovda: 295.3 – 324.1 mln\n` +
       `  • 49 m²: 1 m²: 6.87 – 7.54 mln | 100% to‘lovda: 336.5 – 369.3 mln\n\n` +
       `🔹 <b>2 xonali (54, 55 m²):</b>\n` +
-      `  • <b>Bosh to‘lov: 39 mln (9–12) / 59 mln (2–8)</b> | Oylik: 5 mln (30 oy)\n` +
+      `  • <b>Bosh to‘lov: 69 mln</b> | Oylik: 5 mln (30 oy)\n` +
       `  • 54 m²: 1 m²: 6.53 – 7.20 mln | 100% to‘lovda: 352.8 – 388.9 mln\n` +
       `  • 55 m²: 1 m²: 6.53 – 7.20 mln | 100% to‘lovda: 359.3 – 396.1 mln\n\n` +
       `🔹 <b>3 xonali (70, 77 m²):</b>\n` +
-      `  • <b>Bosh to‘lov: 99 mln (70 m²) / 100 mln (77 m²)</b> | Oylik: 6 mln (30 oy)\n` +
+      `  • <b>Bosh to‘lov: 89 mln</b> | Oylik: 6 mln (30 oy)\n` +
       `  • 70 m²: 1 m²: 6.20 – 6.87 mln | 100% to‘lovda: 433.8 – 480.7 mln\n` +
       `  • 77 m²: 1 m²: 6.20 – 6.87 mln | 100% to‘lovda: 477.2 – 528.8 mln\n\n` +
       `Sizga aynan qaysi maydondagi xonadon qiziq? Telefon raqamingizni yozsangiz, xonadon chizmasini yuboramiz!`;
@@ -413,9 +413,9 @@ function generateSmartFallback(msg) {
     return `💰 <b>"Yangi Qo‘yliq-2" bo‘lib to‘lash shartlari (30 oy 0% ustamasiz):</b>\n\n` +
       `⚠️ <b>Muhim eslatma:</b> 22, 25, 34 va 39 m² xonadonlar bo‘lib to‘lashga BERILMAYDI! Ular faqat 100% to‘lovda (33% chegirma bilan) to‘liq to‘lab olinadi.\n\n` +
       `✅ <b>30 oygacha 0% foizsiz bo‘lib to‘lashga beriladigan xonadonlar:</b>\n` +
-      `1️⃣ <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov — <b>29 mln (9–12) / 49 mln so‘m (2–8)</b> | Oylik — <b>4 mln so‘m</b>\n` +
-      `2️⃣ <b>2 xonali (54, 55 m²):</b> Bosh to‘lov — <b>39 mln (9–12) / 59 mln so‘m (2–8)</b> | Oylik — <b>5 mln so‘m</b>\n` +
-      `3️⃣ <b>3 xonali (70, 77 m²):</b> Bosh to‘lov — <b>99 mln (70 m²) / 100 mln so‘m (77 m²)</b> | Oylik — <b>6 mln so‘m</b>\n\n` +
+      `1️⃣ <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov — <b>59 mln so‘m</b> | Oylik — <b>4 mln so‘m</b>\n` +
+      `2️⃣ <b>2 xonali (54, 55 m²):</b> Bosh to‘lov — <b>69 mln so‘m</b> | Oylik — <b>5 mln so‘m</b>\n` +
+      `3️⃣ <b>3 xonali (70, 77 m²):</b> Bosh to‘lov — <b>89 mln so‘m</b> | Oylik — <b>6 mln so‘m</b>\n\n` +
       `🎁 100% to‘lovda esa <b>33% KATTA CHEGIRMA</b> beriladi!\n\n` +
       `Qaysi variant sizga ma'qul? Aniq hisob-kitob uchun telefon raqamingizni qoldiring!`;
   }
@@ -512,7 +512,7 @@ function generateSmartFallback(msg) {
     `💰 <b>30 oygacha 0% foizsiz bo‘lib to‘lashga beriladigan uylar:</b>\n` +
     `• <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov 29 mln | Oylik 4 mln\n` +
     `• <b>2 xonali (54, 55 m²):</b> Bosh to‘lov 39 mln | Oylik 5 mln\n` +
-    `• <b>3 xonali (70, 77 m²):</b> Bosh to‘lov 99–100 mln | Oylik 6 mln\n\n` +
+    `• <b>3 xonali (70, 77 m²):</b> Bosh to‘lov 89 mln | Oylik 6 mln\n\n` +
     `Quyidagi tugmalardan birini bosing yoki o‘zingizni qiziqtirgan savolni yozing 👇`;
 }
 
@@ -661,7 +661,7 @@ async function handleTelegramMessage(message) {
       `💰 <b>2. 30 OYGACHA 0% FOIZSIZ BO‘LIB TO‘LASH:</b>\n` +
       `• <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov 29 mln | Oylik 4 mln\n` +
       `• <b>2 xonali (54, 55 m²):</b> Bosh to‘lov 39 mln | Oylik 5 mln\n` +
-      `• <b>3 xonali (70, 77 m²):</b> Bosh to‘lov 99–100 mln | Oylik 6 mln\n\n` +
+      `• <b>3 xonali (70, 77 m²):</b> Bosh to‘lov 89 mln | Oylik 6 mln\n\n` +
       `👨‍💼 <b>Sotuv menejeri:</b> Alisher (@alisher_yangiqoyliq)\n\n` +
       `👇 Kerakli bo‘limni tanlang yoki savolingizni yozing:`;
 

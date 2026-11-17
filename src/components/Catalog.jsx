@@ -294,11 +294,11 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
                     </div>
 
                     <div className="bg-white p-2.5 rounded-xl border border-sky-200 shadow-xs">
-                      <span className="text-[9px] text-slate-500 uppercase font-bold block">2-bosqich: Kadastr chiqqanda</span>
+                      <span className="text-[9px] text-slate-500 uppercase font-bold block">2-bosqich: Qoldiq (12 oy ichida)</span>
                       <span className="text-sm font-black text-sky-800 block mt-0.5">
                         {currentPlan.remainingBalance === 0 ? "0 so‘m (To‘liq yopiladi)" : formatShortMln(currentPlan.remainingBalance)}
                       </span>
-                      <span className="text-[9px] text-slate-500 block mt-0.5">2028-yil 4-chorak</span>
+                      <span className="text-[9px] text-slate-500 block mt-0.5">12 oy davomida yoki kadastrda</span>
                     </div>
                   </div>
 
@@ -307,7 +307,7 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
                       ✨ Qurilish davrida hech qanday oylik to‘lov talab qilinmaydi!
                     </span>
                     <span className="font-bold text-slate-700">
-                      Kadastr: <strong className="text-slate-900">2028 IV-chorak</strong>
+                      Qoldiq: <strong className="text-slate-900">12 oy ichida / Kadastr</strong>
                     </span>
                   </div>
                 </div>
@@ -432,7 +432,7 @@ export default function Catalog({ onBookApartment, onOpenPdfModal }) {
       subtitle: "Ixcham studio va keng 1 xonali xonadonlar — yakka yashash yoki yosh oilalar uchun ideal qulaylik va eng hamyonbop narxlar.",
       areaRange: "22 m² — 49 m²",
       countText: "7 xil planirovka varianti",
-      initialPayment: "29 mln (9-12 qavat) / 49 mln (2-8 qavat) yoki kadastrli",
+      initialPayment: "59 mln so‘m (yoki 144–177 mln bosh to‘lov + qoldiq)",
       monthlyPayment: "4 mln so‘m (yoki 0 so‘m oylik)",
       models: APARTMENT_MODELS.filter(m => m.rooms === 1)
     },
@@ -444,7 +444,7 @@ export default function Catalog({ onBookApartment, onOpenPdfModal }) {
       subtitle: "Oilaviy qulaylik va shinamlik uchun eng ommabop va talabgir, yorug‘ xonalar va keng dahlizli xonadonlar.",
       areaRange: "54 m² va 55 m²",
       countText: "2 xil planirovka varianti",
-      initialPayment: "39 mln (9-12 qavat) / 59 mln (2-8 qavat)",
+      initialPayment: "69 mln so‘m",
       monthlyPayment: "5 mln so‘m (30 oy)",
       models: APARTMENT_MODELS.filter(m => m.rooms === 2)
     },
@@ -456,7 +456,7 @@ export default function Catalog({ onBookApartment, onOpenPdfModal }) {
       subtitle: "Katta oilalar uchun maksimal kenglik, alohida yotoqxonalar, keng mehmonxona va yuqori darajadagi qulaylik.",
       areaRange: "70 m² va 77 m²",
       countText: "2 xil planirovka varianti",
-      initialPayment: "99 mln (70 m²) / 100 mln (77 m²)",
+      initialPayment: "89 mln so‘m",
       monthlyPayment: "6 mln so‘m (30 oy)",
       models: APARTMENT_MODELS.filter(m => m.rooms === 3)
     }
@@ -518,7 +518,7 @@ export default function Catalog({ onBookApartment, onOpenPdfModal }) {
               </span>
             </div>
             <div className="text-xs text-slate-600 space-y-1">
-              <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">29 mln</strong> (9–12-qavat) / <strong className="text-slate-900 text-sm">49 mln</strong> (2–8-qavat)</p>
+              <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">59 mln so‘m</strong> (yoki 22–39 m² ga bosh to‘lov + qoldiq)</p>
               <p>Oylik to‘lov: <strong className="text-emerald-700 text-sm">4 mln so‘m</strong> (30 oy) / 22–39 m² da 0 so‘m</p>
             </div>
             <div className="mt-3 pt-2.5 border-t border-sky-100 flex items-center justify-between text-[11px] font-bold text-sky-700">
@@ -546,7 +546,7 @@ export default function Catalog({ onBookApartment, onOpenPdfModal }) {
               </span>
             </div>
             <div className="text-xs text-slate-600 space-y-1">
-              <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">39 mln</strong> (9–12-qavat) / <strong className="text-slate-900 text-sm">59 mln</strong> (2–8-qavat)</p>
+              <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">69 mln so‘m</strong></p>
               <p>Oylik to‘lov: <strong className="text-emerald-700 text-sm">5 mln so‘m</strong> (30 oy)</p>
             </div>
             <div className="mt-3 pt-2.5 border-t border-sky-100 flex items-center justify-between text-[11px] font-bold text-sky-700">
@@ -574,7 +574,7 @@ export default function Catalog({ onBookApartment, onOpenPdfModal }) {
               </span>
             </div>
             <div className="text-xs text-slate-600 space-y-1">
-              <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">99 mln</strong> (70 m²) / <strong className="text-slate-900 text-sm">100 mln so‘m</strong> (77 m²)</p>
+              <p>Boshlang‘ich to‘lov: <strong className="text-slate-900 text-sm">89 mln so‘m</strong></p>
               <p>Oylik to‘lov: <strong className="text-emerald-700 text-sm">6 mln so‘m</strong> (30 oy)</p>
             </div>
             <div className="mt-3 pt-2.5 border-t border-sky-100 flex items-center justify-between text-[11px] font-bold text-sky-700">
