@@ -81,7 +81,7 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
               </span>
             ) : model.isCadastreSplit ? (
               <span className="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold border border-emerald-300">
-                Bosh to‘lov + Kadastr (33% chegirma)
+                Bosh to‘lov + 12 oy to‘lov (33% chegirma)
               </span>
             ) : (
               <span className="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-700 text-[11px] font-bold border border-sky-200">
@@ -271,7 +271,7 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
                 )}
               </div>
 
-              {/* 2 bosqichli Kadastrda qoldiq to'lash taqsimoti (22, 25, 34, 39 m²) */}
+              {/* 2 bosqichli 12 oyda qoldiq to'lash taqsimoti (22, 25, 34, 39 m²) */}
               {!model.onlyFullPayment && currentPlan.isCadastreSplit && (
                 <div className="p-3.5 rounded-xl bg-gradient-to-br from-emerald-50/70 via-white to-sky-50/60 border-2 border-emerald-300/80 shadow-xs">
                   <div className="flex items-center justify-between mb-2">
@@ -294,11 +294,11 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
                     </div>
 
                     <div className="bg-white p-2.5 rounded-xl border border-sky-200 shadow-xs">
-                      <span className="text-[9px] text-slate-500 uppercase font-bold block">2-bosqich: Qoldiq (12 oy ichida)</span>
+                      <span className="text-[9px] text-slate-500 uppercase font-bold block">2-bosqich: Qoldiq (12 oy)</span>
                       <span className="text-sm font-black text-sky-800 block mt-0.5">
                         {currentPlan.remainingBalance === 0 ? "0 so‘m (To‘liq yopiladi)" : formatShortMln(currentPlan.remainingBalance)}
                       </span>
-                      <span className="text-[9px] text-slate-500 block mt-0.5">12 oy davomida yoki kadastrda</span>
+                      <span className="text-[9px] text-slate-500 block mt-0.5">12 oy to‘lab beradi</span>
                     </div>
                   </div>
 
@@ -307,7 +307,7 @@ function ApartmentCard({ model, onBookApartment, setPreviewImage }) {
                       ✨ Qurilish davrida hech qanday oylik to‘lov talab qilinmaydi!
                     </span>
                     <span className="font-bold text-slate-700">
-                      Qoldiq: <strong className="text-slate-900">12 oy ichida / Kadastr</strong>
+                      Qoldiq: <strong className="text-slate-900">12 oy to‘lab beradi</strong>
                     </span>
                   </div>
                 </div>
@@ -492,7 +492,7 @@ export default function Catalog({ onBookApartment, onOpenPdfModal }) {
           </h2>
           <p className="text-slate-600 text-xs sm:text-base mt-3 leading-relaxed">
             Quyida har bir xonadon toifasi — <strong className="text-slate-900">1-xonali, 2-xonali va 3-xonali</strong> xonadonlar alohida bo‘limlarga ajratib ko‘rsatilgan. 
-            <strong className="text-slate-900"> Qavatlar (2–4, 5–8, 9–12)</strong> va <strong className="text-slate-900">boshlang‘ich to‘lov (100%, 50%, 30%, standart hamda 22–39 m² uchun bosh to‘lov + kadastr)</strong>ga qarab narxlar tejamkorligi va bo‘lib to‘lash jadvali avtomatik hisoblanadi.
+            <strong className="text-slate-900"> Qavatlar (2–4, 5–8, 9–12)</strong> va <strong className="text-slate-900">boshlang‘ich to‘lov (100%, 50%, 30%, standart hamda 22–39 m² uchun bosh to‘lov + 12 oy to‘lab berish)</strong>ga qarab narxlar tejamkorligi va bo‘lib to‘lash jadvali avtomatik hisoblanadi.
           </p>
         </div>
 

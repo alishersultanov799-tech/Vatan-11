@@ -28,27 +28,27 @@ QAT'IY VA MUHIM TO'LOV QOIDALARI (HECH QACHON ADASHTIRMA!):
 1. 22 m², 25 m², 34 m², 39 m² XONADONLAR UCHUN TO'LOV SHARTLARI (33% CHEGIRMA BILAN):
    Ushbu xonadonlar uchun 33% maxsus chegirmada 2 xil to'lov varianti mavjud:
    A) 100% to'liq to'lov (33% chegirma bilan).
-   B) Bosh to'lov + Kadastrda qoldiq to'lov (33% chegirma to'liq saqlanadi!):
-      - 22 m² va 25 m² uylar uchun: Bosh to'lov — 144 000 000 so'm (144.0 mln). Qoldiq summa 12 oy ichida yoki 2028-yil 4-chorakda (kadastr chiqqanda) to'lanadi. Qurilish davrida oylik to'lov 0 so'm (talab etilmaydi)!
-      - 34 m² va 39 m² uylar uchun: Bosh to'lov — 177 000 000 so'm (177.0 mln). Qoldiq summa 12 oy ichida yoki 2028-yil 4-chorakda (kadastr chiqqanda) to'lanadi. Qurilish davrida oylik to'lov 0 so'm (talab etilmaydi)!
+   B) Bosh to'lov + 12 oy qoldiq to'lov (33% chegirma to'liq saqlanadi!):
+      - 22 m² va 25 m² uylar uchun: Bosh to'lov — 144 000 000 so'm (144.0 mln). Qoldiq summa 12 oy to'lab beriladi. Qurilish davrida oylik to'lov 0 so'm (talab etilmaydi)!
+      - 34 m² va 39 m² uylar uchun: Bosh to'lov — 177 000 000 so'm (177.0 mln). Qoldiq summa 12 oy to'lab beriladi. Qurilish davrida oylik to'lov 0 so'm (talab etilmaydi)!
    
    Aniq narxlari (33% chegirmada):
    • 22 m² (Studio):
-     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 165 825 000 so'm (~165.8 mln) | Kadastrda qoldiq: 19 250 000 so'm
-     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 158 455 000 so'm (~158.5 mln) | Kadastrda qoldiq: 11 880 000 so'm
-     - 9–12-qavatlar: 1 m² = 6 662 500 so'm | Jami: 146 575 000 so'm (~146.6 mln) | Kadastrda qoldiq: 0 so'm (bosh to'lovda 100% yopiladi)
+     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 165 825 000 so'm (~165.8 mln) | Qoldiq (12 oy to'lab beradi): 19 250 000 so'm
+     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 158 455 000 so'm (~158.5 mln) | Qoldiq (12 oy to'lab beradi): 11 880 000 so'm
+     - 9–12-qavatlar: 1 m² = 6 662 500 so'm | Jami: 146 575 000 so'm (~146.6 mln) | Qoldiq (12 oy to'lab beradi): 0 so'm (bosh to'lovda 100% yopiladi)
    • 25 m² (Studio):
-     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 188 437 500 so'm (~188.4 mln) | Kadastrda qoldiq: 41 862 500 so'm
-     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 180 062 500 so'm (~180.1 mln) | Kadastrda qoldiq: 33 487 500 so'm
-     - 9–12-qavatlar: 1 m² = 6 867 500 so'm | Jami: 171 687 500 so'm (~171.7 mln) | Kadastrda qoldiq: 25 112 500 so'm
+     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 188 437 500 so'm (~188.4 mln) | Qoldiq (12 oy to'lab beradi): 41 862 500 so'm
+     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 180 062 500 so'm (~180.1 mln) | Qoldiq (12 oy to'lab beradi): 33 487 500 so'm
+     - 9–12-qavatlar: 1 m² = 6 867 500 so'm | Jami: 171 687 500 so'm (~171.7 mln) | Qoldiq (12 oy to'lab beradi): 25 112 500 so'm
    • 34 m² (1 xonali):
-     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 256 275 000 so'm (~256.3 mln) | Kadastrda qoldiq: 79 275 000 so'm
-     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 244 885 000 so'm (~244.9 mln) | Kadastrda qoldiq: 67 885 000 so'm
-     - 9–12-qavatlar: 1 m² = 6 867 500 so'm | Jami: 233 495 000 so'm (~233.5 mln) | Kadastrda qoldiq: 56 495 000 so'm
+     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 256 275 000 so'm (~256.3 mln) | Qoldiq (12 oy to'lab beradi): 79 275 000 so'm
+     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 244 885 000 so'm (~244.9 mln) | Qoldiq (12 oy to'lab beradi): 67 885 000 so'm
+     - 9–12-qavatlar: 1 m² = 6 867 500 so'm | Jami: 233 495 000 so'm (~233.5 mln) | Qoldiq (12 oy to'lab beradi): 56 495 000 so'm
    • 39 m² (1 xonali):
-     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 293 962 500 so'm (~294.0 mln) | Kadastrda qoldiq: 116 962 500 so'm
-     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 280 897 500 so'm (~280.9 mln) | Kadastrda qoldiq: 103 897 500 so'm
-     - 9–12-qavatlar: 1 m² = 6 867 500 so'm | Jami: 267 832 500 so'm (~267.8 mln) | Kadastrda qoldiq: 90 832 500 so'm
+     - 2–4-qavatlar: 1 m² = 7 537 500 so'm | Jami: 293 962 500 so'm (~294.0 mln) | Qoldiq (12 oy to'lab beradi): 116 962 500 so'm
+     - 5–8-qavatlar: 1 m² = 7 202 500 so'm | Jami: 280 897 500 so'm (~280.9 mln) | Qoldiq (12 oy to'lab beradi): 103 897 500 so'm
+     - 9–12-qavatlar: 1 m² = 6 867 500 so'm | Jami: 267 832 500 so'm (~267.8 mln) | Qoldiq (12 oy to'lab beradi): 90 832 500 so'm
 
 2. 30 OYGACHA 0% FOIZSIZ BO'LIB TO'LASHGA BERILADIGAN XONADONLAR:
    Faqat quyidagi xonadonlarni bo'lib to'lashga olish mumkin:
@@ -88,7 +88,7 @@ SENING JAVOB BERISH QOIDALARING:
 3. Mijoz telefon raqamini qoldirganda, sotuv menejeri o‘zi vaqti bo‘lganda mijoz bilan bog‘lanadi!
 4. Gaz haqida so‘rashsa, gaz bo‘lmaydi deb aniq javob ber (ekologik toza va xavfsiz elektr tizimi).
 5. Devorlar holati bo‘yicha so‘rashsa, devorlar oq suvoqda topshiriladi deb javob ber.
-6. 22, 25, 34 va 39 m² uylar bo'yicha so'rashsa, ularni 33% chegirmada 100% to'lov yoki Bosh to'lov qilib qoldig'ini 2028 IV-chorakda (kadastrda) to'lash mumkinligini (oylik to'lov 0 so'm) tushuntir!
+6. 22, 25, 34 va 39 m² uylar bo'yicha so'rashsa, ularni 33% chegirmada 100% to'lov yoki Bosh to'lov qilib qoldig'ini 12 oy to'lab berish mumkinligini (oylik to'lov 0 so'm) tushuntir!
 7. Liftlar haqida so‘rashsa: Har bir pod'ezdda (kirish yo‘lagida) 2 tadan zamonaviy, shovqinsiz va tezyurar liftlar (yo‘lovchi hamda yuk tashish uchun) o‘rnatilishini ma'lum qil!
 `;
 
@@ -191,10 +191,10 @@ function generateSmartFallback(msg) {
     return `💵 <b>22 m² Studio xonadon (33% CHEGIRMA BILAN):</b>\n\n` +
       `✅ <b>To‘lov variantlari:</b>\n` +
       `1️⃣ <b>100% to‘liq to‘lov:</b> 146.6 mln – 165.8 mln so‘m\n` +
-      `2️⃣ <b>Bosh to‘lov + Kadastrda qoldiq (33% chegirma saqlanadi):</b>\n` +
-      `  • Bosh to‘lov: <b>146 575 000 so‘m</b>\n` +
+      `2️⃣ <b>Bosh to‘lov + 12 oy to‘lab beradi (33% chegirma saqlanadi):</b>\n` +
+      `  • Bosh to‘lov: <b>144 000 000 so‘m</b>\n` +
       `  • Oylik to‘lov: <b>0 so‘m</b> (qurilish davrida talab etilmaydi!)\n` +
-      `  • Kadastr chiqqanda qoldiq: 9–12-qavatda <b>0 so‘m</b> (to‘liq yopiladi), 5–8-qavatda <b>11.9 mln so‘m</b>, 2–4-qavatda <b>19.3 mln so‘m</b> (2028-yil 4-chorakda to‘lanadi).\n\n` +
+      `  • 12 oy to‘lab beradi: 9–12-qavatda <b>0 so‘m</b> (to‘liq yopiladi), 5–8-qavatda <b>11.9 mln so‘m</b>, 2–4-qavatda <b>19.3 mln so‘m</b> (2028-yil 4-chorakda to‘lanadi).\n\n` +
       `📊 <b>Qavatlar bo‘yicha 1 m² va xonadonning umumiy narxi:</b>\n` +
       `• 9–12-qavatlar (eng arzon): 1 m² = 6 662 500 so‘m | Jami: <b>146 575 000 so‘m</b>\n` +
       `• 5–8-qavatlar (arzonroq): 1 m² = 7 202 500 so‘m | Jami: <b>158 455 000 so‘m</b>\n` +
@@ -208,10 +208,10 @@ function generateSmartFallback(msg) {
     return `💵 <b>25 m² Studio xonadon (33% CHEGIRMA BILAN):</b>\n\n` +
       `✅ <b>To‘lov variantlari:</b>\n` +
       `1️⃣ <b>100% to‘liq to‘lov:</b> 171.7 mln – 188.4 mln so‘m\n` +
-      `2️⃣ <b>Bosh to‘lov + Kadastrda qoldiq (33% chegirma saqlanadi):</b>\n` +
-      `  • Bosh to‘lov: <b>146 575 000 so‘m</b>\n` +
+      `2️⃣ <b>Bosh to‘lov + 12 oy to‘lab beradi (33% chegirma saqlanadi):</b>\n` +
+      `  • Bosh to‘lov: <b>144 000 000 so‘m</b>\n` +
       `  • Oylik to‘lov: <b>0 so‘m</b> (qurilish davrida talab etilmaydi!)\n` +
-      `  • Kadastr chiqqanda qoldiq: 9–12-qavatda <b>25.1 mln so‘m</b>, 5–8-qavatda <b>33.5 mln so‘m</b>, 2–4-qavatda <b>41.9 mln so‘m</b> (2028-yil 4-chorakda to‘lanadi).\n\n` +
+      `  • 12 oy to‘lab beradi: 9–12-qavatda <b>25.1 mln so‘m</b>, 5–8-qavatda <b>33.5 mln so‘m</b>, 2–4-qavatda <b>41.9 mln so‘m</b> (2028-yil 4-chorakda to‘lanadi).\n\n` +
       `📊 <b>Qavatlar bo‘yicha 1 m² va xonadonning umumiy narxi:</b>\n` +
       `• 9–12-qavatlar: 1 m² = 6 867 500 so‘m | Jami: <b>171 687 500 so‘m</b>\n` +
       `• 5–8-qavatlar: 1 m² = 7 202 500 so‘m | Jami: <b>180 062 500 so‘m</b>\n` +
@@ -225,10 +225,10 @@ function generateSmartFallback(msg) {
     return `💵 <b>34 m² 1 xonali xonadon (33% CHEGIRMA BILAN):</b>\n\n` +
       `✅ <b>To‘lov variantlari:</b>\n` +
       `1️⃣ <b>100% to‘liq to‘lov:</b> 233.5 mln – 256.3 mln so‘m\n` +
-      `2️⃣ <b>Bosh to‘lov + Kadastrda qoldiq (33% chegirma saqlanadi):</b>\n` +
+      `2️⃣ <b>Bosh to‘lov + 12 oy to‘lab beradi (33% chegirma saqlanadi):</b>\n` +
       `  • Bosh to‘lov: <b>177 000 000 so‘m</b>\n` +
       `  • Oylik to‘lov: <b>0 so‘m</b> (qurilish davrida talab etilmaydi!)\n` +
-      `  • Kadastr chiqqanda qoldiq: 9–12-qavatda <b>56.5 mln so‘m</b>, 5–8-qavatda <b>67.9 mln so‘m</b>, 2–4-qavatda <b>79.3 mln so‘m</b> (2028-yil 4-chorakda to‘lanadi).\n\n` +
+      `  • 12 oy to‘lab beradi: 9–12-qavatda <b>56.5 mln so‘m</b>, 5–8-qavatda <b>67.9 mln so‘m</b>, 2–4-qavatda <b>79.3 mln so‘m</b> (2028-yil 4-chorakda to‘lanadi).\n\n` +
       `📊 <b>Qavatlar bo‘yicha 1 m² va xonadonning umumiy narxi (33% chegirmada):</b>\n` +
       `• 9–12-qavatlar: 1 m² = 6 867 500 so‘m | Jami: <b>233 495 000 so‘m</b>\n` +
       `• 5–8-qavatlar: 1 m² = 7 202 500 so‘m | Jami: <b>244 885 000 so‘m</b>\n` +
@@ -242,10 +242,10 @@ function generateSmartFallback(msg) {
     return `💵 <b>39 m² 1 xonali xonadon (33% CHEGIRMA BILAN):</b>\n\n` +
       `✅ <b>To‘lov variantlari:</b>\n` +
       `1️⃣ <b>100% to‘liq to‘lov:</b> 267.8 mln – 294.0 mln so‘m\n` +
-      `2️⃣ <b>Bosh to‘lov + Kadastrda qoldiq (33% chegirma saqlanadi):</b>\n` +
+      `2️⃣ <b>Bosh to‘lov + 12 oy to‘lab beradi (33% chegirma saqlanadi):</b>\n` +
       `  • Bosh to‘lov: <b>177 000 000 so‘m</b>\n` +
       `  • Oylik to‘lov: <b>0 so‘m</b> (qurilish davrida talab etilmaydi!)\n` +
-      `  • Kadastr chiqqanda qoldiq: 9–12-qavatda <b>90.8 mln so‘m</b>, 5–8-qavatda <b>103.9 mln so‘m</b>, 2–4-qavatda <b>117.0 mln so‘m</b> (2028-yil 4-chorakda to‘lanadi).\n\n` +
+      `  • 12 oy to‘lab beradi: 9–12-qavatda <b>90.8 mln so‘m</b>, 5–8-qavatda <b>103.9 mln so‘m</b>, 2–4-qavatda <b>117.0 mln so‘m</b> (2028-yil 4-chorakda to‘lanadi).\n\n` +
       `📊 <b>Qavatlar bo‘yicha 1 m² va xonadonning umumiy narxi (33% chegirmada):</b>\n` +
       `• 9–12-qavatlar: 1 m² = 6 867 500 so‘m | Jami: <b>267 832 500 so‘m</b>\n` +
       `• 5–8-qavatlar: 1 m² = 7 202 500 so‘m | Jami: <b>280 897 500 so‘m</b>\n` +
@@ -259,9 +259,9 @@ function generateSmartFallback(msg) {
     return `💵 <b>22, 25, 34 VA 39 m² XONADONLAR TO‘LOV SHARTLARI (33% CHEGIRMA):</b>\n\n` +
       `Ushbu xonadonlar uchun 2 xil qulay to‘lov varianti amal qiladi:\n` +
       `1️⃣ <b>100% to‘liq to‘lov</b> (33% chegirma bilan);\n` +
-      `2️⃣ <b>Bosh to‘lov + Kadastrda qoldiq to‘lov:</b>\n` +
-      `  • <b>22 va 25 m² uylar:</b> Bosh to‘lov — <b>146.6 mln so‘m</b>. Oylik to‘lov <b>0 so‘m</b>! Qoldiq summa kadastr chiqqanda (2028 IV) to‘lanadi.\n` +
-      `  • <b>34 va 39 m² uylar:</b> Bosh to‘lov — <b>177.0 mln so‘m</b>. Oylik to‘lov <b>0 so‘m</b>! Qoldiq summa kadastr chiqqanda (2028 IV) to‘lanadi.\n\n` +
+      `2️⃣ <b>Bosh to‘lov + 12 oy to‘lab beradi to‘lov:</b>\n` +
+      `  • <b>22 va 25 m² uylar:</b> Bosh to‘lov — <b>144.0 mln so‘m</b>. Oylik to‘lov <b>0 so‘m</b>! Qoldiq summa 12 oy to‘lab beriladi.\n` +
+      `  • <b>34 va 39 m² uylar:</b> Bosh to‘lov — <b>177.0 mln so‘m</b>. Oylik to‘lov <b>0 so‘m</b>! Qoldiq summa 12 oy to‘lab beriladi.\n\n` +
       `• <b>22 m²:</b> Jami: 146.6 mln – 165.8 mln so‘m\n` +
       `• <b>25 m²:</b> Jami: 171.7 mln – 188.4 mln so‘m\n` +
       `• <b>34 m²:</b> Jami: 233.5 mln – 256.3 mln so‘m\n` +
@@ -488,12 +488,12 @@ function generateSmartFallback(msg) {
   // Umumiy salomlashish
   return `Assalomu alaykum! "VATAN" qurilish kompaniyasining <b>"Yangi Qo‘yliq-2"</b> turar-joy majmuasi rasmiy AI maslahatchisi xizmatingizda! 🏢✨\n\n` +
     `📌 <b>ASOSIY TO‘LOV SHARTLARI:</b>\n` +
-    `💵 <b>100% to‘lov yoki Bosh to‘lov + Kadastr (22, 25, 34, 39 m² — 33% chegirma):</b>\n` +
-    `• 22, 25 m²: Bosh to‘lov 146.6 mln | Oylik 0 so‘m | Qoldiq kadastrda\n` +
-    `• 34, 39 m²: Bosh to‘lov 177.0 mln | Oylik 0 so‘m | Qoldiq kadastrda\n\n` +
+    `💵 <b>100% to‘lov yoki Bosh to‘lov + 12 oy to‘lab beradi (22, 25, 34, 39 m² — 33% chegirma):</b>\n` +
+    `• 22, 25 m²: Bosh to‘lov 144.0 mln | Oylik 0 so‘m | Qoldiq 12 oy to'lab beriladi\n` +
+    `• 34, 39 m²: Bosh to‘lov 177.0 mln | Oylik 0 so‘m | Qoldiq 12 oy to'lab beriladi\n\n` +
     `💰 <b>30 oygacha 0% foizsiz bo‘lib to‘lashga beriladigan uylar:</b>\n` +
-    `• <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov 29 mln | Oylik 4 mln\n` +
-    `• <b>2 xonali (54, 55 m²):</b> Bosh to‘lov 39 mln | Oylik 5 mln\n` +
+    `• <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov 59 mln | Oylik 4 mln\n` +
+    `• <b>2 xonali (54, 55 m²):</b> Bosh to‘lov 69 mln | Oylik 5 mln\n` +
     `• <b>3 xonali (70, 77 m²):</b> Bosh to‘lov 89 mln | Oylik 6 mln\n\n` +
     `Quyidagi tugmalardan birini bosing yoki o‘zingizni qiziqtirgan savolni yozing 👇`;
 }
@@ -509,7 +509,7 @@ function getMainKeyboard() {
   return {
     keyboard: [
       [{ text: "📱 Raqamimni qoldirish", request_contact: true }, { text: "✍️ Menejer Alisherga yozish" }],
-      [{ text: "💵 100% / Kadastr (22, 25, 34, 39 m²)" }, { text: "💰 Bo‘lib to‘lash (41, 43, 49 m²)" }],
+      [{ text: "💵 100% / 12 oy to‘lov (22, 25, 34, 39 m²)" }, { text: "💰 Bo‘lib to‘lash (41, 43, 49 m²)" }],
       [{ text: "🏢 2 xonali (54, 55 m²)" }, { text: "🏢 3 xonali (70, 77 m²)" }],
       [{ text: "📊 Barcha uy va 1 m² narxlari" }, { text: "📥 PDF Taqdimotni yuklab olish" }],
       [{ text: "❓ Ko‘p beriladigan savollar" }, { text: "📍 Lokatsiya va Ofis" }]
@@ -644,8 +644,8 @@ async function handleTelegramUpdate(update) {
       `💵 <b>1. FAQAT 100% TO‘LOVGA (33% chegirma bilan, bo‘lib to‘lash yo‘q):</b>\n` +
       `• 22, 25, 34 va 39 m² xonadonlar umumiy summasi to‘liq to‘lab sotiladi (151.1 mln dan boshlanadi).\n\n` +
       `💰 <b>2. 30 OYGACHA 0% FOIZSIZ BO‘LIB TO‘LASH:</b>\n` +
-      `• <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov 29 mln | Oylik 4 mln\n` +
-      `• <b>2 xonali (54, 55 m²):</b> Bosh to‘lov 39 mln | Oylik 5 mln\n` +
+      `• <b>1 xonali (41, 43, 49 m²):</b> Bosh to‘lov 59 mln | Oylik 4 mln\n` +
+      `• <b>2 xonali (54, 55 m²):</b> Bosh to‘lov 69 mln | Oylik 5 mln\n` +
       `• <b>3 xonali (70, 77 m²):</b> Bosh to‘lov 89 mln | Oylik 6 mln\n\n` +
       `👨‍💼 <b>Sotuv menejeri:</b> Alisher (@alisher_yangiqoyliq)\n\n` +
       `👇 Kerakli bo‘limni tanlang yoki savolingizni yozing:`;
